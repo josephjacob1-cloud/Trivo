@@ -23,7 +23,8 @@ body{
 .login-box{
    /* padding: 50px;*/
    margin:100px;
-   padding-bottom: 10px;;
+   padding-bottom: 10px;
+   background-color:#FFFFFF80;
 }
 .fotgot-password{
     padding: 10px 0 0 ;

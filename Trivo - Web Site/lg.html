@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,7 +10,6 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
@@ -23,12 +23,17 @@
             overflow: hidden;
         }
 
-        /* LEFT SIDE */
+
+        /* LEFT PANEL */
 
         .left-panel {
+
             height: 100vh;
+
             background:
-                linear-gradient(rgba(10, 42, 102, .55), rgba(10, 42, 102, .55)),
+                linear-gradient(rgba(10, 42, 102, .60),
+                    rgba(10, 42, 102, .60)),
+
                 url(images/bg.jpg);
 
             background-size: cover;
@@ -36,30 +41,36 @@
         }
 
         .logo {
-            width: 280px;
+            width: 180px;
         }
 
         .tagline {
+
             color: white;
+
             letter-spacing: 2px;
+
+            font-size: 15px;
         }
 
 
-        /* RIGHT SIDE */
+
+        /* RIGHT PANEL */
 
         .right-panel {
             height: 100vh;
         }
 
+
         .login-card {
 
-            width: 500px;
+            width: 400px;
 
             background: white;
 
-            border-radius: 25px;
+            padding: 40px;
 
-            padding: 50px;
+            border-radius: 20px;
 
             box-shadow:
                 0 10px 30px rgba(0, 0, 0, .15);
@@ -68,15 +79,20 @@
 
 
         .heading {
+
             color: #0A2A66;
+
             font-weight: 700;
+
+            font-size: 30px;
         }
+
 
         .form-control {
 
-            height: 55px;
+            height: 44px;
 
-            border-radius: 15px;
+            border-radius: 12px;
 
         }
 
@@ -92,15 +108,13 @@
 
         .btn-login {
 
-            height: 55px;
-
             background: #0F9D9A;
 
             color: white;
 
-            border-radius: 15px;
+            height: 44px;
 
-            font-size: 20px;
+            border-radius: 12px;
 
         }
 
@@ -116,9 +130,9 @@
 
         .btn-register {
 
-            height: 55px;
+            height: 44px;
 
-            border-radius: 15px;
+            border-radius: 12px;
 
         }
 
@@ -136,20 +150,20 @@
 
         <div class="row">
 
-            <!-- LEFT PANEL -->
+            <!-- LEFT -->
 
-            <div class="col-lg-5 left-panel d-flex justify-content-center align-items-center">
+            <div class="col-lg-6 left-panel d-flex justify-content-center align-items-center">
 
                 <div class="text-center">
 
                     <img src="images/logo.png" class="logo">
 
-                    <h3 class="text-white mt-4">
-                        Explore • Experience • Enjoy
-                    </h3>
+                    <h2 class="text-white mt-4">
+                        TRIVO WORLD
+                    </h2>
 
-                    <p class="tagline mt-3">
-                        Discover amazing destinations around the world
+                    <p class="tagline">
+                        Explore • Discover • Experience
                     </p>
 
                 </div>
@@ -157,37 +171,40 @@
             </div>
 
 
-            <!-- RIGHT PANEL -->
 
-            <div class="col-lg-7 right-panel d-flex justify-content-center align-items-center">
+            <!-- RIGHT -->
+
+            <div class="col-lg-6 right-panel d-flex justify-content-center align-items-center">
 
                 <div class="login-card">
 
-                    <h2 class="heading mb-4">
-                        Welcome Back
+                    <h2 class="heading mb-2">
+                        Welcome Back 👋
                     </h2>
 
                     <p class="text-muted mb-4">
-                        Login to continue your journey with Trivo World.
+                        Login to continue your journey.
                     </p>
 
 
                     <form>
 
+
                         <div class="mb-3">
 
                             <label>Email Address</label>
 
-                            <input type="email" class="form-control" placeholder="Enter your email">
+                            <input type="email" class="form-control" placeholder="Enter email">
 
                         </div>
 
 
-                        <div class="mb-3">
+
+                        <div class="mb-2">
 
                             <label>Password</label>
 
-                            <input type="password" class="form-control" placeholder="Enter your password">
+                            <input type="password" class="form-control" placeholder="Enter password">
 
                         </div>
 
@@ -195,7 +212,9 @@
                         <div class="text-end mb-4">
 
                             <a href="forgotpassword.html">
+
                                 Forgot Password?
+
                             </a>
 
                         </div>
@@ -204,7 +223,9 @@
                         <div class="d-grid mb-3">
 
                             <button class="btn btn-login">
-                                Login
+
+                                LOGIN
+
                             </button>
 
                         </div>
@@ -212,16 +233,16 @@
 
                         <hr>
 
-                        <div class="text-center mb-3">
 
-                            Don't have an account?
+                        <div class="text-center">
 
-                        </div>
+                            <p class="text-muted">
 
+                                Don't have an account?
 
-                        <div class="d-grid">
+                            </p>
 
-                            <a href="registration.html" class="btn btn-outline-secondary btn-register">
+                            <a href="registration.html" class="btn btn-outline-secondary btn-register w-100">
 
                                 Create Account
 
