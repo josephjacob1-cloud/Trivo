@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    padding: 0;
+   /* background-image: url("../../assets/images/tvm.jpg");*/
+      background: linear-gradient(rgba(207, 202, 202, 0.8),
+                                        rgba(118, 116, 121, 0.8)),
+                        url("../../assets/images/tvm.jpg");
+
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+.welcome-box{
+    height: 100vh;
+}
+.logo{
+    width: 380px;
+    
+}
+.enter-btn{
+    background-color: #0F9D9A;
+    color: #FFF;
+    padding: 20px 40px;
+    border-radius: 5px;
+    text-decoration: none;    
+    font-size: 20px;   
+    transition: 0.5s; 
+}
+.enter-btn:hover{
+    background-color: #FF8C42;   
+    transition: 1s;
+}

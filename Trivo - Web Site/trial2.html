@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivo World</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            height:100vh;
+            background: linear-gradient(rgba(10,42,102,0.55),
+                                        rgba(10,42,102,0.55)),
+                        url('images/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow:hidden;
+        }
+
+        .welcome-box{
+            height:100vh;
+        }
+
+        .logo{
+            width:180px;
+            margin-bottom:20px;
+        }
+
+        .app-title{
+            color:white;
+            font-size:48px;
+            font-weight:700;
+            letter-spacing:2px;
+        }
+
+        .tagline{
+            color:#F8FAFC;
+            font-size:18px;
+            margin-bottom:35px;
+        }
+
+        .enter-btn{
+            background:#0F9D9A;
+            border:none;
+            color:white;
+            font-size:20px;
+            padding:12px 40px;
+            border-radius:50px;
+            transition:0.3s;
+        }
+
+        .enter-btn:hover{
+            background:#FF8C42;
+            color:white;
+            transform:scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row justify-content-center align-items-center welcome-box">
+
+        <div class="col-md-6 text-center">
+
+            <!-- Logo -->
+            <img src="assets/images/trivo logo.png" class="logo" alt="Trivo World">
+
+            <!-- Title -->
+            <h1 class="app-title">
+                TRIVO WORLD
+            </h1>
+
+            <!-- Tagline -->
+            <p class="tagline">
+                Explore • Discover • Experience
+            </p>
+
+            <!-- Enter Button -->
+            <a href="home.html" class="btn enter-btn">
+                Enter
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
