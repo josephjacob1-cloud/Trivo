@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Trivo World</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        body{
+            font-family:'Poppins',sans-serif;
+            overflow:hidden;
+        }
+
+        .welcome-page{
+
+            height:100vh;
+
+            background:
+            linear-gradient(rgba(10,42,102,.65),
+                            rgba(10,42,102,.65)),
+            url("images/.jpg");
+
+            background-size:cover;
+            background-position:center;
+        }
+
+        .logo{
+            width:220px;
+        }
+
+        h1{
+            font-weight:700;
+            color:white;
+            letter-spacing:1px;
+        }
+
+        .tagline{
+
+            color:white;
+
+            font-size:18px;
+
+            letter-spacing:3px;
+        }
+
+        .btn-enter{
+
+            background:#0F9D9A;
+
+            color:white;
+
+            width:180px;
+
+            height:50px;
+
+            border-radius:30px;
+
+            font-weight:600;
+
+            transition:.3s;
+        }
+
+        .btn-enter:hover{
+
+            background:#FF8C42;
+
+            color:white;
+
+            transform:translateY(-2px);
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container-fluid welcome-page">
+
+    <div class="row h-100">
+
+        <div class="col-12 d-flex justify-content-center align-items-center">
+
+            <div class="text-center">
+
+                <!-- Logo -->
+
+                <img src="images/logo.png"
+                     class="logo mb-4">
+
+                <!-- System Name -->
+
+                <h1 class="display-4">
+
+                    TRIVO WORLD
+
+                </h1>
+
+                <!-- Tagline -->
+
+                <p class="tagline mb-5">
+
+                    Explore • Discover • Experience
+
+                </p>
+
+                <!-- Enter Button -->
+
+                <a href="auth/login.html"
+                   class="btn btn-enter">
+
+                    ENTER
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

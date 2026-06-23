@@ -1,0 +1,27 @@
+trivo-world/
+
+customer/
+    home.html
+    package-list.html
+    package-details.html
+    booking.html
+    my-bookings.html
+    wishlist.html
+    feedback.html
+
+agent/
+    dashboard.html
+    consultant-list.html
+    assign-tour.html
+
+auth/
+    login.html
+    register.html
+
+css/
+    style.css
+
+js/
+    script.js
+
+images/

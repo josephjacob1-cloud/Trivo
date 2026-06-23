@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | Trivo World</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        body {
+            background: #F5F7FA;
+            overflow: hidden;
+        }
+
+        .left-panel {
+
+            height: 100vh;
+
+            background:
+                linear-gradient(rgba(10, 42, 102, .65),
+                    rgba(10, 42, 102, .65)),
+                url("../images/login-bg.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .logo {
+            width: 180px;
+        }
+
+        .login-card {
+
+            width: 420px;
+
+            padding: 40px;
+
+            background: white;
+
+            border-radius: 20px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+
+        }
+
+        .form-control {
+            height: 48px;
+        }
+
+        .btn-login {
+
+            background: #0F9D9A;
+
+            color: white;
+
+            height: 48px;
+
+            border-radius: 12px;
+
+            font-weight: 600;
+        }
+
+        .btn-login:hover {
+
+            background: #FF8C42;
+
+            color: white;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <!-- LEFT SIDE -->
+
+            <div class="col-lg-6 left-panel d-none d-lg-flex
+            justify-content-center
+            align-items-center">
+
+                <div class="text-center">
+
+                    <img src="../images/logo.png" class="logo mb-4">
+
+                    <h1 class="text-white fw-bold">
+
+                        TRIVO WORLD
+
+                    </h1>
+
+                    <p class="text-white">
+
+                        Explore • Discover • Experience
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT SIDE -->
+
+            <div class="col-lg-6 d-flex
+            justify-content-center
+            align-items-center vh-100">
+
+                <div class="login-card">
+
+                    <h2 class="fw-bold mb-2" style="color:#0A2A66;">
+
+                        Welcome Back 👋
+
+                    </h2>
+
+                    <p class="text-muted mb-4">
+
+                        Sign in to continue your journey.
+
+                    </p>
+
+                    <form>
+
+                        <div class="mb-3">
+
+                            <label class="mb-2">
+
+                                Email Address
+
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="bi bi-envelope"></i>
+
+                                </span>
+
+                                <input type="email" class="form-control" placeholder="Enter email">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="mb-2">
+
+                                Password
+
+                            </label>
+
+                            <div class="input-group">
+
+                                <span class="input-group-text">
+
+                                    <i class="bi bi-lock"></i>
+
+                                </span>
+
+                                <input type="password" class="form-control" placeholder="Enter password">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="text-end mb-4">
+
+                            <a href="forgot-password.html" style="color:#0F9D9A;">
+
+                                Forgot Password?
+
+                            </a>
+
+                        </div>
+
+
+                        <div class="d-grid mb-4">
+
+                            <button class="btn btn-login">
+
+                                LOGIN
+
+                            </button>
+
+                        </div>
+
+
+                        <hr>
+
+                        <div class="text-center">
+
+                            <span class="text-muted">
+
+                                Don't have an account?
+
+                            </span>
+
+                            <br><br>
+
+                            <a href="register.html" class="btn btn-outline-secondary w-100 rounded-3">
+
+                                Create Account
+
+                            </a>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

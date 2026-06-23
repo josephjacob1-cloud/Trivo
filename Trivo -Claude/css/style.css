@@ -1,0 +1,617 @@
+/* ============================================================
+   Trivo World – Custom Stylesheet (Bootstrap 5 companion)
+   Palette:
+     --tw-navy   : #1B2A6B  (primary nav, headings)
+     --tw-gold   : #E8A020  (accent, tagline, highlights)
+     --tw-sky    : #3B8FD4  (buttons, links)
+     --tw-light  : #EEF2F8  (page bg, cards)
+     --tw-white  : #FFFFFF
+     --tw-muted  : #6C757D
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --tw-navy  : #1B2A6B;
+  --tw-gold  : #E8A020;
+  --tw-sky   : #3B8FD4;
+  --tw-light : #EEF2F8;
+  --tw-white : #FFFFFF;
+  --tw-muted : #6C757D;
+  --tw-green : #28a745;
+  --tw-red   : #dc3545;
+}
+
+/* ── Base ── */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--tw-light);
+  color: #222;
+}
+
+h1, h2, h3, .display-font {
+  font-family: 'Playfair Display', serif;
+}
+
+/* ── Navbar ── */
+.navbar-tw {
+  background-color: var(--tw-light);
+  border-bottom: 2px solid #dce4f0;
+  padding: 0.75rem 1.5rem;
+}
+
+.navbar-tw .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.navbar-tw .brand-logo {
+  width: 44px;
+  height: 44px;
+}
+
+.navbar-tw .brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--tw-navy);
+  line-height: 1.1;
+}
+
+.navbar-tw .brand-tagline {
+  font-size: 0.65rem;
+  color: var(--tw-navy);
+  letter-spacing: 0.08em;
+  font-style: italic;
+}
+
+.navbar-tw .nav-link {
+  color: var(--tw-navy) !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem !important;
+  transition: color 0.2s;
+}
+
+.navbar-tw .nav-link:hover,
+.navbar-tw .nav-link.active {
+  color: var(--tw-sky) !important;
+}
+
+.navbar-tw .nav-link.logout-link {
+  color: var(--tw-sky) !important;
+}
+
+/* ── Hero Section ── */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 88vh;
+  min-height: 500px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-section .hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, #0d2b5e 0%, #1a5276 50%, #1abc9c 100%);
+  z-index: 0;
+}
+
+.hero-section .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 1;
+}
+
+.hero-section .hero-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+.hero-section .hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+.hero-section .hero-tagline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-style: italic;
+  color: var(--tw-gold);
+  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+}
+
+.hero-section .hero-sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.88);
+  margin-top: 0.5rem;
+}
+
+.btn-explore {
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255,255,255,0.6);
+  color: white;
+  padding: 0.75rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.25s;
+  margin-top: 1.5rem;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-explore:hover {
+  background: white;
+  color: var(--tw-navy);
+}
+
+/* ── Auth Cards ── */
+.auth-wrapper {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0d2b5e 0%, #1a6b5a 100%);
+  padding: 2rem 1rem;
+}
+
+.auth-card {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+.auth-card h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--tw-navy);
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.auth-card .form-label {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--tw-navy);
+  margin-bottom: 0.25rem;
+}
+
+.auth-card .form-control {
+  border-radius: 8px;
+  border: 1.5px solid #cdd8ec;
+  background: rgba(255,255,255,0.8);
+  font-size: 0.92rem;
+  padding: 0.55rem 0.85rem;
+}
+
+.auth-card .form-control:focus {
+  border-color: var(--tw-sky);
+  box-shadow: 0 0 0 3px rgba(59,143,212,0.15);
+}
+
+.btn-tw-primary {
+  background-color: var(--tw-sky);
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.65rem 1rem;
+  font-size: 1rem;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.btn-tw-primary:hover {
+  background-color: #2d78be;
+  color: white;
+}
+
+.btn-tw-outline {
+  background: transparent;
+  border: 2px solid var(--tw-sky);
+  color: var(--tw-sky);
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.btn-tw-outline:hover {
+  background: var(--tw-sky);
+  color: white;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.social-icons a:hover { opacity: 0.8; }
+.social-yt  { background: #FF0000; }
+.social-ig  { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+.social-fb  { background: #1877F2; }
+
+/* ── Search Bar ── */
+.search-bar {
+  background: white;
+  border-radius: 50px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  gap: 0.5rem;
+  max-width: 600px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.search-bar .search-icon {
+  color: var(--tw-muted);
+  font-size: 1.1rem;
+}
+
+/* ── Destination Cards ── */
+.dest-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s, box-shadow 0.25s;
+  height: 200px;
+  text-decoration: none;
+}
+
+.dest-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+}
+
+.dest-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dest-card .dest-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,0.72) 0%, transparent 100%);
+  padding: 1rem 0.85rem 0.7rem;
+  color: white;
+}
+
+.dest-card .dest-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.dest-card .dest-days {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.82);
+  margin: 0;
+}
+
+.dest-card-featured {
+  height: 300px;
+}
+
+/* ── Package Detail ── */
+.package-hero {
+  background: var(--tw-white);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.pkg-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: var(--tw-navy);
+  font-weight: 700;
+}
+
+.pkg-meta {
+  color: var(--tw-gold);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.rating-badge {
+  background: #FFF8ED;
+  border: 1.5px solid var(--tw-gold);
+  color: var(--tw-gold);
+  border-radius: 20px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.highlight-icon {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.highlight-icon i {
+  font-size: 2rem;
+  color: var(--tw-gold);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.highlight-icon span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--tw-gold);
+}
+
+.pkg-tabs .nav-link {
+  color: #555;
+  font-weight: 600;
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  padding: 0.6rem 1.2rem;
+}
+
+.pkg-tabs .nav-link.active {
+  color: var(--tw-gold);
+  border-bottom-color: var(--tw-gold);
+  background: transparent;
+}
+
+.itinerary-row {
+  border-bottom: 1px solid #e8edf5;
+  padding: 0.75rem 0;
+}
+
+.itinerary-row:last-child { border-bottom: none; }
+
+.day-label {
+  font-weight: 700;
+  color: var(--tw-navy);
+  min-width: 60px;
+}
+
+.btn-book {
+  background-color: var(--tw-sky);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.65rem 2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  transition: background 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-book:hover {
+  background: var(--tw-navy);
+  color: white;
+}
+
+.btn-book-outline {
+  background: transparent;
+  color: var(--tw-sky);
+  border: 2px solid var(--tw-sky);
+  border-radius: 8px;
+  padding: 0.55rem 2rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-book-outline:hover {
+  background: var(--tw-sky);
+  color: white;
+}
+
+/* ── Bookings Table ── */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--tw-navy);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.tw-table {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.tw-table thead {
+  background: var(--tw-navy);
+  color: white;
+}
+
+.tw-table thead th {
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  padding: 0.9rem 1rem;
+  border: none;
+}
+
+.tw-table tbody tr {
+  border-bottom: 1px solid #eef0f5;
+  transition: background 0.15s;
+}
+
+.tw-table tbody tr:hover { background: #f5f8ff; }
+
+.tw-table tbody td {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  vertical-align: middle;
+  border: none;
+}
+
+.tw-table .dest-link {
+  color: var(--tw-sky);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.tw-table .dest-link:hover { text-decoration: underline; }
+
+.status-confirmed { color: var(--tw-green); font-weight: 600; }
+.status-cancelled { color: var(--tw-red); font-weight: 600; }
+.status-pending   { color: #e67e22; font-weight: 600; }
+.status-active    { color: var(--tw-green); font-weight: 600; }
+.status-inactive  { color: var(--tw-red); font-weight: 600; }
+
+/* ── Sub-tabs (bookings / consultant) ── */
+.sub-tabs {
+  border-bottom: 2px solid #dce4f0;
+  margin-bottom: 1.5rem;
+}
+
+.sub-tabs .nav-link {
+  color: #555;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  border-bottom: 3px solid transparent;
+  border-radius: 0;
+  padding: 0.6rem 1.2rem;
+  margin-right: 0.25rem;
+  transition: color 0.2s;
+}
+
+.sub-tabs .nav-link:hover { color: var(--tw-navy); }
+
+.sub-tabs .nav-link.active {
+  color: var(--tw-navy);
+  border-bottom-color: var(--tw-gold);
+  background: transparent;
+}
+
+/* ── Consultant Forms ── */
+.form-section {
+  background: white;
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  max-width: 680px;
+}
+
+.form-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--tw-navy);
+  margin-bottom: 1.5rem;
+}
+
+.form-section .form-label {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #333;
+}
+
+.form-section .form-control {
+  border: 1.5px solid #cdd8ec;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  padding: 0.55rem 0.85rem;
+}
+
+.form-section .form-control:focus {
+  border-color: var(--tw-sky);
+  box-shadow: 0 0 0 3px rgba(59,143,212,0.12);
+}
+
+.assign-select {
+  border: 1.5px solid #cdd8ec;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.6rem;
+  background: white;
+  color: #444;
+}
+
+/* ── Image Carousel ── */
+.pkg-carousel .carousel-item img {
+  height: 340px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* ── Forgot password link ── */
+.forgot-link {
+  font-size: 0.85rem;
+  color: var(--tw-sky);
+  font-weight: 600;
+  text-decoration: none;
+  float: right;
+}
+
+.forgot-link:hover { text-decoration: underline; }
+
+/* ── Back link ── */
+.back-link {
+  color: var(--tw-navy);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.back-link:hover { color: var(--tw-sky); }
+
+/* ── Responsive tweaks ── */
+@media (max-width: 768px) {
+  .hero-section { height: 70vh; }
+  .dest-card-featured { height: 220px; }
+  .pkg-carousel .carousel-item img { height: 220px; }
+  .auth-card { padding: 1.75rem 1.25rem; }
+}
