@@ -615,3 +615,59 @@ h1, h2, h3, .display-font {
   .pkg-carousel .carousel-item img { height: 220px; }
   .auth-card { padding: 1.75rem 1.25rem; }
 }
+/*-----------------*/
+.sub-nav {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+}
+.sub-link {
+      display: inline-block;
+      padding: 0.8rem 1rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 2.5px solid transparent;
+      transition: all .2s;
+      white-space: nowrap;
+    }
+
+    .sub-link:hover { color: var(--navy); }
+
+    .sub-link.active {
+      color: var(--navy);
+      border-bottom-color: var(--orange);
+    }
+    .badge-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.62rem;
+      font-weight: 700;
+      border-radius: 50%;
+      margin-left: 3px;
+      vertical-align: middle;
+    }
+
+    .add-dest-btn {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0;
+    }
+
+    .add-dest-btn:hover { color: var(--teal); }
