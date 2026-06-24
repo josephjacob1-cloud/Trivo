@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trivo World – Packages</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+    :root {
+      --teal: #1a9e8f;
+      --teal-dark: #147a6d;
+      --orange: #f97316;
+      --navy: #1e2d40;
+      --active: #1a9e8f;
+      --removed: #ef4444;
+      --inactive: #f97316;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #f9fafb;
+      color: var(--navy);
+      min-height: 100vh;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar-top {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+    }
+
+    .brand-icon {
+      width: 46px;
+      height: 46px;
+      background: var(--teal);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+
+    .brand-text {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+
+    .brand-text span { color: var(--teal); }
+
+    .brand-tagline {
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: color .2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal); }
+
+    /* ── SUB-NAV ── */
+    .sub-nav {
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+
+    .sub-nav-link {
+      padding: 0.85rem 1.1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 2.5px solid transparent;
+      transition: all .2s;
+      white-space: nowrap;
+    }
+
+    .sub-nav-link:hover { color: var(--teal); }
+    .sub-nav-link.active { color: var(--navy); border-bottom-color: var(--teal); }
+
+    .badge-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--orange);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+
+    .sub-nav-right {
+      margin-left: auto;
+      padding: 0.6rem 0;
+    }
+
+    .btn-add-dest {
+      background: none;
+      border: none;
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0;
+    }
+
+    .btn-add-dest:hover { color: var(--teal); }
+
+    /* ── MAIN CONTENT ── */
+    .main-content { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+
+    .page-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── PACKAGE TABLE ── */
+    .pkg-table {
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .pkg-table table { width: 100%; border-collapse: collapse; }
+    .pkg-table thead th {
+      padding: 0.85rem 1.2rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      border-bottom: 1px solid var(--border);
+      background: #f9fafb;
+    }
+
+    .pkg-table tbody td {
+      padding: 0.85rem 1.2rem;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pkg-table tbody tr:last-child td { border-bottom: none; }
+    .pkg-table tbody tr:hover { background: #f0faf9; }
+
+    .tour-link {
+      color: var(--teal);
+      font-weight: 500;
+      text-decoration: none;
+    }
+
+    .tour-link:hover { text-decoration: underline; }
+
+    .status-badge {
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .status-active  { color: var(--active); }
+    .status-removed { color: var(--removed); }
+    .status-inactive{ color: var(--inactive); }
+
+    /* ── EDIT PACKAGE FORM ── */
+    .form-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+
+    .form-label-col {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      padding-top: 0.5rem;
+    }
+
+    .form-control, .form-select {
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      padding: 0.45rem 0.75rem;
+      color: var(--navy);
+      background: #fff;
+    }
+
+    .form-control:focus, .form-select:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(26,158,143,.12);
+      outline: none;
+    }
+
+    .btn-teal {
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.38rem 0.85rem;
+      cursor: pointer;
+      transition: background .2s;
+      white-space: nowrap;
+    }
+
+    .btn-teal:hover { background: var(--teal-dark); }
+
+    .btn-update {
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 0.55rem 1.6rem;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .btn-update:hover { background: var(--teal-dark); }
+
+    .radio-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .radio-row label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .radio-row input[type="radio"] { accent-color: var(--teal); cursor: pointer; }
+
+    .form-row-sep { border-top: 1px solid var(--border); margin: 1.1rem 0; }
+
+    textarea.form-control { resize: vertical; }
+
+    .input-with-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .input-with-btn .form-control { flex: 1; }
+
+    /* ── PAGE TOGGLE ── */
+    .page-toggle {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 6px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .toggle-btn.active {
+      background: var(--teal);
+      color: #fff;
+      border-color: var(--teal);
+    }
+
+    @media (max-width: 768px) {
+      .navbar-top { flex-direction: column; gap: 0.75rem; padding: 0.75rem 1rem; }
+      .nav-links { gap: 1rem; }
+      .main-content { padding: 1rem; }
+      .form-label-col { padding-top: 0; margin-bottom: 0.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav class="navbar-top">
+  <a class="brand" href="#">
+    <div class="brand-icon"><i class="fa-solid fa-paper-plane"></i></div>
+    <div>
+      <div class="brand-text">tri<span>v</span>o w<span>ø</span>rld</div>
+      <div class="brand-tagline">Explore · Experience · Enjoy</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#" class="active">Packages</a></li>
+    <li><a href="#">My Bookings</a></li>
+    <li><a href="#">Consultant</a></li>
+    <li><a href="#">Logout</a></li>
+  </ul>
+</nav>
+
+<!-- ══ PAGE 1: PACKAGE LIST ══ -->
+<div id="page-list">
+
+  <!-- Sub-nav -->
+  <div class="sub-nav">
+    <a href="#" class="sub-nav-link" onclick="showPage('list', this)">Create Package</a>
+    <a href="#" class="sub-nav-link active" onclick="showPage('list', this)">Package list</a>
+    <a href="#" class="sub-nav-link">Approvals <span class="badge-count">2</span></a>
+  </div>
+
+  <div class="main-content">
+    <h1 class="page-title">Packages</h1>
+
+    <div class="pkg-table">
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Tours</th>
+            <th>Code</th>
+            <th>Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><a href="#" class="tour-link" onclick="showEditPage(); return false;">Munnar Delight</a></td>
+            <td>MD123</td>
+            <td>02-07-2026</td>
+            <td><span class="status-badge status-active">Active</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><a href="#" class="tour-link">Munnar Adventure</a></td>
+            <td>MD123</td>
+            <td>02-07-2026</td>
+            <td><span class="status-badge status-active">Active</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><a href="#" class="tour-link">Delhi Visit</a></td>
+            <td>MD123</td>
+            <td>02-07-2026</td>
+            <td><span class="status-badge status-active">Active</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><a href="#" class="tour-link">Explore Kodaikanal</a></td>
+            <td>MD123</td>
+            <td>02-07-2026</td>
+            <td><span class="status-badge status-removed">Removed</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><a href="#" class="tour-link">Singapore</a></td>
+            <td>MD123</td>
+            <td>02-07-2026</td>
+            <td><span class="status-badge status-inactive">Inactive</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ══ PAGE 2: EDIT PACKAGE ══ -->
+<div id="page-edit" style="display:none;">
+
+  <!-- Sub-nav -->
+  <div class="sub-nav">
+    <a href="#" class="sub-nav-link" onclick="showPage('list', this)">Create Package</a>
+    <a href="#" class="sub-nav-link" onclick="showPage('list', this)">Package list</a>
+    <a href="#" class="sub-nav-link">Approvals <span class="badge-count">2</span></a>
+    <a href="#" class="sub-nav-link active">Edit Package</a>
+    <div class="sub-nav-right">
+      <button class="btn-add-dest"><i class="fa-solid fa-plus"></i> Add Destination</button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <h1 class="page-title">Edit Package</h1>
+
+    <div class="form-card">
+      <div class="row g-4">
+
+        <!-- ── LEFT COLUMN ── -->
+        <div class="col-12 col-lg-6">
+
+          <!-- Package Name -->
+          <div class="row mb-3 align-items-center">
+            <div class="col-4 form-label-col">Package Name:</div>
+            <div class="col-8">
+              <input type="text" class="form-control" value="Munnar Delight"/>
+            </div>
+          </div>
+
+          <!-- Code -->
+          <div class="row mb-3 align-items-center">
+            <div class="col-4 form-label-col">Code</div>
+            <div class="col-8">
+              <input type="text" class="form-control" value="MD123"/>
+            </div>
+          </div>
+
+          <!-- Add Destinations -->
+          <div class="row mb-3 align-items-center">
+            <div class="col-4 form-label-col">Add Destinations</div>
+            <div class="col-8">
+              <div class="input-with-btn">
+                <input type="text" class="form-control" value="Kodaikanal, Ootty, Munnar"/>
+                <button class="btn-teal">Choose Destination</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Category -->
+          <div class="row mb-3 align-items-center">
+            <div class="col-4 form-label-col">Category</div>
+            <div class="col-8">
+              <input type="text" class="form-control" value="Hill Station"/>
+            </div>
+          </div>
+
+          <!-- Type -->
+          <div class="row mb-3 align-items-center">
+            <div class="col-4 form-label-col">Type</div>
+            <div class="col-8">
+              <input type="text" class="form-control" value="National"/>
+            </div>
+          </div>
+
+          <!-- Start Date -->
+          <div class="row mb-3 align-items-center">
+            <div class="col-4 form-label-col">Start date</div>
+            <div class="col-8">
+              <div class="d-flex align-items-center gap-2">
+                <input type="text" class="form-control" value="10-07-2026" style="width:120px;flex:none;"/>
+                <span class="form-label-col" style="white-space:nowrap;">Time:</span>
+                <input type="text" class="form-control" value="6PM" style="width:75px;flex:none;"/>
+              </div>
+            </div>
+          </div>
+
+          <!-- End Date -->
+          <div class="row mb-3 align-items-center">
+            <div class="col-4 form-label-col">End date</div>
+            <div class="col-8">
+              <div class="d-flex align-items-center gap-2">
+                <input type="text" class="form-control" value="14-07-2026" style="width:120px;flex:none;"/>
+                <span class="form-label-col" style="white-space:nowrap;">Time:</span>
+                <input type="text" class="form-control" value="8AM" style="width:75px;flex:none;"/>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <div class="row mb-3">
+            <div class="col-4 form-label-col">Description:</div>
+            <div class="col-8">
+              <textarea class="form-control" rows="5">Munnar is a town in the Western Ghats mountain range in India's Kerala state. A hill station and former resort for the British Raj elite, it's surrounded by rolling hills dotted with tea plantations established in the late 19th century</textarea>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- ── RIGHT COLUMN ── -->
+        <div class="col-12 col-lg-6">
+
+          <!-- Price -->
+          <div class="row mb-3 align-items-center">
+            <div class="col-4 form-label-col">Price</div>
+            <div class="col-8">
+              <input type="number" class="form-control" value="15000"/>
+            </div>
+          </div>
+
+          <!-- Upload Images -->
+          <div class="row mb-3 align-items-center">
+            <div class="col-4 form-label-col">Upload Images</div>
+            <div class="col-8">
+              <button class="btn-teal"><i class="fa-solid fa-upload me-1"></i>Upload Image</button>
+            </div>
+          </div>
+
+          <!-- Includes -->
+          <div class="row mb-3 align-items-center">
+            <div class="col-4 form-label-col">Includes</div>
+            <div class="col-8">
+              <div class="input-with-btn">
+                <input type="text" class="form-control" value="Travel , Entry fee"/>
+                <button class="btn-teal">Choose Inclusions</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Excludes -->
+          <div class="row mb-3 align-items-center">
+            <div class="col-4 form-label-col">Excludes</div>
+            <div class="col-8">
+              <div class="input-with-btn">
+                <input type="text" class="form-control" value="Visa , food"/>
+                <button class="btn-teal">Choose Exclusions</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Itinerary -->
+          <div class="row mb-3 align-items-center">
+            <div class="col-4 form-label-col">Itinerary</div>
+            <div class="col-8">
+              <button class="btn-teal"><i class="fa-solid fa-file-arrow-up me-1"></i>File Upload</button>
+            </div>
+          </div>
+
+          <!-- Terms & Conditions -->
+          <div class="row mb-3 align-items-center">
+            <div class="col-4 form-label-col">Terms &amp; Conditions:</div>
+            <div class="col-8">
+              <button class="btn-teal"><i class="fa-solid fa-file-arrow-up me-1"></i>File Upload</button>
+            </div>
+          </div>
+
+          <hr class="form-row-sep"/>
+
+          <!-- Status & Approval radios -->
+          <div class="row">
+            <div class="col-6">
+              <div class="radio-row">
+                <label>
+                  <input type="radio" name="status" value="enable" checked/>
+                  Enable
+                </label>
+                <label>
+                  <input type="radio" name="status" value="disable"/>
+                  Disable
+                </label>
+                <label>
+                  <input type="radio" name="status" value="remove"/>
+                  Remove
+                </label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="radio-row">
+                <label>
+                  <input type="radio" name="approval" value="pending" checked/>
+                  Approval Pending
+                </label>
+                <label>
+                  <input type="radio" name="approval" value="approved"/>
+                  Approved
+                </label>
+                <label>
+                  <input type="radio" name="approval" value="rejected"/>
+                  Rejected
+                </label>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Update Button -->
+      <div class="d-flex justify-content-end mt-4">
+        <button class="btn-update">Update Package</button>
+      </div>
+
+    </div><!-- /form-card -->
+  </div><!-- /main-content -->
+</div><!-- /page-edit -->
+
+<script>
+  function showPage(page, el) {
+    if (page === 'list') {
+      document.getElementById('page-list').style.display = '';
+      document.getElementById('page-edit').style.display = 'none';
+    }
+  }
+
+  function showEditPage() {
+    document.getElementById('page-list').style.display = 'none';
+    document.getElementById('page-edit').style.display = '';
+  }
+</script>
+
+</body>
+</html>
