@@ -10,169 +10,228 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css" />
     <style>
-         :root {
-      --teal: #1a9e8f;
-      --teal-dark: #147a6d;
-      --orange: #f97316;
-      --navy: #1e2d40;
-      --border: #e5e7eb;
-      --muted: #6b7280;
-      --bg: #f9fafb;
-    }
+        :root {
+            --teal: #1a9e8f;
+            --teal-dark: #147a6d;
+            --orange: #f97316;
+            --navy: #1e2d40;
+            --border: #e5e7eb;
+            --muted: #6b7280;
+            --bg: #f9fafb;
+        }
 
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--navy);
-      margin: 0;
-    }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--navy);
+            margin: 0;
+        }
+
         /* ── CONTENT ── */
-    .content {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
+        .content {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
 
-    .page-title {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 1.8rem;
-    }
+        .page-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 1.8rem;
+        }
 
-    /* ── FORM CARD ── */
-    .form-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 2rem 2.2rem;
-    }
+        /* ── FORM CARD ── */
+        .form-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 2rem 2.2rem;
+        }
 
-    /* field rows */
-    .field-row {
-      display: grid;
-      grid-template-columns: 155px 1fr;
-      align-items: center;
-      gap: 0.5rem 1rem;
-      margin-bottom: 1rem;
-    }
+        /* field rows */
+        .field-row {
+            display: grid;
+            grid-template-columns: 155px 1fr;
+            align-items: center;
+            gap: 0.5rem 1rem;
+            margin-bottom: 1rem;
+        }
 
-    .field-row.top-align { align-items: flex-start; }
+        .field-row.top-align {
+            align-items: flex-start;
+        }
 
-    .field-label {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--navy);
-      padding-top: 0.4rem;
-    }
+        .field-label {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--navy);
+            padding-top: 0.4rem;
+        }
 
-    .field-row.top-align .field-label { padding-top: 0.45rem; }
+        .field-row.top-align .field-label {
+            padding-top: 0.45rem;
+        }
 
-    /* inputs */
-    .form-control, .form-select {
-      border: 1px solid #d1d5db;
-      border-radius: 5px;
-      font-size: 0.87rem;
-      padding: 0.42rem 0.75rem;
-      color: var(--navy);
-      width: 100%;
-    }
+        /* inputs */
+        .form-control,
+        .form-select {
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            font-size: 0.87rem;
+            padding: 0.42rem 0.75rem;
+            color: var(--navy);
+            width: 100%;
+        }
 
-    .form-control:focus {
-      border-color: var(--teal);
-      box-shadow: 0 0 0 3px rgba(26,158,143,.13);
-      outline: none;
-    }
+        .form-control:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(26, 158, 143, .13);
+            outline: none;
+        }
 
-    textarea.form-control { resize: vertical; }
+        textarea.form-control {
+            resize: vertical;
+        }
 
-    /* inline date+time row */
-    .date-time-wrap {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
+        /* inline date+time row */
+        .date-time-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
 
-    .date-time-wrap .form-control.date { flex: 0 0 130px; }
-    .date-time-wrap .lbl { font-size: 0.86rem; font-weight: 600; white-space: nowrap; }
-    .date-time-wrap .form-control.time { flex: 0 0 72px; }
+        .date-time-wrap .form-control.date {
+            flex: 0 0 130px;
+        }
 
-    /* input + teal button combos */
-    .input-btn-wrap {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
+        .date-time-wrap .lbl {
+            font-size: 0.86rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
 
-    .input-btn-wrap .form-control { flex: 1; }
+        .date-time-wrap .form-control.time {
+            flex: 0 0 72px;
+        }
 
-    /* teal small buttons */
-    .btn-sm-teal {
-      background: var(--teal);
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      font-size: 0.76rem;
-      font-weight: 600;
-      padding: 0.38rem 0.85rem;
-      white-space: nowrap;
-      cursor: pointer;
-      transition: background .2s;
-    }
+        /* input + teal button combos */
+        .input-btn-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-    .btn-sm-teal:hover { background: var(--teal-dark); }
+        .input-btn-wrap .form-control {
+            flex: 1;
+        }
 
-    /* divider between columns */
-    .col-divider {
-      border-left: 1px solid var(--border);
-    }
+        /* teal small buttons */
+        .btn-sm-teal {
+            background: var(--teal);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.76rem;
+            font-weight: 600;
+            padding: 0.38rem 0.85rem;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: background .2s;
+        }
 
-    /* radio groups */
-    .radio-group { display: flex; flex-direction: column; gap: 0.55rem; }
+        .btn-sm-teal:hover {
+            background: var(--teal-dark);
+        }
 
-    .radio-group label {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.88rem;
-      font-weight: 500;
-      cursor: pointer;
-    }
+        /* divider between columns */
+        .col-divider {
+            border-left: 1px solid var(--border);
+        }
 
-    .radio-group input[type="radio"] {
-      accent-color: var(--teal);
-      width: 15px;
-      height: 15px;
-      cursor: pointer;
-    }
+        /* radio groups */
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.55rem;
+        }
 
-    .section-divider { border-top: 1px solid var(--border); margin: 1.4rem 0; }
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
 
-    /* Update button */
-    .btn-update {
-      background: var(--teal);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      padding: 0.55rem 1.8rem;
-      cursor: pointer;
-      transition: background .2s;
-    }
+        .radio-group input[type="radio"] {
+            accent-color: var(--teal);
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
 
-    .btn-update:hover { background: var(--teal-dark); }
+        .section-divider {
+            border-top: 1px solid var(--border);
+            margin: 1.4rem 0;
+        }
 
-    @media (max-width: 767px) {
-      .top-nav { flex-direction: column; gap: 0.75rem; padding: 0.75rem 1rem; }
-      .top-nav-links { gap: 1rem; flex-wrap: wrap; }
-      .content { padding: 1rem; }
-      .form-card { padding: 1.2rem; }
-      .field-row { grid-template-columns: 1fr; }
-      .field-label { padding-top: 0; }
-      .col-divider { border-left: none; border-top: 1px solid var(--border); }
-      .add-dest-btn { margin-left: 0; margin-top: 0.5rem; }
-    }
+        /* Update button */
+        .btn-update {
+            background: var(--teal);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 0.55rem 1.8rem;
+            cursor: pointer;
+            transition: background .2s;
+        }
+
+        .btn-update:hover {
+            background: var(--teal-dark);
+        }
+
+        @media (max-width: 767px) {
+            .top-nav {
+                flex-direction: column;
+                gap: 0.75rem;
+                padding: 0.75rem 1rem;
+            }
+
+            .top-nav-links {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+
+            .form-card {
+                padding: 1.2rem;
+            }
+
+            .field-row {
+                grid-template-columns: 1fr;
+            }
+
+            .field-label {
+                padding-top: 0;
+            }
+
+            .col-divider {
+                border-left: none;
+                border-top: 1px solid var(--border);
+            }
+
+            .add-dest-btn {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+        }
     </style>
 </head>
 
@@ -205,7 +264,9 @@
                     <li class="nav-item"><a class="nav-link active" href="packages.html">Packages</a></li>
                     <li class="nav-item"><a class="nav-link" href="my-bookings.html">My Bookings</a></li>
                     <li class="nav-item"><a class="nav-link" href="consultant.html">Consultant</a></li>
-                    <li class="nav-item"><a class="nav-link logout-link" href="#" data-bs-toggle="modal"
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal"
                             data-bs-target="#logoutModal">Logout</a></li>
                 </ul>
             </div>
@@ -218,7 +279,7 @@
             Approvals <span class="badge-num">2</span>
         </a>
         <a href="package-edit-agent.html" class="sub-link ">Edit Package</a>
-        <button class="add-dest-btn">
+        <button class="add-dest-btn" onclick="window.location.href='destination-add-agent.html'">
             <i class="fa-solid fa-plus"></i> Add Destination
         </button>
     </div>
@@ -251,14 +312,21 @@
                         <div class="field-label">Add Destinations</div>
                         <div class="input-btn-wrap">
                             <input type="text" class="form-control" value="" />
-                            <button class="btn-sm-teal">Choose Destination</button>
+                            <button class="btn-sm-teal" data-bs-toggle="modal"
+                                data-bs-target="#destinationsModal">Choose Destination</button>
                         </div>
                     </div>
 
                     <!-- Category -->
                     <div class="field-row">
                         <div class="field-label">Category</div>
-                        <input type="text" class="form-control" value="" />
+                        <!-- <input type="text" class="form-control" value="" /> -->
+                        <div class="date-time-wrap">
+                            <label for=""><input type="checkbox"> Hill Station</label>
+                            <label for=""><input type="checkbox"> Beach</label>
+                            <label for=""><input type="checkbox"> Adventure</label>
+                            <label for=""><input type="checkbox"> Wildlife</label>
+                        </div>
                     </div>
 
                     <!-- Type -->
@@ -269,29 +337,29 @@
 
                     <!-- Start Date -->
                     <div class="field-row">
-                        <div class="field-label">Start date</div>
-                        <div class="date-time-wrap">
+                        <div class="field-label">Days</div>
+                        <input type="text" class="form-control" value="" />
+                        <!-- <div class="date-time-wrap">
                             <input type="date" class="form-control date" value="" />
                             <span class="lbl">Time:</span>
                             <input type="text" class="form-control time" value="" />
-                        </div>
+                        </div> -->
                     </div>
 
                     <!-- End Date -->
-                    <div class="field-row">
+                    <!-- <div class="field-row">
                         <div class="field-label">End date</div>
                         <div class="date-time-wrap">
                             <input type="date" class="form-control date" value="" />
                             <span class="lbl">Time:</span>
                             <input type="text" class="form-control time" value="" />
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Description -->
                     <div class="field-row top-align">
                         <div class="field-label">Description:</div>
-                        <textarea class="form-control"
-                            rows="5"></textarea>
+                        <textarea class="form-control" rows="5"></textarea>
                     </div>
 
                 </div><!-- /left col -->
@@ -309,9 +377,10 @@
                     <div class="field-row">
                         <div class="field-label">Upload Images</div>
                         <div>
-                            <button class="btn-sm-teal">
-                                <i class="fa-solid fa-upload me-1"></i>Upload Image
-                            </button>
+                            <label class=" btn-sm-teal">
+                                <i class="bi bi-upload"></i> Upload Image
+                                <input type="file" class="d-none" id="fileUpload" accept=".jpg,.jpeg,.png,.webp,.gif">
+                            </label>
                         </div>
                     </div>
 
@@ -320,7 +389,8 @@
                         <div class="field-label">Includes</div>
                         <div class="input-btn-wrap">
                             <input type="text" class="form-control" value="" />
-                            <button class="btn-sm-teal">Choose Inclusions</button>
+                            <button class="btn-sm-teal" data-bs-toggle="modal" data-bs-target="#inclusionsModal">Choose
+                                Inclusions</button>
                         </div>
                     </div>
 
@@ -329,7 +399,8 @@
                         <div class="field-label">Excludes</div>
                         <div class="input-btn-wrap">
                             <input type="text" class="form-control" value="" />
-                            <button class="btn-sm-teal">Choose Exclusions</button>
+                            <button class="btn-sm-teal" data-bs-toggle="modal" data-bs-target="#exclusionsModal">Choose
+                                Exclusions</button>
                         </div>
                     </div>
 
@@ -337,21 +408,36 @@
                     <div class="field-row">
                         <div class="field-label">Itinerary</div>
                         <div>
-                            <button class="btn-sm-teal">
-                                <i class="fa-solid fa-file-arrow-up me-1"></i>File Upload
-                            </button>
+                            <label class=" btn-sm-teal">
+                                <i class="fa-solid fa-file-arrow-up me-1"></i>Upload Itinerary
+                                <input type="file" class="d-none" id="fileUpload" accept=".pdf,.docx">
+                            </label>
                         </div>
                     </div>
 
+                    <!-- Docements Reuired -->
+                    <div class="field-row">
+                        <div class="field-label">Documents:</div>
+                        <div>
+                            <label class=" btn-sm-teal">
+                                <i class="fa-solid fa-file-arrow-up me-1"></i>Upload Document
+                                <input type="file" class="d-none" id="fileUpload" accept=".pdf,.docx">
+                            </label>
+                        </div>
+                    </div>
                     <!-- Terms & Conditions -->
                     <div class="field-row">
                         <div class="field-label">Terms &amp; Conditions:</div>
                         <div>
-                            <button class="btn-sm-teal">
-                                <i class="fa-solid fa-file-arrow-up me-1"></i>File Upload
-                            </button>
+                            <label class=" btn-sm-teal">
+                                <i class="fa-solid fa-file-arrow-up me-1"></i>Upload Terms &amp; Conditions
+                                <input type="file" class="d-none" id="fileUpload" accept=".pdf,.docx">
+                            </label>
                         </div>
                     </div>
+
+
+
 
                     <div class="section-divider"></div>
 
@@ -404,6 +490,249 @@
         </div><!-- /form-card -->
     </div><!-- /content -->
     <!-- End  -->
+
+    <!-- Choose destinations -->
+    <!-- ===== DESTINATIONS MODAL ===== -->
+    <div class="modal fade modal-destinations" id="destinationsModal" tabindex="-1" aria-labelledby="destLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header modal-header-destinations">
+                    <h5 class="modal-title" id="destLabel">📍 Select Destinations</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="destBody"></div>
+                <div class="modal-footer d-flex justify-content-between align-items-center">
+                    <span class="selected-count" id="destCount">0 of 10 selected</span>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-sm btn-outline-secondary" onclick="clearAll('dest')">Clear</button>
+                        <button class="btn-sm-teal" data-bs-dismiss="modal">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===== INCLUSIONS MODAL ===== -->
+    <div class="modal fade modal-inclusions" id="inclusionsModal" tabindex="-1" aria-labelledby="inclLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header modal-header-inclusions">
+                    <h5 class="modal-title" id="inclLabel">✅ Select Inclusions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="inclBody"></div>
+                <div class="modal-footer d-flex justify-content-between align-items-center">
+                    <span class="selected-count" id="inclCount">0 of 10 selected</span>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-sm btn-outline-secondary" onclick="clearAll('incl')">Clear</button>
+                        <button class="btn-sm-teal" data-bs-dismiss="modal">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===== EXCLUSIONS MODAL ===== -->
+    <div class="modal fade modal-exclusions" id="exclusionsModal" tabindex="-1" aria-labelledby="exclLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header modal-header-exclusions">
+                    <h5 class="modal-title" id="exclLabel">❌ Select Exclusions</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="exclBody"></div>
+                <div class="modal-footer d-flex justify-content-between align-items-center">
+                    <span class="selected-count" id="exclCount">0 of 10 selected</span>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-sm btn-outline-secondary" onclick="clearAll('excl')">Clear</button>
+                        <button class="btn-sm-teal" data-bs-dismiss="modal">Confirm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row g-5">
+
+                <!-- Col 1 — Brand & About -->
+                <div class="col-lg-4 col-md-6">
+                    <a href="#" class="footer-logo">Trivo<span>World</span></a>
+                    <p>Your trusted travel companion for planning unforgettable journeys. We make every trip smooth,
+                        affordable, and memorable.</p>
+                    <div class="social-icons mt-3">
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2 — Quick Links -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="packages.html">Destinations</a></li>
+                        <li><a href="packages.html">Tour Packages</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 — Support -->
+                <div class="col-lg-2 col-md-6 col-6">
+                    <h5>Support</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4 — Contact & Newsletter -->
+                <div class="col-lg-4 col-md-6">
+                    <h5>Contact Us</h5>
+                    <div class="contact-item">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>123 Travel Street, Thrissur, Kerala 680001, India</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="bi bi-telephone-fill"></i>
+                        <a href="tel:+919876543210" class="text-decoration-none text-reset"> +91 9876543210</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="bi bi-envelope-fill"></i>
+                        <a href="mailto:hello@trivoworld.com" class="text-decoration-none text-reset">
+                            hello@trivoworld.com</a>
+                    </div>
+
+                    <h5 class="mt-4">Newsletter</h5>
+                    <p style="font-size:13px; margin-bottom:10px;">Subscribe for travel deals & updates.</p>
+                    <div class="d-flex">
+                        <input type="email" class="newsletter-input" placeholder="Your email address">
+                        <button class="newsletter-btn">Subscribe</button>
+                    </div>
+                </div>
+
+            </div><!-- /row -->
+
+            <hr class="footer-divider">
+        </div><!-- /container -->
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+                <span>© 2025 TrivoWorld. All rights reserved.</span>
+                <div>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- ===== END FOOTER ===== -->
+
+
+    
+    <!-- ── Logout Modal ── -->
+  <div class="modal fade" id="logoutModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 rounded-4 p-2">
+        <div class="modal-body text-center py-4">
+          <h5 class="fw-bold mb-2" style="color:var(--tw-navy);">Logout Confirmation</h5>
+          <p class="text-muted mb-4">Are you sure you want to LogOut?</p>
+          <div class="d-flex justify-content-center gap-3">
+            <button class="btn btn-outline-secondary px-4 rounded-pill" data-bs-dismiss="modal">Cancel</button>
+            <a href="login.html" class="btn px-4 rounded-pill text-white" style="background:var(--tw-sky);">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const data = {
+            dest: {
+                items: ["Paris, France", "Bali, Indonesia", "New York, USA", "Tokyo, Japan",
+                    "Dubai, UAE", "Rome, Italy", "Maldives", "Singapore",
+                    "Sydney, Australia", "Cape Town, South Africa"],
+                bodyId: "destBody", countId: "destCount"
+            },
+            incl: {
+                items: ["Hotel Accommodation", "Airport Transfers", "Daily Breakfast",
+                    "Guided City Tour", "Flight Tickets", "Travel Insurance",
+                    "Visa Assistance", "Welcome Dinner", "Entry Tickets", "24/7 Support"],
+                bodyId: "inclBody", countId: "inclCount"
+            },
+            excl: {
+                items: ["Personal Expenses", "Lunch & Dinner", "Tips & Gratuities",
+                    "Laundry Charges", "Optional Activities", "Room Service",
+                    "Alcoholic Beverages", "Medical Expenses", "Camera Fees", "Porterage"],
+                bodyId: "exclBody", countId: "exclCount"
+            }
+        };
+
+        function buildCheckboxes(key) {
+            const { items, bodyId, countId } = data[key];
+            const body = document.getElementById(bodyId);
+            body.innerHTML = "";
+            items.forEach((label, i) => {
+                const id = `${key}_${i}`;
+                const div = document.createElement("div");
+                div.className = "checkbox-item";
+                div.innerHTML = `
+          <input type="checkbox" id="${id}" name="${key}" value="${label}" onchange="updateCount('${key}')">
+          <label for="${id}">${label}</label>`;
+                body.appendChild(div);
+            });
+            updateCount(key);
+        }
+
+        function updateCount(key) {
+            const checked = document.querySelectorAll(`input[name="${key}"]:checked`).length;
+            document.getElementById(data[key].countId).textContent = `${checked} of 10 selected`;
+        }
+
+        function selectAll(key) {
+            document.querySelectorAll(`input[name="${key}"]`).forEach(c => c.checked = true);
+            updateCount(key);
+        }
+
+
+        function confirm(key) {
+            const selected = [...document.querySelectorAll(`input[name="${key}"]:checked`)].map(c => c.value);
+            if (selected.length === 0) {
+                setTimeout(() => alert("No items selected!"), 300);
+            } else {
+                const label = key === 'dest' ? 'Destinations' : key === 'incl' ? 'Inclusions' : 'Exclusions';
+                setTimeout(() => alert(`✔ ${label} Selected:\n\n• ${selected.join('\n• ')}`), 300);
+            }
+        }
+
+        // Build all modals on page load
+        buildCheckboxes('dest');
+        buildCheckboxes('incl');
+        buildCheckboxes('excl');
+    </script>
+
 
 </body>
 
