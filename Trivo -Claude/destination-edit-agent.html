@@ -48,14 +48,15 @@
     </div>
   </nav>
   <!-- =============BODY CONTENT -->
-
+   
   <div class="sub-nav pb-5">
-    <a href="package-add-agent.html" class="sub-link" style="color: #f97316;"><i class="bi bi-chevron-double-left"></i>back to Add Packages</a>
-    <a href="#" class="sub-link active">Add Destination</a>
-    <a href="destination-list-agent.html" class="sub-link">Destination List</a>
+    <a href="package-add-agent.html" class="sub-link " style="color: #f97316;"><i class="bi bi-chevron-double-left"></i>back to Add Packages</a>
+    <a href="destination-add-agent.html" class="sub-link">Add Destination</a>
+    <a href="destination-list-agent.html" class="sub-link ">Destination List</a>
+    <a href="#" class="sub-link active">Edit Destination</a>
   </div>
   <div class="container mt-1">
-    <h1 class="page-title">Add Destination</h1>
+    <h1 class="page-title">Edit Destination</h1>
     <div class="card shadow-sm">
         <div class="card-body">
 
@@ -63,24 +64,24 @@
 
                 <div class="mb-3">
                     <label class="form-label">Destination Name</label>
-                    <input type="text" class="form-control" placeholder="Enter destination name">
+                    <input type="text" class="form-control" placeholder="Enter destination name" value="Munnar">
                 </div>
 
                 <div class="row">
 
                     <div class="col-md-4 mb-3">
                         <label class="form-label">Country</label>                        
-                        <input type="text" class="form-control" placeholder="Enter Country Name">
+                        <input type="text" class="form-control" placeholder="Enter Country Name" value="India">
                     </div>
 
                     <div class="col-md-4 mb-3">
                         <label class="form-label">State</label>                        
-                        <input type="text" class="form-control" placeholder="Enter State Name">
+                        <input type="text" class="form-control" placeholder="Enter State Name" value="Kerala">
                     </div>
 
                     <div class="col-md-4 mb-3">
                         <label class="form-label">City</label>
-                        <input type="text" class="form-control" placeholder="Enter City Name">
+                        <input type="text" class="form-control" placeholder="Enter City Name" value="Idukky">
                     </div>
 
                 </div>
@@ -90,7 +91,7 @@
                     <select class="form-select">
                         <option>Select Type</option>
                         <option>Beach</option>
-                        <option>Hill Station</option>
+                        <option selected>Hill Station</option>
                         <option>Adventure</option>
                         <option>Wildlife</option>
                         <option>Pilgrimage</option>
@@ -101,21 +102,23 @@
 
                 <div class="mb-3">
                     <label class="form-label">Description</label>
-                    <textarea class="form-control" rows="4" placeholder="Enter destination description"></textarea>
+                    <textarea class="form-control" rows="4" placeholder="Enter destination description">Munnar is a town in the Western Ghats mountain range in India’s Kerala state. A hill station and former resort for the British Raj elite, it's surrounded by rolling hills dotted with tea plantations established in the late 19th century.</textarea>
                 </div>
-
+                <div class="d-flex gap-3 pb-2">
+                  <label for=""><input type="radio" name="activateDestination" checked> Enable  </label>
+                   <label for=""><input type="radio" name="activateDestination"> Disable</label>
+                </div>
                 <button type="submit" class="btn btn-primary">
-                    Submit
+                    Update
                 </button>
 
             </form>
 
         </div>
     </div>
+    
 
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  </div>
 
   <!-- ==============BODY END -->
 
@@ -152,7 +155,8 @@
         <!-- Col 1 — Brand & About -->
         <div class="col-lg-4 col-md-6">
           <a href="#" class="footer-logo">Trivo<span>World</span></a>
-          <p>Your trusted travel companion for planning unforgettable journeys. We make every trip smooth, affordable, and memorable.</p>
+          <p>Your trusted travel companion for planning unforgettable journeys. We make every trip smooth, affordable,
+            and memorable.</p>
           <div class="social-icons mt-3">
             <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
             <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
@@ -196,11 +200,11 @@
           </div>
           <div class="contact-item">
             <i class="bi bi-telephone-fill"></i>
-            <a href="tel:+919876543210" class="text-decoration-none text-reset"> +91 9876543210</a>           
+            <a href="tel:+919876543210" class="text-decoration-none text-reset"> +91 9876543210</a>
           </div>
           <div class="contact-item">
             <i class="bi bi-envelope-fill"></i>
-             <a href="mailto:hello@trivoworld.com" class="text-decoration-none text-reset"> hello@trivoworld.com</a>             
+            <a href="mailto:hello@trivoworld.com" class="text-decoration-none text-reset"> hello@trivoworld.com</a>
           </div>
 
           <h5 class="mt-4">Newsletter</h5>
