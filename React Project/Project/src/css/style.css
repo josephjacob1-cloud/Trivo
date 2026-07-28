@@ -1,0 +1,12 @@
+body{
+    font-family: poppins;
+}
+.nav-link{
+    color: teal;
+}
+.nav-link.activ{    
+    font-weight: bold;
+}
+.nav-link:hover{
+    color: #FA8800;
+}
