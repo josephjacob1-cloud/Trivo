@@ -22,12 +22,14 @@ function App() {
       <div>
         <UserContext.Provider value={userData}>
           <Navbar></Navbar>
+          <Home></Home>
+
           <About></About>
           <Contact></Contact>
           <MyBooking></MyBooking>
           <Consultant></Consultant>
           <Packages></Packages>
-          <Home></Home>
+          
           <Footer></Footer>
         </UserContext.Provider>
         
