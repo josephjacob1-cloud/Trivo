@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>Activity 7: Delete List Item</div>
+    <h3>Add Shoping List</h3>
+    <input type="text" id="itemName"><button onclick="addItem()">Add</button>
+
+    <h3>Shopping List</h3>
+    <ul id="shoppingList"></ul>
+
+    <hr>
+    <div>Activity 8: Counter App</div>
+
+    <input type="text" id="changeText" value="0">
+    <button id="btnIncrease">+Increase</button>
+    <button id="btnDecrease">+Decrease</button>
+    <button id="btnReset">Reset</button>
+
+    <script>
+        function addItem(){
+          var list = document.getElementById("shoppingList");  
+          var itemName = document.getElementById("itemName").value;
+          var li = document.createElement("li")
+          li.innerHTML = itemName + "<button onclick='deleteItem(this)'>Delete</button>";
+          list.appendChild(li);
+        }
+        function deleteItem(item) {           
+            var list = document.getElementById("shoppingList");
+            list.removeChild(item.parentElement);
+            
+        }
+
+
+
+        var btnIncrease = document.getElementById("btnIncrease");
+        btnIncrease.addEventListener("click", function () {
+            document.getElementById("changeText").value = Number(document.getElementById("changeText").value) + 1;
+        })
+        var btnDecrease = document.getElementById("btnDecrease");
+        btnDecrease.addEventListener("click", function () {
+            document.getElementById("changeText").value = Number(document.getElementById("changeText").value) - 1;
+        })
+        var btnReset = document.getElementById("btnReset");
+        btnReset.addEventListener("click", function () {
+            document.getElementById("changeText").value = 0;
+        })
+
+    </script>
+</body>
+
+</html>

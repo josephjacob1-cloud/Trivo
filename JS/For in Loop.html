@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log("1.	Create an object containing student details and display all keys and values.");
+        var student = {
+            name: "Vineeth Sreenivasan",
+            id: "AITRICH123",
+            age: 20,
+            course: "FS",
+            duration: "3"
+        };
+        for (var key in student) {
+            console.log(key + " : " + student[key]);
+        }
+
+        console.log("2.	Create an object containing product details and print all properties.");
+        var product = {
+            id: "P10234",
+            name: "Wireless Headphones",
+            price: 2499,
+            category: "Electronics",
+            brand: "sony",
+            rating: 4.5
+        };
+        for (key in product) {
+            console.log(key + " : " + product[key]);
+        }
+        console.log("3.	Count the total number of properties in an object.");
+        var len = 0;
+        for (key in product) {
+            len++;
+        }
+        console.log("Properties count " + len);
+
+        console.log("4.	Create an object with subject names and marks, then display them");
+
+        var studentMarks = {
+            Mathematics: 92,
+            Science: 88,
+            History: 75,
+            English: 85
+        };
+        for (key in studentMarks) {
+            console.log(key + " : " + studentMarks[key]);
+        }
+
+        console.log("5.	Calculate the total marks stored in an object using for...in.");
+        var totalMarks = 0;
+        for (key in studentMarks) {
+            totalMarks+=studentMarks[key]          
+        }
+        console.log("Total mark is " + totalMarks);
+        
+
+
+    </script>
+</body>
+
+</html>

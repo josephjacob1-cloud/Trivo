@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log("1.	Print all elements of an array.");
+        var fruits = ["Apple", "Banana", "Grapes", "Pinapple", "Cherry"];
+        for (var f of fruits) {
+            console.log(f);
+        }
+
+
+        console.log("2.	Find the sum of all elements in an array");
+        var numbers = [10, 52, 23, 94, 64, 22, 84];
+        var sum = 0;
+        for (var i of numbers) {
+            sum += i;
+        }
+        console.log(sum);
+
+        console.log("3.	Find the largest element in an array");
+        var sortedNumner = numbers.sort((a, b) => b - a);
+        console.log("Largest element is " + sortedNumner[0]);
+        var l = 0;
+        for (i of numbers) {
+            if (i > l) {
+                l = i;
+            }
+        }
+        console.log("Seconf method : Largest element is " + l);
+
+        console.log("4.	Count the number of vowels in a string.");
+        var word = "condition";
+        var vCount = 0;
+        for (var i of word) {
+            if (i == "a" || i == "e" || i == "i" || i == "o" || i == "u") {
+                vCount++;
+            }
+        }
+        console.log("vowel count is " + vCount);
+        
+        console.log("5.	Print each character of a string on a separate line using for...of.");
+        word = "incorporated ";
+        for (var i of word) {
+            console.log(i);            
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

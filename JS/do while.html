@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log("1.	Print numbers from 1 to 10 using a do...while loop.");
+        var i = 0;
+        do {
+            console.log(i)
+            i++;
+        } while (i <= 10)
+
+        console.log("2.	Display a menu repeatedly until the user selects Exit.");
+        var choice = 0;
+        do {
+            choice = Number(prompt("-- - MAIN MENU-- -\n" +
+                "1. View Profile\n" +
+                "2. Change Settings\n" +
+                "3. Exit\n\n" +
+                "Please enter your choice (1-3):"))
+            switch (choice) {
+                case 1: console.log("Main Menu");
+                    break;
+                case 2: console.log("View PRofile");
+                    break;
+                case 3: console.log("Exit");
+                    break;
+                default: console.log("Wrong input");
+
+            }
+
+        } while (choice != 3)
+
+        console.log("3.	Keep asking the user to enter a positive number until a valid number is entered.");
+        choice = "";
+        do {
+            choice = Number(prompt("Pleadr enter a positive number"))
+            console.log(choice)
+
+        } while (choice < 0 || isNaN(choice))
+
+        console.log("4.	Find the sum of numbers from 1 to n using do...while.");
+
+         choice = Number(prompt("Pleadr enter a number"))
+         i = 0;
+         var sum = 0;
+         do {
+           sum+=i;          
+            i++;
+        } while (i <= choice)
+        console.log("Sum = "+ sum);
+
+
+        console.log("5.	Generate and display the multiplication table of a given number using do...while.");
+        i = 0;
+         choice = Number(prompt("Pleadr enter a number to display the multiplication table"))
+        do{
+            console.log(i + " X " + choice + " = "+ (i*choice))
+            i++;
+        }while(i <= 10)
+        
+
+    </script>
+</body>
+
+</html>

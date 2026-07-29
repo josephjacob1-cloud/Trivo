@@ -82,3 +82,11 @@ body{
 .input-group{
     width: 450px;
 }
+.pkIcons{
+    background-color: teal;
+    border-radius: 5px;
+    padding: 4px 8px;
+    margin-right: 10px;
+    color: #CCC;
+    font-weight: bold;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>learn JS</title>
+    <script>
+        function multiplier(factor){
+            console.log("FACTOR - " + factor);
+            
+            return function(number){
+                console.log("number " + number);
+                
+                return factor * number;
+            }
+        }
+        const multiplyByTwo = multiplier(2)
+        console.log(multiplyByTwo(10))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

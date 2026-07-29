@@ -1,5 +1,8 @@
 import '../css/style.css'
 import image2 from '../assets/slider/image2.jpg'
+import { useContext, useEffect } from 'react';
+import UserContext from './UserContext';
+
 export default function Packages() {
     const places = [
         {
@@ -1007,10 +1010,14 @@ export default function Packages() {
     ]
     const packages = places.slice(0, 12);
     const IMG_PATH = "src/assets/places/"
+    
 
 
 
-
+    const userData = useContext(UserContext)
+    // useEffect(()=>{
+    //     userData.setSelectedPackage(places[0])
+    // },[])
     return (<>
         <div >
             <div className='packagesHeadSec'>
@@ -1018,10 +1025,10 @@ export default function Packages() {
                     <p className='pkTxt1'>Home {'>'} Tour Packages</p>
                     <p className='h1 pkTxt2'>Explore Amazing <br />Tour Packages</p>
                     <p className='pkTxt3'>Find the best destination around the world with our exclusice tour packages</p>
-                    <div class="input-group">
-                        <input type="search" class="form-control" placeholder="Search tou destination or packages" aria-label="Search" aria-describedby="search-addon" />
-                        <span class="input-group-text" id="search-addon">
-                            <i class="bi bi-search"></i>
+                    <div className="input-group">
+                        <input type="search" className="form-control" placeholder="Search tou destination or packages" aria-label="Search" aria-describedby="search-addon" />
+                        <span className="input-group-text" id="search-addon">
+                            <i className="bi bi-search"></i>
                         </span>
 
                     </div>
@@ -1031,7 +1038,7 @@ export default function Packages() {
                 <div className='row'>
                     <div className='col-sm-2'>
                         <div style={{ display: 'flex' }} className='align-items-center text-center'>
-                            <i class="bi bi-geo-alt"></i>
+                            <i className="bi bi-geo-alt pkIcons"></i>
                             <div><span>Destination</span><br />
                                 <select name="" id="">
                                     <option value="">South Africs</option>
@@ -1044,7 +1051,7 @@ export default function Packages() {
                     </div>
                     <div className='col-sm-2'>
                         <div style={{ display: 'flex' }} className='align-items-center text-center'>
-                            <i class="bi bi-clock"></i>
+                            <i className="bi bi-clock pkIcons"></i>
                             <div><span>Duration</span><br />
                                 <select name="" id="">
                                     <option value="">One Week</option>
@@ -1058,12 +1065,12 @@ export default function Packages() {
 
                     <div className='col-sm-2'>
                         <div style={{ display: 'flex' }} className='align-items-center text-center'>
-                            <i class="bi bi-currency-dollar"></i>
+                            <i className="bi bi-currency-dollar pkIcons"></i>
                             <div><span>Budget</span><br />
                                 <select name="" id="">
                                     <option value="">0 - 10000</option>
                                     <option value="">10001-100000</option>
-                                    <option value="">100000 and above</option>
+                                    <option value="">100000 and </option>
                                 </select>
                             </div>
                         </div>
@@ -1071,7 +1078,7 @@ export default function Packages() {
 
                     <div className='col-sm-2'>
                         <div style={{ display: 'flex' }} className='align-items-center text-center'>
-                            <i class="bi bi-sun"></i>
+                            <i className="bi bi-sun pkIcons"></i>
                             <div><span>Travel Type</span><br />
                                 <select name="" id="">
                                     <option value="">Car</option>
@@ -1085,7 +1092,7 @@ export default function Packages() {
 
                     <div className='col-sm-2'>
                         <div style={{ display: 'flex' }} className='align-items-center text-center'>
-                            <i class="bi bi-sort-down"></i>
+                            <i className="bi bi-sort-down pkIcons"></i>
                             <div><span>SOry by</span><br />
                                 <select name="" id="">
                                     <option value="">Latest</option>
@@ -1101,23 +1108,35 @@ export default function Packages() {
 
             </div>
             <div className='container'>
-                <div className='row ' style={{display:'flex', flexWrap:'wrap'}}>
+                <div className='row ' style={{ display: 'flex', flexWrap: 'wrap' }}>
                     {
                         packages.map((p, i) =>
 
-                            <div className="col-sm-3 placeCard">
-                                <img src={IMG_PATH+p.images.cover} alt={p.name} className='placeImg' />
-                                <div className="placeCardText">
-                                    <p className='pTitleTxt'>{p.name}</p>
-                                    <p className='pLocTxr'>{p.city} | {p.country}</p>
-                                </div>
-                            </div>
+                            // <div className="col-sm-3 placeCard">
+                            //     <img src={IMG_PATH + p.images.cover} alt={p.name} className='placeImg' />
+                            //     <div className="placeCardText">
+                            //         <p className='pTitleTxt'>{p.name}</p>
+                            //         <p className='pLocTxr'>{p.city} | {p.country}</p>
+                            //     </div>
+                            // </div>
+                            // <PackageCard pack={p} path={IMG_PATH}></PackageCard>
+                            <Card key={p.id} pack={p} path={IMG_PATH} select= {userData.setSelectedPackage}></Card>
                         )
-                    }                    
+                    }
 
                 </div>
             </div>
-            
+
         </div>
     </>)
+}
+function Card({pack, path, select}) {
+    return <div className="col-sm-3 placeCard" onClick={(e)=>select(pack)}>
+       <img src={path + pack.images.cover} alt={pack.name} className='placeImg' />
+          <div className="placeCardText">
+            <p className='pTitleTxt'>{pack.name}</p>
+            <p className='pLocTxr'>{pack.city} | {pack.country}</p> 
+        </div>
+    </div>
+
 }
