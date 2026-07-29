@@ -1,7 +1,6 @@
-import '../css/style.css'
-import image2 from '../assets/slider/image2.jpg'
-export default function Packages() {
-    const places = [
+{
+    "placeUrl":[{"link":"https://www.22places.com/most-famous-places-in-the-world/"}],
+    "places": [
         {
             "id": 1,
             "name": "Eiffel Tower",
@@ -233,7 +232,7 @@ export default function Packages() {
                 "longitude": 31.1342
             },
             "images": {
-                "cover": "pyramids-giza.jpg",
+                "cover": "src/assets/places/pyramids-giza.jpg",
                 "thumbnail": "",
                 "gallery": []
             },
@@ -1005,119 +1004,4 @@ export default function Packages() {
             ]
         }
     ]
-    const packages = places.slice(0, 12);
-    const IMG_PATH = "src/assets/places/"
-
-
-
-
-    return (<>
-        <div >
-            <div className='packagesHeadSec'>
-                <div className='pkHeadTexts'>
-                    <p className='pkTxt1'>Home {'>'} Tour Packages</p>
-                    <p className='h1 pkTxt2'>Explore Amazing <br />Tour Packages</p>
-                    <p className='pkTxt3'>Find the best destination around the world with our exclusice tour packages</p>
-                    <div class="input-group">
-                        <input type="search" class="form-control" placeholder="Search tou destination or packages" aria-label="Search" aria-describedby="search-addon" />
-                        <span class="input-group-text" id="search-addon">
-                            <i class="bi bi-search"></i>
-                        </span>
-
-                    </div>
-                </div>
-            </div>
-            <div className='container '>
-                <div className='row'>
-                    <div className='col-sm-2'>
-                        <div style={{ display: 'flex' }} className='align-items-center text-center'>
-                            <i class="bi bi-geo-alt"></i>
-                            <div><span>Destination</span><br />
-                                <select name="" id="">
-                                    <option value="">South Africs</option>
-                                    <option value="">Paris</option>
-                                    <option value="">UAE</option>
-                                    <option value="">Sydny</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div className='col-sm-2'>
-                        <div style={{ display: 'flex' }} className='align-items-center text-center'>
-                            <i class="bi bi-clock"></i>
-                            <div><span>Duration</span><br />
-                                <select name="" id="">
-                                    <option value="">One Week</option>
-                                    <option value="">Three Days</option>
-                                    <option value="">One Day</option>
-                                    <option value="">10 Days</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='col-sm-2'>
-                        <div style={{ display: 'flex' }} className='align-items-center text-center'>
-                            <i class="bi bi-currency-dollar"></i>
-                            <div><span>Budget</span><br />
-                                <select name="" id="">
-                                    <option value="">0 - 10000</option>
-                                    <option value="">10001-100000</option>
-                                    <option value="">100000 and above</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='col-sm-2'>
-                        <div style={{ display: 'flex' }} className='align-items-center text-center'>
-                            <i class="bi bi-sun"></i>
-                            <div><span>Travel Type</span><br />
-                                <select name="" id="">
-                                    <option value="">Car</option>
-                                    <option value="">Bus</option>
-                                    <option value="">Flight</option>
-                                    <option value="">Treking</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className='col-sm-2'>
-                        <div style={{ display: 'flex' }} className='align-items-center text-center'>
-                            <i class="bi bi-sort-down"></i>
-                            <div><span>SOry by</span><br />
-                                <select name="" id="">
-                                    <option value="">Latest</option>
-                                    <option value="">Popular</option>
-                                    <option value="">Low to High</option>
-                                    <option value="">High to Low</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-            <div className='container'>
-                <div className='row ' style={{display:'flex', flexWrap:'wrap'}}>
-                    {
-                        packages.map((p, i) =>
-
-                            <div className="col-sm-3 placeCard">
-                                <img src={IMG_PATH+p.images.cover} alt={p.name} className='placeImg' />
-                                <div className="placeCardText">
-                                    <p className='pTitleTxt'>{p.name}</p>
-                                    <p className='pLocTxr'>{p.city} | {p.country}</p>
-                                </div>
-                            </div>
-                        )
-                    }                    
-
-                </div>
-            </div>
-            
-        </div>
-    </>)
 }

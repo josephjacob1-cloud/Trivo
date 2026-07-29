@@ -16,23 +16,24 @@ function App() {
   const [isLogin, setIsLogin] = useState(false)
   const [userName, setUserName] = useState("Guest")
   const [page, setPage] = useState("home")
-  const userData = {isLogin, setIsLogin, userName, setUserName, page, setPage}
+  const userData = { isLogin, setIsLogin, userName, setUserName, page, setPage }
   return (
     <>
       <div>
         <UserContext.Provider value={userData}>
           <Navbar></Navbar>
+          <Packages></Packages>
           <Home></Home>
-
+          
           <About></About>
           <Contact></Contact>
           <MyBooking></MyBooking>
           <Consultant></Consultant>
-          <Packages></Packages>
-          
+
+
           <Footer></Footer>
         </UserContext.Provider>
-        
+
       </div>
 
     </>

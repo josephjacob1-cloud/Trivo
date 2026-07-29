@@ -2,7 +2,13 @@ import '../css/style.css'
 import image1 from '../assets/slider/image1.jpg'
 import image2 from '../assets/slider/image2.jpg'
 import image3 from '../assets/slider/image3.jpg'
-import Taj from '../assets/Taj.jpeg'
+
+import Effel from '../assets/places/eiffel-tower-paris.jpg'
+import Burj from '../assets/places/burj-khalifa-exterior.jpg'
+import Taj from '../assets/places/taj-mahal.jpg'
+import Opera from '../assets/places/sydney-opera-house-harbour-bridge.jpg'
+import Everest from '../assets/places/mount-everest.jpg'
+
 export default function Home() {
     return (<>
         <div>
@@ -52,12 +58,96 @@ export default function Home() {
                 </button>
 
             </div>
-            <div className='container'>
+            <div className='container '>
                 <div className='row'>
-                  
+                    <div className="col-sm-3 placeCard">
+                        <img src={Effel} alt="Effel" className='placeImg' />
+                        <div className="placeCardText">
+                            <p className='pTitleTxt'>Effect Tower</p>
+                            <p className='pLocTxr'>Paris</p>
+                        </div>
+                    </div>
+                    <div className="col-sm-3 placeCard">
+                        <img src={Burj} alt="Burj" className='placeImg' />
+                        <div className="placeCardText">
+                            <p className='pTitleTxt'>Burj Khalifa</p>
+                            <p className='pLocTxr'>UAE</p>
+                        </div>
+                    </div>
+                    <div className="col-sm-3 placeCard">
+                        <img src={Taj} alt="Taj" className='placeImg' />
+                        <div className="placeCardText">
+                            <p className='pTitleTxt'>Taj Mahal</p>
+                            <p className='pLocTxr'>New Delhi</p>
+                        </div>
+                    </div>
+                    <div className="col-sm-3 placeCard">
+                        <img src={Opera} alt="Opera" className='placeImg' />
+                        <div className="placeCardText">
+                            <p className='pTitleTxt'>Opera House</p>
+                            <p className='pLocTxr'>Sydny</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p className="h5 reviewHead">Review Highlights</p>
+                <div className='row'>
+                    <div className="col-sm-3 reviewCard p-3 ">
+                        <p className='h6 fw-bold'>“Free tour of Malaysia”</p>
+                        <p className=''>Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More</p>
+                        <div className='color-red reviewStar'>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                            <span>(4.5/5)</span>
+                        </div>
+                    </div>
+
+                    <div className="col-sm-3 reviewCard p-3 ">
+                        <p className='h6 fw-bold'>“Free tour of Malaysia”</p>
+                        <p className=''>Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More</p>
+                        <div className='color-red reviewStar'>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                            <span>(4.5/5)</span>
+                        </div>
+                    </div>
+
+                    <div className="col-sm-3 reviewCard p-3 ">
+                        <p className='h6 fw-bold'>“Free tour of Malaysia”</p>
+                        <p className=''>Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More</p>
+                        <div className='color-red reviewStar'>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                            <span>(4.5/5)</span>
+                        </div>
+                    </div>
+
+                    <div className="col-sm-3 reviewCard p-3 ">
+                        <p className='h6 fw-bold'>“Free tour of Malaysia”</p>
+                        <p className=''>Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More</p>
+                        <div className='color-red reviewStar'>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-half"></i>
+                            <span>(4.5/5)</span>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
+
         </div>
     </>)
 }
