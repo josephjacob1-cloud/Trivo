@@ -1,26 +1,5 @@
-import './css/style.css'
-import './components/Navbar'
-import Navbar from './components/Navbar'
-import { useEffect, useState } from 'react'
-import UserContext from "./components/UserContext"
-import Home from './components/Home'
-import Footer from './components/Footer'
-import Packages from './components/Packages'
-import Consultant from './components/Consultant'
-import MyBooking from './components/MyBooking'
-import AboutUs from './components/AboutUs'
-import ContactUs from './components/ContactUs'
-import PackageView from './components/PackageView'
-
-
-
-
-function App() {
-  const [isLogin, setIsLogin] = useState(false)
-  const [userName, setUserName] = useState("Guest")
-  const [page, setPage] = useState("home")
-  
-  const places =  [
+{
+  "places": [
     {
       "id": 1,
       "packageCode": "TW-FR-001",
@@ -680,7 +659,7 @@ function App() {
           "country": "Peru"
         },
         "images": {
-          "cover": "machu-picchu-view.jpg",
+          "cover": "machu-picchu.jpg",
           "thumbnail": "machu-picchu-thumb.jpg",
           "gallery": [
             "machu-gallery-1.jpg",
@@ -1334,7 +1313,7 @@ function App() {
           "country": "Brazil"
         },
         "images": {
-          "cover": "cristo-redentor-rio.jpg",
+          "cover": "christ-the-redeemer.jpg",
           "thumbnail": "christ-thumb.jpg",
           "gallery": [
             "christ-gallery-1.jpg",
@@ -1562,7 +1541,7 @@ function App() {
           "country": "Jordan"
         },
         "images": {
-          "cover": "table-mountain.jpg",
+          "cover": "petra.jpg",
           "thumbnail": "petra-thumb.jpg",
           "gallery": [
             "petra-gallery-1.jpg",
@@ -2057,7 +2036,7 @@ function App() {
     },
 
     "images": {
-      "cover": "sydney-opera-house-harbour-bridge.jpg",
+      "cover": "sydney-opera-house.jpg",
       "thumbnail": "opera-house-thumb.jpg",
       "gallery": [
         "opera-gallery-1.jpg",
@@ -2322,7 +2301,7 @@ function App() {
     },
 
     "images": {
-      "cover": "hagia-sophia-istanbul-1.jpg",
+      "cover": "golden-temple.jpg",
       "thumbnail": "golden-temple-thumb.jpg",
       "gallery": [
         "golden-temple-1.jpg",
@@ -2577,7 +2556,7 @@ function App() {
     },
 
     "images": {
-      "cover": "chichen-itza-mayan-ruins.jpg",
+      "cover": "chichen-itza.jpg",
       "thumbnail": "chichen-itza-thumb.jpg",
       "gallery": [
         "chichen-gallery-1.jpg",
@@ -2623,7 +2602,7 @@ function App() {
   },
 
   "rating": {
-    "average": 2.9,
+    "average": 4.9,
     "totalReviews": 437
   },
 
@@ -3859,37 +3838,4 @@ function App() {
   "updatedDate": "2026-07-26"
 }
   ]
-const [selectedPackage, setSelectedPackage] = useState(places[0]);
-  const userData = { isLogin, setIsLogin, userName, setUserName, page, setPage, selectedPackage, setSelectedPackage, places }
-  useEffect(() => {
-    console.log(selectedPackage.name)
-    console.log(selectedPackage.highlights)
-  }, [selectedPackage])
-  return (
-    <>
-      <div>
-        <UserContext.Provider value={userData}>
-          <Navbar></Navbar>
-          <Packages></Packages>
-          <PackageView></PackageView>
-          <ContactUs></ContactUs>
-          <AboutUs></AboutUs>
-
-          <Home></Home>
-
-
-
-          <MyBooking></MyBooking>
-          <Consultant></Consultant>
-
-
-          <Footer></Footer>
-        </UserContext.Provider>
-
-      </div>
-
-    </>
-  )
 }
-
-export default App

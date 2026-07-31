@@ -1,92 +1,222 @@
-body{
+body {
     font-family: poppins;
 }
-.nav-link{
+
+.nav-link {
     color: teal;
 }
-.nav-link.activ{    
+
+.nav-link.activ {
     font-weight: bold;
 }
-.nav-link:hover{
+
+.nav-link:hover {
     color: #FA8800;
 }
-.placeCard{
-    position: relative;  
-    margin-top: 10px; 
+
+.placeCard {
+    position: relative;
+    margin-top: 10px;
 }
-.placeCardText{
+
+.placeCardText {
     position: absolute;
     bottom: 10px;
     left: 20px;
 }
-.pTitleTxt{
+
+.pTitleTxt {
     font-size: 18px;
     font-weight: bold;
     color: #FFF;
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
-.pLocTxr{
+
+.pLocTxr {
     font-size: 14px;
     color: #FFF;
     margin: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
 }
-.placeImg{
+
+.placeImg {
     border: 1px solid #CCC;
     padding: 2px;
     width: 100%;
     border-radius: 5px;
-    
+
 }
-.reviewHead{
+
+.reviewHead {
     margin: 20px 0;
 }
-.reviewCard{
+
+.reviewCard {
     background-color: cadetblue;
     border-radius: 5px;
     margin: 10px;
-    width: 260px;    
+    width: 260px;
 }
 
-.reviewCard p{
+.reviewCard p {
     text-align: justify;
 }
-.reviewStar i{
+
+.reviewStar i {
     color: goldenrod;
 }
 
 
-.packagesHeadSec{
+.packagesHeadSec {
     background-image: url("../assets/snow.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
     height: 350px;
     color: #CCC;
 }
-.pkHeadTexts{
+
+.pkHeadTexts {
     /* margin:0px 0 0 20px; */
     padding: 50px 0 0 50px;
 }
-.pkTxt1{
-   
+
+.pkTxt1 {
+
     font-size: 16px;
     /* font-weight: bold; */
 }
-.pkTxt2{
+
+.pkTxt2 {
     /* font-weight: bold; */
 }
-.pkTxt3{
+
+.pkTxt3 {
     font-size: 18px;
 }
-.input-group{
+
+.input-group {
     width: 450px;
 }
-.pkIcons{
+
+.pkIcons {
     background-color: teal;
     border-radius: 5px;
     padding: 4px 8px;
     margin-right: 10px;
     color: #CCC;
     font-weight: bold;
+}
+
+.featuresDiv {
+    display: flex;
+}
+
+.featuresDivItems {
+    padding: 5px 10px;
+    margin: 5px 10px 5px 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+
+}
+
+.priceCard {
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 100%;
+}
+
+.bgTeal {
+    background-color: teal;
+}
+
+.colTeal {
+    color: teal;
+}
+
+.goldenStar {
+    color: goldenrod;
+}
+
+.textHeadWhite {
+    color: #FFF;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
+}
+
+.discount {
+    border-radius: 8px;
+    border: 2px solid rgba(105, 210, 19, 0.5);
+    color: #25ba04;
+    width: 60px;
+    background-color: #e5eee3;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.origPrice {
+    color: #aba9a9;
+}
+
+.hilights {
+    width: 150px;
+    text-align: center;
+    box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 5px 5px 5px 0;
+}
+
+.hilights i {
+    font-size: 1.5rem;
+    color: teal;
+}
+
+.qucickElmnts {
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.qucickElmnts i {
+    font-size: 1.6rem;
+    margin-right: 1rem;
+    color: teal;
+
+}
+
+.days {
+    border-radius: 8px;
+    border: 2px solid rgba(105, 210, 19, 0.5);
+    color: #25ba04;
+    width: 90px;
+     min-width: 90px;
+    background-color: #e5eee3;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    align-items: normal;
+
+    padding: 5px 15px;
+}
+
+.itinerary-row {
+     display: flex;
+    align-items: flex-start;   
+    /*gap: 15px;     */
+    margin-bottom: 20px;
+    vertical-align: top;
+}
+.content-box b {
+  display: inline;         
+  margin-right: 8px;  
+}
+.content-box span {
+  display: inline;         
+  color: #333;
+}
+.inclusions{
+    margin-bottom: 2px;
 }
