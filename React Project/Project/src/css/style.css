@@ -2,6 +2,10 @@ body {
     font-family: poppins;
 }
 
+.nav-item a {
+    text-decoration: none;
+}
+
 .nav-link {
     color: teal;
 }
@@ -191,7 +195,7 @@ body {
     border: 2px solid rgba(105, 210, 19, 0.5);
     color: #25ba04;
     width: 90px;
-     min-width: 90px;
+    min-width: 90px;
     background-color: #e5eee3;
     text-align: center;
     margin-top: 20px;
@@ -203,20 +207,133 @@ body {
 }
 
 .itinerary-row {
-     display: flex;
-    align-items: flex-start;   
+    display: flex;
+    align-items: flex-start;
     /*gap: 15px;     */
     margin-bottom: 20px;
     vertical-align: top;
 }
+
 .content-box b {
-  display: inline;         
-  margin-right: 8px;  
+    display: inline;
+    margin-right: 8px;
 }
+
 .content-box span {
-  display: inline;         
-  color: #333;
+    display: inline;
+    color: #333;
 }
-.inclusions{
+
+.inclusions {
     margin-bottom: 2px;
+}
+
+.subNav {
+    margin: 20px 15px;
+
+}
+
+.subNav a {
+    padding: 5px 10px;
+    margin: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(8, 5, 95);
+}
+
+.subNav .active {
+    border-bottom: 3px solid goldenrod;
+}
+
+.NavBar {
+    display: flex;
+}
+
+.NavBar a {
+    text-decoration: none;
+    /* margin: 0 10px; */
+    width: 120px;
+}
+
+.NavBar .active {
+    font-weight: bold;
+}
+
+.tableContainer {
+    margin: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333333;
+}
+
+.consultantTable {
+    font-size: 14px;
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.consultantTable th {
+  background-color: #f8fafc;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 14px 16px;
+  border-bottom: 2px solid #e2e8f0;
+}
+.consultantTable td {
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+.consultantTable tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.consultantTable tr:hover {
+  background-color: #c4c6c7;
+  transition: background-color 0.2s ease;
+}
+.packageName, .fullName{
+    color: teal;
+    font-weight: bold;
+}
+.confirmed, .open, .approved, .assigned{
+    color: green;
+}
+.completed, .new{
+    color: blueviolet;
+}
+.cancelled, .rejected{
+    color: red;
+}
+.pending{
+    color: orangered;
+}
+.contacted, .resolved{
+    color: blue;
+}
+.quotation, .processing{
+    color: rgb(119, 114, 4);
+}
+.closed{
+    color: red;
+}
+.reportLink{
+    width: 150px;
+    margin: 0 auto 15px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.reportLink a{
+    text-decoration: none;
+    color: #FFF;
+   
+   
+
 }

@@ -1,7 +1,9 @@
 import React from "react";
 import abt from '../assets/abt.jpg'
+import { useNavigate } from "react-router-dom";
 
 const AboutUs = () => {
+  const navigate = useNavigate()
   return (
     <section className="py-5 bg-light">
       <div className="container">
@@ -51,7 +53,7 @@ const AboutUs = () => {
               travel information.
             </p>
 
-            <button className="btn btn-primary mt-3">
+            <button className="btn btn-primary mt-3" onClick={(e)=>navigate('/packages')}>
               Explore Packages
             </button>
           </div>

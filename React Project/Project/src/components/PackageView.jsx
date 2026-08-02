@@ -4,10 +4,12 @@ import '../css/style.css'
 import StarRating from "./StarRating";
 import ThumbSlider from "./ThumbSlider";
 import Itinerary from "./Itinerary";
+import { useNavigate } from "react-router-dom";
 
 export default function PackageView() {
     const pack = useContext(UserContext).selectedPackage;
-    const IMG_PATH = "src/assets/places/"
+    const IMG_PATH = "../src/assets/places/";
+    const navigate = useNavigate()
     return (<>
         <div>
             <div
@@ -22,7 +24,7 @@ export default function PackageView() {
                 <div className="container-fluild mx-4">
                     <div className="row">
                         <div className="col-sm-9 mt-2">
-                            <p className="textHeadWhite">
+                            <p className="textHeadWhite" onClick={()=>{navigate('/packages')}}>
                                 <i class="bi bi-box-arrow-left me-2"></i>
                                 <span>Back to Packages</span></p>
                             <p style={{ visibility: pack.featured ? 'visible' : 'none', width: '120px' }} className="featuresDivItems">

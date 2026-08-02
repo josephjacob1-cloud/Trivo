@@ -11,6 +11,17 @@ import MyBooking from './components/MyBooking'
 import AboutUs from './components/AboutUs'
 import ContactUs from './components/ContactUs'
 import PackageView from './components/PackageView'
+import { BrowserRouter, Route, Routes, NavLink, useNavigate } from 'react-router-dom'
+import ConsultantList from './components/ConsultantList'
+import ConsultantReports from './components/ConsultantReports'
+import ConsultantAssign from './components/ConsultantAssign'
+import ConsultantRegistration from './components/ConsultantRegistration'
+import MyTours from './components/MyTours'
+import MyEnquiry from './components/MyEnquiry'
+import MySupport from './components/MySupport'
+import MyApprovals from './components/MyApprovals'
+import Login from './components/Login'
+import SignUp from './components/SignUp'
 
 
 
@@ -19,8 +30,8 @@ function App() {
   const [isLogin, setIsLogin] = useState(false)
   const [userName, setUserName] = useState("Guest")
   const [page, setPage] = useState("home")
-  
-  const places =  [
+
+  const places = [
     {
       "id": 1,
       "packageCode": "TW-FR-001",
@@ -1758,2133 +1769,2166 @@ function App() {
       "updatedDate": "2026-07-06"
     },
     {
-  "id": 9,
-  "packageCode": "TW-EG-009",
-  "packageName": "Pyramids & Nile Discovery",
-  "slug": "pyramids-nile-discovery",
+      "id": 9,
+      "packageCode": "TW-EG-009",
+      "packageName": "Pyramids & Nile Discovery",
+      "slug": "pyramids-nile-discovery",
 
-  "destination": {
-    "id": 9,
-    "name": "Pyramids of Giza",
-    "slug": "pyramids-of-giza",
-    "country": "Egypt",
-    "city": "Giza",
-    "continent": "Africa",
-    "category": "Ancient Wonder",
-    "description": "The Pyramids of Giza are among the oldest and most magnificent monuments in the world. Built over 4,500 years ago, they are the only surviving Wonder of the Ancient World and continue to attract millions of visitors every year.",
+      "destination": {
+        "id": 9,
+        "name": "Pyramids of Giza",
+        "slug": "pyramids-of-giza",
+        "country": "Egypt",
+        "city": "Giza",
+        "continent": "Africa",
+        "category": "Ancient Wonder",
+        "description": "The Pyramids of Giza are among the oldest and most magnificent monuments in the world. Built over 4,500 years ago, they are the only surviving Wonder of the Ancient World and continue to attract millions of visitors every year.",
 
-    "visitorCountPerYear": "Approximately 14 million",
+        "visitorCountPerYear": "Approximately 14 million",
 
-    "bestTimeToVisit": "October to April",
+        "bestTimeToVisit": "October to April",
 
-    "recommendedVisitDuration": "4-6 hours",
+        "recommendedVisitDuration": "4-6 hours",
 
-    "coordinates": {
-      "latitude": 29.9792,
-      "longitude": 31.1342
-    },
+        "coordinates": {
+          "latitude": 29.9792,
+          "longitude": 31.1342
+        },
 
-    "address": {
-      "street": "Al Haram",
-      "postalCode": "12556",
-      "city": "Giza",
-      "country": "Egypt"
-    },
+        "address": {
+          "street": "Al Haram",
+          "postalCode": "12556",
+          "city": "Giza",
+          "country": "Egypt"
+        },
 
-    "images": {
-      "cover": "pyramids-giza.jpg",
-      "thumbnail": "pyramids-thumb.jpg",
+        "images": {
+          "cover": "pyramids-giza.jpg",
+          "thumbnail": "pyramids-thumb.jpg",
+          "gallery": [
+            "pyramids-gallery-1.jpg",
+            "pyramids-gallery-2.jpg",
+            "sphinx-gallery.jpg",
+            "nile-cruise.jpg"
+          ]
+        },
+
+        "links": {
+          "official": "https://egymonuments.gov.eg",
+          "wikipedia": "https://en.wikipedia.org/wiki/Giza_pyramid_complex",
+          "googleMaps": "https://maps.google.com/?q=29.9792,31.1342"
+        },
+
+        "unesco": true,
+        "newSevenWonders": false,
+
+        "tags": [
+          "Egypt",
+          "Pyramids",
+          "Giza",
+          "Sphinx",
+          "Ancient Egypt"
+        ]
+      },
+
+      "category": "International",
+
+      "tourType": "History & Culture Tour",
+
+      "duration": {
+        "days": 6,
+        "nights": 5,
+        "text": "6 Days / 5 Nights"
+      },
+
+      "price": {
+        "currency": "USD",
+        "original": 1499,
+        "discount": 17,
+        "offer": 1244
+      },
+
+      "rating": {
+        "average": 4.9,
+        "totalReviews": 521
+      },
+
+      "description": "Journey through the land of the Pharaohs with visits to the Great Pyramids of Giza, the Sphinx, Egyptian Museum, Khan El Khalili Bazaar and a relaxing Nile River dinner cruise. Experience Egypt's fascinating history with expert guides and premium accommodation.",
+
+      "coverImage": "giza-package-cover.jpg",
+
       "gallery": [
-        "pyramids-gallery-1.jpg",
-        "pyramids-gallery-2.jpg",
-        "sphinx-gallery.jpg",
-        "nile-cruise.jpg"
-      ]
-    },
+        "giza-1.jpg",
+        "giza-2.jpg",
+        "egyptian-museum.jpg",
+        "nile-evening.jpg"
+      ],
 
-    "links": {
-      "official": "https://egymonuments.gov.eg",
-      "wikipedia": "https://en.wikipedia.org/wiki/Giza_pyramid_complex",
-      "googleMaps": "https://maps.google.com/?q=29.9792,31.1342"
-    },
+      "highlights": [
+        "5-Star Hotel Accommodation",
+        "Daily Breakfast",
+        "Airport Pickup & Drop",
+        "Great Pyramid Entry",
+        "Sphinx Visit",
+        "Egyptian Museum Tour",
+        "Nile River Dinner Cruise",
+        "Khan El Khalili Bazaar",
+        "Professional Egyptologist Guide",
+        "Luxury Air-Conditioned Coach"
+      ],
 
-    "unesco": true,
-    "newSevenWonders": false,
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Cairo",
+          "description": "Airport pickup, hotel check-in and welcome dinner."
+        },
+        {
+          "day": 2,
+          "title": "Pyramids of Giza",
+          "description": "Visit the Great Pyramid, Pyramid of Khafre, Pyramid of Menkaure and the Great Sphinx."
+        },
+        {
+          "day": 3,
+          "title": "Egyptian Museum",
+          "description": "Explore the Egyptian Museum followed by shopping at Khan El Khalili Bazaar."
+        },
+        {
+          "day": 4,
+          "title": "Old Cairo",
+          "description": "Visit Cairo Citadel, Al-Azhar Mosque and enjoy an evening Nile Dinner Cruise."
+        },
+        {
+          "day": 5,
+          "title": "Free Exploration",
+          "description": "Leisure day with optional excursions or shopping."
+        },
+        {
+          "day": 6,
+          "title": "Departure",
+          "description": "Breakfast, hotel checkout and transfer to Cairo International Airport."
+        }
+      ],
 
-    "tags": [
-      "Egypt",
-      "Pyramids",
-      "Giza",
-      "Sphinx",
-      "Ancient Egypt"
-    ]
-  },
+      "inclusions": [
+        "5 Nights Hotel Accommodation",
+        "Daily Breakfast",
+        "Airport Transfers",
+        "Luxury AC Coach",
+        "Professional Egyptologist Guide",
+        "Pyramids Entry Ticket",
+        "Egyptian Museum Ticket",
+        "Nile Dinner Cruise"
+      ],
 
-  "category": "International",
+      "exclusions": [
+        "International Airfare",
+        "Egypt Visa Charges",
+        "Lunch & Dinner (Except Mentioned)",
+        "Travel Insurance",
+        "Personal Expenses",
+        "Camel Ride Charges"
+      ],
 
-  "tourType": "History & Culture Tour",
+      "hotel": {
+        "name": "Steigenberger Pyramids Cairo",
+        "category": "5 Star",
+        "roomType": "Deluxe Pyramid View",
+        "checkIn": "03:00 PM",
+        "checkOut": "12:00 PM",
+        "amenities": [
+          "Swimming Pool",
+          "Free Wi-Fi",
+          "Breakfast Included",
+          "Restaurant",
+          "Fitness Center",
+          "Airport Shuttle"
+        ]
+      },
 
-  "duration": {
-    "days": 6,
-    "nights": 5,
-    "text": "6 Days / 5 Nights"
-  },
+      "transport": {
+        "type": "Luxury Tourist Coach",
+        "pickup": true,
+        "drop": true,
+        "airportTransfer": true
+      },
 
-  "price": {
-    "currency": "USD",
-    "original": 1499,
-    "discount": 17,
-    "offer": 1244
-  },
+      "meetingPoint": "Cairo International Airport (CAI)",
 
-  "rating": {
-    "average": 4.9,
-    "totalReviews": 521
-  },
+      "availableDates": [
+        "2026-09-10",
+        "2026-10-08",
+        "2026-11-12",
+        "2026-12-10"
+      ],
 
-  "description": "Journey through the land of the Pharaohs with visits to the Great Pyramids of Giza, the Sphinx, Egyptian Museum, Khan El Khalili Bazaar and a relaxing Nile River dinner cruise. Experience Egypt's fascinating history with expert guides and premium accommodation.",
+      "maxGuests": 24,
 
-  "coverImage": "giza-package-cover.jpg",
+      "minimumAge": 6,
 
-  "gallery": [
-    "giza-1.jpg",
-    "giza-2.jpg",
-    "egyptian-museum.jpg",
-    "nile-evening.jpg"
-  ],
+      "languages": [
+        "English",
+        "Arabic"
+      ],
 
-  "highlights": [
-    "5-Star Hotel Accommodation",
-    "Daily Breakfast",
-    "Airport Pickup & Drop",
-    "Great Pyramid Entry",
-    "Sphinx Visit",
-    "Egyptian Museum Tour",
-    "Nile River Dinner Cruise",
-    "Khan El Khalili Bazaar",
-    "Professional Egyptologist Guide",
-    "Luxury Air-Conditioned Coach"
-  ],
+      "cancellationPolicy": "Free cancellation up to 7 days before departure.",
 
-  "itinerary": [
-    {
-      "day": 1,
-      "title": "Arrival in Cairo",
-      "description": "Airport pickup, hotel check-in and welcome dinner."
-    },
-    {
-      "day": 2,
-      "title": "Pyramids of Giza",
-      "description": "Visit the Great Pyramid, Pyramid of Khafre, Pyramid of Menkaure and the Great Sphinx."
-    },
-    {
-      "day": 3,
-      "title": "Egyptian Museum",
-      "description": "Explore the Egyptian Museum followed by shopping at Khan El Khalili Bazaar."
-    },
-    {
-      "day": 4,
-      "title": "Old Cairo",
-      "description": "Visit Cairo Citadel, Al-Azhar Mosque and enjoy an evening Nile Dinner Cruise."
-    },
-    {
-      "day": 5,
-      "title": "Free Exploration",
-      "description": "Leisure day with optional excursions or shopping."
-    },
-    {
-      "day": 6,
-      "title": "Departure",
-      "description": "Breakfast, hotel checkout and transfer to Cairo International Airport."
-    }
-  ],
+      "importantInformation": [
+        "Carry your passport throughout the tour.",
+        "Wear lightweight cotton clothing.",
+        "Bring sunscreen, sunglasses and a hat.",
+        "Respect local customs and dress modestly.",
+        "Stay hydrated during desert excursions."
+      ],
 
-  "inclusions": [
-    "5 Nights Hotel Accommodation",
-    "Daily Breakfast",
-    "Airport Transfers",
-    "Luxury AC Coach",
-    "Professional Egyptologist Guide",
-    "Pyramids Entry Ticket",
-    "Egyptian Museum Ticket",
-    "Nile Dinner Cruise"
-  ],
+      "faq": [
+        {
+          "question": "Are pyramid entry tickets included?",
+          "answer": "Yes. Entry to the Giza Plateau is included in the package."
+        },
+        {
+          "question": "Is the Nile Dinner Cruise included?",
+          "answer": "Yes. One evening dinner cruise on the Nile River is included."
+        },
+        {
+          "question": "Can I ride a camel near the pyramids?",
+          "answer": "Yes. Camel rides are available at an additional cost."
+        }
+      ],
 
-  "exclusions": [
-    "International Airfare",
-    "Egypt Visa Charges",
-    "Lunch & Dinner (Except Mentioned)",
-    "Travel Insurance",
-    "Personal Expenses",
-    "Camel Ride Charges"
-  ],
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Ahmed H",
+          "rating": 5,
+          "date": "2026-03-18",
+          "comment": "An unforgettable journey through ancient Egypt. The guide was exceptional."
+        },
+        {
+          "id": 2,
+          "name": "Sophia Green",
+          "rating": 5,
+          "date": "2026-05-02",
+          "comment": "Loved every moment. The Nile dinner cruise was magical."
+        },
+        {
+          "id": 3,
+          "name": "Joseph Mathew",
+          "rating": 4,
+          "date": "2026-06-21",
+          "comment": "Excellent itinerary, comfortable hotel and knowledgeable guides."
+        }
+      ],
 
-  "hotel": {
-    "name": "Steigenberger Pyramids Cairo",
-    "category": "5 Star",
-    "roomType": "Deluxe Pyramid View",
-    "checkIn": "03:00 PM",
-    "checkOut": "12:00 PM",
-    "amenities": [
-      "Swimming Pool",
-      "Free Wi-Fi",
-      "Breakfast Included",
-      "Restaurant",
-      "Fitness Center",
-      "Airport Shuttle"
-    ]
-  },
+      "contact": {
+        "phone": "+20-2-1234-5678",
+        "email": "booking@trivoworld.com",
+        "website": "https://www.trivoworld.com"
+      },
 
-  "transport": {
-    "type": "Luxury Tourist Coach",
-    "pickup": true,
-    "drop": true,
-    "airportTransfer": true
-  },
-
-  "meetingPoint": "Cairo International Airport (CAI)",
-
-  "availableDates": [
-    "2026-09-10",
-    "2026-10-08",
-    "2026-11-12",
-    "2026-12-10"
-  ],
-
-  "maxGuests": 24,
-
-  "minimumAge": 6,
-
-  "languages": [
-    "English",
-    "Arabic"
-  ],
-
-  "cancellationPolicy": "Free cancellation up to 7 days before departure.",
-
-  "importantInformation": [
-    "Carry your passport throughout the tour.",
-    "Wear lightweight cotton clothing.",
-    "Bring sunscreen, sunglasses and a hat.",
-    "Respect local customs and dress modestly.",
-    "Stay hydrated during desert excursions."
-  ],
-
-  "faq": [
-    {
-      "question": "Are pyramid entry tickets included?",
-      "answer": "Yes. Entry to the Giza Plateau is included in the package."
+      "status": "Active",
+      "featured": true,
+      "bookingCount": 1527,
+      "wishlistCount": 684,
+      "createdDate": "2026-03-05",
+      "updatedDate": "2026-07-10"
     },
     {
-      "question": "Is the Nile Dinner Cruise included?",
-      "answer": "Yes. One evening dinner cruise on the Nile River is included."
-    },
-    {
-      "question": "Can I ride a camel near the pyramids?",
-      "answer": "Yes. Camel rides are available at an additional cost."
-    }
-  ],
+      "id": 10,
+      "packageCode": "TW-AU-010",
+      "packageName": "Sydney Harbour Explorer",
+      "slug": "sydney-harbour-explorer",
 
-  "reviews": [
-    {
-      "id": 1,
-      "name": "Ahmed H",
-      "rating": 5,
-      "date": "2026-03-18",
-      "comment": "An unforgettable journey through ancient Egypt. The guide was exceptional."
-    },
-    {
-      "id": 2,
-      "name": "Sophia Green",
-      "rating": 5,
-      "date": "2026-05-02",
-      "comment": "Loved every moment. The Nile dinner cruise was magical."
-    },
-    {
-      "id": 3,
-      "name": "Joseph Mathew",
-      "rating": 4,
-      "date": "2026-06-21",
-      "comment": "Excellent itinerary, comfortable hotel and knowledgeable guides."
-    }
-  ],
+      "destination": {
+        "id": 10,
+        "name": "Sydney Opera House",
+        "slug": "sydney-opera-house",
+        "country": "Australia",
+        "city": "Sydney",
+        "continent": "Australia",
+        "category": "Performing Arts Centre",
+        "description": "The Sydney Opera House is one of the world's most recognizable architectural masterpieces and a UNESCO World Heritage Site. Located on Sydney Harbour, it is Australia's most iconic landmark.",
 
-  "contact": {
-    "phone": "+20-2-1234-5678",
-    "email": "booking@trivoworld.com",
-    "website": "https://www.trivoworld.com"
-  },
+        "visitorCountPerYear": "Approximately 10.9 million",
 
-  "status": "Active",
-  "featured": true,
-  "bookingCount": 1527,
-  "wishlistCount": 684,
-  "createdDate": "2026-03-05",
-  "updatedDate": "2026-07-10"
-},
-{
-  "id": 10,
-  "packageCode": "TW-AU-010",
-  "packageName": "Sydney Harbour Explorer",
-  "slug": "sydney-harbour-explorer",
+        "bestTimeToVisit": "September to November, March to May",
 
-  "destination": {
-    "id": 10,
-    "name": "Sydney Opera House",
-    "slug": "sydney-opera-house",
-    "country": "Australia",
-    "city": "Sydney",
-    "continent": "Australia",
-    "category": "Performing Arts Centre",
-    "description": "The Sydney Opera House is one of the world's most recognizable architectural masterpieces and a UNESCO World Heritage Site. Located on Sydney Harbour, it is Australia's most iconic landmark.",
+        "recommendedVisitDuration": "3-5 hours",
 
-    "visitorCountPerYear": "Approximately 10.9 million",
+        "coordinates": {
+          "latitude": -33.8568,
+          "longitude": 151.2153
+        },
 
-    "bestTimeToVisit": "September to November, March to May",
+        "address": {
+          "street": "Bennelong Point",
+          "postalCode": "2000",
+          "city": "Sydney",
+          "country": "Australia"
+        },
 
-    "recommendedVisitDuration": "3-5 hours",
+        "images": {
+          "cover": "sydney-opera-house-harbour-bridge.jpg",
+          "thumbnail": "opera-house-thumb.jpg",
+          "gallery": [
+            "opera-gallery-1.jpg",
+            "opera-gallery-2.jpg",
+            "harbour-bridge.jpg",
+            "bondi-beach.jpg"
+          ]
+        },
 
-    "coordinates": {
-      "latitude": -33.8568,
-      "longitude": 151.2153
-    },
+        "links": {
+          "official": "https://www.sydneyoperahouse.com",
+          "wikipedia": "https://en.wikipedia.org/wiki/Sydney_Opera_House",
+          "googleMaps": "https://maps.google.com/?q=-33.8568,151.2153"
+        },
 
-    "address": {
-      "street": "Bennelong Point",
-      "postalCode": "2000",
-      "city": "Sydney",
-      "country": "Australia"
-    },
+        "unesco": true,
+        "newSevenWonders": false,
 
-    "images": {
-      "cover": "sydney-opera-house-harbour-bridge.jpg",
-      "thumbnail": "opera-house-thumb.jpg",
+        "tags": [
+          "Australia",
+          "Sydney",
+          "Opera House",
+          "UNESCO",
+          "Harbour"
+        ]
+      },
+
+      "category": "International",
+
+      "tourType": "City & Sightseeing Tour",
+
+      "duration": {
+        "days": 6,
+        "nights": 5,
+        "text": "6 Days / 5 Nights"
+      },
+
+      "price": {
+        "currency": "USD",
+        "original": 1699,
+        "discount": 15,
+        "offer": 1444
+      },
+
+      "rating": {
+        "average": 4.9,
+        "totalReviews": 476
+      },
+
+      "description": "Experience the beauty of Sydney with guided tours of the Sydney Opera House, Sydney Harbour Bridge, Bondi Beach, Darling Harbour and the Blue Mountains. Enjoy premium accommodation, scenic harbour cruises and unforgettable Australian hospitality.",
+
+      "coverImage": "sydney-package-cover.jpg",
+
       "gallery": [
-        "opera-gallery-1.jpg",
-        "opera-gallery-2.jpg",
-        "harbour-bridge.jpg",
-        "bondi-beach.jpg"
-      ]
-    },
+        "sydney-1.jpg",
+        "opera-house-night.jpg",
+        "bondi-beach.jpg",
+        "blue-mountains.jpg"
+      ],
 
-    "links": {
-      "official": "https://www.sydneyoperahouse.com",
-      "wikipedia": "https://en.wikipedia.org/wiki/Sydney_Opera_House",
-      "googleMaps": "https://maps.google.com/?q=-33.8568,151.2153"
-    },
+      "highlights": [
+        "4-Star Harbour View Hotel",
+        "Daily Breakfast",
+        "Airport Pickup & Drop",
+        "Sydney Opera House Guided Tour",
+        "Sydney Harbour Cruise",
+        "Harbour Bridge Photo Stop",
+        "Bondi Beach Visit",
+        "Blue Mountains Day Trip",
+        "Professional English Guide",
+        "Luxury Air-Conditioned Coach"
+      ],
 
-    "unesco": true,
-    "newSevenWonders": false,
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Sydney",
+          "description": "Airport pickup, hotel check-in and evening stroll around Circular Quay."
+        },
+        {
+          "day": 2,
+          "title": "Sydney City Tour",
+          "description": "Guided visit to the Sydney Opera House, Royal Botanic Garden and Harbour Bridge."
+        },
+        {
+          "day": 3,
+          "title": "Harbour Cruise & Bondi",
+          "description": "Enjoy a scenic Sydney Harbour Cruise followed by leisure time at Bondi Beach."
+        },
+        {
+          "day": 4,
+          "title": "Blue Mountains",
+          "description": "Full-day excursion to the Blue Mountains, Scenic World and Three Sisters lookout."
+        },
+        {
+          "day": 5,
+          "title": "Darling Harbour",
+          "description": "Visit Darling Harbour, SEA LIFE Aquarium and enjoy shopping at Queen Victoria Building."
+        },
+        {
+          "day": 6,
+          "title": "Departure",
+          "description": "Breakfast, hotel checkout and transfer to Sydney Airport."
+        }
+      ],
 
-    "tags": [
-      "Australia",
-      "Sydney",
-      "Opera House",
-      "UNESCO",
-      "Harbour"
-    ]
-  },
+      "inclusions": [
+        "5 Nights Hotel Accommodation",
+        "Daily Breakfast",
+        "Airport Transfers",
+        "Luxury AC Coach",
+        "Professional Tour Guide",
+        "Sydney Opera House Guided Tour",
+        "Sydney Harbour Cruise",
+        "Blue Mountains Excursion",
+        "City Sightseeing"
+      ],
 
-  "category": "International",
+      "exclusions": [
+        "International Airfare",
+        "Australian Visa Charges",
+        "Lunch & Dinner",
+        "Travel Insurance",
+        "Personal Expenses",
+        "Optional Adventure Activities"
+      ],
 
-  "tourType": "City & Sightseeing Tour",
+      "hotel": {
+        "name": "Amora Hotel Jamison Sydney",
+        "category": "5 Star",
+        "roomType": "Deluxe Harbour View",
+        "checkIn": "03:00 PM",
+        "checkOut": "11:00 AM",
+        "amenities": [
+          "Free Wi-Fi",
+          "Indoor Swimming Pool",
+          "Spa",
+          "Fitness Centre",
+          "Restaurant",
+          "Breakfast Included"
+        ]
+      },
 
-  "duration": {
-    "days": 6,
-    "nights": 5,
-    "text": "6 Days / 5 Nights"
-  },
+      "transport": {
+        "type": "Luxury Tourist Coach",
+        "pickup": true,
+        "drop": true,
+        "airportTransfer": true
+      },
 
-  "price": {
-    "currency": "USD",
-    "original": 1699,
-    "discount": 15,
-    "offer": 1444
-  },
+      "meetingPoint": "Sydney Kingsford Smith Airport (SYD)",
 
-  "rating": {
-    "average": 4.9,
-    "totalReviews": 476
-  },
+      "availableDates": [
+        "2026-09-18",
+        "2026-10-16",
+        "2026-11-20",
+        "2026-12-18"
+      ],
 
-  "description": "Experience the beauty of Sydney with guided tours of the Sydney Opera House, Sydney Harbour Bridge, Bondi Beach, Darling Harbour and the Blue Mountains. Enjoy premium accommodation, scenic harbour cruises and unforgettable Australian hospitality.",
+      "maxGuests": 26,
 
-  "coverImage": "sydney-package-cover.jpg",
+      "minimumAge": 5,
 
-  "gallery": [
-    "sydney-1.jpg",
-    "opera-house-night.jpg",
-    "bondi-beach.jpg",
-    "blue-mountains.jpg"
-  ],
+      "languages": [
+        "English"
+      ],
 
-  "highlights": [
-    "4-Star Harbour View Hotel",
-    "Daily Breakfast",
-    "Airport Pickup & Drop",
-    "Sydney Opera House Guided Tour",
-    "Sydney Harbour Cruise",
-    "Harbour Bridge Photo Stop",
-    "Bondi Beach Visit",
-    "Blue Mountains Day Trip",
-    "Professional English Guide",
-    "Luxury Air-Conditioned Coach"
-  ],
+      "cancellationPolicy": "Free cancellation up to 7 days before departure.",
 
-  "itinerary": [
-    {
-      "day": 1,
-      "title": "Arrival in Sydney",
-      "description": "Airport pickup, hotel check-in and evening stroll around Circular Quay."
-    },
-    {
-      "day": 2,
-      "title": "Sydney City Tour",
-      "description": "Guided visit to the Sydney Opera House, Royal Botanic Garden and Harbour Bridge."
-    },
-    {
-      "day": 3,
-      "title": "Harbour Cruise & Bondi",
-      "description": "Enjoy a scenic Sydney Harbour Cruise followed by leisure time at Bondi Beach."
-    },
-    {
-      "day": 4,
-      "title": "Blue Mountains",
-      "description": "Full-day excursion to the Blue Mountains, Scenic World and Three Sisters lookout."
-    },
-    {
-      "day": 5,
-      "title": "Darling Harbour",
-      "description": "Visit Darling Harbour, SEA LIFE Aquarium and enjoy shopping at Queen Victoria Building."
-    },
-    {
-      "day": 6,
-      "title": "Departure",
-      "description": "Breakfast, hotel checkout and transfer to Sydney Airport."
-    }
-  ],
+      "importantInformation": [
+        "Carry a valid passport and Australian visa.",
+        "Wear comfortable walking shoes.",
+        "Bring sunscreen, sunglasses and a hat.",
+        "Weather can change quickly, so carry a light jacket.",
+        "Swimming at Bondi Beach should only be between the safety flags."
+      ],
 
-  "inclusions": [
-    "5 Nights Hotel Accommodation",
-    "Daily Breakfast",
-    "Airport Transfers",
-    "Luxury AC Coach",
-    "Professional Tour Guide",
-    "Sydney Opera House Guided Tour",
-    "Sydney Harbour Cruise",
-    "Blue Mountains Excursion",
-    "City Sightseeing"
-  ],
+      "faq": [
+        {
+          "question": "Is the Sydney Harbour Cruise included?",
+          "answer": "Yes. A scenic harbour cruise is included in the package."
+        },
+        {
+          "question": "Does the package include the Blue Mountains?",
+          "answer": "Yes. A full-day Blue Mountains excursion is included."
+        },
+        {
+          "question": "Can I attend an Opera House performance?",
+          "answer": "Performance tickets can be arranged at an additional cost, subject to availability."
+        }
+      ],
 
-  "exclusions": [
-    "International Airfare",
-    "Australian Visa Charges",
-    "Lunch & Dinner",
-    "Travel Insurance",
-    "Personal Expenses",
-    "Optional Adventure Activities"
-  ],
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Olivia Brown",
+          "rating": 5,
+          "date": "2026-04-22",
+          "comment": "Fantastic trip! The harbour cruise and Opera House tour were unforgettable."
+        },
+        {
+          "id": 2,
+          "name": "Daniel Harris",
+          "rating": 5,
+          "date": "2026-05-27",
+          "comment": "Excellent hotel, great itinerary and wonderful guides."
+        },
+        {
+          "id": 3,
+          "name": "Neha Menon",
+          "rating": 4,
+          "date": "2026-06-18",
+          "comment": "Beautiful destinations with plenty of time to explore Sydney on our own."
+        }
+      ],
 
-  "hotel": {
-    "name": "Amora Hotel Jamison Sydney",
-    "category": "5 Star",
-    "roomType": "Deluxe Harbour View",
-    "checkIn": "03:00 PM",
-    "checkOut": "11:00 AM",
-    "amenities": [
-      "Free Wi-Fi",
-      "Indoor Swimming Pool",
-      "Spa",
-      "Fitness Centre",
-      "Restaurant",
-      "Breakfast Included"
-    ]
-  },
+      "contact": {
+        "phone": "+61-2-9876-5432",
+        "email": "booking@trivoworld.com",
+        "website": "https://www.trivoworld.com"
+      },
 
-  "transport": {
-    "type": "Luxury Tourist Coach",
-    "pickup": true,
-    "drop": true,
-    "airportTransfer": true
-  },
-
-  "meetingPoint": "Sydney Kingsford Smith Airport (SYD)",
-
-  "availableDates": [
-    "2026-09-18",
-    "2026-10-16",
-    "2026-11-20",
-    "2026-12-18"
-  ],
-
-  "maxGuests": 26,
-
-  "minimumAge": 5,
-
-  "languages": [
-    "English"
-  ],
-
-  "cancellationPolicy": "Free cancellation up to 7 days before departure.",
-
-  "importantInformation": [
-    "Carry a valid passport and Australian visa.",
-    "Wear comfortable walking shoes.",
-    "Bring sunscreen, sunglasses and a hat.",
-    "Weather can change quickly, so carry a light jacket.",
-    "Swimming at Bondi Beach should only be between the safety flags."
-  ],
-
-  "faq": [
-    {
-      "question": "Is the Sydney Harbour Cruise included?",
-      "answer": "Yes. A scenic harbour cruise is included in the package."
+      "status": "Active",
+      "featured": true,
+      "bookingCount": 1384,
+      "wishlistCount": 642,
+      "createdDate": "2026-03-10",
+      "updatedDate": "2026-07-12"
     },
     {
-      "question": "Does the package include the Blue Mountains?",
-      "answer": "Yes. A full-day Blue Mountains excursion is included."
-    },
-    {
-      "question": "Can I attend an Opera House performance?",
-      "answer": "Performance tickets can be arranged at an additional cost, subject to availability."
-    }
-  ],
+      "id": 11,
+      "packageCode": "TW-IN-011",
+      "packageName": "Golden Temple Spiritual Retreat",
+      "slug": "golden-temple-spiritual-retreat",
 
-  "reviews": [
-    {
-      "id": 1,
-      "name": "Olivia Brown",
-      "rating": 5,
-      "date": "2026-04-22",
-      "comment": "Fantastic trip! The harbour cruise and Opera House tour were unforgettable."
-    },
-    {
-      "id": 2,
-      "name": "Daniel Harris",
-      "rating": 5,
-      "date": "2026-05-27",
-      "comment": "Excellent hotel, great itinerary and wonderful guides."
-    },
-    {
-      "id": 3,
-      "name": "Neha Menon",
-      "rating": 4,
-      "date": "2026-06-18",
-      "comment": "Beautiful destinations with plenty of time to explore Sydney on our own."
-    }
-  ],
+      "destination": {
+        "id": 11,
+        "name": "Golden Temple",
+        "slug": "golden-temple",
+        "country": "India",
+        "city": "Amritsar",
+        "continent": "Asia",
+        "category": "Religious Site",
+        "description": "The Golden Temple, also known as Sri Harmandir Sahib, is the holiest Gurdwara of Sikhism. Famous for its golden architecture, sacred lake and community kitchen, it welcomes millions of pilgrims and tourists every year.",
 
-  "contact": {
-    "phone": "+61-2-9876-5432",
-    "email": "booking@trivoworld.com",
-    "website": "https://www.trivoworld.com"
-  },
+        "visitorCountPerYear": "Approximately 6 million",
 
-  "status": "Active",
-  "featured": true,
-  "bookingCount": 1384,
-  "wishlistCount": 642,
-  "createdDate": "2026-03-10",
-  "updatedDate": "2026-07-12"
-},
-{
-  "id": 11,
-  "packageCode": "TW-IN-011",
-  "packageName": "Golden Temple Spiritual Retreat",
-  "slug": "golden-temple-spiritual-retreat",
+        "bestTimeToVisit": "October to March",
 
-  "destination": {
-    "id": 11,
-    "name": "Golden Temple",
-    "slug": "golden-temple",
-    "country": "India",
-    "city": "Amritsar",
-    "continent": "Asia",
-    "category": "Religious Site",
-    "description": "The Golden Temple, also known as Sri Harmandir Sahib, is the holiest Gurdwara of Sikhism. Famous for its golden architecture, sacred lake and community kitchen, it welcomes millions of pilgrims and tourists every year.",
+        "recommendedVisitDuration": "4-5 hours",
 
-    "visitorCountPerYear": "Approximately 6 million",
+        "coordinates": {
+          "latitude": 31.6200,
+          "longitude": 74.8765
+        },
 
-    "bestTimeToVisit": "October to March",
+        "address": {
+          "street": "Golden Temple Road",
+          "postalCode": "143006",
+          "city": "Amritsar",
+          "country": "India"
+        },
 
-    "recommendedVisitDuration": "4-5 hours",
+        "images": {
+          "cover": "hagia-sophia-istanbul-1.jpg",
+          "thumbnail": "golden-temple-thumb.jpg",
+          "gallery": [
+            "golden-temple-1.jpg",
+            "golden-temple-2.jpg",
+            "langar-hall.jpg",
+            "wagah-border.jpg"
+          ]
+        },
 
-    "coordinates": {
-      "latitude": 31.6200,
-      "longitude": 74.8765
-    },
+        "links": {
+          "official": "https://sgpc.net",
+          "wikipedia": "https://en.wikipedia.org/wiki/Golden_Temple",
+          "googleMaps": "https://maps.google.com/?q=31.6200,74.8765"
+        },
 
-    "address": {
-      "street": "Golden Temple Road",
-      "postalCode": "143006",
-      "city": "Amritsar",
-      "country": "India"
-    },
+        "unesco": false,
+        "newSevenWonders": false,
 
-    "images": {
-      "cover": "hagia-sophia-istanbul-1.jpg",
-      "thumbnail": "golden-temple-thumb.jpg",
+        "tags": [
+          "India",
+          "Punjab",
+          "Golden Temple",
+          "Amritsar",
+          "Spiritual"
+        ]
+      },
+
+      "category": "Domestic",
+
+      "tourType": "Spiritual & Heritage Tour",
+
+      "duration": {
+        "days": 4,
+        "nights": 3,
+        "text": "4 Days / 3 Nights"
+      },
+
+      "price": {
+        "currency": "USD",
+        "original": 499,
+        "discount": 12,
+        "offer": 439
+      },
+
+      "rating": {
+        "average": 4.9,
+        "totalReviews": 692
+      },
+
+      "description": "Experience the spiritual atmosphere of the Golden Temple, witness the famous Wagah Border ceremony, explore the historic Jallianwala Bagh and enjoy authentic Punjabi hospitality and cuisine.",
+
+      "coverImage": "golden-temple-package-cover.jpg",
+
       "gallery": [
-        "golden-temple-1.jpg",
-        "golden-temple-2.jpg",
-        "langar-hall.jpg",
-        "wagah-border.jpg"
-      ]
-    },
+        "amritsar-1.jpg",
+        "golden-temple-night.jpg",
+        "wagah-border-ceremony.jpg",
+        "jallianwala-bagh.jpg"
+      ],
 
-    "links": {
-      "official": "https://sgpc.net",
-      "wikipedia": "https://en.wikipedia.org/wiki/Golden_Temple",
-      "googleMaps": "https://maps.google.com/?q=31.6200,74.8765"
-    },
+      "highlights": [
+        "4-Star Hotel Accommodation",
+        "Daily Breakfast",
+        "Railway Station / Airport Pickup & Drop",
+        "Golden Temple Guided Visit",
+        "Langar Experience",
+        "Jallianwala Bagh Tour",
+        "Wagah Border Ceremony",
+        "Local Punjabi Food Tour",
+        "Professional Tour Guide",
+        "Luxury AC Vehicle"
+      ],
 
-    "unesco": false,
-    "newSevenWonders": false,
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Amritsar",
+          "description": "Pickup from airport or railway station, hotel check-in and evening visit to the illuminated Golden Temple."
+        },
+        {
+          "day": 2,
+          "title": "Golden Temple & Heritage",
+          "description": "Morning prayers at the Golden Temple, Langar experience and visit to Jallianwala Bagh."
+        },
+        {
+          "day": 3,
+          "title": "Wagah Border",
+          "description": "Explore local markets before witnessing the famous Beating Retreat Ceremony at Wagah Border."
+        },
+        {
+          "day": 4,
+          "title": "Departure",
+          "description": "Breakfast, hotel checkout and transfer to Sri Guru Ram Dass Jee International Airport or Amritsar Railway Station."
+        }
+      ],
 
-    "tags": [
-      "India",
-      "Punjab",
-      "Golden Temple",
-      "Amritsar",
-      "Spiritual"
-    ]
-  },
+      "inclusions": [
+        "3 Nights Hotel Accommodation",
+        "Daily Breakfast",
+        "Airport/Railway Transfers",
+        "Luxury AC Vehicle",
+        "Professional Tour Guide",
+        "Golden Temple Guided Tour",
+        "Wagah Border Visit",
+        "Sightseeing as per Itinerary"
+      ],
 
-  "category": "Domestic",
+      "exclusions": [
+        "Airfare / Train Tickets",
+        "Lunch & Dinner (Except Complimentary Langar)",
+        "Travel Insurance",
+        "Personal Expenses",
+        "Shopping Expenses",
+        "Optional Activities"
+      ],
 
-  "tourType": "Spiritual & Heritage Tour",
+      "hotel": {
+        "name": "Ramada by Wyndham Amritsar",
+        "category": "4 Star",
+        "roomType": "Deluxe Room",
+        "checkIn": "02:00 PM",
+        "checkOut": "11:00 AM",
+        "amenities": [
+          "Free Wi-Fi",
+          "Swimming Pool",
+          "Restaurant",
+          "Fitness Centre",
+          "Breakfast Included"
+        ]
+      },
 
-  "duration": {
-    "days": 4,
-    "nights": 3,
-    "text": "4 Days / 3 Nights"
-  },
+      "transport": {
+        "type": "Luxury AC Coach",
+        "pickup": true,
+        "drop": true,
+        "airportTransfer": true
+      },
 
-  "price": {
-    "currency": "USD",
-    "original": 499,
-    "discount": 12,
-    "offer": 439
-  },
+      "meetingPoint": "Sri Guru Ram Dass Jee International Airport (ATQ)",
 
-  "rating": {
-    "average": 4.9,
-    "totalReviews": 692
-  },
+      "availableDates": [
+        "2026-09-06",
+        "2026-10-04",
+        "2026-11-08",
+        "2026-12-13"
+      ],
 
-  "description": "Experience the spiritual atmosphere of the Golden Temple, witness the famous Wagah Border ceremony, explore the historic Jallianwala Bagh and enjoy authentic Punjabi hospitality and cuisine.",
+      "maxGuests": 30,
 
-  "coverImage": "golden-temple-package-cover.jpg",
+      "minimumAge": 2,
 
-  "gallery": [
-    "amritsar-1.jpg",
-    "golden-temple-night.jpg",
-    "wagah-border-ceremony.jpg",
-    "jallianwala-bagh.jpg"
-  ],
+      "languages": [
+        "English",
+        "Hindi",
+        "Punjabi"
+      ],
 
-  "highlights": [
-    "4-Star Hotel Accommodation",
-    "Daily Breakfast",
-    "Railway Station / Airport Pickup & Drop",
-    "Golden Temple Guided Visit",
-    "Langar Experience",
-    "Jallianwala Bagh Tour",
-    "Wagah Border Ceremony",
-    "Local Punjabi Food Tour",
-    "Professional Tour Guide",
-    "Luxury AC Vehicle"
-  ],
+      "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
 
-  "itinerary": [
-    {
-      "day": 1,
-      "title": "Arrival in Amritsar",
-      "description": "Pickup from airport or railway station, hotel check-in and evening visit to the illuminated Golden Temple."
-    },
-    {
-      "day": 2,
-      "title": "Golden Temple & Heritage",
-      "description": "Morning prayers at the Golden Temple, Langar experience and visit to Jallianwala Bagh."
-    },
-    {
-      "day": 3,
-      "title": "Wagah Border",
-      "description": "Explore local markets before witnessing the famous Beating Retreat Ceremony at Wagah Border."
-    },
-    {
-      "day": 4,
-      "title": "Departure",
-      "description": "Breakfast, hotel checkout and transfer to Sri Guru Ram Dass Jee International Airport or Amritsar Railway Station."
-    }
-  ],
+      "importantInformation": [
+        "Head covering is mandatory inside the Golden Temple.",
+        "Shoes must be removed before entering the temple complex.",
+        "Dress modestly while visiting religious places.",
+        "Photography is restricted in certain areas.",
+        "Carry a valid government-issued photo ID."
+      ],
 
-  "inclusions": [
-    "3 Nights Hotel Accommodation",
-    "Daily Breakfast",
-    "Airport/Railway Transfers",
-    "Luxury AC Vehicle",
-    "Professional Tour Guide",
-    "Golden Temple Guided Tour",
-    "Wagah Border Visit",
-    "Sightseeing as per Itinerary"
-  ],
+      "faq": [
+        {
+          "question": "Is entry to the Golden Temple free?",
+          "answer": "Yes. Entry is free for everyone regardless of religion."
+        },
+        {
+          "question": "Is Langar included?",
+          "answer": "Yes. Visitors can enjoy the free community meal (Langar)."
+        },
+        {
+          "question": "Is the Wagah Border ceremony included?",
+          "answer": "Yes. Transportation and guided visit are included."
+        }
+      ],
 
-  "exclusions": [
-    "Airfare / Train Tickets",
-    "Lunch & Dinner (Except Complimentary Langar)",
-    "Travel Insurance",
-    "Personal Expenses",
-    "Shopping Expenses",
-    "Optional Activities"
-  ],
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Harpreet Singh",
+          "rating": 5,
+          "date": "2026-03-11",
+          "comment": "A peaceful and unforgettable spiritual experience. Everything was perfectly organized."
+        },
+        {
+          "id": 2,
+          "name": "Maria Lopez",
+          "rating": 5,
+          "date": "2026-04-24",
+          "comment": "Beautiful place, excellent guide and the Langar experience was truly memorable."
+        },
+        {
+          "id": 3,
+          "name": "Vishnu Raj",
+          "rating": 4,
+          "date": "2026-06-17",
+          "comment": "Great itinerary with comfortable accommodation and excellent transportation."
+        }
+      ],
 
-  "hotel": {
-    "name": "Ramada by Wyndham Amritsar",
-    "category": "4 Star",
-    "roomType": "Deluxe Room",
-    "checkIn": "02:00 PM",
-    "checkOut": "11:00 AM",
-    "amenities": [
-      "Free Wi-Fi",
-      "Swimming Pool",
-      "Restaurant",
-      "Fitness Centre",
-      "Breakfast Included"
-    ]
-  },
+      "contact": {
+        "phone": "+91-183-400-5678",
+        "email": "booking@trivoworld.com",
+        "website": "https://www.trivoworld.com"
+      },
 
-  "transport": {
-    "type": "Luxury AC Coach",
-    "pickup": true,
-    "drop": true,
-    "airportTransfer": true
-  },
-
-  "meetingPoint": "Sri Guru Ram Dass Jee International Airport (ATQ)",
-
-  "availableDates": [
-    "2026-09-06",
-    "2026-10-04",
-    "2026-11-08",
-    "2026-12-13"
-  ],
-
-  "maxGuests": 30,
-
-  "minimumAge": 2,
-
-  "languages": [
-    "English",
-    "Hindi",
-    "Punjabi"
-  ],
-
-  "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
-
-  "importantInformation": [
-    "Head covering is mandatory inside the Golden Temple.",
-    "Shoes must be removed before entering the temple complex.",
-    "Dress modestly while visiting religious places.",
-    "Photography is restricted in certain areas.",
-    "Carry a valid government-issued photo ID."
-  ],
-
-  "faq": [
-    {
-      "question": "Is entry to the Golden Temple free?",
-      "answer": "Yes. Entry is free for everyone regardless of religion."
+      "status": "Active",
+      "featured": true,
+      "bookingCount": 1846,
+      "wishlistCount": 918,
+      "createdDate": "2026-03-15",
+      "updatedDate": "2026-07-15"
     },
     {
-      "question": "Is Langar included?",
-      "answer": "Yes. Visitors can enjoy the free community meal (Langar)."
-    },
-    {
-      "question": "Is the Wagah Border ceremony included?",
-      "answer": "Yes. Transportation and guided visit are included."
-    }
-  ],
+      "id": 12,
+      "packageCode": "TW-MX-012",
+      "packageName": "Chichen Itza Heritage Adventure",
+      "slug": "chichen-itza-heritage-adventure",
 
-  "reviews": [
-    {
-      "id": 1,
-      "name": "Harpreet Singh",
-      "rating": 5,
-      "date": "2026-03-11",
-      "comment": "A peaceful and unforgettable spiritual experience. Everything was perfectly organized."
-    },
-    {
-      "id": 2,
-      "name": "Maria Lopez",
-      "rating": 5,
-      "date": "2026-04-24",
-      "comment": "Beautiful place, excellent guide and the Langar experience was truly memorable."
-    },
-    {
-      "id": 3,
-      "name": "Vishnu Raj",
-      "rating": 4,
-      "date": "2026-06-17",
-      "comment": "Great itinerary with comfortable accommodation and excellent transportation."
-    }
-  ],
+      "destination": {
+        "id": 12,
+        "name": "Chichen Itza",
+        "slug": "chichen-itza",
+        "country": "Mexico",
+        "city": "Yucatán",
+        "continent": "North America",
+        "category": "Archaeological Site",
+        "description": "Chichen Itza is one of the most important archaeological sites of the ancient Maya civilization and is renowned for the iconic El Castillo pyramid. It is both a UNESCO World Heritage Site and one of the New Seven Wonders of the World.",
 
-  "contact": {
-    "phone": "+91-183-400-5678",
-    "email": "booking@trivoworld.com",
-    "website": "https://www.trivoworld.com"
-  },
+        "visitorCountPerYear": "Approximately 2.6 million",
 
-  "status": "Active",
-  "featured": true,
-  "bookingCount": 1846,
-  "wishlistCount": 918,
-  "createdDate": "2026-03-15",
-  "updatedDate": "2026-07-15"
-},
-{
-  "id": 12,
-  "packageCode": "TW-MX-012",
-  "packageName": "Chichen Itza Heritage Adventure",
-  "slug": "chichen-itza-heritage-adventure",
+        "bestTimeToVisit": "November to April",
 
-  "destination": {
-    "id": 12,
-    "name": "Chichen Itza",
-    "slug": "chichen-itza",
-    "country": "Mexico",
-    "city": "Yucatán",
-    "continent": "North America",
-    "category": "Archaeological Site",
-    "description": "Chichen Itza is one of the most important archaeological sites of the ancient Maya civilization and is renowned for the iconic El Castillo pyramid. It is both a UNESCO World Heritage Site and one of the New Seven Wonders of the World.",
+        "recommendedVisitDuration": "5-6 hours",
 
-    "visitorCountPerYear": "Approximately 2.6 million",
+        "coordinates": {
+          "latitude": 20.6843,
+          "longitude": -88.5678
+        },
 
-    "bestTimeToVisit": "November to April",
+        "address": {
+          "street": "Carretera Mérida - Puerto Juárez",
+          "postalCode": "97751",
+          "city": "Yucatán",
+          "country": "Mexico"
+        },
 
-    "recommendedVisitDuration": "5-6 hours",
+        "images": {
+          "cover": "chichen-itza-mayan-ruins.jpg",
+          "thumbnail": "chichen-itza-thumb.jpg",
+          "gallery": [
+            "chichen-gallery-1.jpg",
+            "el-castillo.jpg",
+            "cenote-ik-kil.jpg",
+            "valladolid-city.jpg"
+          ]
+        },
 
-    "coordinates": {
-      "latitude": 20.6843,
-      "longitude": -88.5678
-    },
+        "links": {
+          "official": "https://www.inah.gob.mx",
+          "wikipedia": "https://en.wikipedia.org/wiki/Chichen_Itza",
+          "googleMaps": "https://maps.google.com/?q=20.6843,-88.5678"
+        },
 
-    "address": {
-      "street": "Carretera Mérida - Puerto Juárez",
-      "postalCode": "97751",
-      "city": "Yucatán",
-      "country": "Mexico"
-    },
+        "unesco": true,
+        "newSevenWonders": true,
 
-    "images": {
-      "cover": "chichen-itza-mayan-ruins.jpg",
-      "thumbnail": "chichen-itza-thumb.jpg",
+        "tags": [
+          "Mexico",
+          "Chichen Itza",
+          "Maya",
+          "UNESCO",
+          "Wonder"
+        ]
+      },
+
+      "category": "International",
+
+      "tourType": "Culture & Heritage Tour",
+
+      "duration": {
+        "days": 5,
+        "nights": 4,
+        "text": "5 Days / 4 Nights"
+      },
+
+      "price": {
+        "currency": "USD",
+        "original": 1349,
+        "discount": 16,
+        "offer": 1133
+      },
+
+      "rating": {
+        "average": 2.9,
+        "totalReviews": 437
+      },
+
+      "description": "Explore the legendary Mayan city of Chichen Itza, swim in the crystal-clear Cenote Ik Kil, stroll through the colonial streets of Valladolid, and experience authentic Mexican culture with expert local guides.",
+
+      "coverImage": "chichen-package-cover.jpg",
+
       "gallery": [
-        "chichen-gallery-1.jpg",
-        "el-castillo.jpg",
-        "cenote-ik-kil.jpg",
-        "valladolid-city.jpg"
-      ]
-    },
+        "maya-ruins.jpg",
+        "cenote-tour.jpg",
+        "valladolid-square.jpg",
+        "mexico-cultural-show.jpg"
+      ],
 
-    "links": {
-      "official": "https://www.inah.gob.mx",
-      "wikipedia": "https://en.wikipedia.org/wiki/Chichen_Itza",
-      "googleMaps": "https://maps.google.com/?q=20.6843,-88.5678"
-    },
+      "highlights": [
+        "4-Star Resort Accommodation",
+        "Daily Breakfast",
+        "Airport Pickup & Drop",
+        "Chichen Itza Guided Tour",
+        "Cenote Ik Kil Swimming Experience",
+        "Valladolid City Tour",
+        "Traditional Mexican Dinner",
+        "Professional Archaeological Guide",
+        "Luxury Air-Conditioned Coach",
+        "Cultural Performance"
+      ],
 
-    "unesco": true,
-    "newSevenWonders": true,
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Cancún",
+          "description": "Airport pickup, resort check-in and evening free for relaxation."
+        },
+        {
+          "day": 2,
+          "title": "Chichen Itza",
+          "description": "Full-day guided exploration of El Castillo, Temple of the Warriors and the Great Ball Court."
+        },
+        {
+          "day": 3,
+          "title": "Cenote & Valladolid",
+          "description": "Swim in Cenote Ik Kil followed by sightseeing and shopping in Valladolid."
+        },
+        {
+          "day": 4,
+          "title": "Mexican Culture",
+          "description": "Enjoy local cuisine, cultural performances and optional beach leisure."
+        },
+        {
+          "day": 5,
+          "title": "Departure",
+          "description": "Breakfast, hotel checkout and transfer to Cancún International Airport."
+        }
+      ],
 
-    "tags": [
-      "Mexico",
-      "Chichen Itza",
-      "Maya",
-      "UNESCO",
-      "Wonder"
-    ]
-  },
+      "inclusions": [
+        "4 Nights Resort Accommodation",
+        "Daily Breakfast",
+        "Airport Transfers",
+        "Luxury AC Coach",
+        "Professional Tour Guide",
+        "Chichen Itza Entry Ticket",
+        "Cenote Ik Kil Entry",
+        "City Sightseeing"
+      ],
 
-  "category": "International",
+      "exclusions": [
+        "International Airfare",
+        "Mexico Tourist Tax",
+        "Lunch & Dinner (Except Mentioned)",
+        "Travel Insurance",
+        "Personal Expenses",
+        "Optional Water Activities"
+      ],
 
-  "tourType": "Culture & Heritage Tour",
+      "hotel": {
+        "name": "Hacienda Chichen Resort",
+        "category": "4 Star",
+        "roomType": "Garden View Deluxe",
+        "checkIn": "03:00 PM",
+        "checkOut": "12:00 PM",
+        "amenities": [
+          "Free Wi-Fi",
+          "Outdoor Pool",
+          "Spa",
+          "Restaurant",
+          "Breakfast Included"
+        ]
+      },
 
-  "duration": {
-    "days": 5,
-    "nights": 4,
-    "text": "5 Days / 4 Nights"
-  },
+      "transport": {
+        "type": "Luxury Tourist Coach",
+        "pickup": true,
+        "drop": true,
+        "airportTransfer": true
+      },
 
-  "price": {
-    "currency": "USD",
-    "original": 1349,
-    "discount": 16,
-    "offer": 1133
-  },
+      "meetingPoint": "Cancún International Airport (CUN)",
 
-  "rating": {
-    "average": 2.9,
-    "totalReviews": 437
-  },
+      "availableDates": [
+        "2026-09-12",
+        "2026-10-17",
+        "2026-11-14",
+        "2026-12-19"
+      ],
 
-  "description": "Explore the legendary Mayan city of Chichen Itza, swim in the crystal-clear Cenote Ik Kil, stroll through the colonial streets of Valladolid, and experience authentic Mexican culture with expert local guides.",
+      "maxGuests": 24,
 
-  "coverImage": "chichen-package-cover.jpg",
+      "minimumAge": 5,
 
-  "gallery": [
-    "maya-ruins.jpg",
-    "cenote-tour.jpg",
-    "valladolid-square.jpg",
-    "mexico-cultural-show.jpg"
-  ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
 
-  "highlights": [
-    "4-Star Resort Accommodation",
-    "Daily Breakfast",
-    "Airport Pickup & Drop",
-    "Chichen Itza Guided Tour",
-    "Cenote Ik Kil Swimming Experience",
-    "Valladolid City Tour",
-    "Traditional Mexican Dinner",
-    "Professional Archaeological Guide",
-    "Luxury Air-Conditioned Coach",
-    "Cultural Performance"
-  ],
+      "cancellationPolicy": "Free cancellation up to 5 days before departure.",
 
-  "itinerary": [
-    {
-      "day": 1,
-      "title": "Arrival in Cancún",
-      "description": "Airport pickup, resort check-in and evening free for relaxation."
-    },
-    {
-      "day": 2,
-      "title": "Chichen Itza",
-      "description": "Full-day guided exploration of El Castillo, Temple of the Warriors and the Great Ball Court."
-    },
-    {
-      "day": 3,
-      "title": "Cenote & Valladolid",
-      "description": "Swim in Cenote Ik Kil followed by sightseeing and shopping in Valladolid."
-    },
-    {
-      "day": 4,
-      "title": "Mexican Culture",
-      "description": "Enjoy local cuisine, cultural performances and optional beach leisure."
-    },
-    {
-      "day": 5,
-      "title": "Departure",
-      "description": "Breakfast, hotel checkout and transfer to Cancún International Airport."
-    }
-  ],
+      "importantInformation": [
+        "Carry your passport throughout the trip.",
+        "Wear lightweight clothing and comfortable walking shoes.",
+        "Bring swimwear and a towel for the cenote visit.",
+        "Carry sunscreen, sunglasses and a hat.",
+        "Stay hydrated during outdoor sightseeing."
+      ],
 
-  "inclusions": [
-    "4 Nights Resort Accommodation",
-    "Daily Breakfast",
-    "Airport Transfers",
-    "Luxury AC Coach",
-    "Professional Tour Guide",
-    "Chichen Itza Entry Ticket",
-    "Cenote Ik Kil Entry",
-    "City Sightseeing"
-  ],
+      "faq": [
+        {
+          "question": "Is Chichen Itza entry included?",
+          "answer": "Yes. Entry tickets are included in the package."
+        },
+        {
+          "question": "Can we swim in the cenote?",
+          "answer": "Yes. Swimming at Cenote Ik Kil is included."
+        },
+        {
+          "question": "Is this package family-friendly?",
+          "answer": "Yes. The itinerary is suitable for couples, families and senior travelers."
+        }
+      ],
 
-  "exclusions": [
-    "International Airfare",
-    "Mexico Tourist Tax",
-    "Lunch & Dinner (Except Mentioned)",
-    "Travel Insurance",
-    "Personal Expenses",
-    "Optional Water Activities"
-  ],
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Carlos Mendoza",
+          "rating": 5,
+          "date": "2026-04-15",
+          "comment": "An incredible experience exploring the Mayan ruins. Everything was perfectly organized."
+        },
+        {
+          "id": 2,
+          "name": "Emma Wilson",
+          "rating": 5,
+          "date": "2026-05-28",
+          "comment": "Loved the cenote and the cultural tour. Excellent hotel and friendly guides."
+        },
+        {
+          "id": 3,
+          "name": "Rajesh Kumar",
+          "rating": 4,
+          "date": "2026-06-30",
+          "comment": "Great value for money with an excellent itinerary and comfortable transportation."
+        }
+      ],
 
-  "hotel": {
-    "name": "Hacienda Chichen Resort",
-    "category": "4 Star",
-    "roomType": "Garden View Deluxe",
-    "checkIn": "03:00 PM",
-    "checkOut": "12:00 PM",
-    "amenities": [
-      "Free Wi-Fi",
-      "Outdoor Pool",
-      "Spa",
-      "Restaurant",
-      "Breakfast Included"
-    ]
-  },
+      "contact": {
+        "phone": "+52-998-123-4567",
+        "email": "booking@trivoworld.com",
+        "website": "https://www.trivoworld.com"
+      },
 
-  "transport": {
-    "type": "Luxury Tourist Coach",
-    "pickup": true,
-    "drop": true,
-    "airportTransfer": true
-  },
-
-  "meetingPoint": "Cancún International Airport (CUN)",
-
-  "availableDates": [
-    "2026-09-12",
-    "2026-10-17",
-    "2026-11-14",
-    "2026-12-19"
-  ],
-
-  "maxGuests": 24,
-
-  "minimumAge": 5,
-
-  "languages": [
-    "English",
-    "Spanish"
-  ],
-
-  "cancellationPolicy": "Free cancellation up to 5 days before departure.",
-
-  "importantInformation": [
-    "Carry your passport throughout the trip.",
-    "Wear lightweight clothing and comfortable walking shoes.",
-    "Bring swimwear and a towel for the cenote visit.",
-    "Carry sunscreen, sunglasses and a hat.",
-    "Stay hydrated during outdoor sightseeing."
-  ],
-
-  "faq": [
-    {
-      "question": "Is Chichen Itza entry included?",
-      "answer": "Yes. Entry tickets are included in the package."
+      "status": "Active",
+      "featured": true,
+      "bookingCount": 1098,
+      "wishlistCount": 514,
+      "createdDate": "2026-03-20",
+      "updatedDate": "2026-07-18"
     },
     {
-      "question": "Can we swim in the cenote?",
-      "answer": "Yes. Swimming at Cenote Ik Kil is included."
-    },
-    {
-      "question": "Is this package family-friendly?",
-      "answer": "Yes. The itinerary is suitable for couples, families and senior travelers."
-    }
-  ],
+      "id": 13,
+      "packageCode": "TW-PE-013",
+      "packageName": "Machu Picchu Adventure",
+      "slug": "machu-picchu-adventure",
 
-  "reviews": [
-    {
-      "id": 1,
-      "name": "Carlos Mendoza",
-      "rating": 5,
-      "date": "2026-04-15",
-      "comment": "An incredible experience exploring the Mayan ruins. Everything was perfectly organized."
-    },
-    {
-      "id": 2,
-      "name": "Emma Wilson",
-      "rating": 5,
-      "date": "2026-05-28",
-      "comment": "Loved the cenote and the cultural tour. Excellent hotel and friendly guides."
-    },
-    {
-      "id": 3,
-      "name": "Rajesh Kumar",
-      "rating": 4,
-      "date": "2026-06-30",
-      "comment": "Great value for money with an excellent itinerary and comfortable transportation."
-    }
-  ],
+      "destination": {
+        "id": 13,
+        "name": "Machu Picchu",
+        "slug": "machu-picchu",
+        "country": "Peru",
+        "city": "Cusco",
+        "continent": "South America",
+        "category": "Ancient Inca Citadel",
+        "description": "Machu Picchu is a breathtaking 15th-century Inca citadel nestled high in the Andes Mountains. It is one of the world's greatest archaeological treasures, a UNESCO World Heritage Site, and one of the New Seven Wonders of the World.",
 
-  "contact": {
-    "phone": "+52-998-123-4567",
-    "email": "booking@trivoworld.com",
-    "website": "https://www.trivoworld.com"
-  },
+        "visitorCountPerYear": "Approximately 1.6 million",
 
-  "status": "Active",
-  "featured": true,
-  "bookingCount": 1098,
-  "wishlistCount": 514,
-  "createdDate": "2026-03-20",
-  "updatedDate": "2026-07-18"
-},
-{
-  "id": 13,
-  "packageCode": "TW-PE-013",
-  "packageName": "Machu Picchu Adventure",
-  "slug": "machu-picchu-adventure",
+        "bestTimeToVisit": "May to September",
 
-  "destination": {
-    "id": 13,
-    "name": "Machu Picchu",
-    "slug": "machu-picchu",
-    "country": "Peru",
-    "city": "Cusco",
-    "continent": "South America",
-    "category": "Ancient Inca Citadel",
-    "description": "Machu Picchu is a breathtaking 15th-century Inca citadel nestled high in the Andes Mountains. It is one of the world's greatest archaeological treasures, a UNESCO World Heritage Site, and one of the New Seven Wonders of the World.",
+        "recommendedVisitDuration": "Full Day",
 
-    "visitorCountPerYear": "Approximately 1.6 million",
+        "coordinates": {
+          "latitude": -13.1631,
+          "longitude": -72.5450
+        },
 
-    "bestTimeToVisit": "May to September",
+        "address": {
+          "street": "Historic Sanctuary of Machu Picchu",
+          "postalCode": "08680",
+          "city": "Cusco Region",
+          "country": "Peru"
+        },
 
-    "recommendedVisitDuration": "Full Day",
+        "images": {
+          "cover": "machu-picchu.jpg",
+          "thumbnail": "machu-picchu-thumb.jpg",
+          "gallery": [
+            "machu-gallery-1.jpg",
+            "machu-gallery-2.jpg",
+            "inca-trail.jpg",
+            "cusco-city.jpg"
+          ]
+        },
 
-    "coordinates": {
-      "latitude": -13.1631,
-      "longitude": -72.5450
-    },
+        "links": {
+          "official": "https://tuboleto.cultura.pe",
+          "wikipedia": "https://en.wikipedia.org/wiki/Machu_Picchu",
+          "googleMaps": "https://maps.google.com/?q=-13.1631,-72.5450"
+        },
 
-    "address": {
-      "street": "Historic Sanctuary of Machu Picchu",
-      "postalCode": "08680",
-      "city": "Cusco Region",
-      "country": "Peru"
-    },
+        "unesco": true,
+        "newSevenWonders": true,
 
-    "images": {
-      "cover": "machu-picchu.jpg",
-      "thumbnail": "machu-picchu-thumb.jpg",
+        "tags": [
+          "Peru",
+          "Machu Picchu",
+          "Inca",
+          "UNESCO",
+          "Adventure"
+        ]
+      },
+
+      "category": "International",
+
+      "tourType": "Adventure & Heritage Tour",
+
+      "duration": {
+        "days": 6,
+        "nights": 5,
+        "text": "6 Days / 5 Nights"
+      },
+
+      "price": {
+        "currency": "USD",
+        "original": 1899,
+        "discount": 18,
+        "offer": 1557
+      },
+
+      "rating": {
+        "average": 4.9,
+        "totalReviews": 582
+      },
+
+      "description": "Embark on an unforgettable journey through Peru's Sacred Valley. Explore the magnificent Machu Picchu, discover the rich Inca heritage of Cusco, visit Ollantaytambo, and enjoy spectacular Andean mountain scenery with experienced local guides.",
+
+      "coverImage": "machu-package-cover.jpg",
+
       "gallery": [
-        "machu-gallery-1.jpg",
-        "machu-gallery-2.jpg",
-        "inca-trail.jpg",
-        "cusco-city.jpg"
-      ]
-    },
+        "machu-tour-1.jpg",
+        "machu-tour-2.jpg",
+        "sacred-valley.jpg",
+        "ollantaytambo.jpg"
+      ],
 
-    "links": {
-      "official": "https://tuboleto.cultura.pe",
-      "wikipedia": "https://en.wikipedia.org/wiki/Machu_Picchu",
-      "googleMaps": "https://maps.google.com/?q=-13.1631,-72.5450"
-    },
+      "highlights": [
+        "4-Star Hotel Accommodation",
+        "Daily Breakfast",
+        "Airport Pickup & Drop",
+        "Machu Picchu Entry Ticket",
+        "Scenic Vistadome Train Journey",
+        "Sacred Valley Tour",
+        "Cusco City Sightseeing",
+        "Professional English Guide",
+        "Luxury Tourist Transport",
+        "Traditional Peruvian Dinner"
+      ],
 
-    "unesco": true,
-    "newSevenWonders": true,
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Cusco",
+          "description": "Airport pickup, hotel check-in and leisure time to acclimatize to the altitude."
+        },
+        {
+          "day": 2,
+          "title": "Sacred Valley",
+          "description": "Visit Pisac Market, Ollantaytambo Fortress and enjoy scenic Andean landscapes."
+        },
+        {
+          "day": 3,
+          "title": "Machu Picchu",
+          "description": "Travel by Vistadome train and enjoy a guided tour of the magnificent Machu Picchu."
+        },
+        {
+          "day": 4,
+          "title": "Cusco Heritage Tour",
+          "description": "Explore Sacsayhuamán, Qorikancha Temple and Cusco Plaza de Armas."
+        },
+        {
+          "day": 5,
+          "title": "Free Exploration",
+          "description": "Enjoy shopping, local cafés and optional adventure activities around Cusco."
+        },
+        {
+          "day": 6,
+          "title": "Departure",
+          "description": "Breakfast, hotel checkout and transfer to Alejandro Velasco Astete International Airport."
+        }
+      ],
 
-    "tags": [
-      "Peru",
-      "Machu Picchu",
-      "Inca",
-      "UNESCO",
-      "Adventure"
-    ]
-  },
+      "inclusions": [
+        "5 Nights Hotel Accommodation",
+        "Daily Breakfast",
+        "Airport Transfers",
+        "Luxury Tourist Vehicle",
+        "Professional Tour Guide",
+        "Machu Picchu Entry Ticket",
+        "Vistadome Train Tickets",
+        "Sacred Valley Excursion",
+        "Cusco City Tour"
+      ],
 
-  "category": "International",
+      "exclusions": [
+        "International Airfare",
+        "Peru Visa (if applicable)",
+        "Lunch & Dinner (Except Mentioned)",
+        "Travel Insurance",
+        "Personal Expenses",
+        "Optional Hiking Activities"
+      ],
 
-  "tourType": "Adventure & Heritage Tour",
+      "hotel": {
+        "name": "Casa Andina Premium Cusco",
+        "category": "4 Star",
+        "roomType": "Superior Room",
+        "checkIn": "02:00 PM",
+        "checkOut": "11:00 AM",
+        "amenities": [
+          "Free Wi-Fi",
+          "Restaurant",
+          "Spa",
+          "Breakfast Included",
+          "Airport Shuttle"
+        ]
+      },
 
-  "duration": {
-    "days": 6,
-    "nights": 5,
-    "text": "6 Days / 5 Nights"
-  },
+      "transport": {
+        "type": "Luxury Tourist Coach & Vistadome Train",
+        "pickup": true,
+        "drop": true,
+        "airportTransfer": true
+      },
 
-  "price": {
-    "currency": "USD",
-    "original": 1899,
-    "discount": 18,
-    "offer": 1557
-  },
+      "meetingPoint": "Alejandro Velasco Astete International Airport (CUZ)",
 
-  "rating": {
-    "average": 4.9,
-    "totalReviews": 582
-  },
+      "availableDates": [
+        "2026-08-21",
+        "2026-09-18",
+        "2026-10-23",
+        "2026-11-20"
+      ],
 
-  "description": "Embark on an unforgettable journey through Peru's Sacred Valley. Explore the magnificent Machu Picchu, discover the rich Inca heritage of Cusco, visit Ollantaytambo, and enjoy spectacular Andean mountain scenery with experienced local guides.",
+      "maxGuests": 18,
 
-  "coverImage": "machu-package-cover.jpg",
+      "minimumAge": 10,
 
-  "gallery": [
-    "machu-tour-1.jpg",
-    "machu-tour-2.jpg",
-    "sacred-valley.jpg",
-    "ollantaytambo.jpg"
-  ],
+      "languages": [
+        "English",
+        "Spanish"
+      ],
 
-  "highlights": [
-    "4-Star Hotel Accommodation",
-    "Daily Breakfast",
-    "Airport Pickup & Drop",
-    "Machu Picchu Entry Ticket",
-    "Scenic Vistadome Train Journey",
-    "Sacred Valley Tour",
-    "Cusco City Sightseeing",
-    "Professional English Guide",
-    "Luxury Tourist Transport",
-    "Traditional Peruvian Dinner"
-  ],
+      "cancellationPolicy": "Free cancellation up to 7 days before departure.",
 
-  "itinerary": [
-    {
-      "day": 1,
-      "title": "Arrival in Cusco",
-      "description": "Airport pickup, hotel check-in and leisure time to acclimatize to the altitude."
-    },
-    {
-      "day": 2,
-      "title": "Sacred Valley",
-      "description": "Visit Pisac Market, Ollantaytambo Fortress and enjoy scenic Andean landscapes."
-    },
-    {
-      "day": 3,
-      "title": "Machu Picchu",
-      "description": "Travel by Vistadome train and enjoy a guided tour of the magnificent Machu Picchu."
-    },
-    {
-      "day": 4,
-      "title": "Cusco Heritage Tour",
-      "description": "Explore Sacsayhuamán, Qorikancha Temple and Cusco Plaza de Armas."
-    },
-    {
-      "day": 5,
-      "title": "Free Exploration",
-      "description": "Enjoy shopping, local cafés and optional adventure activities around Cusco."
-    },
-    {
-      "day": 6,
-      "title": "Departure",
-      "description": "Breakfast, hotel checkout and transfer to Alejandro Velasco Astete International Airport."
-    }
-  ],
+      "importantInformation": [
+        "Carry your original passport.",
+        "Altitude sickness medication is recommended.",
+        "Wear trekking shoes and layered clothing.",
+        "Carry sunscreen, sunglasses and a reusable water bottle.",
+        "Machu Picchu entry is time-slot based."
+      ],
 
-  "inclusions": [
-    "5 Nights Hotel Accommodation",
-    "Daily Breakfast",
-    "Airport Transfers",
-    "Luxury Tourist Vehicle",
-    "Professional Tour Guide",
-    "Machu Picchu Entry Ticket",
-    "Vistadome Train Tickets",
-    "Sacred Valley Excursion",
-    "Cusco City Tour"
-  ],
+      "faq": [
+        {
+          "question": "Is the Vistadome train included?",
+          "answer": "Yes. Round-trip Vistadome train tickets are included."
+        },
+        {
+          "question": "Is hiking required?",
+          "answer": "No. The standard guided tour requires only moderate walking."
+        },
+        {
+          "question": "Is this package suitable for seniors?",
+          "answer": "Yes, provided they are comfortable with moderate walking and high-altitude travel."
+        }
+      ],
 
-  "exclusions": [
-    "International Airfare",
-    "Peru Visa (if applicable)",
-    "Lunch & Dinner (Except Mentioned)",
-    "Travel Insurance",
-    "Personal Expenses",
-    "Optional Hiking Activities"
-  ],
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Carlos Rivera",
+          "rating": 5,
+          "date": "2026-04-12",
+          "comment": "An unforgettable experience! Machu Picchu exceeded every expectation."
+        },
+        {
+          "id": 2,
+          "name": "Emily Roberts",
+          "rating": 5,
+          "date": "2026-05-30",
+          "comment": "Excellent organization, beautiful hotels and knowledgeable guides."
+        },
+        {
+          "id": 3,
+          "name": "Arun Nair",
+          "rating": 4,
+          "date": "2026-06-28",
+          "comment": "Wonderful itinerary with breathtaking scenery throughout the journey."
+        }
+      ],
 
-  "hotel": {
-    "name": "Casa Andina Premium Cusco",
-    "category": "4 Star",
-    "roomType": "Superior Room",
-    "checkIn": "02:00 PM",
-    "checkOut": "11:00 AM",
-    "amenities": [
-      "Free Wi-Fi",
-      "Restaurant",
-      "Spa",
-      "Breakfast Included",
-      "Airport Shuttle"
-    ]
-  },
+      "contact": {
+        "phone": "+51-84-555-6789",
+        "email": "booking@trivoworld.com",
+        "website": "https://www.trivoworld.com"
+      },
 
-  "transport": {
-    "type": "Luxury Tourist Coach & Vistadome Train",
-    "pickup": true,
-    "drop": true,
-    "airportTransfer": true
-  },
-
-  "meetingPoint": "Alejandro Velasco Astete International Airport (CUZ)",
-
-  "availableDates": [
-    "2026-08-21",
-    "2026-09-18",
-    "2026-10-23",
-    "2026-11-20"
-  ],
-
-  "maxGuests": 18,
-
-  "minimumAge": 10,
-
-  "languages": [
-    "English",
-    "Spanish"
-  ],
-
-  "cancellationPolicy": "Free cancellation up to 7 days before departure.",
-
-  "importantInformation": [
-    "Carry your original passport.",
-    "Altitude sickness medication is recommended.",
-    "Wear trekking shoes and layered clothing.",
-    "Carry sunscreen, sunglasses and a reusable water bottle.",
-    "Machu Picchu entry is time-slot based."
-  ],
-
-  "faq": [
-    {
-      "question": "Is the Vistadome train included?",
-      "answer": "Yes. Round-trip Vistadome train tickets are included."
+      "status": "Active",
+      "featured": true,
+      "bookingCount": 1142,
+      "wishlistCount": 598,
+      "createdDate": "2026-03-25",
+      "updatedDate": "2026-07-20"
     },
     {
-      "question": "Is hiking required?",
-      "answer": "No. The standard guided tour requires only moderate walking."
-    },
-    {
-      "question": "Is this package suitable for seniors?",
-      "answer": "Yes, provided they are comfortable with moderate walking and high-altitude travel."
-    }
-  ],
+      "id": 14,
+      "packageCode": "TW-CN-014",
+      "packageName": "Great Wall of China Discovery",
+      "slug": "great-wall-of-china-discovery",
 
-  "reviews": [
-    {
-      "id": 1,
-      "name": "Carlos Rivera",
-      "rating": 5,
-      "date": "2026-04-12",
-      "comment": "An unforgettable experience! Machu Picchu exceeded every expectation."
-    },
-    {
-      "id": 2,
-      "name": "Emily Roberts",
-      "rating": 5,
-      "date": "2026-05-30",
-      "comment": "Excellent organization, beautiful hotels and knowledgeable guides."
-    },
-    {
-      "id": 3,
-      "name": "Arun Nair",
-      "rating": 4,
-      "date": "2026-06-28",
-      "comment": "Wonderful itinerary with breathtaking scenery throughout the journey."
-    }
-  ],
+      "destination": {
+        "id": 14,
+        "name": "Great Wall of China",
+        "slug": "great-wall-of-china",
+        "country": "China",
+        "city": "Beijing",
+        "continent": "Asia",
+        "category": "Historical Monument",
+        "description": "The Great Wall of China is one of the world's greatest engineering achievements, stretching thousands of kilometers across northern China. It is a UNESCO World Heritage Site and one of the New Seven Wonders of the World.",
 
-  "contact": {
-    "phone": "+51-84-555-6789",
-    "email": "booking@trivoworld.com",
-    "website": "https://www.trivoworld.com"
-  },
+        "visitorCountPerYear": "Approximately 10 million",
 
-  "status": "Active",
-  "featured": true,
-  "bookingCount": 1142,
-  "wishlistCount": 598,
-  "createdDate": "2026-03-25",
-  "updatedDate": "2026-07-20"
-},
-{
-  "id": 14,
-  "packageCode": "TW-CN-014",
-  "packageName": "Great Wall of China Discovery",
-  "slug": "great-wall-of-china-discovery",
+        "bestTimeToVisit": "April to May, September to October",
 
-  "destination": {
-    "id": 14,
-    "name": "Great Wall of China",
-    "slug": "great-wall-of-china",
-    "country": "China",
-    "city": "Beijing",
-    "continent": "Asia",
-    "category": "Historical Monument",
-    "description": "The Great Wall of China is one of the world's greatest engineering achievements, stretching thousands of kilometers across northern China. It is a UNESCO World Heritage Site and one of the New Seven Wonders of the World.",
+        "recommendedVisitDuration": "Full Day",
 
-    "visitorCountPerYear": "Approximately 10 million",
+        "coordinates": {
+          "latitude": 40.4319,
+          "longitude": 116.5704
+        },
 
-    "bestTimeToVisit": "April to May, September to October",
+        "address": {
+          "street": "Mutianyu Great Wall Scenic Area",
+          "postalCode": "101406",
+          "city": "Beijing",
+          "country": "China"
+        },
 
-    "recommendedVisitDuration": "Full Day",
+        "images": {
+          "cover": "great-wall-china.jpg",
+          "thumbnail": "great-wall-thumb.jpg",
+          "gallery": [
+            "great-wall-1.jpg",
+            "great-wall-2.jpg",
+            "forbidden-city.jpg",
+            "temple-of-heaven.jpg"
+          ]
+        },
 
-    "coordinates": {
-      "latitude": 40.4319,
-      "longitude": 116.5704
-    },
+        "links": {
+          "official": "https://www.mutianyugreatwall.com",
+          "wikipedia": "https://en.wikipedia.org/wiki/Great_Wall_of_China",
+          "googleMaps": "https://maps.google.com/?q=40.4319,116.5704"
+        },
 
-    "address": {
-      "street": "Mutianyu Great Wall Scenic Area",
-      "postalCode": "101406",
-      "city": "Beijing",
-      "country": "China"
-    },
+        "unesco": true,
+        "newSevenWonders": true,
 
-    "images": {
-      "cover": "great-wall-china.jpg",
-      "thumbnail": "great-wall-thumb.jpg",
+        "tags": [
+          "China",
+          "Beijing",
+          "Great Wall",
+          "UNESCO",
+          "Wonder"
+        ]
+      },
+
+      "category": "International",
+
+      "tourType": "History & Culture Tour",
+
+      "duration": {
+        "days": 7,
+        "nights": 6,
+        "text": "7 Days / 6 Nights"
+      },
+
+      "price": {
+        "currency": "USD",
+        "original": 1749,
+        "discount": 20,
+        "offer": 1399
+      },
+
+      "rating": {
+        "average": 4.9,
+        "totalReviews": 618
+      },
+
+      "description": "Discover China's rich history with an unforgettable journey through Beijing. Walk along the magnificent Great Wall, explore the Forbidden City, admire the Temple of Heaven, and experience authentic Chinese culture, cuisine and traditions.",
+
+      "coverImage": "great-wall-package-cover.jpg",
+
       "gallery": [
-        "great-wall-1.jpg",
-        "great-wall-2.jpg",
-        "forbidden-city.jpg",
-        "temple-of-heaven.jpg"
-      ]
-    },
+        "beijing-1.jpg",
+        "mutianyu-wall.jpg",
+        "forbidden-city-tour.jpg",
+        "summer-palace.jpg"
+      ],
 
-    "links": {
-      "official": "https://www.mutianyugreatwall.com",
-      "wikipedia": "https://en.wikipedia.org/wiki/Great_Wall_of_China",
-      "googleMaps": "https://maps.google.com/?q=40.4319,116.5704"
-    },
+      "highlights": [
+        "5-Star Hotel Accommodation",
+        "Daily Breakfast",
+        "Airport Pickup & Drop",
+        "Great Wall Guided Tour",
+        "Forbidden City Visit",
+        "Temple of Heaven Tour",
+        "Summer Palace Excursion",
+        "Traditional Peking Duck Dinner",
+        "Professional English Guide",
+        "Luxury Air-Conditioned Coach"
+      ],
 
-    "unesco": true,
-    "newSevenWonders": true,
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Beijing",
+          "description": "Airport pickup, hotel check-in and evening leisure."
+        },
+        {
+          "day": 2,
+          "title": "Great Wall Adventure",
+          "description": "Full-day excursion to the Mutianyu section of the Great Wall with cable car access."
+        },
+        {
+          "day": 3,
+          "title": "Forbidden City",
+          "description": "Visit Tiananmen Square, the Forbidden City and Jingshan Park."
+        },
+        {
+          "day": 4,
+          "title": "Temple of Heaven",
+          "description": "Explore the Temple of Heaven followed by a traditional tea ceremony."
+        },
+        {
+          "day": 5,
+          "title": "Summer Palace",
+          "description": "Enjoy a guided tour of the Summer Palace and Kunming Lake."
+        },
+        {
+          "day": 6,
+          "title": "Local Culture",
+          "description": "Shopping at Wangfujing Street and enjoy a traditional Peking Duck dinner."
+        },
+        {
+          "day": 7,
+          "title": "Departure",
+          "description": "Breakfast, hotel checkout and transfer to Beijing Capital International Airport."
+        }
+      ],
 
-    "tags": [
-      "China",
-      "Beijing",
-      "Great Wall",
-      "UNESCO",
-      "Wonder"
-    ]
-  },
+      "inclusions": [
+        "6 Nights Hotel Accommodation",
+        "Daily Breakfast",
+        "Airport Transfers",
+        "Luxury AC Coach",
+        "Professional English Guide",
+        "Great Wall Entry Ticket",
+        "Cable Car Ride",
+        "Forbidden City Entry",
+        "Temple of Heaven Entry",
+        "Summer Palace Entry"
+      ],
 
-  "category": "International",
+      "exclusions": [
+        "International Airfare",
+        "China Visa Charges",
+        "Lunch & Dinner (Except Mentioned)",
+        "Travel Insurance",
+        "Personal Expenses",
+        "Optional Activities"
+      ],
 
-  "tourType": "History & Culture Tour",
+      "hotel": {
+        "name": "Novotel Beijing Peace",
+        "category": "5 Star",
+        "roomType": "Executive Room",
+        "checkIn": "02:00 PM",
+        "checkOut": "12:00 PM",
+        "amenities": [
+          "Free Wi-Fi",
+          "Indoor Swimming Pool",
+          "Fitness Centre",
+          "Restaurant",
+          "Breakfast Included",
+          "Business Lounge"
+        ]
+      },
 
-  "duration": {
-    "days": 7,
-    "nights": 6,
-    "text": "7 Days / 6 Nights"
-  },
+      "transport": {
+        "type": "Luxury Tourist Coach",
+        "pickup": true,
+        "drop": true,
+        "airportTransfer": true
+      },
 
-  "price": {
-    "currency": "USD",
-    "original": 1749,
-    "discount": 20,
-    "offer": 1399
-  },
+      "meetingPoint": "Beijing Capital International Airport (PEK)",
 
-  "rating": {
-    "average": 4.9,
-    "totalReviews": 618
-  },
+      "availableDates": [
+        "2026-09-08",
+        "2026-10-06",
+        "2026-11-10",
+        "2026-12-08"
+      ],
 
-  "description": "Discover China's rich history with an unforgettable journey through Beijing. Walk along the magnificent Great Wall, explore the Forbidden City, admire the Temple of Heaven, and experience authentic Chinese culture, cuisine and traditions.",
+      "maxGuests": 28,
 
-  "coverImage": "great-wall-package-cover.jpg",
+      "minimumAge": 6,
 
-  "gallery": [
-    "beijing-1.jpg",
-    "mutianyu-wall.jpg",
-    "forbidden-city-tour.jpg",
-    "summer-palace.jpg"
-  ],
+      "languages": [
+        "English",
+        "Mandarin"
+      ],
 
-  "highlights": [
-    "5-Star Hotel Accommodation",
-    "Daily Breakfast",
-    "Airport Pickup & Drop",
-    "Great Wall Guided Tour",
-    "Forbidden City Visit",
-    "Temple of Heaven Tour",
-    "Summer Palace Excursion",
-    "Traditional Peking Duck Dinner",
-    "Professional English Guide",
-    "Luxury Air-Conditioned Coach"
-  ],
+      "cancellationPolicy": "Free cancellation up to 7 days before departure.",
 
-  "itinerary": [
-    {
-      "day": 1,
-      "title": "Arrival in Beijing",
-      "description": "Airport pickup, hotel check-in and evening leisure."
-    },
-    {
-      "day": 2,
-      "title": "Great Wall Adventure",
-      "description": "Full-day excursion to the Mutianyu section of the Great Wall with cable car access."
-    },
-    {
-      "day": 3,
-      "title": "Forbidden City",
-      "description": "Visit Tiananmen Square, the Forbidden City and Jingshan Park."
-    },
-    {
-      "day": 4,
-      "title": "Temple of Heaven",
-      "description": "Explore the Temple of Heaven followed by a traditional tea ceremony."
-    },
-    {
-      "day": 5,
-      "title": "Summer Palace",
-      "description": "Enjoy a guided tour of the Summer Palace and Kunming Lake."
-    },
-    {
-      "day": 6,
-      "title": "Local Culture",
-      "description": "Shopping at Wangfujing Street and enjoy a traditional Peking Duck dinner."
-    },
-    {
-      "day": 7,
-      "title": "Departure",
-      "description": "Breakfast, hotel checkout and transfer to Beijing Capital International Airport."
-    }
-  ],
+      "importantInformation": [
+        "Carry your passport and valid Chinese visa.",
+        "Wear comfortable walking shoes.",
+        "The Great Wall involves climbing steps and uneven terrain.",
+        "Carry a light jacket during spring and autumn.",
+        "Respect local customs while visiting historical sites."
+      ],
 
-  "inclusions": [
-    "6 Nights Hotel Accommodation",
-    "Daily Breakfast",
-    "Airport Transfers",
-    "Luxury AC Coach",
-    "Professional English Guide",
-    "Great Wall Entry Ticket",
-    "Cable Car Ride",
-    "Forbidden City Entry",
-    "Temple of Heaven Entry",
-    "Summer Palace Entry"
-  ],
+      "faq": [
+        {
+          "question": "Which section of the Great Wall is included?",
+          "answer": "The package includes a guided visit to the popular Mutianyu section."
+        },
+        {
+          "question": "Is the cable car ride included?",
+          "answer": "Yes. Round-trip cable car tickets are included."
+        },
+        {
+          "question": "Can vegetarian meals be arranged?",
+          "answer": "Yes. Vegetarian meal options are available upon request."
+        }
+      ],
 
-  "exclusions": [
-    "International Airfare",
-    "China Visa Charges",
-    "Lunch & Dinner (Except Mentioned)",
-    "Travel Insurance",
-    "Personal Expenses",
-    "Optional Activities"
-  ],
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Li Wei",
+          "rating": 5,
+          "date": "2026-04-18",
+          "comment": "Walking on the Great Wall was a dream come true. Everything was perfectly organized."
+        },
+        {
+          "id": 2,
+          "name": "Michael Anderson",
+          "rating": 5,
+          "date": "2026-05-26",
+          "comment": "Excellent guide, comfortable hotel and an amazing cultural experience."
+        },
+        {
+          "id": 3,
+          "name": "Anjali Nair",
+          "rating": 4,
+          "date": "2026-06-29",
+          "comment": "Fantastic itinerary with plenty of time to explore Beijing's iconic attractions."
+        }
+      ],
 
-  "hotel": {
-    "name": "Novotel Beijing Peace",
-    "category": "5 Star",
-    "roomType": "Executive Room",
-    "checkIn": "02:00 PM",
-    "checkOut": "12:00 PM",
-    "amenities": [
-      "Free Wi-Fi",
-      "Indoor Swimming Pool",
-      "Fitness Centre",
-      "Restaurant",
-      "Breakfast Included",
-      "Business Lounge"
-    ]
-  },
+      "contact": {
+        "phone": "+86-10-8888-5678",
+        "email": "booking@trivoworld.com",
+        "website": "https://www.trivoworld.com"
+      },
 
-  "transport": {
-    "type": "Luxury Tourist Coach",
-    "pickup": true,
-    "drop": true,
-    "airportTransfer": true
-  },
-
-  "meetingPoint": "Beijing Capital International Airport (PEK)",
-
-  "availableDates": [
-    "2026-09-08",
-    "2026-10-06",
-    "2026-11-10",
-    "2026-12-08"
-  ],
-
-  "maxGuests": 28,
-
-  "minimumAge": 6,
-
-  "languages": [
-    "English",
-    "Mandarin"
-  ],
-
-  "cancellationPolicy": "Free cancellation up to 7 days before departure.",
-
-  "importantInformation": [
-    "Carry your passport and valid Chinese visa.",
-    "Wear comfortable walking shoes.",
-    "The Great Wall involves climbing steps and uneven terrain.",
-    "Carry a light jacket during spring and autumn.",
-    "Respect local customs while visiting historical sites."
-  ],
-
-  "faq": [
-    {
-      "question": "Which section of the Great Wall is included?",
-      "answer": "The package includes a guided visit to the popular Mutianyu section."
+      "status": "Active",
+      "featured": true,
+      "bookingCount": 1624,
+      "wishlistCount": 785,
+      "createdDate": "2026-03-28",
+      "updatedDate": "2026-07-22"
     },
     {
-      "question": "Is the cable car ride included?",
-      "answer": "Yes. Round-trip cable car tickets are included."
-    },
-    {
-      "question": "Can vegetarian meals be arranged?",
-      "answer": "Yes. Vegetarian meal options are available upon request."
-    }
-  ],
+      "id": 15,
+      "packageCode": "TW-IT-015",
+      "packageName": "Colosseum & Rome Heritage Tour",
+      "slug": "colosseum-rome-heritage-tour",
 
-  "reviews": [
-    {
-      "id": 1,
-      "name": "Li Wei",
-      "rating": 5,
-      "date": "2026-04-18",
-      "comment": "Walking on the Great Wall was a dream come true. Everything was perfectly organized."
-    },
-    {
-      "id": 2,
-      "name": "Michael Anderson",
-      "rating": 5,
-      "date": "2026-05-26",
-      "comment": "Excellent guide, comfortable hotel and an amazing cultural experience."
-    },
-    {
-      "id": 3,
-      "name": "Anjali Nair",
-      "rating": 4,
-      "date": "2026-06-29",
-      "comment": "Fantastic itinerary with plenty of time to explore Beijing's iconic attractions."
-    }
-  ],
+      "destination": {
+        "id": 15,
+        "name": "Colosseum",
+        "slug": "colosseum",
+        "country": "Italy",
+        "city": "Rome",
+        "continent": "Europe",
+        "category": "Historical Monument",
+        "description": "The Colosseum is the largest ancient amphitheatre ever built and one of Rome's most iconic landmarks. Constructed nearly 2,000 years ago, it stands as a symbol of the Roman Empire and attracts millions of visitors every year.",
 
-  "contact": {
-    "phone": "+86-10-8888-5678",
-    "email": "booking@trivoworld.com",
-    "website": "https://www.trivoworld.com"
-  },
+        "visitorCountPerYear": "Approximately 7.6 million",
 
-  "status": "Active",
-  "featured": true,
-  "bookingCount": 1624,
-  "wishlistCount": 785,
-  "createdDate": "2026-03-28",
-  "updatedDate": "2026-07-22"
-},
-{
-  "id": 15,
-  "packageCode": "TW-IT-015",
-  "packageName": "Colosseum & Rome Heritage Tour",
-  "slug": "colosseum-rome-heritage-tour",
+        "bestTimeToVisit": "April to June, September to October",
 
-  "destination": {
-    "id": 15,
-    "name": "Colosseum",
-    "slug": "colosseum",
-    "country": "Italy",
-    "city": "Rome",
-    "continent": "Europe",
-    "category": "Historical Monument",
-    "description": "The Colosseum is the largest ancient amphitheatre ever built and one of Rome's most iconic landmarks. Constructed nearly 2,000 years ago, it stands as a symbol of the Roman Empire and attracts millions of visitors every year.",
+        "recommendedVisitDuration": "3-5 hours",
 
-    "visitorCountPerYear": "Approximately 7.6 million",
+        "coordinates": {
+          "latitude": 41.8902,
+          "longitude": 12.4922
+        },
 
-    "bestTimeToVisit": "April to June, September to October",
+        "address": {
+          "street": "Piazza del Colosseo",
+          "postalCode": "00184",
+          "city": "Rome",
+          "country": "Italy"
+        },
 
-    "recommendedVisitDuration": "3-5 hours",
+        "images": {
+          "cover": "colosseum.jpg",
+          "thumbnail": "colosseum-thumb.jpg",
+          "gallery": [
+            "colosseum-1.jpg",
+            "roman-forum.jpg",
+            "trevi-fountain.jpg",
+            "vatican-city.jpg"
+          ]
+        },
 
-    "coordinates": {
-      "latitude": 41.8902,
-      "longitude": 12.4922
-    },
+        "links": {
+          "official": "https://colosseo.it",
+          "wikipedia": "https://en.wikipedia.org/wiki/Colosseum",
+          "googleMaps": "https://maps.google.com/?q=41.8902,12.4922"
+        },
 
-    "address": {
-      "street": "Piazza del Colosseo",
-      "postalCode": "00184",
-      "city": "Rome",
-      "country": "Italy"
-    },
+        "unesco": true,
+        "newSevenWonders": false,
 
-    "images": {
-      "cover": "colosseum.jpg",
-      "thumbnail": "colosseum-thumb.jpg",
+        "tags": [
+          "Italy",
+          "Rome",
+          "Colosseum",
+          "Roman Empire",
+          "UNESCO"
+        ]
+      },
+
+      "category": "International",
+
+      "tourType": "History & Culture Tour",
+
+      "duration": {
+        "days": 6,
+        "nights": 5,
+        "text": "6 Days / 5 Nights"
+      },
+
+      "price": {
+        "currency": "USD",
+        "original": 1599,
+        "discount": 18,
+        "offer": 1311
+      },
+
+      "rating": {
+        "average": 4.9,
+        "totalReviews": 548
+      },
+
+      "description": "Discover the timeless beauty of Rome with guided visits to the Colosseum, Roman Forum, Vatican City, Trevi Fountain and Piazza Navona. Enjoy authentic Italian cuisine, premium accommodation and unforgettable cultural experiences.",
+
+      "coverImage": "rome-package-cover.jpg",
+
       "gallery": [
-        "colosseum-1.jpg",
-        "roman-forum.jpg",
-        "trevi-fountain.jpg",
-        "vatican-city.jpg"
-      ]
-    },
+        "rome-1.jpg",
+        "colosseum-night.jpg",
+        "vatican-museum.jpg",
+        "spanish-steps.jpg"
+      ],
 
-    "links": {
-      "official": "https://colosseo.it",
-      "wikipedia": "https://en.wikipedia.org/wiki/Colosseum",
-      "googleMaps": "https://maps.google.com/?q=41.8902,12.4922"
-    },
+      "highlights": [
+        "4-Star Hotel Accommodation",
+        "Daily Breakfast",
+        "Airport Pickup & Drop",
+        "Colosseum Guided Tour",
+        "Roman Forum Entry",
+        "Vatican Museums Visit",
+        "St. Peter's Basilica",
+        "Trevi Fountain Tour",
+        "Traditional Italian Dinner",
+        "Luxury Air-Conditioned Coach"
+      ],
 
-    "unesco": true,
-    "newSevenWonders": false,
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Rome",
+          "description": "Airport pickup, hotel check-in and evening walk around Piazza Navona."
+        },
+        {
+          "day": 2,
+          "title": "Ancient Rome",
+          "description": "Guided tour of the Colosseum, Roman Forum and Palatine Hill."
+        },
+        {
+          "day": 3,
+          "title": "Vatican City",
+          "description": "Visit the Vatican Museums, Sistine Chapel and St. Peter's Basilica."
+        },
+        {
+          "day": 4,
+          "title": "Rome City Tour",
+          "description": "Explore Trevi Fountain, Spanish Steps, Pantheon and Piazza Venezia."
+        },
+        {
+          "day": 5,
+          "title": "Leisure Day",
+          "description": "Shopping, local cafés and optional excursions before a traditional Italian dinner."
+        },
+        {
+          "day": 6,
+          "title": "Departure",
+          "description": "Breakfast, hotel checkout and transfer to Leonardo da Vinci–Fiumicino Airport."
+        }
+      ],
 
-    "tags": [
-      "Italy",
-      "Rome",
-      "Colosseum",
-      "Roman Empire",
-      "UNESCO"
-    ]
-  },
+      "inclusions": [
+        "5 Nights Hotel Accommodation",
+        "Daily Breakfast",
+        "Airport Transfers",
+        "Luxury Tourist Coach",
+        "Professional English Guide",
+        "Colosseum Entry Ticket",
+        "Roman Forum Entry",
+        "Vatican Museums Entry",
+        "City Sightseeing"
+      ],
 
-  "category": "International",
+      "exclusions": [
+        "International Airfare",
+        "Italy Tourist Tax",
+        "Lunch & Dinner (Except Mentioned)",
+        "Travel Insurance",
+        "Personal Expenses",
+        "Optional Tours"
+      ],
 
-  "tourType": "History & Culture Tour",
+      "hotel": {
+        "name": "Hotel Artemide Rome",
+        "category": "4 Star",
+        "roomType": "Deluxe Room",
+        "checkIn": "02:00 PM",
+        "checkOut": "11:00 AM",
+        "amenities": [
+          "Free Wi-Fi",
+          "Restaurant",
+          "Spa",
+          "Fitness Centre",
+          "Breakfast Included"
+        ]
+      },
 
-  "duration": {
-    "days": 6,
-    "nights": 5,
-    "text": "6 Days / 5 Nights"
-  },
+      "transport": {
+        "type": "Luxury Tourist Coach",
+        "pickup": true,
+        "drop": true,
+        "airportTransfer": true
+      },
 
-  "price": {
-    "currency": "USD",
-    "original": 1599,
-    "discount": 18,
-    "offer": 1311
-  },
+      "meetingPoint": "Leonardo da Vinci–Fiumicino Airport (FCO)",
 
-  "rating": {
-    "average": 4.9,
-    "totalReviews": 548
-  },
+      "availableDates": [
+        "2026-09-14",
+        "2026-10-12",
+        "2026-11-16",
+        "2026-12-14"
+      ],
 
-  "description": "Discover the timeless beauty of Rome with guided visits to the Colosseum, Roman Forum, Vatican City, Trevi Fountain and Piazza Navona. Enjoy authentic Italian cuisine, premium accommodation and unforgettable cultural experiences.",
+      "maxGuests": 26,
 
-  "coverImage": "rome-package-cover.jpg",
+      "minimumAge": 5,
 
-  "gallery": [
-    "rome-1.jpg",
-    "colosseum-night.jpg",
-    "vatican-museum.jpg",
-    "spanish-steps.jpg"
-  ],
+      "languages": [
+        "English",
+        "Italian"
+      ],
 
-  "highlights": [
-    "4-Star Hotel Accommodation",
-    "Daily Breakfast",
-    "Airport Pickup & Drop",
-    "Colosseum Guided Tour",
-    "Roman Forum Entry",
-    "Vatican Museums Visit",
-    "St. Peter's Basilica",
-    "Trevi Fountain Tour",
-    "Traditional Italian Dinner",
-    "Luxury Air-Conditioned Coach"
-  ],
+      "cancellationPolicy": "Free cancellation up to 5 days before departure.",
 
-  "itinerary": [
-    {
-      "day": 1,
-      "title": "Arrival in Rome",
-      "description": "Airport pickup, hotel check-in and evening walk around Piazza Navona."
-    },
-    {
-      "day": 2,
-      "title": "Ancient Rome",
-      "description": "Guided tour of the Colosseum, Roman Forum and Palatine Hill."
-    },
-    {
-      "day": 3,
-      "title": "Vatican City",
-      "description": "Visit the Vatican Museums, Sistine Chapel and St. Peter's Basilica."
-    },
-    {
-      "day": 4,
-      "title": "Rome City Tour",
-      "description": "Explore Trevi Fountain, Spanish Steps, Pantheon and Piazza Venezia."
-    },
-    {
-      "day": 5,
-      "title": "Leisure Day",
-      "description": "Shopping, local cafés and optional excursions before a traditional Italian dinner."
-    },
-    {
-      "day": 6,
-      "title": "Departure",
-      "description": "Breakfast, hotel checkout and transfer to Leonardo da Vinci–Fiumicino Airport."
-    }
-  ],
+      "importantInformation": [
+        "Carry your passport throughout the tour.",
+        "Wear comfortable walking shoes.",
+        "Dress modestly while visiting churches and the Vatican.",
+        "Carry a reusable water bottle during sightseeing.",
+        "Photography restrictions apply in some museum sections."
+      ],
 
-  "inclusions": [
-    "5 Nights Hotel Accommodation",
-    "Daily Breakfast",
-    "Airport Transfers",
-    "Luxury Tourist Coach",
-    "Professional English Guide",
-    "Colosseum Entry Ticket",
-    "Roman Forum Entry",
-    "Vatican Museums Entry",
-    "City Sightseeing"
-  ],
+      "faq": [
+        {
+          "question": "Are Colosseum tickets included?",
+          "answer": "Yes. Skip-the-line entry tickets are included."
+        },
+        {
+          "question": "Is Vatican City included in the itinerary?",
+          "answer": "Yes. The Vatican Museums and St. Peter's Basilica are included."
+        },
+        {
+          "question": "Can vegetarian meals be arranged?",
+          "answer": "Yes. Vegetarian and vegan meal options are available on request."
+        }
+      ],
 
-  "exclusions": [
-    "International Airfare",
-    "Italy Tourist Tax",
-    "Lunch & Dinner (Except Mentioned)",
-    "Travel Insurance",
-    "Personal Expenses",
-    "Optional Tours"
-  ],
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Marco Rossi",
+          "rating": 5,
+          "date": "2026-04-20",
+          "comment": "Excellent tour with knowledgeable guides and outstanding historical experiences."
+        },
+        {
+          "id": 2,
+          "name": "Jennifer Clark",
+          "rating": 5,
+          "date": "2026-05-18",
+          "comment": "Everything was perfectly planned. The Colosseum was simply breathtaking."
+        },
+        {
+          "id": 3,
+          "name": "Akhil Thomas",
+          "rating": 4,
+          "date": "2026-06-22",
+          "comment": "Wonderful itinerary, comfortable hotel and plenty of free time to explore Rome."
+        }
+      ],
 
-  "hotel": {
-    "name": "Hotel Artemide Rome",
-    "category": "4 Star",
-    "roomType": "Deluxe Room",
-    "checkIn": "02:00 PM",
-    "checkOut": "11:00 AM",
-    "amenities": [
-      "Free Wi-Fi",
-      "Restaurant",
-      "Spa",
-      "Fitness Centre",
-      "Breakfast Included"
-    ]
-  },
+      "contact": {
+        "phone": "+39-06-4567-8901",
+        "email": "booking@trivoworld.com",
+        "website": "https://www.trivoworld.com"
+      },
 
-  "transport": {
-    "type": "Luxury Tourist Coach",
-    "pickup": true,
-    "drop": true,
-    "airportTransfer": true
-  },
-
-  "meetingPoint": "Leonardo da Vinci–Fiumicino Airport (FCO)",
-
-  "availableDates": [
-    "2026-09-14",
-    "2026-10-12",
-    "2026-11-16",
-    "2026-12-14"
-  ],
-
-  "maxGuests": 26,
-
-  "minimumAge": 5,
-
-  "languages": [
-    "English",
-    "Italian"
-  ],
-
-  "cancellationPolicy": "Free cancellation up to 5 days before departure.",
-
-  "importantInformation": [
-    "Carry your passport throughout the tour.",
-    "Wear comfortable walking shoes.",
-    "Dress modestly while visiting churches and the Vatican.",
-    "Carry a reusable water bottle during sightseeing.",
-    "Photography restrictions apply in some museum sections."
-  ],
-
-  "faq": [
-    {
-      "question": "Are Colosseum tickets included?",
-      "answer": "Yes. Skip-the-line entry tickets are included."
+      "status": "Active",
+      "featured": true,
+      "bookingCount": 1478,
+      "wishlistCount": 692,
+      "createdDate": "2026-04-01",
+      "updatedDate": "2026-07-25"
     },
     {
-      "question": "Is Vatican City included in the itinerary?",
-      "answer": "Yes. The Vatican Museums and St. Peter's Basilica are included."
-    },
-    {
-      "question": "Can vegetarian meals be arranged?",
-      "answer": "Yes. Vegetarian and vegan meal options are available on request."
-    }
-  ],
+      "id": 16,
+      "packageCode": "TW-IN-016",
+      "packageName": "Taj Mahal Heritage Escape",
+      "slug": "taj-mahal-heritage-escape",
 
-  "reviews": [
-    {
-      "id": 1,
-      "name": "Marco Rossi",
-      "rating": 5,
-      "date": "2026-04-20",
-      "comment": "Excellent tour with knowledgeable guides and outstanding historical experiences."
-    },
-    {
-      "id": 2,
-      "name": "Jennifer Clark",
-      "rating": 5,
-      "date": "2026-05-18",
-      "comment": "Everything was perfectly planned. The Colosseum was simply breathtaking."
-    },
-    {
-      "id": 3,
-      "name": "Akhil Thomas",
-      "rating": 4,
-      "date": "2026-06-22",
-      "comment": "Wonderful itinerary, comfortable hotel and plenty of free time to explore Rome."
-    }
-  ],
+      "destination": {
+        "id": 16,
+        "name": "Taj Mahal",
+        "slug": "taj-mahal",
+        "country": "India",
+        "city": "Agra",
+        "continent": "Asia",
+        "category": "Historical Monument",
+        "description": "The Taj Mahal is one of the world's most celebrated architectural masterpieces, built by Emperor Shah Jahan in memory of his wife Mumtaz Mahal. It is a UNESCO World Heritage Site and one of the New Seven Wonders of the World.",
 
-  "contact": {
-    "phone": "+39-06-4567-8901",
-    "email": "booking@trivoworld.com",
-    "website": "https://www.trivoworld.com"
-  },
+        "visitorCountPerYear": "Approximately 8 million",
 
-  "status": "Active",
-  "featured": true,
-  "bookingCount": 1478,
-  "wishlistCount": 692,
-  "createdDate": "2026-04-01",
-  "updatedDate": "2026-07-25"
-},
-{
-  "id": 16,
-  "packageCode": "TW-IN-016",
-  "packageName": "Taj Mahal Heritage Escape",
-  "slug": "taj-mahal-heritage-escape",
+        "bestTimeToVisit": "October to March",
 
-  "destination": {
-    "id": 16,
-    "name": "Taj Mahal",
-    "slug": "taj-mahal",
-    "country": "India",
-    "city": "Agra",
-    "continent": "Asia",
-    "category": "Historical Monument",
-    "description": "The Taj Mahal is one of the world's most celebrated architectural masterpieces, built by Emperor Shah Jahan in memory of his wife Mumtaz Mahal. It is a UNESCO World Heritage Site and one of the New Seven Wonders of the World.",
+        "recommendedVisitDuration": "3-4 hours",
 
-    "visitorCountPerYear": "Approximately 8 million",
+        "coordinates": {
+          "latitude": 27.1751,
+          "longitude": 78.0421
+        },
 
-    "bestTimeToVisit": "October to March",
+        "address": {
+          "street": "Dharmapuri",
+          "postalCode": "282001",
+          "city": "Agra",
+          "country": "India"
+        },
 
-    "recommendedVisitDuration": "3-4 hours",
+        "images": {
+          "cover": "taj-mahal.jpg",
+          "thumbnail": "taj-mahal-thumb.jpg",
+          "gallery": [
+            "taj-mahal-1.jpg",
+            "taj-mahal-sunrise.jpg",
+            "agra-fort.jpg",
+            "mehtab-bagh.jpg"
+          ]
+        },
 
-    "coordinates": {
-      "latitude": 27.1751,
-      "longitude": 78.0421
-    },
+        "links": {
+          "official": "https://www.asiagracircle.in/taj-mahal",
+          "wikipedia": "https://en.wikipedia.org/wiki/Taj_Mahal",
+          "googleMaps": "https://maps.google.com/?q=27.1751,78.0421"
+        },
 
-    "address": {
-      "street": "Dharmapuri",
-      "postalCode": "282001",
-      "city": "Agra",
-      "country": "India"
-    },
+        "unesco": true,
+        "newSevenWonders": true,
 
-    "images": {
-      "cover": "taj-mahal.jpg",
-      "thumbnail": "taj-mahal-thumb.jpg",
+        "tags": [
+          "India",
+          "Agra",
+          "Taj Mahal",
+          "UNESCO",
+          "Wonder"
+        ]
+      },
+
+      "category": "Domestic",
+
+      "tourType": "Heritage & Cultural Tour",
+
+      "duration": {
+        "days": 4,
+        "nights": 3,
+        "text": "4 Days / 3 Nights"
+      },
+
+      "price": {
+        "currency": "USD",
+        "original": 549,
+        "discount": 15,
+        "offer": 467
+      },
+
+      "rating": {
+        "average": 4.9,
+        "totalReviews": 836
+      },
+
+      "description": "Experience the timeless beauty of the Taj Mahal with sunrise and sunset views. Explore Agra Fort, Mehtab Bagh, Fatehpur Sikri and enjoy authentic Mughlai cuisine while staying in premium accommodation.",
+
+      "coverImage": "taj-package-cover.jpg",
+
       "gallery": [
-        "taj-mahal-1.jpg",
-        "taj-mahal-sunrise.jpg",
-        "agra-fort.jpg",
-        "mehtab-bagh.jpg"
-      ]
-    },
+        "taj-tour-1.jpg",
+        "agra-fort-tour.jpg",
+        "fatehpur-sikri.jpg",
+        "mehtab-bagh-evening.jpg"
+      ],
 
-    "links": {
-      "official": "https://www.asiagracircle.in/taj-mahal",
-      "wikipedia": "https://en.wikipedia.org/wiki/Taj_Mahal",
-      "googleMaps": "https://maps.google.com/?q=27.1751,78.0421"
-    },
+      "highlights": [
+        "4-Star Hotel Accommodation",
+        "Daily Breakfast",
+        "Railway Station / Airport Pickup & Drop",
+        "Sunrise Taj Mahal Visit",
+        "Agra Fort Guided Tour",
+        "Fatehpur Sikri Excursion",
+        "Mehtab Bagh Sunset View",
+        "Traditional Mughlai Dinner",
+        "Professional Tour Guide",
+        "Luxury Air-Conditioned Vehicle"
+      ],
 
-    "unesco": true,
-    "newSevenWonders": true,
+      "itinerary": [
+        {
+          "day": 1,
+          "title": "Arrival in Agra",
+          "description": "Pickup from airport or railway station, hotel check-in and evening visit to Mehtab Bagh."
+        },
+        {
+          "day": 2,
+          "title": "Taj Mahal & Agra Fort",
+          "description": "Early morning sunrise visit to the Taj Mahal followed by Agra Fort and local handicraft shopping."
+        },
+        {
+          "day": 3,
+          "title": "Fatehpur Sikri",
+          "description": "Full-day excursion to Fatehpur Sikri and Buland Darwaza with local sightseeing."
+        },
+        {
+          "day": 4,
+          "title": "Departure",
+          "description": "Breakfast, hotel checkout and transfer to Agra Airport or Railway Station."
+        }
+      ],
 
-    "tags": [
-      "India",
-      "Agra",
-      "Taj Mahal",
-      "UNESCO",
-      "Wonder"
-    ]
-  },
+      "inclusions": [
+        "3 Nights Hotel Accommodation",
+        "Daily Breakfast",
+        "Airport/Railway Transfers",
+        "Luxury AC Vehicle",
+        "Professional Tour Guide",
+        "Taj Mahal Entry Ticket",
+        "Agra Fort Entry",
+        "Fatehpur Sikri Tour",
+        "Sightseeing as per Itinerary"
+      ],
 
-  "category": "Domestic",
+      "exclusions": [
+        "Airfare / Train Tickets",
+        "Lunch & Dinner (Except Mentioned)",
+        "Travel Insurance",
+        "Personal Expenses",
+        "Camera Fees (if applicable)",
+        "Optional Activities"
+      ],
 
-  "tourType": "Heritage & Cultural Tour",
+      "hotel": {
+        "name": "Radisson Hotel Agra",
+        "category": "4 Star",
+        "roomType": "Superior Room",
+        "checkIn": "02:00 PM",
+        "checkOut": "11:00 AM",
+        "amenities": [
+          "Free Wi-Fi",
+          "Swimming Pool",
+          "Restaurant",
+          "Spa",
+          "Breakfast Included"
+        ]
+      },
 
-  "duration": {
-    "days": 4,
-    "nights": 3,
-    "text": "4 Days / 3 Nights"
-  },
+      "transport": {
+        "type": "Luxury AC Coach",
+        "pickup": true,
+        "drop": true,
+        "airportTransfer": true
+      },
 
-  "price": {
-    "currency": "USD",
-    "original": 549,
-    "discount": 15,
-    "offer": 467
-  },
+      "meetingPoint": "Agra Airport / Agra Cantt Railway Station",
 
-  "rating": {
-    "average": 4.9,
-    "totalReviews": 836
-  },
+      "availableDates": [
+        "2026-09-05",
+        "2026-10-10",
+        "2026-11-14",
+        "2026-12-19"
+      ],
 
-  "description": "Experience the timeless beauty of the Taj Mahal with sunrise and sunset views. Explore Agra Fort, Mehtab Bagh, Fatehpur Sikri and enjoy authentic Mughlai cuisine while staying in premium accommodation.",
+      "maxGuests": 30,
 
-  "coverImage": "taj-package-cover.jpg",
+      "minimumAge": 3,
 
-  "gallery": [
-    "taj-tour-1.jpg",
-    "agra-fort-tour.jpg",
-    "fatehpur-sikri.jpg",
-    "mehtab-bagh-evening.jpg"
-  ],
+      "languages": [
+        "English",
+        "Hindi"
+      ],
 
-  "highlights": [
-    "4-Star Hotel Accommodation",
-    "Daily Breakfast",
-    "Railway Station / Airport Pickup & Drop",
-    "Sunrise Taj Mahal Visit",
-    "Agra Fort Guided Tour",
-    "Fatehpur Sikri Excursion",
-    "Mehtab Bagh Sunset View",
-    "Traditional Mughlai Dinner",
-    "Professional Tour Guide",
-    "Luxury Air-Conditioned Vehicle"
-  ],
+      "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
 
-  "itinerary": [
-    {
-      "day": 1,
-      "title": "Arrival in Agra",
-      "description": "Pickup from airport or railway station, hotel check-in and evening visit to Mehtab Bagh."
-    },
-    {
-      "day": 2,
-      "title": "Taj Mahal & Agra Fort",
-      "description": "Early morning sunrise visit to the Taj Mahal followed by Agra Fort and local handicraft shopping."
-    },
-    {
-      "day": 3,
-      "title": "Fatehpur Sikri",
-      "description": "Full-day excursion to Fatehpur Sikri and Buland Darwaza with local sightseeing."
-    },
-    {
-      "day": 4,
-      "title": "Departure",
-      "description": "Breakfast, hotel checkout and transfer to Agra Airport or Railway Station."
+      "importantInformation": [
+        "Carry a valid government-issued photo ID.",
+        "The Taj Mahal is closed every Friday.",
+        "Large bags, food and drones are not permitted inside the monument.",
+        "Wear comfortable walking shoes.",
+        "Visit early morning for the best photography and fewer crowds."
+      ],
+
+      "faq": [
+        {
+          "question": "Is the Taj Mahal entry ticket included?",
+          "answer": "Yes. Entry tickets are included in the package."
+        },
+        {
+          "question": "Can we visit the Taj Mahal at sunrise?",
+          "answer": "Yes. The itinerary includes a sunrise visit on Day 2."
+        },
+        {
+          "question": "Is Fatehpur Sikri included?",
+          "answer": "Yes. A full-day excursion to Fatehpur Sikri is included."
+        }
+      ],
+
+      "reviews": [
+        {
+          "id": 1,
+          "name": "Rakesh Sharma",
+          "rating": 5,
+          "date": "2026-04-10",
+          "comment": "Watching the sunrise over the Taj Mahal was unforgettable. Excellent arrangements."
+        },
+        {
+          "id": 2,
+          "name": "Sophia Martin",
+          "rating": 5,
+          "date": "2026-05-18",
+          "comment": "Fantastic guide, comfortable hotel and well-planned sightseeing."
+        },
+        {
+          "id": 3,
+          "name": "Anand Pillai",
+          "rating": 4,
+          "date": "2026-06-21",
+          "comment": "Great heritage tour with enough time to explore Agra at our own pace."
+        }
+      ],
+
+      "contact": {
+        "phone": "+91-562-456-7890",
+        "email": "booking@trivoworld.com",
+        "website": "https://www.trivoworld.com"
+      },
+
+      "status": "Active",
+      "featured": true,
+      "bookingCount": 2138,
+      "wishlistCount": 1054,
+      "createdDate": "2026-04-05",
+      "updatedDate": "2026-07-26"
     }
-  ],
-
-  "inclusions": [
-    "3 Nights Hotel Accommodation",
-    "Daily Breakfast",
-    "Airport/Railway Transfers",
-    "Luxury AC Vehicle",
-    "Professional Tour Guide",
-    "Taj Mahal Entry Ticket",
-    "Agra Fort Entry",
-    "Fatehpur Sikri Tour",
-    "Sightseeing as per Itinerary"
-  ],
-
-  "exclusions": [
-    "Airfare / Train Tickets",
-    "Lunch & Dinner (Except Mentioned)",
-    "Travel Insurance",
-    "Personal Expenses",
-    "Camera Fees (if applicable)",
-    "Optional Activities"
-  ],
-
-  "hotel": {
-    "name": "Radisson Hotel Agra",
-    "category": "4 Star",
-    "roomType": "Superior Room",
-    "checkIn": "02:00 PM",
-    "checkOut": "11:00 AM",
-    "amenities": [
-      "Free Wi-Fi",
-      "Swimming Pool",
-      "Restaurant",
-      "Spa",
-      "Breakfast Included"
-    ]
-  },
-
-  "transport": {
-    "type": "Luxury AC Coach",
-    "pickup": true,
-    "drop": true,
-    "airportTransfer": true
-  },
-
-  "meetingPoint": "Agra Airport / Agra Cantt Railway Station",
-
-  "availableDates": [
-    "2026-09-05",
-    "2026-10-10",
-    "2026-11-14",
-    "2026-12-19"
-  ],
-
-  "maxGuests": 30,
-
-  "minimumAge": 3,
-
-  "languages": [
-    "English",
-    "Hindi"
-  ],
-
-  "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
-
-  "importantInformation": [
-    "Carry a valid government-issued photo ID.",
-    "The Taj Mahal is closed every Friday.",
-    "Large bags, food and drones are not permitted inside the monument.",
-    "Wear comfortable walking shoes.",
-    "Visit early morning for the best photography and fewer crowds."
-  ],
-
-  "faq": [
-    {
-      "question": "Is the Taj Mahal entry ticket included?",
-      "answer": "Yes. Entry tickets are included in the package."
-    },
-    {
-      "question": "Can we visit the Taj Mahal at sunrise?",
-      "answer": "Yes. The itinerary includes a sunrise visit on Day 2."
-    },
-    {
-      "question": "Is Fatehpur Sikri included?",
-      "answer": "Yes. A full-day excursion to Fatehpur Sikri is included."
-    }
-  ],
-
-  "reviews": [
-    {
-      "id": 1,
-      "name": "Rakesh Sharma",
-      "rating": 5,
-      "date": "2026-04-10",
-      "comment": "Watching the sunrise over the Taj Mahal was unforgettable. Excellent arrangements."
-    },
-    {
-      "id": 2,
-      "name": "Sophia Martin",
-      "rating": 5,
-      "date": "2026-05-18",
-      "comment": "Fantastic guide, comfortable hotel and well-planned sightseeing."
-    },
-    {
-      "id": 3,
-      "name": "Anand Pillai",
-      "rating": 4,
-      "date": "2026-06-21",
-      "comment": "Great heritage tour with enough time to explore Agra at our own pace."
-    }
-  ],
-
-  "contact": {
-    "phone": "+91-562-456-7890",
-    "email": "booking@trivoworld.com",
-    "website": "https://www.trivoworld.com"
-  },
-
-  "status": "Active",
-  "featured": true,
-  "bookingCount": 2138,
-  "wishlistCount": 1054,
-  "createdDate": "2026-04-05",
-  "updatedDate": "2026-07-26"
-}
   ]
-const [selectedPackage, setSelectedPackage] = useState(places[0]);
-  const userData = { isLogin, setIsLogin, userName, setUserName, page, setPage, selectedPackage, setSelectedPackage, places }
+  const [selectedPackage, setSelectedPackage] = useState(places[0]);
+  const [consultants, setConsultants] = useState(null)
+  const userData = { isLogin, setIsLogin, userName, setUserName, page, setPage, selectedPackage, setSelectedPackage, places, consultants, setConsultants }
   useEffect(() => {
     console.log(selectedPackage.name)
     console.log(selectedPackage.highlights)
-  }, [selectedPackage])
+    window.scrollTo(0, 0);
+  }, [selectedPackage]);
+  useEffect(()=>{
+    console.log(isLogin + " : "+ userName)
+  }, [isLogin]);
   return (
     <>
       <div>
-        <UserContext.Provider value={userData}>
-          <Navbar></Navbar>
-          <Packages></Packages>
-          <PackageView></PackageView>
-          <ContactUs></ContactUs>
-          <AboutUs></AboutUs>
+        <BrowserRouter>
+          <UserContext.Provider value={userData}>
+            <Navbar></Navbar>
+            <Routes>
+              <Route path='' element={<Home></Home>}></Route>
+              <Route path='login' element={<Login></Login>}></Route>
+              <Route path='signup' element={<SignUp></SignUp>}></Route>
+              <Route path='contact' element={<ContactUs></ContactUs>}></Route>
+              <Route path='about' element={<AboutUs></AboutUs>}></Route>
+              <Route path='packages' element={<Packages></Packages>}></Route>
+              <Route path='mybooking' element={<MyBooking></MyBooking>}>
+                <Route path='' element={<MyTours></MyTours>}></Route>
+                <Route path='enquiry' element={<MyEnquiry></MyEnquiry>}></Route>
+                <Route path='support' element={<MySupport></MySupport>}></Route>
+                <Route path='approvals' element={<MyApprovals></MyApprovals>}></Route>
+              </Route>
+              <Route path='view/*' element={<PackageView></PackageView>}></Route>
+              <Route path='consultant' element={<Consultant></Consultant>}>
+                <Route path='' element={<ConsultantList></ConsultantList>}></Route>
+                <Route path='reports' element={<ConsultantReports></ConsultantReports>}></Route>
+                <Route path='tours' element={<ConsultantAssign></ConsultantAssign>}></Route>
+                <Route path='addnew' element={<ConsultantRegistration></ConsultantRegistration>}></Route>
+              </Route>
 
-          <Home></Home>
+            </Routes>
+            <Footer></Footer>
+          </UserContext.Provider>
+        </BrowserRouter>
+
+
+        {/* <Packages></Packages>
+        <PackageView></PackageView>
+        <ContactUs></ContactUs>
+        <AboutUs></AboutUs>
+
+        <Home></Home>
 
 
 
-          <MyBooking></MyBooking>
-          <Consultant></Consultant>
+        <MyBooking></MyBooking>
+        <Consultant></Consultant>
 
 
-          <Footer></Footer>
-        </UserContext.Provider>
+        <Footer></Footer> */}
+
 
       </div>
 

@@ -12,7 +12,6 @@ import Everest from '../assets/places/mount-everest.jpg'
 export default function Home() {
     return (<>
         <div>
-            <h2>Home</h2>
             <div id="simpleSlider" className="carousel slide" data-bs-ride="carousel">
 
                 {/* Images Container */}

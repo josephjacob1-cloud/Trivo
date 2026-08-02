@@ -2,6 +2,7 @@ import '../css/style.css'
 import image2 from '../assets/slider/image2.jpg'
 import { useContext, useEffect } from 'react';
 import UserContext from './UserContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function Packages() {
     // const places = [
@@ -1016,6 +1017,7 @@ export default function Packages() {
 
     const userData = useContext(UserContext)
     const packages = userData.places.slice(0, 12);
+    
     // useEffect(()=>{
     //     userData.setSelectedPackage(places[0])
     // },[])
@@ -1132,7 +1134,11 @@ export default function Packages() {
     </>)
 }
 function Card({pack, path, select}) {
-    return <div className="col-sm-3 placeCard" onClick={(e)=>select(pack)}>
+    const navigate = useNavigate()
+    return <div className="col-sm-3 placeCard" onClick={(e)=>{
+        select(pack);
+        navigate("/view/"+pack.id)
+        }}>
        <img src={path + pack.destination.images.cover} alt={pack.packageName} className='placeImg' />
           <div className="placeCardText">
             <p className='pTitleTxt'>{pack.packageName}</p>
