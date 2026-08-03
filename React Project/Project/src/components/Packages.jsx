@@ -1018,9 +1018,9 @@ export default function Packages() {
     const userData = useContext(UserContext)
     const packages = userData.places.slice(0, 12);
     
-    // useEffect(()=>{
-    //     userData.setSelectedPackage(places[0])
-    // },[])
+     useEffect(()=>{
+       window.scrollTo(0, 0);
+    },[])
     return (<>
         <div >
             <div className='packagesHeadSec'>

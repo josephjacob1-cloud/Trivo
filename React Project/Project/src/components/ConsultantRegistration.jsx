@@ -1,9 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react'
 import UserContext from './UserContext'
+import { useNavigate } from 'react-router-dom'
 
 export default function ConsultantRegistration() {
-  const consultant = useContext(UserContext).consultants
-  const [heading, setHaeding] = useState("Add New Consultant")  
+  const userData = useContext(UserContext)
+  const consultant = userData.consultants
+  
+  const navigate = useNavigate()
+  const [heading, setHaeding] = useState("Add New Consultant")
   const [label, setLabel] = useState("Name:")
   const [fullName, setFullName] = useState("")
   const [email, setEmail] = useState("")
@@ -12,7 +16,7 @@ export default function ConsultantRegistration() {
   const [specialization, SetSpecialization] = useState("")
   const [office, setOffice] = useState("")
   const [gender, setGender] = useState("")
-  const [languages, setLanguages] =useState([])
+  const [languages, setLanguages] = useState([])
   const [button, setButton] = useState("Register")
 
   useEffect(() => {
@@ -33,15 +37,19 @@ export default function ConsultantRegistration() {
 
 
   }, [consultant])
+  const onRegister = ()=>{
+    consultant.fullName = fullName;
+     navigate(-1)
+  }
   return (
     <div className='container d-flex justify-content-center align-items-center'>
       <div className="card p-4 shadow" style={{ width: '100%', maxWidth: '600px' }}>
         <div className="card-body">
-          <p className='h3 card-title text-center mb-4'>Add New Consultant</p>
+          <p className='h3 card-title text-center mb-4'>{heading}</p>
 
           <div className='mb-3'>
             <label htmlFor="">{label}</label><br />
-            <input type="text" className='form-control' placeholder='Enter fullname' value={fullName} />
+            <input type="text" className='form-control' placeholder='Enter fullname' value={fullName} onChange={(e)=>setFullName(e.target.value)}/>
           </div>
           <div className='mb-3'>
             <label htmlFor="">Phone: </label><br />
@@ -65,8 +73,8 @@ export default function ConsultantRegistration() {
           </div>
           <div className='mb-3'>
             <label htmlFor="">Gender:</label><br />
-            <input type="radio" className='' name="gender" value="Male" checked = {gender==='Male'}/>Male
-            <input type="radio" className='' name="gender" value="Female" checked = {gender === 'Female'} />Female
+            <input type="radio" className='' name="gender" value="Male" checked={gender === 'Male'} />Male
+            <input type="radio" className='' name="gender" value="Female" checked={gender === 'Female'} />Female
           </div>
           <div className='mb-3'>
             <label htmlFor="">Language: </label><br />
@@ -74,7 +82,7 @@ export default function ConsultantRegistration() {
             <input type="checkbox" className='' checked={languages.includes('Hindi')} />Hindi
             <input type="checkbox" className='' checked={languages.includes('Tamil')} />Tamil
             <input type="checkbox" className='' checked={languages.includes("Malayalam")} />Malayalam
-            <input type="checkbox" className='' checked={languages.includes("French")} onChange={(e)=>
+            <input type="checkbox" className='' checked={languages.includes("French")} onChange={(e) =>
               setLanguages([...languages, 'French'])
             } />French
           </div>
@@ -82,7 +90,9 @@ export default function ConsultantRegistration() {
             <input type="radio" className='' name="status" value="Active" />Active
             <input type="radio" className='' name="status" value="inActive" />inActive
 
-            <button className='btn btn-primary bgTeal' >{button}</button>
+            <button className='btn btn-primary bgTeal mx-4' onClick={(e)=>userData.setConsultants(null)}  style={{visibility: consultant !== null ? 'visible' : 'hidden ' }} >Add New</button>
+            <button className='btn btn-primary bgTeal mx-2' onClick={(e)=>{userData.setConsultants(null); navigate(-1)}}>Cancel</button>
+            <button className='btn btn-primary bgTeal' onClick={(e)=>onRegister()} >{button}</button>
 
           </div>
 

@@ -14,7 +14,7 @@ export default function Consultant() {
                 {
                     useData.consultants !== null ?
                     <NavLink to={'addnew'}><span >Edit New Consultant</span></NavLink> :
-                    <NavLink to={'addnew'}><span onClick={(e) => useData.setConsultants(null)}>Add New Consultant</span>M/</NavLink>
+                    <NavLink to={'addnew'}><span onClick={(e) => useData.setConsultants(null)}>Add New Consultant</span></NavLink>
                 }
 
                 {/* <NavLink to={'addnew'}><span onClick={(e) => useData.setConsultants(null)}>

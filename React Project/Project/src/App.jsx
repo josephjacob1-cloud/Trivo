@@ -3871,16 +3871,17 @@ function App() {
     }
   ]
   const [selectedPackage, setSelectedPackage] = useState(places[0]);
+  const [totalConsultantList, setTotalConsultantList]= useState([])
   const [consultants, setConsultants] = useState(null)
-  const userData = { isLogin, setIsLogin, userName, setUserName, page, setPage, selectedPackage, setSelectedPackage, places, consultants, setConsultants }
+  const userData = { isLogin, setIsLogin, userName, setUserName, page, setPage, selectedPackage, setSelectedPackage, places, consultants, setConsultants ,setTotalConsultantList}
   useEffect(() => {
     console.log(selectedPackage.name)
     console.log(selectedPackage.highlights)
     window.scrollTo(0, 0);
   }, [selectedPackage]);
-  useEffect(()=>{
-    console.log(isLogin + " : "+ userName)
-  }, [isLogin]);
+
+  
+ 
   return (
     <>
       <div>
@@ -3888,6 +3889,7 @@ function App() {
           <UserContext.Provider value={userData}>
             <Navbar></Navbar>
             <Routes>
+              
               <Route path='' element={<Home></Home>}></Route>
               <Route path='login' element={<Login></Login>}></Route>
               <Route path='signup' element={<SignUp></SignUp>}></Route>

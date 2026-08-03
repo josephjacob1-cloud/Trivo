@@ -1,9 +1,9 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import UserContext from "./UserContext"
 import Logo from "../assets/logo-noBG.png"
 import LogoBG from "../assets/logo.png"
 import '../css/style.css'
-import { NavLink, replace, useNavigate } from "react-router-dom"
+import { NavLink, replace, useLocation, useNavigate } from "react-router-dom"
 
 export default function Navbar() {
     const user = useContext(UserContext)
@@ -11,8 +11,15 @@ export default function Navbar() {
     const onLogOut=()=>{
         user.setIsLogin(false);
         user.setUserName("Guest");
-        //navigate('login')
+        //navigate('login')   
     }
+    const location = useLocation();
+  useEffect(()=>{
+    console.log('urlPath : '+location.pathname )
+    if(location.pathname !== '/consultant/addnew'){
+        user.setConsultants(null)
+    }
+  }, [location]);
     return (<>
 
         <div>

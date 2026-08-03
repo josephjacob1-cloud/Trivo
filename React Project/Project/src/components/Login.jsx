@@ -35,7 +35,7 @@ export default function Login() {
                     <p className='small text-primary fw-bold text-end'>Forgott Password</p>
                     <div className='text-end'>
                         <button className='btn btn-primary bgTeal mx-4' onClick={(e) => login()}>Login</button>
-                        <button  className='btn btn-primary bgTeal ' onClick={(e)=> navigate('/signup',{replace:true})}>Registration</button>
+                        <button  className='btn btn-primary bgTeal ' onClick={(e)=> navigate('/signup',{replace:true})}>Sign Up!</button>
                     </div>
                 </div>
             </div>
