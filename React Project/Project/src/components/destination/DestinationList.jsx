@@ -7,13 +7,15 @@ export default function DestinationList() {
   return (
     <div>
       <p>Destination List</p>
-      <table>
+      <table className='consultantTable'>
       <tr>
+        <th>No</th>
         <th>Name</th>
         <th>City</th>
         <th>Country</th>
         <th>category</th>
         <th>Description</th>
+        <th>Action</th>
       </tr>
       
       {
@@ -37,12 +39,12 @@ function Details({des, id}){
     <td>{des.city}</td>
     <td>{des.country}</td>
     <td>{des.category}</td>
-    <td>{String(des.description).slice(0, 40)+"..."}</td>
-    <td onClick={(e)=> {userData.setDestination(des);
+    <td>{String(des.description).slice(0, 80)+"..."}</td>
+    <td><span onClick={(e)=> {userData.setDestination(des);
       navigate('/packages/adddestination/editDestination');      
     }
-    }><i class="bi bi-pencil-square text-info mx-4"></i></td>
-    <td><i class="bi bi-trash3-fill text-danger"></i></td>
+    }><i class="bi bi-pencil-square text-info mx-4"></i></span>
+    <span><i class="bi bi-trash3-fill text-danger"></i></span></td>
   </tr>
   </>)
 }

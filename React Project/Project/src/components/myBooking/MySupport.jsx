@@ -54,7 +54,7 @@ export default function MySupport() {
     <div>
       <p className='h3'>Support Tickets</p>
       <div>
-        <table>
+        <table className='consultantTable'>
           <tr>
             {
               Object.keys(support[0]).map((key, value) =>
@@ -80,7 +80,7 @@ function Details({ data }) {
     <tr>
       {
         Object.keys(data).map((key, value) =>
-          <td className={String(data[key].toString().toLowerCase())}>{data[key]}</td>
+          <td className={`${key} ${String(data[key].toString().toLowerCase())}`}>{data[key]}</td>
         )
       }
     </tr>

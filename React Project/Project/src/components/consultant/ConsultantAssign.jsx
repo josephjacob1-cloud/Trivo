@@ -52,10 +52,10 @@ export default function ConsultantAssign() {
   const cleanKey = (key) => key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()).trim();
 
   return (
-    <div>
+    <div>      
       <p className='h3'>Assign Tours to Consultants</p>
      <div>
-        <table>
+        <table className='consultantTable'>
           <tr>
             {
               Object.keys(tours[0]).map((key, value) =>

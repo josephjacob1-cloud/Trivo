@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function PackageView() {
     const pack = useContext(UserContext).selectedPackage;
-    const IMG_PATH = "../src/assets/places/";
+    const IMG_PATH = "../../src/assets/places/";
     const navigate = useNavigate()
     return (<>
         <div>
@@ -73,8 +73,8 @@ export default function PackageView() {
                                 {pack.cancellationPolicy}
                             </p>
                             <p>
-                                <button className="btn btn-primary w-100 bgTeal mb-3 fw-bold">Book Now</button>
-                                <button className="btn btn-white w-100 btn-outline-primary fw-bold">Enquire Now</button>
+                                <button className="btn btn-primary w-100 bgTeal mb-3 fw-bold disabled">Book Now</button>
+                                <button className="btn btn-white w-100 btn-outline-primary fw-bold disabled">Enquire Now</button>
                             </p>
 
                         </div>

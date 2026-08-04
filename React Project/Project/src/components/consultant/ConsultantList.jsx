@@ -116,7 +116,7 @@ export default function ConsultantList() {
   const visibleKeys = allKeys.filter(key => !Array.isArray(cList[0][key]))
   return (
     <div>
-      <h1>Consultant list</h1>
+      <p className='h3'>Consultant list</p>
       <div className="tableContainer">
         <table className='consultantTable'>
           <tr>
@@ -125,25 +125,18 @@ export default function ConsultantList() {
                 <th>{cleanKey(key)}</th>
               )
             }
-
-            {/* {
-            Object.keys(cList[0]).map((key, value)=>
-            <th key={key}>{cleanKey(key)}</th>
-            )
-          } */}
-          </tr>
+            <th>Action</th>
+            </tr>
 
           {
             cList.map((c, i) =>
               <tr>
                 <Details data={c} allowedKeys={visibleKeys} />
-                <td
-                  onClick={(e) => {
+                <td><span onClick={(e) => {
                     userData.setConsultants(c);
                     navigate("addnew");
-                  }}
-                ><i class="bi bi-pencil-square text-info mx-4"></i></td>
-                <td><i class="bi bi-trash3-fill text-danger"></i></td>
+                  }}><i class="bi bi-pencil-square text-info mx-2"></i></span>
+                <span><i class="bi bi-trash3-fill text-danger"></i></span></td>
 
               </tr>
             )

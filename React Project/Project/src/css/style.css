@@ -275,65 +275,107 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
+
 .consultantTable th {
-  background-color: #f8fafc;
-  color: #475569;
-  font-weight: 600;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 14px 16px;
-  border-bottom: 2px solid #e2e8f0;
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 14px 16px;
+    border-bottom: 2px solid #e2e8f0;
 }
+
 .consultantTable td {
-  padding: 14px 16px;
-  font-size: 0.9rem;
-  border-bottom: 1px solid #f1f5f9;
-  vertical-align: middle;
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
 }
+
 .consultantTable tr:nth-child(even) {
-  background-color: #f8fafc;
+    background-color: #f8fafc;
 }
 
 .consultantTable tr:hover {
-  background-color: #c4c6c7;
-  transition: background-color 0.2s ease;
+    background-color: #c4c6c7;
+    transition: background-color 0.2s ease;
 }
-.packageName, .fullName{
+
+.packageName,
+.fullName,
+.customerName {
     color: teal;
     font-weight: bold;
 }
-.confirmed, .open, .approved, .assigned{
+
+.confirmed,
+.open,
+.approved,
+.assigned {
     color: green;
 }
-.completed, .new{
+
+.completed,
+.new {
     color: blueviolet;
 }
-.cancelled, .rejected{
+
+.cancelled,
+.rejected {
     color: red;
 }
-.pending{
+
+.pending {
     color: orangered;
 }
-.contacted, .resolved{
+
+.contacted,
+.resolved {
     color: blue;
 }
-.quotation, .processing{
+
+.quotation,
+.processing {
     color: rgb(119, 114, 4);
 }
-.closed{
+
+.closed {
     color: red;
 }
-.reportLink{
+
+.reportLink {
     width: 150px;
     margin: 0 auto 15px;
     padding: 10px;
     border-radius: 10px;
 }
-.reportLink a{
+
+.reportLink a {
     text-decoration: none;
     color: #FFF;
-   
-   
+}
 
+.consultantTable {
+  width: 90%;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  color: #333333;
+  margin: 20px auto;
+ 
+}
+.consultantTable th {
+  background-color: #ffffff;
+  color: #000000;
+  font-weight: 700;
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 2px solid #eeeeee;
+}
+.consultantTable td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #f5f5f5;
+  vertical-align: middle;
 }

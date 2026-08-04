@@ -8,8 +8,10 @@ import Burj from '../assets/places/burj-khalifa-exterior.jpg'
 import Taj from '../assets/places/taj-mahal.jpg'
 import Opera from '../assets/places/sydney-opera-house-harbour-bridge.jpg'
 import Everest from '../assets/places/mount-everest.jpg'
+import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
+    const navigate = useNavigate()
     return (<>
         <div>
             <div id="simpleSlider" className="carousel slide" data-bs-ride="carousel">
@@ -59,32 +61,32 @@ export default function Home() {
             </div>
             <div className='container '>
                 <div className='row'>
-                    <div className="col-sm-3 placeCard">
+                    <div className="col-sm-3 placeCard" style={{cursor:'pointer'}} onClick={(e)=>navigate("/packages/view/1")}>
                         <img src={Effel} alt="Effel" className='placeImg' />
                         <div className="placeCardText">
                             <p className='pTitleTxt'>Effect Tower</p>
                             <p className='pLocTxr'>Paris</p>
                         </div>
                     </div>
-                    <div className="col-sm-3 placeCard">
+                    <div className="col-sm-3 placeCard" style={{cursor:'pointer'}} onClick={(e)=>navigate("/packages/view/5")}>
                         <img src={Burj} alt="Burj" className='placeImg' />
                         <div className="placeCardText">
                             <p className='pTitleTxt'>Burj Khalifa</p>
                             <p className='pLocTxr'>UAE</p>
                         </div>
                     </div>
-                    <div className="col-sm-3 placeCard">
+                    <div className="col-sm-3 placeCard" style={{cursor:'pointer'}} onClick={(e)=>navigate("/packages/view/5")}>
                         <img src={Taj} alt="Taj" className='placeImg' />
                         <div className="placeCardText">
                             <p className='pTitleTxt'>Taj Mahal</p>
                             <p className='pLocTxr'>New Delhi</p>
                         </div>
                     </div>
-                    <div className="col-sm-3 placeCard">
+                    <div className="col-sm-3 placeCard" style={{cursor:'pointer'}} onClick={(e)=>navigate("/packages")}>
                         <img src={Opera} alt="Opera" className='placeImg' />
                         <div className="placeCardText">
-                            <p className='pTitleTxt'>Opera House</p>
-                            <p className='pLocTxr'>Sydny</p>
+                            <p className='fs-5 text-white shadow  bgTeal p-2' style={{opacity:'0.7', borderRadius:'10px',margin:'0 0 50px 60px'}}>Explore More</p>
+                            
                         </div>
                     </div>
                 </div>

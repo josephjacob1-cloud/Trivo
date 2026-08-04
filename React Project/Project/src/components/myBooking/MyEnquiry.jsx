@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../css/style.css'
 
 export default function MyEnquiry() {
   const enquiry = [
@@ -59,7 +60,7 @@ export default function MyEnquiry() {
     <div>
       <p className='h3'>Enquiries</p>
       <div>
-        <table>         
+        <table className='consultantTable'>         
           <tr>
             {
               Object.keys(enquiry[0]).map((key, value) =>
@@ -85,7 +86,7 @@ function Details({ data }) {
     <tr>
       {
         Object.keys(data).map((key, value) => 
-          <td className={String(data[key].toString().toLowerCase())}>{data[key]}</td>
+          <td className={`${key} ${String(data[key].toString().toLowerCase())}`}>{data[key]}</td>
         )
       }
     </tr>

@@ -82,7 +82,7 @@ export default function MyTours() {
     <div>
       <p className='h3'>My Tour Booking</p>
       <div>
-        <table>
+        <table className='consultantTable'>
           <tr>
             {
               Object.keys(bookings[0]).map((key, value) =>

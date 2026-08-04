@@ -2036,7 +2036,7 @@ function App() {
         "website": "https://www.trivoworld.com"
       },
 
-      "status": "Active",
+      "status": "inActive",
       "featured": true,
       "bookingCount": 1527,
       "wishlistCount": 684,
@@ -2301,7 +2301,7 @@ function App() {
         "website": "https://www.trivoworld.com"
       },
 
-      "status": "Active",
+      "status": "inActive",
       "featured": true,
       "bookingCount": 1384,
       "wishlistCount": 642,
@@ -3910,6 +3910,7 @@ function App() {
               <Route element={<ProtectedRoute> </ProtectedRoute>}>
                 <Route path='packages' element={<Outlet />} >
                   <Route path='' element={<Packages></Packages>}></Route>
+                  <Route path='view/*' element={<PackageView></PackageView>}></Route>
                   <Route path='addpackage' element={<PackageManagement></PackageManagement>}>
                     <Route path="" element={<PackageCreate></PackageCreate>}></Route>
                     <Route path="packagelist" element={<PackageList></PackageList>}></Route>
@@ -3931,7 +3932,7 @@ function App() {
                   <Route path='support' element={<MySupport></MySupport>}></Route>
                   <Route path='approvals' element={<MyApprovals></MyApprovals>}></Route>
                 </Route>
-                <Route path='view/*' element={<PackageView></PackageView>}></Route>
+                
                 <Route path='consultant' element={<Consultant></Consultant>}>
                   <Route path='' element={<ConsultantList></ConsultantList>}></Route>
                   <Route path='reports' element={<ConsultantReports></ConsultantReports>}></Route>

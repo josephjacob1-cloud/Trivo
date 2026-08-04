@@ -1141,7 +1141,7 @@ function Card({pack, path, select}) {
     const navigate = useNavigate()
     return <div className="col-sm-3 placeCard" onClick={(e)=>{
         select(pack);
-        navigate("/view/"+pack.id)
+        navigate("/packages/view/"+pack.id)
         }}>
        <img src={path + pack.destination.images.cover} alt={pack.packageName} className='placeImg' />
           <div className="placeCardText">
