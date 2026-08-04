@@ -11,7 +11,7 @@ import MyBooking from './components/MyBooking'
 import AboutUs from './components/AboutUs'
 import ContactUs from './components/ContactUs'
 import PackageView from './components/PackageView'
-import { BrowserRouter, Route, Routes, NavLink, useNavigate } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, NavLink, useNavigate, Outlet } from 'react-router-dom'
 import ConsultantList from './components/ConsultantList'
 import ConsultantReports from './components/ConsultantReports'
 import ConsultantAssign from './components/ConsultantAssign'
@@ -22,6 +22,13 @@ import MySupport from './components/MySupport'
 import MyApprovals from './components/MyApprovals'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
+import PackageManagement from './components/PackageManagement'
+import PackageList from './components/PackageList'
+import PackageApprovals from './components/PackageApprovals'
+import PackageCreate from './components/PackageCreate'
+import DestinationCreate from './components/DestinationCreate'
+import DestinationManagement from './components/DestinationManagement'
+import DestinationList from './components/DestinationList'
 
 
 
@@ -3871,17 +3878,17 @@ function App() {
     }
   ]
   const [selectedPackage, setSelectedPackage] = useState(places[0]);
-  const [totalConsultantList, setTotalConsultantList]= useState([])
+  const [totalConsultantList, setTotalConsultantList] = useState([])
   const [consultants, setConsultants] = useState(null)
-  const userData = { isLogin, setIsLogin, userName, setUserName, page, setPage, selectedPackage, setSelectedPackage, places, consultants, setConsultants ,setTotalConsultantList}
+  const userData = { isLogin, setIsLogin, userName, setUserName, page, setPage, selectedPackage, setSelectedPackage, places, consultants, setConsultants, setTotalConsultantList }
   useEffect(() => {
     console.log(selectedPackage.name)
     console.log(selectedPackage.highlights)
     window.scrollTo(0, 0);
   }, [selectedPackage]);
 
-  
- 
+
+
   return (
     <>
       <div>
@@ -3889,13 +3896,28 @@ function App() {
           <UserContext.Provider value={userData}>
             <Navbar></Navbar>
             <Routes>
-              
+
               <Route path='' element={<Home></Home>}></Route>
               <Route path='login' element={<Login></Login>}></Route>
               <Route path='signup' element={<SignUp></SignUp>}></Route>
               <Route path='contact' element={<ContactUs></ContactUs>}></Route>
               <Route path='about' element={<AboutUs></AboutUs>}></Route>
-              <Route path='packages' element={<Packages></Packages>}></Route>
+              <Route path='packages' element={<Outlet />} >
+                <Route path='' element={<Packages></Packages>}></Route>
+                <Route path='addpackage' element={<PackageManagement></PackageManagement>}>
+                  <Route path="" element={<PackageCreate></PackageCreate>}></Route>
+                  <Route path="packagelist" element={<PackageList></PackageList>}></Route>
+                  <Route path='packageapprovals' element={<PackageApprovals></PackageApprovals>}></Route>
+                 
+                </Route>
+                 <Route path='adddestination' element={<DestinationManagement></DestinationManagement>}>
+                 <Route path='' element={<DestinationCreate></DestinationCreate>}></Route>
+                 <Route path='destinationlist' element={<DestinationList></DestinationList>}></Route>
+                  </Route>
+                
+
+              </Route>
+              <Route path='addpackage' element={<PackageManagement></PackageManagement>}></Route>
               <Route path='mybooking' element={<MyBooking></MyBooking>}>
                 <Route path='' element={<MyTours></MyTours>}></Route>
                 <Route path='enquiry' element={<MyEnquiry></MyEnquiry>}></Route>

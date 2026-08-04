@@ -1017,13 +1017,17 @@ export default function Packages() {
 
     const userData = useContext(UserContext)
     const packages = userData.places.slice(0, 12);
+    const navigate = useNavigate()
     
      useEffect(()=>{
        window.scrollTo(0, 0);
     },[])
     return (<>
         <div >
+            
             <div className='packagesHeadSec'>
+                <div style={{textAlign:'right'}} className='pt-2 px-2'>
+                    <button className='btn btn-info text-white fw-bold' onClick={(e)=>navigate('addpackage')}>+Add Package</button></div>
                 <div className='pkHeadTexts'>
                     <p className='pkTxt1'>Home {'>'} Tour Packages</p>
                     <p className='h1 pkTxt2'>Explore Amazing <br />Tour Packages</p>

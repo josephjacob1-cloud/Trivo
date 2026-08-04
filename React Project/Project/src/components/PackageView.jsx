@@ -24,15 +24,15 @@ export default function PackageView() {
                 <div className="container-fluild mx-4">
                     <div className="row">
                         <div className="col-sm-9 mt-2">
-                            <p className="textHeadWhite" onClick={()=>{navigate('/packages')}}>
+                            <p className="textHeadWhite" onClick={() => { navigate('/packages') }}>
                                 <i class="bi bi-box-arrow-left me-2"></i>
                                 <span>Back to Packages</span></p>
                             <p style={{ visibility: pack.featured ? 'visible' : 'none', width: '120px' }} className="featuresDivItems">
 
                                 <i className="bi bi-star-fill goldenStar"></i>
-                                <span> Featured</span>
-                            </p>
-                            <p className="h2 textHeadWhite">{pack.packageName}</p>
+                                <span> Featured</span>                            </p>
+                           
+                                <p className="h2 textHeadWhite">{pack.packageName}</p>
                             <p className="textHeadWhite">
                                 <i className="bi bi-geo-alt"></i>
                                 {pack.destination.city} | {pack.destination.country}
@@ -57,7 +57,10 @@ export default function PackageView() {
                                 <p className="featuresDivItems"><i class="bi bi-person-standing"></i>
                                     <span>Age {pack.minimumAge} +</span>
                                 </p>
+                                
                             </div>
+                            <p className="text-white shadow fw-bold " 
+                            style={{fontSize:'52px',textAlign:'right', opacity:'0.7', fontStyle:'italic'}}>{pack.slug}</p>
                         </div>
                         <div className="col-sm-3 priceCard">
                             <p className="discount">{pack.price.discount}% OFF</p>
