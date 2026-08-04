@@ -1,7 +1,7 @@
 import { useContext } from "react"
-import UserContext from "./UserContext"
-import '../css/style.css'
-import StarRating from "./StarRating";
+import UserContext from "../UserContext"
+import '../../css/style.css'
+import StarRating from "../StarRating";
 import ThumbSlider from "./ThumbSlider";
 import Itinerary from "./Itinerary";
 import { useNavigate } from "react-router-dom";

@@ -5,8 +5,9 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
     const userData = useContext(UserContext)
-    const [name, setName] = useState("")
+    const [name, setName] = useState("J")
     const pwdRef = useRef(null)
+   
     const navigate = useNavigate()
     const login = () => {
          if (name.trim() === "" || pwdRef.current.value === "") {
@@ -26,11 +27,11 @@ export default function Login() {
                     <p className='h3 card-title text-center mb-4 '>Login to explore the world</p>
                     <div className='mb-3'>
                         <label htmlFor="">User Name</label><br />
-                        <input type="text" className='form-control' placeholder='Enter your user name' onChange={(e) => setName(e.target.value)} />
+                        <input type="text" className='form-control' placeholder='Enter your user name' onChange={(e) => setName(e.target.value)} value={name}/>
                     </div>
                     <div className='mb-3'>
                         <label htmlFor="">Password:</label><br />
-                        <input type="password" className='form-control' placeholder='Password' ref={pwdRef} />
+                        <input type="password" className='form-control' placeholder='Password' ref={pwdRef} value='111' />
                     </div>
                     <p className='small text-primary fw-bold text-end'>Forgott Password</p>
                     <div className='text-end'>

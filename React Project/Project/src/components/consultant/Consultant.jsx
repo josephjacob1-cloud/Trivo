@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom"
-import '../css/style.css'
+import '../../css/style.css'
 import { useContext } from "react"
-import UserContext from "./UserContext"
+import UserContext from "../UserContext"
 export default function Consultant() {
     const useData = useContext(UserContext)
 

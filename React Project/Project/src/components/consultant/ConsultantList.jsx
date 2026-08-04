@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import UserContext from './UserContext';
+import UserContext from '../UserContext';
 import { useNavigate } from 'react-router-dom';
 
 export default function ConsultantList() {
@@ -135,12 +135,15 @@ export default function ConsultantList() {
 
           {
             cList.map((c, i) =>
-              <tr  onClick={(e)=>{
-                userData.setConsultants(c);
-                navigate("addnew");
-                
-                }}>
+              <tr>
                 <Details data={c} allowedKeys={visibleKeys} />
+                <td
+                  onClick={(e) => {
+                    userData.setConsultants(c);
+                    navigate("addnew");
+                  }}
+                ><i class="bi bi-pencil-square text-info mx-4"></i></td>
+                <td><i class="bi bi-trash3-fill text-danger"></i></td>
 
               </tr>
             )

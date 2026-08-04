@@ -1,4 +1,4 @@
-import '../css/style.css'
+import '../../css/style.css'
 export default function Itinerary({ itinerary, inclusions, exclusions }) {
     return (<>
         <div className=''>

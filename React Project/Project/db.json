@@ -1,47 +1,374 @@
-import './css/style.css'
-import './components/Navbar'
-import Navbar from './components/Navbar'
-import { useEffect, useState } from 'react'
-import UserContext from "./components/UserContext"
-import Home from './components/Home'
-import Footer from './components/Footer'
-import Packages from './components/package/Packages'
-import Consultant from './components/Consultant/Consultant'
-import MyBooking from './components/myBooking/MyBooking'
-import AboutUs from './components/AboutUs'
-import ContactUs from './components/Consultant/ContactUs'
-import PackageView from './components/package/PackageView'
-import { BrowserRouter, Route, Routes, NavLink, useNavigate, Outlet } from 'react-router-dom'
-import ConsultantList from './components/Consultant/ConsultantList'
-import ConsultantReports from './components/Consultant/ConsultantReports'
-import ConsultantAssign from './components/Consultant/ConsultantAssign'
-import ConsultantRegistration from './components/Consultant/ConsultantRegistration'
-import MyTours from './components/myBooking/MyTours'
-import MyEnquiry from './components/myBooking/MyEnquiry'
-import MySupport from './components/myBooking/MySupport'
-import MyApprovals from './components/myBooking/MyApprovals'
-import Login from './components/Login'
-import SignUp from './components/SignUp'
-import PackageManagement from './components/package/PackageManagement'
-import PackageList from './components/package/PackageList'
-import PackageApprovals from './components/package/PackageApprovals'
-import PackageCreate from './components/package/PackageCreate'
-import DestinationManagement from './components/destination/DestinationManagement'
-import DestinationList from './components/destination/DestinationList'
-import ProtectedRoute from './components/ProtectedRoute'
-import DestinationCreate from './components/destination/DestinationCreate'
-import DestinationEdit from './components/destination/DestinationEdit'
-import ScrollToTop from './components/ScrollToTop'
-
-
-
-
-function App() {
-  const [isLogin, setIsLogin] = useState(false)
-  const [userName, setUserName] = useState("Guest")
-  const [page, setPage] = useState("home")
-
-  const places = [
+{
+    "consultant": [
+        {
+            "id": 1,
+            "employeeCode": "TC001",
+            "fullName": "Aarav Sharma",
+            "gender": "Male",
+            "email": "aarav.sharma@example.com",
+            "phone": "+91 9876543210",
+            "designation": "Senior Tour Consultant",
+            "specialization": "Europe Tours",
+            "languages": [
+                "English",
+                "Hindi"
+            ],
+            "office": "Delhi",
+            "status": "Active",
+            "rating": 4.9
+        },
+        {
+            "id": 2,
+            "employeeCode": "TC002",
+            "fullName": "Ananya Nair",
+            "gender": "Female",
+            "email": "ananya.nair@example.com",
+            "phone": "+91 9876543211",
+            "designation": "Tour Consultant",
+            "specialization": "Kerala Packages",
+            "languages": [
+                "English",
+                "Malayalam",
+                "Hindi"
+            ],
+            "office": "Kochi",
+            "status": "Active",
+            "rating": 4.8
+        },
+        {
+            "id": 3,
+            "employeeCode": "TC003",
+            "fullName": "Rahul Verma",
+            "gender": "Male",
+            "email": "rahul.verma@example.com",
+            "phone": "+91 9876543212",
+            "designation": "International Tour Consultant",
+            "specialization": "Dubai & UAE",
+            "languages": [
+                "English",
+                "Hindi"
+            ],
+            "office": "Mumbai",
+            "status": "Active",
+            "rating": 4.7
+        },
+        {
+            "id": 4,
+            "employeeCode": "TC004",
+            "fullName": "Sneha Menon",
+            "gender": "Female",
+            "email": "sneha.menon@example.com",
+            "phone": "+91 9876543213",
+            "designation": "Holiday Consultant",
+            "specialization": "Family Tours",
+            "languages": [
+                "English",
+                "Malayalam",
+                "Tamil"
+            ],
+            "office": "Thrissur",
+            "status": "Active",
+            "rating": 4.6
+        },
+        {
+            "id": 5,
+            "employeeCode": "TC005",
+            "fullName": "Vikram Singh",
+            "gender": "Male",
+            "email": "vikram.singh@example.com",
+            "phone": "+91 9876543214",
+            "designation": "Tour Consultant",
+            "specialization": "Adventure Tours",
+            "languages": [
+                "English",
+                "Hindi"
+            ],
+            "office": "Bengaluru",
+            "status": "inActive",
+            "rating": 4.8
+        },
+        {
+            "id": 6,
+            "employeeCode": "TC006",
+            "fullName": "Meera Thomas",
+            "gender": "Female",
+            "email": "meera.thomas@example.com",
+            "phone": "+91 9876543215",
+            "designation": "Travel Advisor",
+            "specialization": "Honeymoon Packages",
+            "languages": [
+                "English",
+                "Malayalam"
+            ],
+            "office": "Thrissur",
+            "status": "Active",
+            "rating": 4.5
+        }
+    ],
+    "assignTours": [
+        {
+            "id": 1,
+            "assignmentId": "AT001",
+            "packageName": "Amazing Kerala",
+            "customerName": "John Mathew",
+            "consultantName": "Aarav Sharma",
+            "assignedDate": "2026-08-01",
+            "status": "Assigned"
+        },
+        {
+            "id": 2,
+            "assignmentId": "AT002",
+            "packageName": "Goa Beach Holiday",
+            "customerName": "Anjali Nair",
+            "consultantName": "Ananya Nair",
+            "assignedDate": "2026-08-02",
+            "status": "Assigned"
+        },
+        {
+            "id": 3,
+            "assignmentId": "AT003",
+            "packageName": "Dubai Explorer",
+            "customerName": "Rahul Kumar",
+            "consultantName": "Rahul Verma",
+            "assignedDate": "2026-08-03",
+            "status": "Processing"
+        },
+        {
+            "id": 4,
+            "assignmentId": "AT004",
+            "packageName": "Paris Vacation",
+            "customerName": "Sneha Thomas",
+            "consultantName": "Sneha Menon",
+            "assignedDate": "2026-08-04",
+            "status": "Completed"
+        },
+        {
+            "id": 5,
+            "assignmentId": "AT005",
+            "packageName": "Maldives Escape",
+            "customerName": "Arun George",
+            "consultantName": "Vikram Singh",
+            "assignedDate": "2026-08-05",
+            "status": "Pending"
+        }
+    ],
+    "approvals": [
+        {
+            "id": 1,
+            "approvalId": "APR001",
+            "requestType": "Package Booking",
+            "customerName": "John Mathew",
+            "requestedDate": "2026-08-01",
+            "status": "Pending"
+        },
+        {
+            "id": 2,
+            "approvalId": "APR002",
+            "requestType": "Cancellation",
+            "customerName": "Anjali Nair",
+            "requestedDate": "2026-08-02",
+            "status": "Approved"
+        },
+        {
+            "id": 3,
+            "approvalId": "APR003",
+            "requestType": "Refund",
+            "customerName": "Rahul Kumar",
+            "requestedDate": "2026-08-03",
+            "status": "Rejected"
+        },
+        {
+            "id": 4,
+            "approvalId": "APR004",
+            "requestType": "Travel Date Change",
+            "customerName": "Sneha Thomas",
+            "requestedDate": "2026-08-04",
+            "status": "Pending"
+        },
+        {
+            "id": 5,
+            "approvalId": "APR005",
+            "requestType": "Package Upgrade",
+            "customerName": "Arun George",
+            "requestedDate": "2026-08-05",
+            "status": "Approved"
+        }
+    ],
+    "enquiry":[
+    {
+      "id": 1,
+      "enquiryId": "ENQ001",
+      "customerName": "John Mathew",
+      "phone": "+91 9876543210",
+      "destination": "Munnar",
+      "travelDate": "2026-09-15",
+      "persons": 2,
+      "status": "New"
+    },
+    {
+      "id": 2,
+      "enquiryId": "ENQ002",
+      "customerName": "Anjali Nair",
+      "phone": "+91 9876543211",
+      "destination": "Goa",
+      "travelDate": "2026-10-05",
+      "persons": 4,
+      "status": "Contacted"
+    },
+    {
+      "id": 3,
+      "enquiryId": "ENQ003",
+      "customerName": "Rahul Kumar",
+      "phone": "+91 9876543212",
+      "destination": "Dubai",
+      "travelDate": "2026-11-20",
+      "persons": 2,
+      "status": "Quotation Sent"
+    },
+    {
+      "id": 4,
+      "enquiryId": "ENQ004",
+      "customerName": "Sneha Thomas",
+      "phone": "+91 9876543213",
+      "destination": "Paris",
+      "travelDate": "2026-12-18",
+      "persons": 3,
+      "status": "Confirmed"
+    },
+    {
+      "id": 5,
+      "enquiryId": "ENQ005",
+      "customerName": "Arun George",
+      "phone": "+91 9876543214",
+      "destination": "Maldives",
+      "travelDate": "2027-01-10",
+      "persons": 2,
+      "status": "Closed"
+    }
+  ],
+  "support":[
+    {
+      "id": 1,
+      "ticketId": "TKT001",
+      "customerName": "John Mathew",
+      "subject": "Unable to complete booking",
+      "priority": "High",
+      "createdDate": "2026-08-01",
+      "status": "Open"
+    },
+    {
+      "id": 2,
+      "ticketId": "TKT002",
+      "customerName": "Anjali Nair",
+      "subject": "Payment not reflected",
+      "priority": "High",
+      "createdDate": "2026-08-02",
+      "status": "Processing"
+    },
+    {
+      "id": 3,
+      "ticketId": "TKT003",
+      "customerName": "Rahul Kumar",
+      "subject": "Need to change travel date",
+      "priority": "Medium",
+      "createdDate": "2026-08-03",
+      "status": "Pending"
+    },
+    {
+      "id": 4,
+      "ticketId": "TKT004",
+      "customerName": "Sneha Thomas",
+      "subject": "Request for booking cancellation",
+      "priority": "Low",
+      "createdDate": "2026-08-04",
+      "status": "Resolved"
+    },
+    {
+      "id": 5,
+      "ticketId": "TKT005",
+      "customerName": "Arun George",
+      "subject": "Refund status enquiry",
+      "priority": "Medium",
+      "createdDate": "2026-08-05",
+      "status": "Closed"
+    }
+  ],
+  "booking":[
+    {
+      "id": 1,
+      "packageName": "Amazing Kerala",
+      "bookingId": "BK1001",
+      "customerName": "John Mathew",
+      
+      "consultantId": "TC001",
+      "consultantName": "Aarav Sharma",
+      "travelDate": "2026-09-10",
+      "persons": 2,
+      "totalAmount": 25000,
+      "status": "Confirmed"
+    },
+    {
+      "id": 2,
+      "bookingId": "BK1002",
+      "customerName": "Anjali Nair",
+      "packageName": "Goa Beach Holiday",
+      "consultantId": "TC002",
+      "consultantName": "Ananya Nair",
+      "travelDate": "2026-10-05",
+      "persons": 4,
+      "totalAmount": 64000,
+      "status": "Pending"
+    },
+    {
+      "id": 3,
+      "bookingId": "BK1003",
+      "customerName": "Rahul Kumar",
+      "packageName": "Dubai Explorer",
+      "consultantId": "TC003",
+      "consultantName": "Rahul Verma",
+      "travelDate": "2026-11-15",
+      "persons": 2,
+      "totalAmount": 100000,
+      "status": "Confirmed"
+    },
+    {
+      "id": 4,
+      "bookingId": "BK1004",
+      "customerName": "Sneha Thomas",
+      "packageName": "Paris Vacation",
+      "consultantId": "TC004",
+      "consultantName": "Sneha Menon",
+      "travelDate": "2026-12-20",
+      "persons": 3,
+      "totalAmount": 345000,
+      "status": "Completed"
+    },
+    {
+      "id": 5,
+      "bookingId": "BK1005",
+      "customerName": "Arun George",
+      "packageName": "Maldives Escape",
+      "consultantId": "TC005",
+      "consultantName": "Vikram Singh",
+      "travelDate": "2026-08-25",
+      "persons": 2,
+      "totalAmount": 140000,
+      "status": "Cancelled"
+    },
+    {
+      "id": 6,
+      "bookingId": "BK1006",
+      "customerName": "Meera Joseph",
+      "packageName": "Ooty Weekend Trip",
+      "consultantId": "TC006",
+      "consultantName": "Meera Thomas",
+      "travelDate": "2026-09-18",
+      "persons": 5,
+      "totalAmount": 55000,
+      "status": "Pending"
+    }
+  ],
+    "packages": [
     {
       "id": 1,
       "packageCode": "TW-FR-001",
@@ -3880,92 +4207,4 @@ function App() {
       "updatedDate": "2026-07-26"
     }
   ]
-  const [selectedPackage, setSelectedPackage] = useState(places[0]);
-  const [totalConsultantList, setTotalConsultantList] = useState([])
-  const [consultants, setConsultants] = useState(null)
-  const [destination, setDestination] = useState({})
-  const userData = { isLogin, setIsLogin, userName, setUserName, page, setPage, selectedPackage, setSelectedPackage, places, consultants, setConsultants, setTotalConsultantList, destination, setDestination }
-  useEffect(() => {
-    console.log(selectedPackage.name)
-    console.log(selectedPackage.highlights)
-    window.scrollTo(0, 0);
-  }, [selectedPackage]);
-
-
-
-  return (
-    <>
-      <div>
-        <BrowserRouter>
-        <ScrollToTop></ScrollToTop>
-          <UserContext.Provider value={userData}>
-            <Navbar></Navbar>
-            <Routes>
-
-              <Route path='' element={<Home></Home>}></Route>
-              <Route path='login' element={<Login></Login>}></Route>
-              <Route path='signup' element={<SignUp></SignUp>}></Route>
-              <Route path='contact' element={<ContactUs></ContactUs>}></Route>
-              <Route path='about' element={<AboutUs></AboutUs>}></Route>
-              <Route element={<ProtectedRoute> </ProtectedRoute>}>
-                <Route path='packages' element={<Outlet />} >
-                  <Route path='' element={<Packages></Packages>}></Route>
-                  <Route path='addpackage' element={<PackageManagement></PackageManagement>}>
-                    <Route path="" element={<PackageCreate></PackageCreate>}></Route>
-                    <Route path="packagelist" element={<PackageList></PackageList>}></Route>
-                    <Route path='packageapprovals' element={<PackageApprovals></PackageApprovals>}></Route>
-
-                  </Route>
-                  <Route path='adddestination' element={<DestinationManagement></DestinationManagement>}>
-                    <Route path='' element={<DestinationCreate></DestinationCreate>}></Route>
-                    <Route path='destinationlist' element={<DestinationList></DestinationList>}></Route>
-                    <Route path='editDestination' element={<DestinationEdit></DestinationEdit>}></Route>
-                  </Route>
-
-
-                </Route>
-                <Route path='addpackage' element={<PackageManagement></PackageManagement>}></Route>
-                <Route path='mybooking' element={<MyBooking></MyBooking>}>
-                  <Route path='' element={<MyTours></MyTours>}></Route>
-                  <Route path='enquiry' element={<MyEnquiry></MyEnquiry>}></Route>
-                  <Route path='support' element={<MySupport></MySupport>}></Route>
-                  <Route path='approvals' element={<MyApprovals></MyApprovals>}></Route>
-                </Route>
-                <Route path='view/*' element={<PackageView></PackageView>}></Route>
-                <Route path='consultant' element={<Consultant></Consultant>}>
-                  <Route path='' element={<ConsultantList></ConsultantList>}></Route>
-                  <Route path='reports' element={<ConsultantReports></ConsultantReports>}></Route>
-                  <Route path='tours' element={<ConsultantAssign></ConsultantAssign>}></Route>
-                  <Route path='addnew' element={<ConsultantRegistration></ConsultantRegistration>}></Route>
-                </Route>
-              </Route>
-
-            </Routes>
-            <Footer></Footer>
-          </UserContext.Provider>
-        </BrowserRouter>
-
-
-        {/* <Packages></Packages>
-        <PackageView></PackageView>
-        <ContactUs></ContactUs>
-        <AboutUs></AboutUs>
-
-        <Home></Home>
-
-
-
-        <MyBooking></MyBooking>
-        <Consultant></Consultant>
-
-
-        <Footer></Footer> */}
-
-
-      </div>
-
-    </>
-  )
 }
-
-export default App

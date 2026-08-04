@@ -1,7 +1,7 @@
-import '../css/style.css'
-import image2 from '../assets/slider/image2.jpg'
+import '../../css/style.css'
+import image2 from '../../assets/slider/image2.jpg'
 import { useContext, useEffect } from 'react';
-import UserContext from './UserContext';
+import UserContext from '../UserContext';
 import { useNavigate } from 'react-router-dom';
 
 export default function Packages() {

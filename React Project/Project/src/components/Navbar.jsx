@@ -64,7 +64,7 @@ export default function Navbar() {
                         </span></NavLink>
 
                     </div>
-                    <span>User: {user.userName}</span>
+                    <span><i class="bi bi-person-square colTeal"></i> {user.userName}</span>
                     {/* <div className="collapse navbar-collapse" id="trivoNavbarMenu">
                         <ul className="navbar-nav ms-auto fw-medium gap-2">
                             <li className="nav-item">
