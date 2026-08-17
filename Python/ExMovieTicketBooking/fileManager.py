@@ -16,3 +16,8 @@ class FileManager:
         data = file.readlines()
         file.close()
         return data
+
+    def saveUser(self, data):
+         file =open(self.fileName, "a")
+         file.write(data + "\n")
+         file.close()
