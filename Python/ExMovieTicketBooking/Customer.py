@@ -28,13 +28,16 @@ class Customer:
             userExist=False
             if user[1] == username and user[2] == password:
                 userExist = True 
+                self.username = username
+                self.isLogin = userExist
                 print("Login Successful")
+                return userExist                
             else:
                 print("User Name or Password are missmatch!")
-            self.username = username
-            self.isLogin = userExist
-            return userExist
+            
 
     
     def getLoginStatus(self):
         return self.isLogin
+    def getUsername(self):
+        return self.username

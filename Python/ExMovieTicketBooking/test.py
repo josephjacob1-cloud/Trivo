@@ -4,4 +4,5 @@ from Movie import Movie
 # c.CustomerRegistration()
 
 m = Movie()
-m.movieList()
+# m.movieList()
+m.removeTickets(101,"jo")
