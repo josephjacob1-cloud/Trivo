@@ -1,5 +1,6 @@
 from OrderManager import OrderManager
 
+
 def main():
     manager = OrderManager()
     while True:
@@ -10,18 +11,19 @@ def main():
         print("4. Search Order")
         print("5. Exit")
 
-        choice = int(input("Select an option : "))
-        if choice == 1:
+        choice = input("Select an option : ")
+        if choice == "1":
             manager.showProducts()
-        elif choice == 2:
-            pass
-        elif choice == 3:
-            pass
-        elif choice == 4:
-            pass
-        elif choice == 5:
+        elif choice == "2":
+            manager.placeOrder()
+        elif choice == "3":
+            manager.viewAllOrders()
+        elif choice == "4":
+            manager.searchOrderByCustomer()
+        elif choice == "5":
             break
         else:
             print("Invalid input")
+
 
 main()
