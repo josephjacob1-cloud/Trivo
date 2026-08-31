@@ -1,0 +1,32 @@
+Customer Name : Joseph
+Product : Dairy Milk
+Quantity : 2
+Price per Unit : 120.0
+Total Amount : 240.0
+Final Payable : 240.0
+-------------------------------------------------
+
+Customer Name : Lizmy
+Product : Cake
+Quantity : 1
+Price per Unit : 999.0
+Total Amount : 999.0
+Final Payable : 999.0
+-------------------------------------------------
+
+Customer Name : Syam
+Product : Boost
+Quantity : 2
+Price per Unit : 650.0
+Total Amount : 1300.0
+Final Payable : 1300.0
+-------------------------------------------------
+
+Customer Name : Joiseph
+Product : Laptop
+Quantity : 1
+Price per Unit : 80000.0
+Total Amount : 80000.0
+Final Payable : 64000.0
+-------------------------------------------------
+

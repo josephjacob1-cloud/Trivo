@@ -3,3 +3,4 @@ sree,Oreo,3,106.2
 JO,Frooty,3,70.8
 jj,Tholur Pickle,2,118.0
 tgty,Mercelys,5,2655.0
+Joseph,Frooty,2,47.2
