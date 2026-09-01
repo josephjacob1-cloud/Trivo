@@ -3,7 +3,10 @@ from RentalManagement import RentalManagement
 from Exceptions.DuplicateUsername import DuplicateUsername
 from Exceptions.InvalidCredentials import InvalidCredentials
 from Exceptions.PermissionError import PermissionError
-from Exceptions.InvalidInputValues import InvalidInputValues
+
+from Admin import Admin
+from Customer import Customer
+
 class FileManager:
     filename = "users.txt"
     def __init__(self):
@@ -47,13 +50,18 @@ class FileManager:
         password = input("Enter Password : ")
         try:
             userData = self.verifyUser(name, password)
+            user = None
             if userData == None:
                 raise InvalidCredentials("Entered Invalid Credentials. Please try again!")
             else:
                 if userData[2] =="admin":
-                    self.showAdminMenu()
+                    user = Admin(name)
+                    user.showMenu()
+                    # self.showAdminMenu()
                 elif userData[2] == "customer":
-                    self.showCustomerMenu()
+                    user = Customer(name)
+                    user.showMenu()
+                    # self.showCustomerMenu()
                 else:
                     raise PermissionError("Permission restrocted for the User")
         except InvalidCredentials as error:
@@ -71,50 +79,8 @@ class FileManager:
                 return data
         return    
 
-    def showAdminMenu(self):
-        while True:
-            try:
-                print("\n --------------------ADMIN MENU ------------")
-                print("1. View Vehicles \n2. Add Vehicle\n3. View Available Vehicles\n4. View Rented Vehicles\n5. View All Rentals\n6. Logout")
-                choice =  input("Please select your choice : ")
-                rental = RentalManagement()
-                if choice == "1":
-                    rental.viewVehicles()
-                elif choice == "2":
-                    rental.addVehicle()
-                elif choice == "3":
-                    pass
-                elif choice == "4":
-                    pass
-                elif choice == "5":
-                    pass
-                elif choice == "6":
-                    break
-                else:
-                    raise InvalidInputValues("Entered wrong Input!")
-
-            except (ValueError, InvalidInputValues) as error:
-                print(error)
-
-    def showCustomerMenu(self):
-        while True:
-            try:
-                print("\n --------------------CUSTOMER MENU ------------")
-                print("1. View Available Vehicles\n2. Rent Vehicle\n3. View My Rentals\n4. Logout")
-                choice =  input("Please select your choice : ")
-                if choice == "1":
-                    pass
-                elif choice == "2":
-                    pass
-                elif choice == "3":
-                    pass
-                elif choice == "4":                   
-                    break
-                else:
-                    raise InvalidInputValues("Entered wrong Input!")
-
-            except (ValueError, InvalidInputValues) as error:
-                print(error)
+    
+    
 
 
     

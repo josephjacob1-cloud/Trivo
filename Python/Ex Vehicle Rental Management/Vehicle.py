@@ -1,10 +1,10 @@
 class Vehicle:
-    def __init__(self, id, name, type, rate, regNo = None):
+    def __init__(self, id, name, type, rate, avl, regNo = None):
         self.id = id
         self.name = name
         self.type = type
         self.rate = rate
-        self.available = 1
+        self.available = avl
         self.regNo = regNo
 
     def setAvailability(self, status):

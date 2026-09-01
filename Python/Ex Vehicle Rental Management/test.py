@@ -4,7 +4,10 @@ file = FileManager()
 # file.showAdminMenu()
 rental = RentalManagement()
 # rental.addVehicle()
-# rental.viewVehicles()
+# rental.viewAllVehicles()
+# rental.viewAvailableVehicles()
+# rental.rentAVehicle('ram')
+rental.viewRentedVehicle()
 
 
 # file.showCustomerMenu()
