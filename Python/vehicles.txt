@@ -1,0 +1,7 @@
+1001,swift,car,1212.0,1
+1002,Thar,jeep,2010.0,1
+1003,BE,SUV,3000.0,1
+1004,Swift Dezzire,Sedan,500.0,1
+1005,Alto,Car,200.0,1
+1006,Alto,Car,100.0,1
+1007,Alto,Car,120.0,1

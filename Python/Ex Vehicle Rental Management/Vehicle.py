@@ -1,10 +1,11 @@
 class Vehicle:
-    def __init__(self, id, name, type, rate):
-        self.vehicle_id = id
-        self.vehicle_name = name
-        self.vehicle_type = type
-        self.rental_rate = rate
-        self.available = True
+    def __init__(self, id, name, type, rate, regNo = None):
+        self.id = id
+        self.name = name
+        self.type = type
+        self.rate = rate
+        self.available = 1
+        self.regNo = regNo
 
     def setAvailability(self, status):
         self.available = status

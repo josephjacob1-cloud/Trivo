@@ -1,5 +1,5 @@
 from FileManager import FileManager
-from Exceptions.InvalidInputValues import invalidInputValues
+from Exceptions.InvalidInputValues import InvalidInputValues
 
 
 def main():
@@ -18,9 +18,9 @@ def main():
             elif choice == "3":
                 break
             else:
-                raise invalidInputValues("Entered wrong Input!")
+                raise InvalidInputValues("Entered wrong Input!")
 
-    except (invalidInputValues, TypeError, ValueError) as error:
+    except (InvalidInputValues, TypeError, ValueError) as error:
         print(error)
     
 

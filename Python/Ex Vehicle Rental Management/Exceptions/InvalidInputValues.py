@@ -1,3 +1,3 @@
-class invalidInputValues(Exception):
+class InvalidInputValues(Exception):
     """Invalid inputs"""
     pass
