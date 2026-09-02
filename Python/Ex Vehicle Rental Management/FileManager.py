@@ -57,11 +57,9 @@ class FileManager:
                 if userData[2] =="admin":
                     user = Admin(name)
                     user.showMenu()
-                    # self.showAdminMenu()
                 elif userData[2] == "customer":
                     user = Customer(name)
                     user.showMenu()
-                    # self.showCustomerMenu()
                 else:
                     raise PermissionError("Permission restrocted for the User")
         except InvalidCredentials as error:

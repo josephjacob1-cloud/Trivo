@@ -1,8 +1,8 @@
 class User:
-    
+    __username = ""
     def __init__(self, name):
-        __username = name
-        print("user = ",__username)
+        self.__username = name
+        print("user = ",self.__username)
 
     def display_user(self):
-        pass
+        return self.__username

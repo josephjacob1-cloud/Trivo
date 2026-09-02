@@ -8,7 +8,7 @@ class RentalManagement:
     vehiclesFilename= "vehicles.txt"
     vehicleNextID = 1001
     rentalNextID = 1
-    username = ""
+    # username = ""
     def __init__(self):
         if not os.path.exists(self.filename):
             with open(self.filename, "w") as file:
@@ -88,7 +88,7 @@ class RentalManagement:
 
 #  CUATOMER FUNCTIONALITIES ------------------
     def rentAVehicle(self, uName):
-        self.username = uName
+        # self.username = uName
         self.viewAllVehicles(False)
         print("Choose Your Vehicle")
         try:
@@ -101,10 +101,11 @@ class RentalManagement:
                 raise InvalidVehicleIDs(vID + " is not available")
             else:
                 print("vID is available" )
-                rent = Rental(self.rentalNextID,self.username,vehicle[0],vehicle[1],days,float(vehicle[3]))
+                rent = Rental(self.rentalNextID,uName,vehicle[0],vehicle[1],days,float(vehicle[3]))
                 print("\nDetails Of Rental Vehicle")
                 print(f"Rental ID: {rent.id}\nVehicle: {rent.vehicleName}\nNumber of Days: {rent.totalDays}\nTotal Amount (GST): {rent.totalAmount:.2f}")
                 self.saveRental(rent)
+                self.updateVehicles(rent)
                 ++self.rentalNextID
 
         except (ValueError, InvalidVehicleIDs) as error:
@@ -125,3 +126,27 @@ class RentalManagement:
         with open(self.filename, "a") as file:
             file.write(f"{rent.id},{rent.username},{rent.vehicleId},{rent.vehicleName},{rent.totalDays},{rent.totalAmount}\n")
 
+    def updateVehicles(self, rent:Rental):
+        with open(self.vehiclesFilename,"r") as file:
+            lines = file.readlines()
+        for i in range(len(lines)):
+            data = lines[i].strip().split(",")
+            if data[0] == rent.vehicleId:
+                data[4] = "0"
+                lines[i] = ",".join(data)+"\n"
+        with open(self.vehiclesFilename, "w") as file:
+            file.writelines(lines)
+
+
+    def viewCustomerRentals(self, username):
+            with open(self.filename, "r") as file:
+                lines = file.readlines()
+                print(f"\033[1m{'ID':<10}{'Vehicle ID':<15}{'Vehicle':<10}{'Days':<10}{'Total Amount':<10}\033[0m")
+                if len(lines) > 0:
+                    for rent in lines:
+                        id, user, vid, vName, days, amount = rent.strip().split(",")
+                        if user == username :
+                            print(f"{id:<10}{vid:<15}{vName:<10}{days:<10}{float(amount):<10.2f}")
+                else:
+                    print("------------No Rental Vehicles-----------------")
+    

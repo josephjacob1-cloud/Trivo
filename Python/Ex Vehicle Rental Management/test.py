@@ -7,7 +7,8 @@ rental = RentalManagement()
 # rental.viewAllVehicles()
 # rental.viewAvailableVehicles()
 # rental.rentAVehicle('ram')
-rental.viewRentedVehicle()
+# rental.viewRentedVehicle()
+rental.viewCustomerRentals('ram')
 
 
 # file.showCustomerMenu()

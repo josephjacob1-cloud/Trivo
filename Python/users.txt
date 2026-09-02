@@ -3,3 +3,5 @@ jj,jj,customer
 jjj,jjj,customer
 jjjj,jjjj,customer
 ram,ram,customer
+syam,syam,customer
+anu,anu,customer
