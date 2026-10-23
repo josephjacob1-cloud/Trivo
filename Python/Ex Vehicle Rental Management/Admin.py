@@ -2,7 +2,7 @@ from User import User
 from RentalManagement import RentalManagement
 from Exceptions.InvalidInputValues import InvalidInputValues
 class Admin(User):
-    def __int__(self, name):
+    def __init__(self, name):
         super().__init__(name)
         __username = name
     def display_user(self):
