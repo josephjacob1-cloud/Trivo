@@ -8,3 +8,8 @@ DATABASE_URL = os.getenv("DATABSE_URL")
 SECRET_KEY = os.getenv("SECRET_KEY")
 ALGORITHM = os.getenv("ALGORITHM")
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES"))
+
+
+USER_CUSTOMER = "customer"
+USER_CONSULTANT = "consultant"
+USER_ADMIN = "admin"

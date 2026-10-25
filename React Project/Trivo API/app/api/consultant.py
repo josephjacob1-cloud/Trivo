@@ -9,9 +9,7 @@ router = APIRouter()
 
 @router.post("/addConsultant", status_code=status.HTTP_201_CREATED)
 async def addConsultant(user:UserCreate, db:AsyncSession=Depends(get_db)):
-    # consultant = user.model_copy(update={"role": "consultant"})
-    # consultant["role"] = "consultant"
-    return await add_user(user, db)
+    return await add_user(user, db, "consultant")
 
 @router.get("/getConsultant", status_code=status.HTTP_202_ACCEPTED)
 async def getConsultant(db:AsyncSession=Depends(get_db)):   

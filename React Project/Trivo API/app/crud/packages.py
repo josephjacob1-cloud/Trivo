@@ -40,6 +40,25 @@ async def update_package(id:int, pack:PackageUpdate,db:AsyncSession):
     await db.refresh(package)
     return package
 
+async def disable_package(id:int, db:AsyncSession):
+    data = await db.execute(select(Package).where(Package.id == id))
+    package = data.scalar_one_or_none()
+    if not package:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Package not found")
+    package.active = False
+    await db.commit()
+    await db.refresh(package)
+    return package 
+
+async def enable_package(id:int, db:AsyncSession):
+    data = await db.execute(select(Package).where(Package.id == id))
+    package = data.scalar_one_or_none()
+    if not package:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Package not found")
+    package.active = True
+    await db.commit()
+    await db.refresh(package)
+    return package 
 
 async def add_package_categories(categories:PackageCategoryCreate, db:AsyncSession):
     new_cat = PackageCategories(**categories.dict())

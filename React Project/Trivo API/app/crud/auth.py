@@ -11,7 +11,7 @@ async def check_email_exist(email:str, db:AsyncSession):
     data = await db.execute(select(User).where(User.email == email))
     return data.scalar_one_or_none()
 
-async def  add_user(user:UserCreate, db:AsyncSession):
+async def  add_user(user:UserCreate, db:AsyncSession, role:str="customer"):
     email_exists = await check_email_exist(user.email, db)
     if email_exists:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail= "Email already registered")
@@ -23,7 +23,7 @@ async def  add_user(user:UserCreate, db:AsyncSession):
         passport = user.passport,
         address=user.address,
         password=create_hash_password(user.password),
-        role = user.role,
+        role = role,
         active=True
     )
     db.add(new_user)
@@ -50,6 +50,6 @@ async def user_login_OAuth(user:OAuth2PasswordRequestForm, db:AsyncSession):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"user  {user.username} is not registered")
     if not verify_hash_password(user.password, exist.password):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Password mismatch")
-    data = {"username":user.username, "role":exist.role}
+    data = {"username":user.username, "role":exist.role, "id":str(exist.id)}
     token = await create_token(data)    
     return {"access_token":token, "token_type":"bearer"}

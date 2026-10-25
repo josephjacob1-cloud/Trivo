@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, status, Depends
 from app.db.database import get_db
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.schema.packages import PackageCategoryCreate, PackageCreate, PackageUpdate
-from app.crud.packages import add_package_categories, get_package_categories, add_package, get_package, update_package
+from app.crud.packages import add_package_categories, get_package_categories, add_package, get_package, update_package, disable_package, enable_package
 
 router = APIRouter()
 
@@ -17,6 +17,14 @@ async def getPackages(db:AsyncSession=Depends(get_db)):
 @router.patch("/updatePackage")
 async def updatePackage(id:int, pack:PackageUpdate, db:AsyncSession=Depends(get_db)):
     return await update_package(id, pack, db)
+
+@router.patch("/disablePackage")
+async def disablePackage(id:int, db:AsyncSession=Depends(get_db)):
+    return await disable_package(id, db)
+
+@router.patch("/enablePackage")
+async def enablePackage(id:int, db:AsyncSession=Depends(get_db)):
+    return await enable_package(id, db)
 
 
 @router.post("/addPackageCategories")

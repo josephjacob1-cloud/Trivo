@@ -9,7 +9,7 @@ class UserCreate(BaseModel):
     passport:str
     address:str
     password:str
-    role:str
+    # role:str
    
 class Login(BaseModel):
     email:str

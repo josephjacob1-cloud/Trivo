@@ -15,7 +15,27 @@ async def add_destination(dest:DestinationCreate,db:AsyncSession):
 async def get_destinations(db:AsyncSession):
     destinations = await db.execute(select(Destination))
     return destinations.scalars().all()
-    
+
+# disable_Destination, enable_Destination
+async def disable_Destination(id:int, db:AsyncSession):
+    data = await db.execute(select(Destination).where(Destination.id == id))
+    destination = data.scalar_one_or_none()
+    if not destination:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Destination not found")
+    destination.active = False
+    await db.commit()
+    await db.refresh(destination)
+    return destination    
+
+async def enable_Destination(id:int, db:AsyncSession):
+    data = await db.execute(select(Destination).where(Destination.id == id))
+    destination = data.scalar_one_or_none()
+    if not destination:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Destination not found")
+    destination.active = True
+    await db.commit()
+    await db.refresh(destination)
+    return destination    
 
 async def change_Destination(id:int,dest:updateDestination, db:AsyncSession):
     data = await db.execute(select(Destination).where(Destination.id == id))
