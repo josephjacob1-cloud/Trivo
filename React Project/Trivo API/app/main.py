@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from app.db.database import engine, Base
 from app.api.auth import router as auth_router
 from app.api.destination import router as destination_router
@@ -24,3 +25,16 @@ app.include_router(destination_router, prefix="/destination", tags=["Destination
 app.include_router(packages_router, prefix="/packages", tags=["Packages"])
 app.include_router(consultant_router, prefix="/consultant", tags=["Consultant"])
 app.include_router(customer_router,prefix="/customer", tags=["Customer"])
+
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://localhost:5174"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)

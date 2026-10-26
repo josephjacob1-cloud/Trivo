@@ -42,6 +42,7 @@ async def user_login(user:UserCreate, db:AsyncSession):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"user  {user.email} is not registered")
     if not verify_hash_password(user.password, exist.password):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Password mismatch")
+    
     return exist
 
 async def user_login_OAuth(user:OAuth2PasswordRequestForm, db:AsyncSession):
@@ -49,7 +50,7 @@ async def user_login_OAuth(user:OAuth2PasswordRequestForm, db:AsyncSession):
     if not exist:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"user  {user.username} is not registered")
     if not verify_hash_password(user.password, exist.password):
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Password mismatch")
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Password mismatch----")
     data = {"username":user.username, "role":exist.role, "id":str(exist.id)}
     token = await create_token(data)    
-    return {"access_token":token, "token_type":"bearer"}
+    return {"access_token":token, "token_type":"bearer", "name":exist.name}
