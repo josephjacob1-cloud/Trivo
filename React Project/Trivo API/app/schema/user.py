@@ -11,6 +11,10 @@ class UserCreate(BaseModel):
     password:str
     # role:str
    
+class UserSignupResponse(BaseModel):
+    email:EmailStr
+    name:str
+    
 class Login(BaseModel):
     email:str
     password:str

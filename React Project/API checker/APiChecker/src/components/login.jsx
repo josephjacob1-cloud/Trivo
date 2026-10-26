@@ -27,8 +27,9 @@ export default function Login(){
          else{
             console.log("ok")
             console.log(data)
-            // setResult(data)
+            setResult(data)
             console.log(data.access_token + data.name)
+            localStorage.setItem('access_token', data.access_token)
          }
         
     }
@@ -46,8 +47,9 @@ export default function Login(){
         </div>
         <div>
             <h4>SERVER RESPONSE</h4>
-            <p>{result} </p>
+            <p>{result.name} </p>
         </div>
+        <hr />
     </div>
         
     </>)

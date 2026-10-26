@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Numeric, ARRAY, Boolean
+from sqlalchemy import Column, Integer, String, Numeric, ARRAY, Boolean, ForeignKey
 
 from app.db.database import Base
 
@@ -10,7 +10,7 @@ class Package(Base):
     category=Column(String)
     days=Column(Integer)
     price=Column(Numeric(10,2))
-    destination_ids=Column(ARRAY(Integer), Foreign_key=("destinations.id"))
+    destination_ids=Column(ARRAY(Integer), ForeignKey("destinations.id"))
     description=Column(String)
     active=Column(Boolean, default=True)
 

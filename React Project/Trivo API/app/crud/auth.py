@@ -26,6 +26,7 @@ async def  add_user(user:UserCreate, db:AsyncSession, role:str="customer"):
         role = role,
         active=True
     )
+    print(new_user)
     db.add(new_user)
     await db.commit()
     await db.refresh(new_user)
