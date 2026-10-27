@@ -3893,6 +3893,31 @@ function App() {
 
 
 
+
+  const handlePackages = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:3000/packages"
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch packages");
+      }
+
+      const data = await response.json();
+      // setPackages(data);
+      // setError("");
+      setSelectedPackage(data[0])
+      console.log("data  ..........  "+selectedPackage)
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+  handlePackages()
+
+
+
+
   return (
     <>
       <div>

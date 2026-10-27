@@ -54,4 +54,4 @@ async def user_login_OAuth(user:OAuth2PasswordRequestForm, db:AsyncSession):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Password mismatch----")
     data = {"username":user.username, "role":exist.role, "id":str(exist.id)}
     token = await create_token(data)    
-    return {"access_token":token, "token_type":"bearer", "name":exist.name}
+    return {"access_token":token, "token_type":"bearer", "name":exist.name, "role":exist.role}
