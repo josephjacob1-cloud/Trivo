@@ -2,7 +2,6 @@ from sqlalchemy import Column, Integer, String, Numeric, ARRAY, Boolean, Foreign
 
 from app.db.database import Base
 
-
 class Package(Base):
     __tablename__="packages"
     id=Column(Integer, primary_key=True, index=True)
@@ -13,6 +12,7 @@ class Package(Base):
     destination_ids=Column(ARRAY(Integer), ForeignKey("destinations.id"))
     description=Column(String)
     active=Column(Boolean, default=True)
+    coverImage=Column(String)
 
 class PackageCategories(Base):
     __tablename__="package_categories"
