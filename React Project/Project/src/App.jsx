@@ -3905,15 +3905,16 @@ function App() {
         "http://localhost:3000/packages"
       );
       const data = await response.json();
+      setPlaces(data)
       if (!response.ok) {
         throw new Error("Failed to fetch packages");
       }else{
       
       // setPackages(data);
       // setError("");
-      setPlaces(data)
-      setSelectedPackage(data[0])
-      console.log("data  ..........  "+data[0]["packageCode"])
+      // setPlaces(data)
+      setSelectedPackage(null)
+      console.log("data  ..........  "+data)
 
       }
 

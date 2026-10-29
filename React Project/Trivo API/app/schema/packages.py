@@ -8,7 +8,7 @@ class PackageCreate(BaseModel):
     destination_ids:list[int]
     description:str
     active:bool = True
-    coverImage:str
+    # coverImage:str
 
 class PackageUpdate(BaseModel):
     name:str | None = None

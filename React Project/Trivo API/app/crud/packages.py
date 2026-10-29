@@ -6,8 +6,20 @@ from app.model.packages import Package, PackageCategories
 from sqlalchemy.ext.asyncio import AsyncSession
 
 
-async def add_package(pack:PackageCreate, db:AsyncSession):
-    new_pack = Package(**pack.dict())
+async def add_package(pack:PackageCreate, cover:str, db:AsyncSession):
+    # packData = pack.model_dump()
+    # packData["customer_id"] = cover
+    new_pack = Package(
+        name=pack.name,
+        category = pack.category,
+        days=pack.days,
+        price=pack.price,
+        destination_ids=pack.destination_ids,
+        description=pack.description,
+        active=pack.active,
+        coverImage=cover
+    )    
+    print(new_pack)
     db.add(new_pack)
     await db.commit()
     await db.refresh(new_pack)
