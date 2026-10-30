@@ -1021,7 +1021,29 @@ export default function Packages() {
     
      useEffect(()=>{
        window.scrollTo(0, 0);
+       handlePackages()
     },[])
+
+
+    const handlePackages = async () => {
+        console.log("fetching DB")
+        try {
+            const response = await fetch(
+                "http://localhost:3000/packages"
+            );
+            const data = await response.json();
+            userData.setPlaces(data)
+            if (!response.ok) {
+                throw new Error("Failed to fetch packages");
+            }else{        
+                userData.setSelectedPackage(null)  
+            }        
+        } catch (err) {
+            console.log(err.message);
+        }
+    };
+
+
     return (<>
         <div >
             

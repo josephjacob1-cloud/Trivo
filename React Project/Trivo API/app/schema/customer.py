@@ -14,3 +14,13 @@ class ContactUsCreate(BaseModel):
   phone:str
   subject:str
   message:str
+
+class PackageReviewCreate(BaseModel):
+  package_id:int
+  user_id:UUID 
+  rating:int =""
+  review:str =""
+
+class PackageReviewUpdate(BaseModel): 
+  rating:int =""
+  review:str =""

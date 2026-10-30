@@ -1,5 +1,6 @@
+from datetime import datetime, timezone
 from uuid import uuid4, UUID
-from sqlalchemy import UUID, Column, String, ForeignKey, Date, Integer, Numeric
+from sqlalchemy import UUID, Column, String, ForeignKey, Date, Integer, Numeric, Boolean,  DateTime
 from app.db.database import Base
 
 
@@ -28,3 +29,14 @@ class ContactUs(Base):
   phone=Column(String)
   subject=Column(String)
   message=Column(String)
+
+class Review(Base):
+  __tablename__="package_reviews"
+  id=Column(UUID(as_uuid=True), primary_key=True, index=True, default=uuid4)
+  package_id=Column(Integer, ForeignKey("packages.id"), nullable=False, index=True)
+  user_id=Column(UUID, ForeignKey("users.id"), nullable=False, index=True)
+  rating=Column(Integer)
+  review=Column(String)
+  created_at = Column(
+    DateTime(timezone=True),default=lambda: datetime.now(timezone.utc))
+  active=Column(Boolean, default=True)

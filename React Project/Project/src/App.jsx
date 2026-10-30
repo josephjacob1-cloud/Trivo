@@ -3887,7 +3887,7 @@ function App() {
   const [totalConsultantList, setTotalConsultantList] = useState([])
   const [consultants, setConsultants] = useState(null)
   const [destination, setDestination] = useState({})
-  const userData = { isLogin, setIsLogin, userName, setUserName, page, setPage, selectedPackage, setSelectedPackage, places, consultants, setConsultants, setTotalConsultantList, destination, setDestination }
+  const userData = { isLogin, setIsLogin, userName, setUserName, page, setPage, selectedPackage, setSelectedPackage, places, setPlaces, consultants, setConsultants, setTotalConsultantList, destination, setDestination }
   // useEffect(() => {
   //   console.log(selectedPackage.name)
   //   console.log(selectedPackage.highlights)
@@ -3895,7 +3895,7 @@ function App() {
   // }, [selectedPackage]);
 
   useEffect(() =>{
-    handlePackages();
+    // handlePackages();
   },[])
 
 
