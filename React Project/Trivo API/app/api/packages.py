@@ -1,7 +1,7 @@
 from pathlib import Path
 # import shutil
 from uuid import uuid4
-
+import json
 from fastapi import APIRouter, HTTPException, status, Depends, UploadFile, File
 from app.core.config import UPLOAD_DIR_PACKAGE_COVER
 from app.db.database import get_db
@@ -78,13 +78,18 @@ async def addPackages(
     category: str = Form(...),
     days: int = Form(...),
     price: float = Form(...),
-    destination_ids: str = Form(...),
+    destination_ids: str = Form(...),  # Comma-separated string of destination IDs]),
     description: str = Form(...),
     active: bool = Form(True),
     image: UploadFile = File(...),
+    highlights: str = Form(["[]"]),
+    itinerary: str = Form(["[]"]),#itinerary: list[dict] = Form([{"day":"1", "title":"","description":""}]),
+    inclusions: str = Form(["[]"]),   
+    exclusions: str = Form(["[]"]),
+    hotel: str = Form(["[]"]),
+    transport: str = Form(["[]"]),    
     db: AsyncSession = Depends(get_db)
 ):
-    # Convert comma-separated string into a list of integers
     try:
         destination_id_list = [
             int(x.strip())
@@ -92,11 +97,42 @@ async def addPackages(
             if x.strip()
         ]
     except ValueError:
-        from fastapi import HTTPException
         raise HTTPException(
             status_code=422,
-            detail="destination_ids must contain comma-separated integers, e.g. 2,5"
+            detail="Invalid destination IDs"
         )
+
+    try:
+        highlights_list = json.loads(highlights)
+        itinerary_list = json.loads(itinerary)
+        inclusions_list = json.loads(inclusions)
+        exclusions_list = json.loads(exclusions)
+        hotel_list = json.loads(hotel)
+        transport_list = json.loads(transport)
+
+    except json.JSONDecodeError as exc:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Invalid JSON: {exc.msg}"
+        )
+    # Convert comma-separated string into a list of integers
+        # try:
+        #     destination_id_list = [
+        #         int(x.strip())
+        #         for x in destination_ids.split(",")
+        #         if x.strip()
+        #     ]
+            
+        # except ValueError:
+        #     raise HTTPException(
+        #         status_code=422,
+        #         detail="Invalid destination IDs or package details JSON"
+        #     )
+        # except json.JSONDecodeError:
+        #     raise HTTPException(
+        #         status_code=422,
+        #         detail="Package details must contain valid JSON"
+        #     )       
 
     pack = PackageCreate(
         name=name,
@@ -105,11 +141,16 @@ async def addPackages(
         price=price,
         destination_ids=destination_id_list,
         description=description,
-        active=active
+        active=active,
+        highlights=highlights_list,
+        itinerary=itinerary_list,
+        inclusions=inclusions_list,
+        exclusions=exclusions_list,
+        hotel=hotel_list,
+        transport=transport_list
     )
-
+    
     cover = imageUpload(image, UPLOAD_DIR_PACKAGE_COVER)
-
     return await add_package(pack, cover, db)
 
 

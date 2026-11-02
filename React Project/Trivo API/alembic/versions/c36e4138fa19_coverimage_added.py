@@ -19,13 +19,11 @@ depends_on: Union[str, Sequence[str], None] = None
 
 
 def upgrade() -> None:
-    op.add_column(
-        "packages",
-        sa.Column("coverImage", sa.String(), nullable=True)
-    )
+    op.execute("""
+        ALTER TABLE packages
+        ADD COLUMN IF NOT EXISTS "coverImage" VARCHAR;
+    """)
 
 
 def downgrade() -> None:
-    op.drop_column("packages", "coverImage")
-
-    
+    pass

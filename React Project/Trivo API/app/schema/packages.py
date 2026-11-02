@@ -1,5 +1,10 @@
 from pydantic import BaseModel
 
+class ItineraryDay(BaseModel):
+    day: int
+    title: str
+    description: str
+
 class PackageCreate(BaseModel):
     name:str
     category:str
@@ -7,7 +12,13 @@ class PackageCreate(BaseModel):
     price:float
     destination_ids:list[int]
     description:str
-    active:bool = True
+    active:bool = True    
+    highlights:list[str]
+    itinerary:list[ItineraryDay] 
+    inclusions:list[str]
+    exclusions:list[str]
+    hotel:list[str]
+    transport:list[str] 
     # coverImage:str
 
 class PackageUpdate(BaseModel):

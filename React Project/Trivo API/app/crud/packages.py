@@ -17,7 +17,13 @@ async def add_package(pack:PackageCreate, cover:str, db:AsyncSession):
         destination_ids=pack.destination_ids,
         description=pack.description,
         active=pack.active,
-        coverImage=cover
+        coverImage=cover,
+        highlights=pack.highlights,
+        itinerary=pack.itinerary,
+        inclusions=pack.inclusions,
+        exclusions=pack.exclusions,
+        hotel=pack.hotel,
+        transport=pack.transport
     )    
     print(new_pack)
     db.add(new_pack)

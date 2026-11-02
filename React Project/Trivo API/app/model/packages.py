@@ -1,7 +1,9 @@
+from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy import Column, Integer, String, Numeric, ARRAY, Boolean, ForeignKey
 
 from app.db.database import Base
 
+    
 class Package(Base):
     __tablename__="packages"
     id=Column(Integer, primary_key=True, index=True)
@@ -13,6 +15,13 @@ class Package(Base):
     description=Column(String)
     active=Column(Boolean, default=True)
     coverImage=Column(String)
+    highlights=Column(ARRAY(String), default=list)
+    itinerary=Column(JSONB, default=list)
+    inclusions=Column(ARRAY(String), default=list)
+    exclusions=Column(ARRAY(String), default=list)
+    hotel=Column(ARRAY(String), default=list)
+    transport=Column(ARRAY(String), default=list)
+
 
 class PackageCategories(Base):
     __tablename__="package_categories"
