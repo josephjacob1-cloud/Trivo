@@ -19,11 +19,11 @@ async def add_package(pack:PackageCreate, cover:str, db:AsyncSession):
         active=pack.active,
         coverImage=cover,
         highlights=pack.highlights,
-        itinerary=pack.itinerary,
+        itinerary=[item.model_dump() for item in pack.itinerary],
         inclusions=pack.inclusions,
         exclusions=pack.exclusions,
-        hotel=pack.hotel,
-        transport=pack.transport
+        hotel=[item.model_dump() for item in pack.hotel],
+        transport=[item.model_dump() for item in pack.transport]
     )    
     print(new_pack)
     db.add(new_pack)

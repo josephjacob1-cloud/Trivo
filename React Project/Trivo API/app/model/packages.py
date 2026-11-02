@@ -19,8 +19,8 @@ class Package(Base):
     itinerary=Column(JSONB, default=list)
     inclusions=Column(ARRAY(String), default=list)
     exclusions=Column(ARRAY(String), default=list)
-    hotel=Column(ARRAY(String), default=list)
-    transport=Column(ARRAY(String), default=list)
+    hotel=Column(JSONB, default=list) 
+    transport=Column(JSONB, default=list)
 
 
 class PackageCategories(Base):

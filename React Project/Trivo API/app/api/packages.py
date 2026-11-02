@@ -72,6 +72,39 @@ async def add_cover_image(image:UploadFile = File(...)):
 from fastapi import Form, File, UploadFile, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
+# def parse_string_list(value: str) -> list[str]:
+#     try:
+#         data = json.loads(value)
+
+#         if isinstance(data, list):
+#             return [str(item).strip() for item in data]
+
+#     except json.JSONDecodeError:
+#         pass
+
+#     # Fallback: comma-separated values
+#     return [item.strip() for item in value.split(",") if item.strip()]
+
+def parse_string_list(value: str) -> list[str]:
+    value = value.strip()
+
+    try:
+        data = json.loads(value)
+        if isinstance(data, list):
+            return [str(item).strip() for item in data]
+    except json.JSONDecodeError:
+        pass
+
+    # Handle Swagger comma-separated input
+    value = value.strip("[]")
+
+    return [
+        item.strip().strip('"').strip("'")
+        for item in value.split(",")
+        if item.strip()
+    ]
+
+
 @router.post("/addPackage")
 async def addPackages(
     name: str = Form(...),
@@ -82,12 +115,12 @@ async def addPackages(
     description: str = Form(...),
     active: bool = Form(True),
     image: UploadFile = File(...),
-    highlights: str = Form(["[]"]),
-    itinerary: str = Form(["[]"]),#itinerary: list[dict] = Form([{"day":"1", "title":"","description":""}]),
-    inclusions: str = Form(["[]"]),   
-    exclusions: str = Form(["[]"]),
-    hotel: str = Form(["[]"]),
-    transport: str = Form(["[]"]),    
+    highlights: str = Form("[]"),  # highlights: list[str] = Form([]),
+    itinerary: str = Form("[]"),  # highlights: list[str] = Form([]),#itinerary: list[dict] = Form([{"day":"1", "title":"","description":""}]),
+    inclusions: str = Form("[]"),  # highlights: list[str] = Form([]),   
+    exclusions: str = Form("[Purchase,Visa charge]"),  # highlights: list[str] = Form([]),
+    hotel: str = Form([]),  # highlights: list[str] = Form([]),
+    transport: str = Form("[]"),  # highlights: list[str] = Form([]),    
     db: AsyncSession = Depends(get_db)
 ):
     try:
@@ -103,10 +136,10 @@ async def addPackages(
         )
 
     try:
-        highlights_list = json.loads(highlights)
+        highlights_list = parse_string_list(highlights)
         itinerary_list = json.loads(itinerary)
-        inclusions_list = json.loads(inclusions)
-        exclusions_list = json.loads(exclusions)
+        inclusions_list = parse_string_list(inclusions)
+        exclusions_list = parse_string_list(exclusions)
         hotel_list = json.loads(hotel)
         transport_list = json.loads(transport)
 
@@ -152,7 +185,6 @@ async def addPackages(
     
     cover = imageUpload(image, UPLOAD_DIR_PACKAGE_COVER)
     return await add_package(pack, cover, db)
-
 
 
 
