@@ -18,3 +18,6 @@ USER_ADMIN = "admin"
 
 UPLOAD_DIR_PACKAGE_COVER = Path("uploads/packages/cover")
 UPLOAD_DIR_PACKAGE_COVER.mkdir(parents=True, exist_ok=True)
+
+UPLOAD_DIR_DESTINATION_IMAGES = Path("uploads/destination/images")
+UPLOAD_DIR_DESTINATION_IMAGES.mkdir(parents=True, exist_ok=True)

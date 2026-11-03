@@ -20,3 +20,16 @@ class updateDestination(BaseModel):
     category_id:int | None = None
     description:str | None = None
     active:bool | None = None
+
+class DestinationImagePropCreate(BaseModel):
+    destination_id:int
+    alt_text:str | None = None
+    display_order:int | None = 1
+    is_primary:bool | None = False
+
+class DestinationImageCreate(BaseModel):
+    destination_id:int
+    image_url:str
+    alt_text:str | None = None
+    display_order:int | None = 1
+    is_primary:bool | None = False

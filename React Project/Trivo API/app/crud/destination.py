@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException, status, Depends
 from sqlalchemy import select
 from app.db.database import get_db
-from app.schema.destination import CategoriesCreate, DestinationCreate, updateDestination
-from app.model.destination import Category, Destination
+from app.schema.destination import CategoriesCreate, DestinationCreate, updateDestination, DestinationImageCreate
+from app.model.destination import Category, Destination, DestinationImage
 from sqlalchemy.ext.asyncio import AsyncSession
 
 async def add_destination(dest:DestinationCreate,db:AsyncSession):
@@ -71,3 +71,10 @@ async def add_destination_category(category:CategoriesCreate, db:AsyncSession):
 async def view_destination_category(db:AsyncSession):
     data = await db.execute(select(Category))
     return data.scalars().all()
+
+async def add_destination_image(dest_image:DestinationImageCreate, db:AsyncSession):
+    new_image = DestinationImage(**dest_image.dict())
+    db.add(new_image)
+    await db.commit()
+    await db.refresh(new_image)
+    return new_image

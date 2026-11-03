@@ -17,3 +17,12 @@ class Destination(Base):
     category_id=Column(Integer, ForeignKey("destination_categories.id"))
     description=Column(String, nullable=False)
     active = Column(Boolean, default=True)
+
+class DestinationImage(Base):
+    __tablename__ = "destination_images"
+    id=Column(Integer, primary_key=True, index=True)
+    destination_id=Column(Integer, ForeignKey("destinations.id"))
+    image_url=Column(String, nullable=False)
+    alt_text = Column(String, nullable=True)
+    display_order = Column(Integer, default=1)
+    is_primary = Column(Boolean, default=False)
