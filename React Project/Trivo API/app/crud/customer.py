@@ -3,6 +3,7 @@ from uuid import UUID
 
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import func, select
+from app.crud.destination import get_destinations_by_ID, view_destination_images
 from app.model.packages import Package
 from app.schema.customer import BookingCreate, ContactUsCreate, PackageReviewCreate, PackageReviewUpdate
 from app.model.customer import Booking, ContactUs, Review
@@ -19,22 +20,52 @@ async def view_customer_package_detail(db:AsyncSession):
     packages = []
     
     for p in packs:
+        review = await get_review_package_id(p.id, db)
+        b_count = await get_booking_count_pack(p.id, db)
+        destinations = []
+        for i in p.destination_ids:
+            d = await get_destinations_by_ID(i, db)
+            imgs = await view_destination_images(d.id, db)            
+            destination_data = {
+                "id": d.id,
+                "name": d.name,  
+                "slug:": d.nickname,
+                "country": d.country,
+                "city": d.city,
+                "description": d.description,
+                "images": imgs
+            }   
+            destinations.append(destination_data)
+
         items = {
             "id":p.id,
             "name":p.name,
+            "packageName":p.name,
             "days" : p.days,
-            "category":p.category,
-            "maxGuests":30,
-            "minimumAge":1,
-            "slug":p.name,
+            "category":p.category,            
+            "slug":p.name,            
             "description":p.description,
             "price":{
                 "discount":10,
                 "currency":"INR",
                 "original":math.floor(p.price + (p.price%10)),
                 "offer" : p.price
-            }
-
+            },
+            "bookingCount":b_count,
+            "review":review,
+            "destination":destinations,
+            "coverImage":p.coverImage,
+            "highlights":p.highlights,
+            "itinerary":p.itinerary,
+            "inclusions":p.inclusions,
+            "exclusions":p.exclusions,
+            "hotel":p.hotel,
+            "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
+            "languages":["English"],
+            "maxGuests":30,
+            "minimumAge":1,
+            "meetingPoint":"Cochin Airport",
+            "tourType":"Friendsd & Family"
         }
         packages.append(items)
     #     d_ids= p.destination_ids
@@ -68,6 +99,11 @@ async def get_my_booking(db:AsyncSession, payload:dict):
     data = await db.execute(select(Booking).where(Booking.customer_id==payload.get("id")))
     packs = data.scalars().all()
     return packs
+
+async def get_booking_count_pack(id:int, db:AsyncSession):
+    data = await db.execute(select(func.count(Booking.id)).where(Booking.package_id==id))
+    count = data.scalar() or 0
+    return count
 
 async def add_contact_us(data: ContactUsCreate, db:AsyncSession):
     new_contact = ContactUs(**data.dict())

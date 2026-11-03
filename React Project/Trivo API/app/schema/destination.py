@@ -21,15 +21,17 @@ class updateDestination(BaseModel):
     description:str | None = None
     active:bool | None = None
 
-class DestinationImagePropCreate(BaseModel):
-    destination_id:int
+
+class DestinationImageCreate(BaseModel):
+    destination_id:int  = 1
+    image_url:str = "123"
     alt_text:str | None = None
     display_order:int | None = 1
     is_primary:bool | None = False
 
-class DestinationImageCreate(BaseModel):
-    destination_id:int
-    image_url:str
+class DestinationImageUpdate(BaseModel):
+    # destination_id:int | None = None
+    image_url:str | None = None
     alt_text:str | None = None
     display_order:int | None = 1
     is_primary:bool | None = False

@@ -1010,8 +1010,8 @@ export default function Packages() {
     //     }
     // ]
     
-    const IMG_PATH = "src/assets/places/"
-    
+    const IMG_PATH = "http://127.0.0.1:8000/"
+    // const IMG_PATH = "src/assets/places/"
 
 
 
@@ -1165,7 +1165,7 @@ function Card({pack, path, select}) {
         select(pack);
         navigate("/packages/view/"+pack.id)
         }}>
-       <img src={path + pack.destination.images.cover} alt={pack.packageName} className='placeImg' />
+       <img src={path + pack.destination[0].images[0].image_url} alt={pack.packageName} className='placeImg' />
           <div className="placeCardText">
             <p className='pTitleTxt'>{pack.packageName}</p>
             <p className='pLocTxr'>{pack.destination.city} | {pack.destination.country}</p> 

@@ -16,6 +16,12 @@ async def get_destinations(db:AsyncSession):
     destinations = await db.execute(select(Destination))
     return destinations.scalars().all()
 
+async def get_destinations_by_ID(id:int,db:AsyncSession):
+    destinations = await db.execute(select(Destination).where(Destination.id==id))
+    return destinations.scalar()
+
+
+
 # disable_Destination, enable_Destination
 async def disable_Destination(id:int, db:AsyncSession):
     data = await db.execute(select(Destination).where(Destination.id == id))
@@ -78,3 +84,33 @@ async def add_destination_image(dest_image:DestinationImageCreate, db:AsyncSessi
     await db.commit()
     await db.refresh(new_image)
     return new_image
+
+async def update_destination_image(id: int, dest_image:DestinationImageCreate, db:AsyncSession):
+    data = await db.execute(select(DestinationImage).where(DestinationImage.id == id))
+    image = data.scalar_one_or_none()
+    if not image:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Destination image not found")
+    if dest_image.image_url:
+        image.image_url = dest_image.image_url
+    if dest_image.alt_text:
+        image.alt_text = dest_image.alt_text
+    if dest_image.display_order:
+        image.display_order = dest_image.display_order
+    if dest_image.is_primary is not None:
+        image.is_primary = dest_image.is_primary
+    await db.commit()
+    await db.refresh(image)
+    return image
+
+async def delete_destination_image(id: int, db:AsyncSession):
+    data = await db.execute(select(DestinationImage).where(DestinationImage.id == id))
+    image = data.scalar_one_or_none()
+    if not image:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Destination image not found")
+    await db.delete(image)
+    await db.commit()
+    return {"message": "Destination image deleted successfully"}
+
+async def view_destination_images(destination_id: int, db:AsyncSession):
+    data = await db.execute(select(DestinationImage).where(DestinationImage.destination_id == destination_id))
+    return data.scalars().all()

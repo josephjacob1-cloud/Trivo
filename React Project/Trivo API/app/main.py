@@ -38,3 +38,16 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
+
+from pathlib import Path
+from fastapi.staticfiles import StaticFiles
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+UPLOAD_DIR = BASE_DIR / "uploads"
+
+app.mount(
+    "/uploads",
+    StaticFiles(directory=str(UPLOAD_DIR)),
+    name="uploads"
+)
