@@ -104,6 +104,14 @@ def parse_string_list(value: str) -> list[str]:
         if item.strip()
     ]
 
+def parse_json_field(field_name: str, value: str):
+    try:
+        return json.loads(value)
+    except json.JSONDecodeError as exc:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Invalid JSON in '{field_name}': {exc.msg}, position: {exc.pos}"
+        )
 
 @router.post("/addPackage")
 async def addPackages(
@@ -118,9 +126,15 @@ async def addPackages(
     highlights: str = Form("[]"),  # highlights: list[str] = Form([]),
     itinerary: str = Form("[]"),  # highlights: list[str] = Form([]),#itinerary: list[dict] = Form([{"day":"1", "title":"","description":""}]),
     inclusions: str = Form("[]"),  # highlights: list[str] = Form([]),   
-    exclusions: str = Form("[Purchase,Visa charge]"),  # highlights: list[str] = Form([]),
-    hotel: str = Form([]),  # highlights: list[str] = Form([]),
+    exclusions: str = Form('[Purchase,Visa charge]'),  # highlights: list[str] = Form([]),
+    hotel: str = Form("[]"),  # highlights: list[str] = Form([]),
     transport: str = Form("[]"),  # highlights: list[str] = Form([]),    
+    languages: str = Form("[]"),
+    meetingPoint: str = Form(...),
+    tourType: str = Form(...),
+    maxGuests: int = Form(...),
+    minimumAge: int = Form(...),
+    cancellationPolicy: str = Form(...),
     db: AsyncSession = Depends(get_db)
 ):
     try:
@@ -137,35 +151,19 @@ async def addPackages(
 
     try:
         highlights_list = parse_string_list(highlights)
-        itinerary_list = json.loads(itinerary)
+        itinerary_list = parse_json_field("itinerary", itinerary)
         inclusions_list = parse_string_list(inclusions)
         exclusions_list = parse_string_list(exclusions)
-        hotel_list = json.loads(hotel)
-        transport_list = json.loads(transport)
+        hotel_list = parse_json_field("hotel", hotel)
+        transport_list = parse_json_field("transport", transport)
+        language_list = parse_string_list(languages)
 
     except json.JSONDecodeError as exc:
         raise HTTPException(
             status_code=422,
             detail=f"Invalid JSON: {exc.msg}"
         )
-    # Convert comma-separated string into a list of integers
-        # try:
-        #     destination_id_list = [
-        #         int(x.strip())
-        #         for x in destination_ids.split(",")
-        #         if x.strip()
-        #     ]
-            
-        # except ValueError:
-        #     raise HTTPException(
-        #         status_code=422,
-        #         detail="Invalid destination IDs or package details JSON"
-        #     )
-        # except json.JSONDecodeError:
-        #     raise HTTPException(
-        #         status_code=422,
-        #         detail="Package details must contain valid JSON"
-        #     )       
+       
 
     pack = PackageCreate(
         name=name,
@@ -180,7 +178,13 @@ async def addPackages(
         inclusions=inclusions_list,
         exclusions=exclusions_list,
         hotel=hotel_list,
-        transport=transport_list
+        transport=transport_list,
+        languages=language_list,
+        meetingPoint=meetingPoint,
+        tourType=tourType,
+        maxGuests=maxGuests,
+        minimumAge=minimumAge,
+        cancellationPolicy=cancellationPolicy
     )
     
     cover = imageUpload(image, UPLOAD_DIR_PACKAGE_COVER)

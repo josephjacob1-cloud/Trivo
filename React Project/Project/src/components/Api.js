@@ -1,4 +1,6 @@
 import axios from "axios"
+
+export const BASE_URL = 'http://127.0.0.1:8000/'
 // const CONSULTANT_PATH = 'http://localhost:3000/consultant'
 const CONSULTANT_PATH = 'http://127.0.0.1:8000/auth/signup'
 

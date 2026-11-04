@@ -5,6 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import func, select
 from app.crud.destination import get_destinations_by_ID, view_destination_images
 from app.model.packages import Package
+from app.model.user import User
 from app.schema.customer import BookingCreate, ContactUsCreate, PackageReviewCreate, PackageReviewUpdate
 from app.model.customer import Booking, ContactUs, Review
 from fastapi import  HTTPException, status
@@ -21,6 +22,19 @@ async def view_customer_package_detail(db:AsyncSession):
     
     for p in packs:
         review = await get_review_package_id(p.id, db)
+        review_data = []
+        rating_sum = 0
+        for r in review:
+            r.customer = await db.execute(select(User).where(User.id==r.user_id))
+            r.customer = r.customer.scalar_one_or_none()
+            rating_sum += r.rating
+            r={
+                "user": r.customer.name,
+                "rating": r.rating,
+                "review": r.review,
+                "created_at": r.created_at
+            }
+            review_data.append(r)
         b_count = await get_booking_count_pack(p.id, db)
         destinations = []
         for i in p.destination_ids:
@@ -52,7 +66,9 @@ async def view_customer_package_detail(db:AsyncSession):
                 "offer" : p.price
             },
             "bookingCount":b_count,
-            "review":review,
+            "review":review_data,
+            "rating": rating_sum / len(review) if review else 0,
+            "totalReviews": len(review),
             "destination":destinations,
             "coverImage":p.coverImage,
             "highlights":p.highlights,
@@ -60,12 +76,13 @@ async def view_customer_package_detail(db:AsyncSession):
             "inclusions":p.inclusions,
             "exclusions":p.exclusions,
             "hotel":p.hotel,
-            "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
-            "languages":["English"],
-            "maxGuests":30,
-            "minimumAge":1,
-            "meetingPoint":"Cochin Airport",
-            "tourType":"Friendsd & Family"
+            "transport":p.transport,
+            "cancellationPolicy": p.cancellationPolicy,
+            "languages":p.languages,
+            "maxGuests":p.maxGuests,
+            "minimumAge":p.minimumAge,
+            "meetingPoint":p.meetingPoint,
+            "tourType":p.tourType
         }
         packages.append(items)
     #     d_ids= p.destination_ids

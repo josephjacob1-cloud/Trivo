@@ -23,8 +23,15 @@ async def add_package(pack:PackageCreate, cover:str, db:AsyncSession):
         inclusions=pack.inclusions,
         exclusions=pack.exclusions,
         hotel=[item.model_dump() for item in pack.hotel],
-        transport=[item.model_dump() for item in pack.transport]
-    )    
+        transport=[item.model_dump() for item in pack.transport],
+        languages=pack.languages,
+        meetingPoint=pack.meetingPoint,
+        tourType=pack.tourType,
+        maxGuests=pack.maxGuests,
+        minimumAge=pack.minimumAge,
+        cancellationPolicy=pack.cancellationPolicy
+    )  
+    print("Languages before database insert:", new_pack.languages)  
     print(new_pack)
     db.add(new_pack)
     await db.commit()

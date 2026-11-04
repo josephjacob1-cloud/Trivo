@@ -33,6 +33,12 @@ class PackageCreate(BaseModel):
     exclusions:list[str]
     hotel: list[Hotel] = Field(default_factory=list)
     transport: list[Transport] = Field(default_factory=list) 
+    languages: list[str] = Field(default_factory=list)
+    meetingPoint: str
+    tourType: str
+    maxGuests: int
+    minimumAge: int
+    cancellationPolicy: str
     # coverImage:str
 
 class PackageUpdate(BaseModel):

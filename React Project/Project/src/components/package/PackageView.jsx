@@ -5,16 +5,17 @@ import StarRating from "../StarRating";
 import ThumbSlider from "./ThumbSlider";
 import Itinerary from "./Itinerary";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../Api";
 
 export default function PackageView() {
     const pack = useContext(UserContext).selectedPackage;
-    const IMG_PATH = "../../src/assets/places/";
+    // const IMG_PATH = "http://127.0.0.1:8000/";
     const navigate = useNavigate()
     return (<>
         <div>
             <div
                 style={{
-                    backgroundImage: `url(${IMG_PATH + pack.destination.images.cover})`,
+                    backgroundImage: `url(${BASE_URL}${pack.destination[0].images[0].image_url})`,
                     width: '100%',
                     height: '400px',
                     backgroundSize: 'cover',
@@ -35,13 +36,13 @@ export default function PackageView() {
                                 <p className="h2 textHeadWhite">{pack.packageName}</p>
                             <p className="textHeadWhite">
                                 <i className="bi bi-geo-alt"></i>
-                                {pack.destination.city} | {pack.destination.country}
+                                {pack.destination[0].city} | {pack.destination[0].country}
                             </p>
                             <p>
                                 {/* <i className="bi bi-star"></i> */}
-                                <StarRating rating={pack.rating.average}></StarRating>
+                                <StarRating rating={pack.rating}></StarRating>
                                 <span className="textHeadWhite" >
-                                    <span className="mx-2">{pack.rating.average}</span>
+                                    <span className="mx-2">{pack.rating}</span>
                                     <span>|</span>
                                     <span className="mx-2 me-5">{pack.rating.totalReviews} Reviews</span>
 
@@ -49,7 +50,7 @@ export default function PackageView() {
                             </p>
                             <div className="featuresDiv">
                                 <p className="featuresDivItems"><i class="bi bi-calendar-week"> </i>
-                                    <span>{pack.duration.text}</span>
+                                    <span>{pack.days}</span>
                                 </p>
                                 <p className="featuresDivItems"><i class="bi bi-people"></i>
                                     <span>Max {pack.maxGuests} Guests</span>
@@ -101,11 +102,11 @@ export default function PackageView() {
                                 <i class="bi bi-car-front-fill"></i><br />
                                 <span>{pack.highlights[2]}</span>
                             </div>
-                            <div className="hilights">
+                            <div className="hilights" style={{ display: pack.highlights[3] ? 'block' : 'none' }}>
                                 <i class="bi bi-binoculars-fill"></i><br />
                                 <span>{pack.highlights[3]}</span>
                             </div>
-                            <div className="hilights">
+                            <div className="hilights" style={{ display: pack.highlights[4] ? 'block' : 'none' }}>
                                 <i class="bi bi-eyeglasses"></i><br />
                                 <span>{pack.highlights[4]}</span>
                             </div>
@@ -131,7 +132,7 @@ export default function PackageView() {
                             <i class="bi bi-globe-central-south-asia"></i>
                             <span>
                                 <b>Language</b><br />
-                                <span>{pack.languages[0]}, {pack.languages[1]}</span>
+                                <span>{pack.languages[0] ? pack.languages[0] : ''}{pack.languages[1] ? `, ${pack.languages[1]}` : ''}</span>
                             </span>
                         </div>
                         <div className="qucickElmnts">
@@ -152,14 +153,14 @@ export default function PackageView() {
                             <i class="bi bi-car-front"></i>
                             <span>
                                 <b>Transport</b><br />
-                                <span>{pack.transport.type}</span>
+                                <span>{pack.transport[0]?.type}</span>
                             </span>
                         </div>
                     </div>
                 </div>
 
                 <div>
-                    <ThumbSlider></ThumbSlider>
+                    <ThumbSlider destination={pack.destination}></ThumbSlider>
                 </div>
             </div>
             <div>

@@ -1,5 +1,5 @@
 from sqlalchemy.dialects.postgresql import JSONB
-from sqlalchemy import Column, Integer, String, Numeric, ARRAY, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, Numeric, ARRAY, Boolean, ForeignKey, Text
 
 from app.db.database import Base
 
@@ -21,6 +21,12 @@ class Package(Base):
     exclusions=Column(ARRAY(String), default=list)
     hotel=Column(JSONB, default=list) 
     transport=Column(JSONB, default=list)
+    languages = Column(ARRAY(String), nullable=True)
+    meetingPoint = Column(String, nullable=True)
+    tourType = Column(String, default="Friends & Family")
+    maxGuests = Column(Integer, default=30)
+    minimumAge = Column(Integer, default=1)
+    cancellationPolicy = Column(Text, nullable=True)
 
 
 class PackageCategories(Base):

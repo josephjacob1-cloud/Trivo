@@ -1,1971 +1,414 @@
 {
   "packages" : [
-    {
-    "id": 100,
-    "name": "Munnar Heights",
-    "packageName": "Munnar Heights",
+  {
+    "id": 20,
+    "name": "Singapore Essential",
+    "packageName": "Singapore Essential",
     "days": 3,
-    "category": "Nature",
-    "slug": "Munnar Heights",
-    "description": "Feel the exotic beauty of nature and tea gardens and touch the snow drops",
+    "category": "International",
+    "slug": "Singapore Essential",
+    "description": "Singapore is a vibrant island city-state in Southeast Asia that combines futuristic skyscrapers, rich multicultural heritage, and lush green spaces",
     "price": {
       "discount": 10,
       "currency": "INR",
-      "original": 10008,
-      "offer": 9999
+      "original": 58470,
+      "offer": 58465
     },
-    "bookingCount": 24,
-    "review": [
-      {
-        "user_id": "ee60357f-e070-45b0-b3a2-39bc2660d4ca",
-        "package_id": 1,
-        "review": "Super! Super!",
-        "active": true,
-        "rating": 5,
-        "id": "32a8ad65-bbce-43f6-9f9d-cc9b3a27759c",
-        "created_at": "2026-10-30T05:55:08.831624+00:00"
-      },
-      {
-        "user_id": "3c7e9ce5-92a8-453d-b2b2-27562b67905c",
-        "package_id": 1,
-        "review": "Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More",
-        "active": true,
-        "rating": 5,
-        "id": "59662442-bf5b-4ef5-ac11-a93c2ffcf787",
-        "created_at": "2026-10-30T05:57:42.458331+00:00"
-      },
-      {
-        "user_id": "6165cb6a-bc57-40a4-aa0c-b7af149f3395",
-        "package_id": 1,
-        "review": "Well planned. Food, Travel, guide all good",
-        "active": true,
-        "rating": 5,
-        "id": "0902f3a8-5a9d-42c1-913f-db3c4e460857",
-        "created_at": "2026-10-30T05:59:27.329803+00:00"
-      }
-    ],
+    "bookingCount": 0,
+    "review": [],
+    "rating": 0,
+    "totalReviews": 0,
     "destination": [
       {
-        "id": 1,
-        "name": "Munnar",
-        "slug:": "Kashmir of South India",
-        "country": "India",
-        "city": "Munnar",
-        "description": "A beautiful hill station in Kerala, famous for its lush tea plantations, misty mountains, and cool climate.",
+        "id": 10,
+        "name": "Singapore",
+        "slug:": "Lion Cit",
+        "country": "Singapore",
+        "city": "Singapore",
+        "description": "The Lion City, famous for its modern skyline, Gardens by the Bay, Marina Bay Sands, clean streets, and diverse cuisine.",
         "images": [
           {
-            "id": 3,
-            "alt_text": "Munnar",
+            "id": 16,
+            "alt_text": "The Lion City",
+            "is_primary": true,
+            "destination_id": 10,
+            "image_url": "uploads/destination/images/ae81b5dabef04c6e86b5ee8368d0942c.jpg",
+            "display_order": 1
+          },
+          {
+            "id": 17,
+            "alt_text": "Nature",
             "is_primary": false,
-            "image_url": "uploads/destination/images/373b8a954e3c46a392af1013589589c3.jpg",
-            "destination_id": 1,
+            "destination_id": 10,
+            "image_url": "uploads/destination/images/898c0e59bf0a4b34852111778f7804fd.jpg",
+            "display_order": 2
+          },
+          {
+            "id": 18,
+            "alt_text": "Glass Dom",
+            "is_primary": false,
+            "destination_id": 10,
+            "image_url": "uploads/destination/images/ae2a549fcb4e452eb0d5d815b986d689.jpg",
             "display_order": 3
           },
           {
-            "id": 4,
-            "alt_text": "Munnar",
+            "id": 19,
+            "alt_text": "3 Tower",
             "is_primary": false,
-            "image_url": "uploads/packages/3b388f884c2747899abd91d863c0dfb1.jpg",
-            "destination_id": 1,
+            "destination_id": 10,
+            "image_url": "uploads/destination/images/07c7e92cbf8749499a16708a06f081e4.webp",
             "display_order": 4
           },
           {
-            "id": 5,
-            "alt_text": "Munnar",
+            "id": 20,
+            "alt_text": "Shpping",
             "is_primary": false,
-            "image_url": "uploads/packages/a973cfb7847642a4845c576a151e4bc0.jpg",
-            "destination_id": 1,
+            "destination_id": 10,
+            "image_url": "uploads/destination/images/25d31228d35c4da797ecbe4e299b1502.jpg",
             "display_order": 5
-          },
-          {
-            "id": 1,
-            "alt_text": "Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/c5f6db4b02934116a3995cf459dfb9c8.jpg",
-            "destination_id": 1,
-            "display_order": 1
-          },
-          {
-            "id": 2,
-            "alt_text": "Sun set @ Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/314260d94ea44a918b78a93056bcd7d6.webp",
-            "destination_id": 1,
-            "display_order": 1
           }
         ]
       }
     ],
-    "coverImage": "uploads/packages/cf581d7935654555bcc06c39c2917454.webp",
+    "coverImage": "uploads/packages/cover/2f5ed505f3374743b2b192c273b436e5.jpg",
     "highlights": [
-      "Scenic Vistadome Train Journey",
-      "Airport Pickup & Drop",
-      "Luxury Tourist Transport"
+      "Jewel Changi Airport",
+      "Gardens by the Bay",
+      "Marina Bay Sands SkyPark",
+      "Merlion Park"
     ],
     "itinerary": [
       {
         "day": 1,
-        "title": "Arrival in Cusco",
-        "description": "Airport pickup, hotel check-in and leisure time to acclimatize to the altitude."
+        "title": "Colonial Roots & Futuristic Skylines",
+        "description": "Morning — Civic District & Merlion. Afternoon — Chinatown Culture & Hawker Lunch. Evening — Gardens by the Bay"
       },
       {
         "day": 2,
-        "title": "Sacred Valley",
-        "description": "Visit Pisac Market, Ollantaytambo Fortress and enjoy scenic Andean landscapes."
+        "title": "Cultural Enclaves & Sky-High Views",
+        "description": "Morning — Little India: Immerse your senses in the vibrant colors and aromas of Little India. Afternoon — Kampong Glam & Haji Lane: Walk or take a short train ride to Kampong Glam. Evening — Marina Bay Sands Sunset: Head to the iconic Marina Bay Sands SkyPark Observation Deck around 5:30 PM. "
       },
       {
         "day": 3,
-        "title": "Machu Picchu",
-        "description": "Travel by Vistadome train and enjoy a guided tour of the magnificent Machu Picchu."
-      },
-      {
-        "day": 4,
-        "title": "Cusco Heritage Tour",
-        "description": "Explore Sacsayhuamán, Qorikancha Temple and Cusco Plaza de Armas."
-      },
-      {
-        "day": 5,
-        "title": "Free Exploration",
-        "description": "Enjoy shopping, local cafés and optional adventure activities around Cusco."
-      },
-      {
-        "day": 6,
-        "title": "Departure",
-        "description": "Breakfast, hotel checkout and transfer to Alejandro Velasco Astete International Airport."
+        "title": "Island Playground & A Grand Finale",
+        "description": "Morning & Afternoon — Sentosa Island: Take the scenic cable car route over to Sentosa Island. Late Afternoon — The Jewel Changi Grand Finale: Plan to head back toward Jewel Changi Airport about 3 to 4 hours before your flight (or dedicate your final evening here)"
       }
     ],
     "inclusions": [
-      "5 Nights Hotel Accommodation",
-      "Luxury Tourist Vehicle",
-      "Sacred Valley Excursion",
-      "Airport Transfers"
+      "Jewel Changi Airport Canopy Viewing",
+      "Gardens by the Bay Public Grounds",
+      "Merlion Park Waterfront",
+      "Cultural Neighborhood Exploration",
+      "Sentosa Island Beach Access"
     ],
     "exclusions": [
-      "Airfare",
-      "Lunch & Dinner (Except Mentioned)",
-      "Optional Hiking Activities",
-      "Personal Expenses"
+      "Marina Bay Sands Infinity Pool",
+      "Special Garden Walkways",
+      "Shopping & Souvenirs"
     ],
     "hotel": [
       {
-        "name": "Casa Andina Premium Cusco",
+        "name": "Mercure ICON Singapore City Centre",
         "checkIn": "02:00 PM",
         "category": "4 Star",
         "checkOut": "11:00 AM",
         "roomType": "Superior Room"
       }
     ],
-    "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
-    "languages": [
-      "English"
-    ],
-    "maxGuests": 30,
-    "minimumAge": 1,
-    "meetingPoint": "Cochin Airport",
-    "tourType": "Friendsd & Family"
-  },{
-    "id": 101,
-    "name": "Munnar Heights",
-    "packageName": "Munnar Heights",
-    "days": 3,
-    "category": "Nature",
-    "slug": "Munnar Heights",
-    "description": "Feel the exotic beauty of nature and tea gardens and touch the snow drops",
-    "price": {
-      "discount": 10,
-      "currency": "INR",
-      "original": 10008,
-      "offer": 9999
-    },
-    "bookingCount": 24,
-    "review": [
+    "transport": [
       {
-        "user_id": "ee60357f-e070-45b0-b3a2-39bc2660d4ca",
-        "package_id": 1,
-        "review": "Super! Super!",
-        "active": true,
-        "rating": 5,
-        "id": "32a8ad65-bbce-43f6-9f9d-cc9b3a27759c",
-        "created_at": "2026-10-30T05:55:08.831624+00:00"
-      },
-      {
-        "user_id": "3c7e9ce5-92a8-453d-b2b2-27562b67905c",
-        "package_id": 1,
-        "review": "Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More",
-        "active": true,
-        "rating": 5,
-        "id": "59662442-bf5b-4ef5-ac11-a93c2ffcf787",
-        "created_at": "2026-10-30T05:57:42.458331+00:00"
-      },
-      {
-        "user_id": "6165cb6a-bc57-40a4-aa0c-b7af149f3395",
-        "package_id": 1,
-        "review": "Well planned. Food, Travel, guide all good",
-        "active": true,
-        "rating": 5,
-        "id": "0902f3a8-5a9d-42c1-913f-db3c4e460857",
-        "created_at": "2026-10-30T05:59:27.329803+00:00"
+        "drop": true,
+        "type": "Luxury Tourist Coach & Vistadome Train",
+        "pickup": true,
+        "airportTransfer": true
       }
     ],
-    "destination": [
-      {
-        "id": 1,
-        "name": "Munnar",
-        "slug:": "Kashmir of South India",
-        "country": "India",
-        "city": "Munnar",
-        "description": "A beautiful hill station in Kerala, famous for its lush tea plantations, misty mountains, and cool climate.",
-        "images": [
-          {
-            "id": 3,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/534a16cf1c294aee8a1b61ec40d373f4.jpg",
-            "destination_id": 1,
-            "display_order": 3
-          },
-          {
-            "id": 4,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/3b388f884c2747899abd91d863c0dfb1.jpg",
-            "destination_id": 1,
-            "display_order": 4
-          },
-          {
-            "id": 5,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/a973cfb7847642a4845c576a151e4bc0.jpg",
-            "destination_id": 1,
-            "display_order": 5
-          },
-          {
-            "id": 1,
-            "alt_text": "Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/c5f6db4b02934116a3995cf459dfb9c8.jpg",
-            "destination_id": 1,
-            "display_order": 1
-          },
-          {
-            "id": 2,
-            "alt_text": "Sun set @ Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/314260d94ea44a918b78a93056bcd7d6.webp",
-            "destination_id": 1,
-            "display_order": 1
-          }
-        ]
-      }
-    ],
-    "coverImage": "uploads/packages/cf581d7935654555bcc06c39c2917454.webp",
-    "highlights": [
-      "Scenic Vistadome Train Journey",
-      "Airport Pickup & Drop",
-      "Luxury Tourist Transport"
-    ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": "Arrival in Cusco",
-        "description": "Airport pickup, hotel check-in and leisure time to acclimatize to the altitude."
-      },
-      {
-        "day": 2,
-        "title": "Sacred Valley",
-        "description": "Visit Pisac Market, Ollantaytambo Fortress and enjoy scenic Andean landscapes."
-      },
-      {
-        "day": 3,
-        "title": "Machu Picchu",
-        "description": "Travel by Vistadome train and enjoy a guided tour of the magnificent Machu Picchu."
-      },
-      {
-        "day": 4,
-        "title": "Cusco Heritage Tour",
-        "description": "Explore Sacsayhuamán, Qorikancha Temple and Cusco Plaza de Armas."
-      },
-      {
-        "day": 5,
-        "title": "Free Exploration",
-        "description": "Enjoy shopping, local cafés and optional adventure activities around Cusco."
-      },
-      {
-        "day": 6,
-        "title": "Departure",
-        "description": "Breakfast, hotel checkout and transfer to Alejandro Velasco Astete International Airport."
-      }
-    ],
-    "inclusions": [
-      "5 Nights Hotel Accommodation",
-      "Luxury Tourist Vehicle",
-      "Sacred Valley Excursion",
-      "Airport Transfers"
-    ],
-    "exclusions": [
-      "Airfare",
-      "Lunch & Dinner (Except Mentioned)",
-      "Optional Hiking Activities",
-      "Personal Expenses"
-    ],
-    "hotel": [
-      {
-        "name": "Casa Andina Premium Cusco",
-        "checkIn": "02:00 PM",
-        "category": "4 Star",
-        "checkOut": "11:00 AM",
-        "roomType": "Superior Room"
-      }
-    ],
-    "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
-    "languages": [
-      "English"
-    ],
-    "maxGuests": 30,
-    "minimumAge": 1,
-    "meetingPoint": "Cochin Airport",
-    "tourType": "Friendsd & Family"
+    "cancellationPolicy": null,
+    "languages": null,
+    "maxGuests": null,
+    "minimumAge": null,
+    "meetingPoint": null,
+    "tourType": null
   },
   {
-    "id": 102,
-    "name": "Munnar Heights",
-    "packageName": "Munnar Heights",
-    "days": 3,
-    "category": "Nature",
-    "slug": "Munnar Heights",
-    "description": "Feel the exotic beauty of nature and tea gardens and touch the snow drops",
+    "id": 21,
+    "name": "Paris - The City of Light",
+    "packageName": "Paris - The City of Light",
+    "days": 4,
+    "category": "International",
+    "slug": "Paris - The City of Light",
+    "description": "Paris is a natural starting point for guided tours that pair landmark sights with time to soak up café culture and neighbourhood charm. Many itineraries include a city tour, plus classic moments such as a River Seine cruise, views from the Eiffel Tower, and an excursion to Versailles. Beyond the capital, routes often introduce northern France, with stops such as Rouen and Normandy, while other trips travel via Lyon, Dijon or Strasbourg before returning to Paris",
     "price": {
       "discount": 10,
       "currency": "INR",
-      "original": 10008,
-      "offer": 9999
+      "original": 465422,
+      "offer": 465421
     },
-    "bookingCount": 24,
-    "review": [
-      {
-        "user_id": "ee60357f-e070-45b0-b3a2-39bc2660d4ca",
-        "package_id": 1,
-        "review": "Super! Super!",
-        "active": true,
-        "rating": 5,
-        "id": "32a8ad65-bbce-43f6-9f9d-cc9b3a27759c",
-        "created_at": "2026-10-30T05:55:08.831624+00:00"
-      },
-      {
-        "user_id": "3c7e9ce5-92a8-453d-b2b2-27562b67905c",
-        "package_id": 1,
-        "review": "Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More",
-        "active": true,
-        "rating": 5,
-        "id": "59662442-bf5b-4ef5-ac11-a93c2ffcf787",
-        "created_at": "2026-10-30T05:57:42.458331+00:00"
-      },
-      {
-        "user_id": "6165cb6a-bc57-40a4-aa0c-b7af149f3395",
-        "package_id": 1,
-        "review": "Well planned. Food, Travel, guide all good",
-        "active": true,
-        "rating": 5,
-        "id": "0902f3a8-5a9d-42c1-913f-db3c4e460857",
-        "created_at": "2026-10-30T05:59:27.329803+00:00"
-      }
-    ],
+    "bookingCount": 0,
+    "review": [],
+    "rating": 0,
+    "totalReviews": 0,
     "destination": [
       {
-        "id": 1,
-        "name": "Munnar",
-        "slug:": "Kashmir of South India",
-        "country": "India",
-        "city": "Munnar",
-        "description": "A beautiful hill station in Kerala, famous for its lush tea plantations, misty mountains, and cool climate.",
+        "id": 6,
+        "name": "Paris",
+        "slug:": "City of Love",
+        "country": "France",
+        "city": "Paris",
+        "description": "The City of Love, celebrated for the Eiffel Tower, world-class museums, elegant streets, and romantic atmosphere.",
         "images": [
           {
-            "id": 3,
-            "alt_text": "Munnar",
+            "id": 21,
+            "alt_text": "The City Of Lights",
+            "is_primary": true,
+            "destination_id": 6,
+            "image_url": "uploads/destination/images/8dabce2ed65647f4853696e5a5d72eea.jpg",
+            "display_order": 1
+          },
+          {
+            "id": 22,
+            "alt_text": "Light Show",
             "is_primary": false,
-            "image_url": "uploads/packages/534a16cf1c294aee8a1b61ec40d373f4.jpg",
-            "destination_id": 1,
+            "destination_id": 6,
+            "image_url": "uploads/destination/images/9a0ca502863144aea403866061523331.jpg",
+            "display_order": 2
+          },
+          {
+            "id": 23,
+            "alt_text": "Effel Tower",
+            "is_primary": false,
+            "destination_id": 6,
+            "image_url": "uploads/destination/images/6aa2f1884a47427fa68f5242a6e9d457.jpg",
             "display_order": 3
           },
           {
-            "id": 4,
-            "alt_text": "Munnar",
+            "id": 24,
+            "alt_text": "City Breaks",
             "is_primary": false,
-            "image_url": "uploads/packages/3b388f884c2747899abd91d863c0dfb1.jpg",
-            "destination_id": 1,
+            "destination_id": 6,
+            "image_url": "uploads/destination/images/a4555d22f6664f219534cf47eaca7532.jpg",
             "display_order": 4
           },
           {
-            "id": 5,
-            "alt_text": "Munnar",
+            "id": 25,
+            "alt_text": "Dinner Cruise",
             "is_primary": false,
-            "image_url": "uploads/packages/a973cfb7847642a4845c576a151e4bc0.jpg",
-            "destination_id": 1,
+            "destination_id": 6,
+            "image_url": "uploads/destination/images/f346882c0ec14020bc0c465a6c00df16.jpg",
             "display_order": 5
-          },
-          {
-            "id": 1,
-            "alt_text": "Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/c5f6db4b02934116a3995cf459dfb9c8.jpg",
-            "destination_id": 1,
-            "display_order": 1
-          },
-          {
-            "id": 2,
-            "alt_text": "Sun set @ Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/314260d94ea44a918b78a93056bcd7d6.webp",
-            "destination_id": 1,
-            "display_order": 1
           }
         ]
       }
     ],
-    "coverImage": "uploads/packages/cf581d7935654555bcc06c39c2917454.webp",
+    "coverImage": "uploads/packages/cover/d4a2976a71e746d3985c5f407f5d63c3.jpg",
     "highlights": [
-      "Scenic Vistadome Train Journey",
-      "Airport Pickup & Drop",
-      "Luxury Tourist Transport"
+      "Eiffel Tower",
+      "Louvre Museum",
+      "Sainte-Chapelle",
+      "Le Marais",
+      "Saint-Germain-des-Prés"
     ],
     "itinerary": [
       {
         "day": 1,
-        "title": "Arrival in Cusco",
-        "description": "Airport pickup, hotel check-in and leisure time to acclimatize to the altitude."
+        "title": "Iconic Landmarks & Historic Walking Tour",
+        "description": "Morning arrival in Paris followed by hotel check-in. Spend the afternoon exploring the banks of the Seine, walking through the Tuileries Garden, and visiting the historic Sainte-Chapelle chapel. End your evening taking in the panoramic views and glittering lights from the Eiffel Tower."
       },
       {
         "day": 2,
-        "title": "Sacred Valley",
-        "description": "Visit Pisac Market, Ollantaytambo Fortress and enjoy scenic Andean landscapes."
+        "title": "World-Class Art & Trendy Le Marais",
+        "description": "Dedicate your morning to exploring the vast masterpiece collections of the Louvre Museum. In the afternoon, head east to the vibrant Le Marais neighborhood to explore its medieval architecture, trendy boutiques, and famous food scene on Rue des Rosiers."
       },
       {
         "day": 3,
-        "title": "Machu Picchu",
-        "description": "Travel by Vistadome train and enjoy a guided tour of the magnificent Machu Picchu."
+        "title": "Bohemian Montmartre & Scenic Seine Cruise",
+        "description": "Spend the morning wandering the steep cobblestone streets, portrait artist squares, and the Sacré-Cœur Basilica in hilltop Montmartre. In the afternoon, descend to the historic Saint-Germain-des-Prés district for sidewalk café culture, and wrap up the day with a relaxing sunset river cruise."
       },
       {
         "day": 4,
-        "title": "Cusco Heritage Tour",
-        "description": "Explore Sacsayhuamán, Qorikancha Temple and Cusco Plaza de Armas."
-      },
-      {
-        "day": 5,
-        "title": "Free Exploration",
-        "description": "Enjoy shopping, local cafés and optional adventure activities around Cusco."
-      },
-      {
-        "day": 6,
-        "title": "Departure",
-        "description": "Breakfast, hotel checkout and transfer to Alejandro Velasco Astete International Airport."
+        "title": "Palace of Versailles Day Trip & Departure",
+        "description": "Take a short RER train ride to the magnificent Palace of Versailles to tour the Hall of Mirrors and its expansive manicured gardens. Return to central Paris in the afternoon to retrieve your luggage and depart for the airport or train station."
       }
     ],
     "inclusions": [
-      "5 Nights Hotel Accommodation",
-      "Luxury Tourist Vehicle",
-      "Sacred Valley Excursion",
-      "Airport Transfers"
+      "4 Nights Lodging",
+      "Airport Transfers",
+      "Eiffel Tower Summit Access",
+      "Sainte-Chapelle Priority Entry",
+      "1-Hour Seine River Cruise",
+      "Versailles Palace & Gardens Pass",
+      "Daily Breakfast",
+      "Navigo Transit Card"
     ],
     "exclusions": [
-      "Airfare",
-      "Lunch & Dinner (Except Mentioned)",
-      "Optional Hiking Activities",
-      "Personal Expenses"
+      "Travel Insurance",
+      "Luggage Portage Fees",
+      "Optional Activity Upgrade",
+      "Personal Out-of-Pocket Expenses"
     ],
     "hotel": [
       {
-        "name": "Casa Andina Premium Cusco",
-        "checkIn": "02:00 PM",
+        "name": "Hotel Saint Paul Rive Gauche",
+        "checkIn": "03:00 PM",
         "category": "4 Star",
-        "checkOut": "11:00 AM",
-        "roomType": "Superior Room"
+        "checkOut": "12:00 PM",
+        "roomType": "Classic Room"
       }
     ],
-    "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
+    "transport": [
+      {
+        "drop": true,
+        "type": "Private Premium Chauffeur & SNCF TGV Train",
+        "pickup": true,
+        "airportTransfer": true
+      }
+    ],
+    "cancellationPolicy": "You can cancel your trip up to 14 days before your scheduled arrival date to receive a 100% full refund or free date change vouchers. Cancellations made between 7 and 13 days of arrival will incur a 50% penalty fee, while any cancellations submitted under 7 days before check-in or player no-shows are completely non-refundable.",
     "languages": [
-      "English"
+      "English",
+      "French"
     ],
     "maxGuests": 30,
-    "minimumAge": 1,
+    "minimumAge": 2,
     "meetingPoint": "Cochin Airport",
-    "tourType": "Friendsd & Family"
+    "tourType": "Family"
   },
   {
-    "id": 103,
-    "name": "Munnar Heights",
-    "packageName": "Munnar Heights",
+    "id": 22,
+    "name": "Paris Delite",
+    "packageName": "Paris Delite",
     "days": 3,
-    "category": "Nature",
-    "slug": "Munnar Heights",
-    "description": "Feel the exotic beauty of nature and tea gardens and touch the snow drops",
+    "category": "International",
+    "slug": "Paris Delite",
+    "description": "Paris is a natural starting point for guided tours that pair landmark sights with time to soak up café culture and neighbourhood charm. Many itineraries include a city tour, plus classic moments such as a River Seine cruise, views from the Eiffel Tower, and an excursion to Versailles. Beyond the capital, routes often introduce northern France, with stops such as Rouen and Normandy, while other trips travel via Lyon, Dijon or Strasbourg before returning to Paris",
     "price": {
       "discount": 10,
       "currency": "INR",
-      "original": 10008,
-      "offer": 9999
+      "original": 365422,
+      "offer": 365421
     },
-    "bookingCount": 24,
-    "review": [
-      {
-        "user_id": "ee60357f-e070-45b0-b3a2-39bc2660d4ca",
-        "package_id": 1,
-        "review": "Super! Super!",
-        "active": true,
-        "rating": 5,
-        "id": "32a8ad65-bbce-43f6-9f9d-cc9b3a27759c",
-        "created_at": "2026-10-30T05:55:08.831624+00:00"
-      },
-      {
-        "user_id": "3c7e9ce5-92a8-453d-b2b2-27562b67905c",
-        "package_id": 1,
-        "review": "Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More",
-        "active": true,
-        "rating": 5,
-        "id": "59662442-bf5b-4ef5-ac11-a93c2ffcf787",
-        "created_at": "2026-10-30T05:57:42.458331+00:00"
-      },
-      {
-        "user_id": "6165cb6a-bc57-40a4-aa0c-b7af149f3395",
-        "package_id": 1,
-        "review": "Well planned. Food, Travel, guide all good",
-        "active": true,
-        "rating": 5,
-        "id": "0902f3a8-5a9d-42c1-913f-db3c4e460857",
-        "created_at": "2026-10-30T05:59:27.329803+00:00"
-      }
-    ],
+    "bookingCount": 0,
+    "review": [],
+    "rating": 0,
+    "totalReviews": 0,
     "destination": [
       {
-        "id": 1,
-        "name": "Munnar",
-        "slug:": "Kashmir of South India",
-        "country": "India",
-        "city": "Munnar",
-        "description": "A beautiful hill station in Kerala, famous for its lush tea plantations, misty mountains, and cool climate.",
+        "id": 6,
+        "name": "Paris",
+        "slug:": "City of Love",
+        "country": "France",
+        "city": "Paris",
+        "description": "The City of Love, celebrated for the Eiffel Tower, world-class museums, elegant streets, and romantic atmosphere.",
         "images": [
           {
-            "id": 3,
-            "alt_text": "Munnar",
+            "id": 21,
+            "alt_text": "The City Of Lights",
+            "is_primary": true,
+            "destination_id": 6,
+            "image_url": "uploads/destination/images/8dabce2ed65647f4853696e5a5d72eea.jpg",
+            "display_order": 1
+          },
+          {
+            "id": 22,
+            "alt_text": "Light Show",
             "is_primary": false,
-            "image_url": "uploads/packages/534a16cf1c294aee8a1b61ec40d373f4.jpg",
-            "destination_id": 1,
+            "destination_id": 6,
+            "image_url": "uploads/destination/images/9a0ca502863144aea403866061523331.jpg",
+            "display_order": 2
+          },
+          {
+            "id": 23,
+            "alt_text": "Effel Tower",
+            "is_primary": false,
+            "destination_id": 6,
+            "image_url": "uploads/destination/images/6aa2f1884a47427fa68f5242a6e9d457.jpg",
             "display_order": 3
           },
           {
-            "id": 4,
-            "alt_text": "Munnar",
+            "id": 24,
+            "alt_text": "City Breaks",
             "is_primary": false,
-            "image_url": "uploads/packages/3b388f884c2747899abd91d863c0dfb1.jpg",
-            "destination_id": 1,
+            "destination_id": 6,
+            "image_url": "uploads/destination/images/a4555d22f6664f219534cf47eaca7532.jpg",
             "display_order": 4
           },
           {
-            "id": 5,
-            "alt_text": "Munnar",
+            "id": 25,
+            "alt_text": "Dinner Cruise",
             "is_primary": false,
-            "image_url": "uploads/packages/a973cfb7847642a4845c576a151e4bc0.jpg",
-            "destination_id": 1,
+            "destination_id": 6,
+            "image_url": "uploads/destination/images/f346882c0ec14020bc0c465a6c00df16.jpg",
             "display_order": 5
-          },
-          {
-            "id": 1,
-            "alt_text": "Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/c5f6db4b02934116a3995cf459dfb9c8.jpg",
-            "destination_id": 1,
-            "display_order": 1
-          },
-          {
-            "id": 2,
-            "alt_text": "Sun set @ Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/314260d94ea44a918b78a93056bcd7d6.webp",
-            "destination_id": 1,
-            "display_order": 1
           }
         ]
       }
     ],
-    "coverImage": "uploads/packages/cf581d7935654555bcc06c39c2917454.webp",
+    "coverImage": "uploads/packages/cover/0ee28be7dac54fd99db1ceff025006b8.jpg",
     "highlights": [
-      "Scenic Vistadome Train Journey",
-      "Airport Pickup & Drop",
-      "Luxury Tourist Transport"
+      "Eiffel Tower",
+      "Louvre Museum",
+      "Sainte-Chapelle",
+      "Le Marais",
+      "Saint-Germain-des-Prés"
     ],
     "itinerary": [
       {
         "day": 1,
-        "title": "Arrival in Cusco",
-        "description": "Airport pickup, hotel check-in and leisure time to acclimatize to the altitude."
+        "title": "Iconic Landmarks & Historic Walking Tour",
+        "description": "Morning arrival in Paris followed by hotel check-in. Spend the afternoon exploring the banks of the Seine, walking through the Tuileries Garden, and visiting the historic Sainte-Chapelle chapel. End your evening taking in the panoramic views and glittering lights from the Eiffel Tower."
       },
       {
         "day": 2,
-        "title": "Sacred Valley",
-        "description": "Visit Pisac Market, Ollantaytambo Fortress and enjoy scenic Andean landscapes."
+        "title": "World-Class Art & Trendy Le Marais",
+        "description": "Dedicate your morning to exploring the vast masterpiece collections of the Louvre Museum. In the afternoon, head east to the vibrant Le Marais neighborhood to explore its medieval architecture, trendy boutiques, and famous food scene on Rue des Rosiers."
       },
       {
         "day": 3,
-        "title": "Machu Picchu",
-        "description": "Travel by Vistadome train and enjoy a guided tour of the magnificent Machu Picchu."
-      },
-      {
-        "day": 4,
-        "title": "Cusco Heritage Tour",
-        "description": "Explore Sacsayhuamán, Qorikancha Temple and Cusco Plaza de Armas."
-      },
-      {
-        "day": 5,
-        "title": "Free Exploration",
-        "description": "Enjoy shopping, local cafés and optional adventure activities around Cusco."
-      },
-      {
-        "day": 6,
-        "title": "Departure",
-        "description": "Breakfast, hotel checkout and transfer to Alejandro Velasco Astete International Airport."
+        "title": "Bohemian Montmartre & Scenic Seine Cruise",
+        "description": "Spend the morning wandering the steep cobblestone streets, portrait artist squares, and the Sacré-Cœur Basilica in hilltop Montmartre. In the afternoon, descend to the historic Saint-Germain-des-Prés district for sidewalk café culture, and wrap up the day with a relaxing sunset river cruise."
       }
     ],
     "inclusions": [
-      "5 Nights Hotel Accommodation",
-      "Luxury Tourist Vehicle",
-      "Sacred Valley Excursion",
-      "Airport Transfers"
+      "3 Nights Stay Airport Transfers",
+      "Eiffel Tower Summit Access",
+      "Sainte-Chapelle Priority Entry",
+      "1-Hour Seine River Cruise",
+      "Versailles Palace & Gardens Pass",
+      "Daily Breakfast",
+      "Navigo Transit Card"
     ],
     "exclusions": [
-      "Airfare",
-      "Lunch & Dinner (Except Mentioned)",
-      "Optional Hiking Activities",
-      "Personal Expenses"
+      "Travel Insurance",
+      "Luggage Portage Fees",
+      "Optional Activity Upgrade",
+      "Personal Out-of-Pocket Expenses"
     ],
     "hotel": [
       {
-        "name": "Casa Andina Premium Cusco",
-        "checkIn": "02:00 PM",
+        "name": "Hotel Saint Paul Rive Gauche",
+        "checkIn": "03:00 PM",
         "category": "4 Star",
-        "checkOut": "11:00 AM",
-        "roomType": "Superior Room"
+        "checkOut": "12:00 PM",
+        "roomType": "Classic Room"
       }
     ],
-    "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
+    "transport": [
+      {
+        "drop": true,
+        "type": "Private Premium Chauffeur & SNCF TGV Train",
+        "pickup": true,
+        "airportTransfer": true
+      }
+    ],
+    "cancellationPolicy": "Cancel up to 14 days before arrival for a 100% full refund or free date change. Cancellations made between 7 and 13 days incur a 50% penalty, while cancellations under 7 days or no-shows are completely non-refundable.",
     "languages": [
-      "English"
-    ],
-    "maxGuests": 30,
-    "minimumAge": 1,
-    "meetingPoint": "Cochin Airport",
-    "tourType": "Friendsd & Family"
-  },
-  {
-    "id": 104,
-    "name": "Munnar Heights",
-    "packageName": "Munnar Heights",
-    "days": 3,
-    "category": "Nature",
-    "slug": "Munnar Heights",
-    "description": "Feel the exotic beauty of nature and tea gardens and touch the snow drops",
-    "price": {
-      "discount": 10,
-      "currency": "INR",
-      "original": 10008,
-      "offer": 9999
-    },
-    "bookingCount": 24,
-    "review": [
-      {
-        "user_id": "ee60357f-e070-45b0-b3a2-39bc2660d4ca",
-        "package_id": 1,
-        "review": "Super! Super!",
-        "active": true,
-        "rating": 5,
-        "id": "32a8ad65-bbce-43f6-9f9d-cc9b3a27759c",
-        "created_at": "2026-10-30T05:55:08.831624+00:00"
-      },
-      {
-        "user_id": "3c7e9ce5-92a8-453d-b2b2-27562b67905c",
-        "package_id": 1,
-        "review": "Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More",
-        "active": true,
-        "rating": 5,
-        "id": "59662442-bf5b-4ef5-ac11-a93c2ffcf787",
-        "created_at": "2026-10-30T05:57:42.458331+00:00"
-      },
-      {
-        "user_id": "6165cb6a-bc57-40a4-aa0c-b7af149f3395",
-        "package_id": 1,
-        "review": "Well planned. Food, Travel, guide all good",
-        "active": true,
-        "rating": 5,
-        "id": "0902f3a8-5a9d-42c1-913f-db3c4e460857",
-        "created_at": "2026-10-30T05:59:27.329803+00:00"
-      }
-    ],
-    "destination": [
-      {
-        "id": 1,
-        "name": "Munnar",
-        "slug:": "Kashmir of South India",
-        "country": "India",
-        "city": "Munnar",
-        "description": "A beautiful hill station in Kerala, famous for its lush tea plantations, misty mountains, and cool climate.",
-        "images": [
-          {
-            "id": 3,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/534a16cf1c294aee8a1b61ec40d373f4.jpg",
-            "destination_id": 1,
-            "display_order": 3
-          },
-          {
-            "id": 4,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/3b388f884c2747899abd91d863c0dfb1.jpg",
-            "destination_id": 1,
-            "display_order": 4
-          },
-          {
-            "id": 5,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/a973cfb7847642a4845c576a151e4bc0.jpg",
-            "destination_id": 1,
-            "display_order": 5
-          },
-          {
-            "id": 1,
-            "alt_text": "Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/c5f6db4b02934116a3995cf459dfb9c8.jpg",
-            "destination_id": 1,
-            "display_order": 1
-          },
-          {
-            "id": 2,
-            "alt_text": "Sun set @ Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/314260d94ea44a918b78a93056bcd7d6.webp",
-            "destination_id": 1,
-            "display_order": 1
-          }
-        ]
-      }
-    ],
-    "coverImage": "uploads/packages/cf581d7935654555bcc06c39c2917454.webp",
-    "highlights": [
-      "Scenic Vistadome Train Journey",
-      "Airport Pickup & Drop",
-      "Luxury Tourist Transport"
-    ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": "Arrival in Cusco",
-        "description": "Airport pickup, hotel check-in and leisure time to acclimatize to the altitude."
-      },
-      {
-        "day": 2,
-        "title": "Sacred Valley",
-        "description": "Visit Pisac Market, Ollantaytambo Fortress and enjoy scenic Andean landscapes."
-      },
-      {
-        "day": 3,
-        "title": "Machu Picchu",
-        "description": "Travel by Vistadome train and enjoy a guided tour of the magnificent Machu Picchu."
-      },
-      {
-        "day": 4,
-        "title": "Cusco Heritage Tour",
-        "description": "Explore Sacsayhuamán, Qorikancha Temple and Cusco Plaza de Armas."
-      },
-      {
-        "day": 5,
-        "title": "Free Exploration",
-        "description": "Enjoy shopping, local cafés and optional adventure activities around Cusco."
-      },
-      {
-        "day": 6,
-        "title": "Departure",
-        "description": "Breakfast, hotel checkout and transfer to Alejandro Velasco Astete International Airport."
-      }
-    ],
-    "inclusions": [
-      "5 Nights Hotel Accommodation",
-      "Luxury Tourist Vehicle",
-      "Sacred Valley Excursion",
-      "Airport Transfers"
-    ],
-    "exclusions": [
-      "Airfare",
-      "Lunch & Dinner (Except Mentioned)",
-      "Optional Hiking Activities",
-      "Personal Expenses"
-    ],
-    "hotel": [
-      {
-        "name": "Casa Andina Premium Cusco",
-        "checkIn": "02:00 PM",
-        "category": "4 Star",
-        "checkOut": "11:00 AM",
-        "roomType": "Superior Room"
-      }
-    ],
-    "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
-    "languages": [
-      "English"
-    ],
-    "maxGuests": 30,
-    "minimumAge": 1,
-    "meetingPoint": "Cochin Airport",
-    "tourType": "Friendsd & Family"
-  },
-  {
-    "id": 105,
-    "name": "Munnar Heights",
-    "packageName": "Munnar Heights",
-    "days": 3,
-    "category": "Nature",
-    "slug": "Munnar Heights",
-    "description": "Feel the exotic beauty of nature and tea gardens and touch the snow drops",
-    "price": {
-      "discount": 10,
-      "currency": "INR",
-      "original": 10008,
-      "offer": 9999
-    },
-    "bookingCount": 24,
-    "review": [
-      {
-        "user_id": "ee60357f-e070-45b0-b3a2-39bc2660d4ca",
-        "package_id": 1,
-        "review": "Super! Super!",
-        "active": true,
-        "rating": 5,
-        "id": "32a8ad65-bbce-43f6-9f9d-cc9b3a27759c",
-        "created_at": "2026-10-30T05:55:08.831624+00:00"
-      },
-      {
-        "user_id": "3c7e9ce5-92a8-453d-b2b2-27562b67905c",
-        "package_id": 1,
-        "review": "Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More",
-        "active": true,
-        "rating": 5,
-        "id": "59662442-bf5b-4ef5-ac11-a93c2ffcf787",
-        "created_at": "2026-10-30T05:57:42.458331+00:00"
-      },
-      {
-        "user_id": "6165cb6a-bc57-40a4-aa0c-b7af149f3395",
-        "package_id": 1,
-        "review": "Well planned. Food, Travel, guide all good",
-        "active": true,
-        "rating": 5,
-        "id": "0902f3a8-5a9d-42c1-913f-db3c4e460857",
-        "created_at": "2026-10-30T05:59:27.329803+00:00"
-      }
-    ],
-    "destination": [
-      {
-        "id": 1,
-        "name": "Munnar",
-        "slug:": "Kashmir of South India",
-        "country": "India",
-        "city": "Munnar",
-        "description": "A beautiful hill station in Kerala, famous for its lush tea plantations, misty mountains, and cool climate.",
-        "images": [
-          {
-            "id": 3,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/534a16cf1c294aee8a1b61ec40d373f4.jpg",
-            "destination_id": 1,
-            "display_order": 3
-          },
-          {
-            "id": 4,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/3b388f884c2747899abd91d863c0dfb1.jpg",
-            "destination_id": 1,
-            "display_order": 4
-          },
-          {
-            "id": 5,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/a973cfb7847642a4845c576a151e4bc0.jpg",
-            "destination_id": 1,
-            "display_order": 5
-          },
-          {
-            "id": 1,
-            "alt_text": "Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/c5f6db4b02934116a3995cf459dfb9c8.jpg",
-            "destination_id": 1,
-            "display_order": 1
-          },
-          {
-            "id": 2,
-            "alt_text": "Sun set @ Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/314260d94ea44a918b78a93056bcd7d6.webp",
-            "destination_id": 1,
-            "display_order": 1
-          }
-        ]
-      }
-    ],
-    "coverImage": "uploads/packages/cf581d7935654555bcc06c39c2917454.webp",
-    "highlights": [
-      "Scenic Vistadome Train Journey",
-      "Airport Pickup & Drop",
-      "Luxury Tourist Transport"
-    ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": "Arrival in Cusco",
-        "description": "Airport pickup, hotel check-in and leisure time to acclimatize to the altitude."
-      },
-      {
-        "day": 2,
-        "title": "Sacred Valley",
-        "description": "Visit Pisac Market, Ollantaytambo Fortress and enjoy scenic Andean landscapes."
-      },
-      {
-        "day": 3,
-        "title": "Machu Picchu",
-        "description": "Travel by Vistadome train and enjoy a guided tour of the magnificent Machu Picchu."
-      },
-      {
-        "day": 4,
-        "title": "Cusco Heritage Tour",
-        "description": "Explore Sacsayhuamán, Qorikancha Temple and Cusco Plaza de Armas."
-      },
-      {
-        "day": 5,
-        "title": "Free Exploration",
-        "description": "Enjoy shopping, local cafés and optional adventure activities around Cusco."
-      },
-      {
-        "day": 6,
-        "title": "Departure",
-        "description": "Breakfast, hotel checkout and transfer to Alejandro Velasco Astete International Airport."
-      }
-    ],
-    "inclusions": [
-      "5 Nights Hotel Accommodation",
-      "Luxury Tourist Vehicle",
-      "Sacred Valley Excursion",
-      "Airport Transfers"
-    ],
-    "exclusions": [
-      "Airfare",
-      "Lunch & Dinner (Except Mentioned)",
-      "Optional Hiking Activities",
-      "Personal Expenses"
-    ],
-    "hotel": [
-      {
-        "name": "Casa Andina Premium Cusco",
-        "checkIn": "02:00 PM",
-        "category": "4 Star",
-        "checkOut": "11:00 AM",
-        "roomType": "Superior Room"
-      }
-    ],
-    "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
-    "languages": [
-      "English"
-    ],
-    "maxGuests": 30,
-    "minimumAge": 1,
-    "meetingPoint": "Cochin Airport",
-    "tourType": "Friendsd & Family"
-  },
-  {
-    "id": 106,
-    "name": "Munnar Heights",
-    "packageName": "Munnar Heights",
-    "days": 3,
-    "category": "Nature",
-    "slug": "Munnar Heights",
-    "description": "Feel the exotic beauty of nature and tea gardens and touch the snow drops",
-    "price": {
-      "discount": 10,
-      "currency": "INR",
-      "original": 10008,
-      "offer": 9999
-    },
-    "bookingCount": 24,
-    "review": [
-      {
-        "user_id": "ee60357f-e070-45b0-b3a2-39bc2660d4ca",
-        "package_id": 1,
-        "review": "Super! Super!",
-        "active": true,
-        "rating": 5,
-        "id": "32a8ad65-bbce-43f6-9f9d-cc9b3a27759c",
-        "created_at": "2026-10-30T05:55:08.831624+00:00"
-      },
-      {
-        "user_id": "3c7e9ce5-92a8-453d-b2b2-27562b67905c",
-        "package_id": 1,
-        "review": "Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More",
-        "active": true,
-        "rating": 5,
-        "id": "59662442-bf5b-4ef5-ac11-a93c2ffcf787",
-        "created_at": "2026-10-30T05:57:42.458331+00:00"
-      },
-      {
-        "user_id": "6165cb6a-bc57-40a4-aa0c-b7af149f3395",
-        "package_id": 1,
-        "review": "Well planned. Food, Travel, guide all good",
-        "active": true,
-        "rating": 5,
-        "id": "0902f3a8-5a9d-42c1-913f-db3c4e460857",
-        "created_at": "2026-10-30T05:59:27.329803+00:00"
-      }
-    ],
-    "destination": [
-      {
-        "id": 1,
-        "name": "Munnar",
-        "slug:": "Kashmir of South India",
-        "country": "India",
-        "city": "Munnar",
-        "description": "A beautiful hill station in Kerala, famous for its lush tea plantations, misty mountains, and cool climate.",
-        "images": [
-          {
-            "id": 3,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/534a16cf1c294aee8a1b61ec40d373f4.jpg",
-            "destination_id": 1,
-            "display_order": 3
-          },
-          {
-            "id": 4,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/3b388f884c2747899abd91d863c0dfb1.jpg",
-            "destination_id": 1,
-            "display_order": 4
-          },
-          {
-            "id": 5,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/a973cfb7847642a4845c576a151e4bc0.jpg",
-            "destination_id": 1,
-            "display_order": 5
-          },
-          {
-            "id": 1,
-            "alt_text": "Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/c5f6db4b02934116a3995cf459dfb9c8.jpg",
-            "destination_id": 1,
-            "display_order": 1
-          },
-          {
-            "id": 2,
-            "alt_text": "Sun set @ Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/314260d94ea44a918b78a93056bcd7d6.webp",
-            "destination_id": 1,
-            "display_order": 1
-          }
-        ]
-      }
-    ],
-    "coverImage": "uploads/packages/cf581d7935654555bcc06c39c2917454.webp",
-    "highlights": [
-      "Scenic Vistadome Train Journey",
-      "Airport Pickup & Drop",
-      "Luxury Tourist Transport"
-    ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": "Arrival in Cusco",
-        "description": "Airport pickup, hotel check-in and leisure time to acclimatize to the altitude."
-      },
-      {
-        "day": 2,
-        "title": "Sacred Valley",
-        "description": "Visit Pisac Market, Ollantaytambo Fortress and enjoy scenic Andean landscapes."
-      },
-      {
-        "day": 3,
-        "title": "Machu Picchu",
-        "description": "Travel by Vistadome train and enjoy a guided tour of the magnificent Machu Picchu."
-      },
-      {
-        "day": 4,
-        "title": "Cusco Heritage Tour",
-        "description": "Explore Sacsayhuamán, Qorikancha Temple and Cusco Plaza de Armas."
-      },
-      {
-        "day": 5,
-        "title": "Free Exploration",
-        "description": "Enjoy shopping, local cafés and optional adventure activities around Cusco."
-      },
-      {
-        "day": 6,
-        "title": "Departure",
-        "description": "Breakfast, hotel checkout and transfer to Alejandro Velasco Astete International Airport."
-      }
-    ],
-    "inclusions": [
-      "5 Nights Hotel Accommodation",
-      "Luxury Tourist Vehicle",
-      "Sacred Valley Excursion",
-      "Airport Transfers"
-    ],
-    "exclusions": [
-      "Airfare",
-      "Lunch & Dinner (Except Mentioned)",
-      "Optional Hiking Activities",
-      "Personal Expenses"
-    ],
-    "hotel": [
-      {
-        "name": "Casa Andina Premium Cusco",
-        "checkIn": "02:00 PM",
-        "category": "4 Star",
-        "checkOut": "11:00 AM",
-        "roomType": "Superior Room"
-      }
-    ],
-    "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
-    "languages": [
-      "English"
-    ],
-    "maxGuests": 30,
-    "minimumAge": 1,
-    "meetingPoint": "Cochin Airport",
-    "tourType": "Friendsd & Family"
-  },
-  {
-    "id": 107,
-    "name": "Munnar Heights",
-    "packageName": "Munnar Heights",
-    "days": 3,
-    "category": "Nature",
-    "slug": "Munnar Heights",
-    "description": "Feel the exotic beauty of nature and tea gardens and touch the snow drops",
-    "price": {
-      "discount": 10,
-      "currency": "INR",
-      "original": 10008,
-      "offer": 9999
-    },
-    "bookingCount": 24,
-    "review": [
-      {
-        "user_id": "ee60357f-e070-45b0-b3a2-39bc2660d4ca",
-        "package_id": 1,
-        "review": "Super! Super!",
-        "active": true,
-        "rating": 5,
-        "id": "32a8ad65-bbce-43f6-9f9d-cc9b3a27759c",
-        "created_at": "2026-10-30T05:55:08.831624+00:00"
-      },
-      {
-        "user_id": "3c7e9ce5-92a8-453d-b2b2-27562b67905c",
-        "package_id": 1,
-        "review": "Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More",
-        "active": true,
-        "rating": 5,
-        "id": "59662442-bf5b-4ef5-ac11-a93c2ffcf787",
-        "created_at": "2026-10-30T05:57:42.458331+00:00"
-      },
-      {
-        "user_id": "6165cb6a-bc57-40a4-aa0c-b7af149f3395",
-        "package_id": 1,
-        "review": "Well planned. Food, Travel, guide all good",
-        "active": true,
-        "rating": 5,
-        "id": "0902f3a8-5a9d-42c1-913f-db3c4e460857",
-        "created_at": "2026-10-30T05:59:27.329803+00:00"
-      }
-    ],
-    "destination": [
-      {
-        "id": 1,
-        "name": "Munnar",
-        "slug:": "Kashmir of South India",
-        "country": "India",
-        "city": "Munnar",
-        "description": "A beautiful hill station in Kerala, famous for its lush tea plantations, misty mountains, and cool climate.",
-        "images": [
-          {
-            "id": 3,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/534a16cf1c294aee8a1b61ec40d373f4.jpg",
-            "destination_id": 1,
-            "display_order": 3
-          },
-          {
-            "id": 4,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/3b388f884c2747899abd91d863c0dfb1.jpg",
-            "destination_id": 1,
-            "display_order": 4
-          },
-          {
-            "id": 5,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/a973cfb7847642a4845c576a151e4bc0.jpg",
-            "destination_id": 1,
-            "display_order": 5
-          },
-          {
-            "id": 1,
-            "alt_text": "Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/c5f6db4b02934116a3995cf459dfb9c8.jpg",
-            "destination_id": 1,
-            "display_order": 1
-          },
-          {
-            "id": 2,
-            "alt_text": "Sun set @ Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/314260d94ea44a918b78a93056bcd7d6.webp",
-            "destination_id": 1,
-            "display_order": 1
-          }
-        ]
-      }
-    ],
-    "coverImage": "uploads/packages/cf581d7935654555bcc06c39c2917454.webp",
-    "highlights": [
-      "Scenic Vistadome Train Journey",
-      "Airport Pickup & Drop",
-      "Luxury Tourist Transport"
-    ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": "Arrival in Cusco",
-        "description": "Airport pickup, hotel check-in and leisure time to acclimatize to the altitude."
-      },
-      {
-        "day": 2,
-        "title": "Sacred Valley",
-        "description": "Visit Pisac Market, Ollantaytambo Fortress and enjoy scenic Andean landscapes."
-      },
-      {
-        "day": 3,
-        "title": "Machu Picchu",
-        "description": "Travel by Vistadome train and enjoy a guided tour of the magnificent Machu Picchu."
-      },
-      {
-        "day": 4,
-        "title": "Cusco Heritage Tour",
-        "description": "Explore Sacsayhuamán, Qorikancha Temple and Cusco Plaza de Armas."
-      },
-      {
-        "day": 5,
-        "title": "Free Exploration",
-        "description": "Enjoy shopping, local cafés and optional adventure activities around Cusco."
-      },
-      {
-        "day": 6,
-        "title": "Departure",
-        "description": "Breakfast, hotel checkout and transfer to Alejandro Velasco Astete International Airport."
-      }
-    ],
-    "inclusions": [
-      "5 Nights Hotel Accommodation",
-      "Luxury Tourist Vehicle",
-      "Sacred Valley Excursion",
-      "Airport Transfers"
-    ],
-    "exclusions": [
-      "Airfare",
-      "Lunch & Dinner (Except Mentioned)",
-      "Optional Hiking Activities",
-      "Personal Expenses"
-    ],
-    "hotel": [
-      {
-        "name": "Casa Andina Premium Cusco",
-        "checkIn": "02:00 PM",
-        "category": "4 Star",
-        "checkOut": "11:00 AM",
-        "roomType": "Superior Room"
-      }
-    ],
-    "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
-    "languages": [
-      "English"
-    ],
-    "maxGuests": 30,
-    "minimumAge": 1,
-    "meetingPoint": "Cochin Airport",
-    "tourType": "Friendsd & Family"
-  },
-  {
-    "id": 108,
-    "name": "Munnar Heights",
-    "packageName": "Munnar Heights",
-    "days": 3,
-    "category": "Nature",
-    "slug": "Munnar Heights",
-    "description": "Feel the exotic beauty of nature and tea gardens and touch the snow drops",
-    "price": {
-      "discount": 10,
-      "currency": "INR",
-      "original": 10008,
-      "offer": 9999
-    },
-    "bookingCount": 24,
-    "review": [
-      {
-        "user_id": "ee60357f-e070-45b0-b3a2-39bc2660d4ca",
-        "package_id": 1,
-        "review": "Super! Super!",
-        "active": true,
-        "rating": 5,
-        "id": "32a8ad65-bbce-43f6-9f9d-cc9b3a27759c",
-        "created_at": "2026-10-30T05:55:08.831624+00:00"
-      },
-      {
-        "user_id": "3c7e9ce5-92a8-453d-b2b2-27562b67905c",
-        "package_id": 1,
-        "review": "Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More",
-        "active": true,
-        "rating": 5,
-        "id": "59662442-bf5b-4ef5-ac11-a93c2ffcf787",
-        "created_at": "2026-10-30T05:57:42.458331+00:00"
-      },
-      {
-        "user_id": "6165cb6a-bc57-40a4-aa0c-b7af149f3395",
-        "package_id": 1,
-        "review": "Well planned. Food, Travel, guide all good",
-        "active": true,
-        "rating": 5,
-        "id": "0902f3a8-5a9d-42c1-913f-db3c4e460857",
-        "created_at": "2026-10-30T05:59:27.329803+00:00"
-      }
-    ],
-    "destination": [
-      {
-        "id": 1,
-        "name": "Munnar",
-        "slug:": "Kashmir of South India",
-        "country": "India",
-        "city": "Munnar",
-        "description": "A beautiful hill station in Kerala, famous for its lush tea plantations, misty mountains, and cool climate.",
-        "images": [
-          {
-            "id": 3,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/534a16cf1c294aee8a1b61ec40d373f4.jpg",
-            "destination_id": 1,
-            "display_order": 3
-          },
-          {
-            "id": 4,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/3b388f884c2747899abd91d863c0dfb1.jpg",
-            "destination_id": 1,
-            "display_order": 4
-          },
-          {
-            "id": 5,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/a973cfb7847642a4845c576a151e4bc0.jpg",
-            "destination_id": 1,
-            "display_order": 5
-          },
-          {
-            "id": 1,
-            "alt_text": "Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/c5f6db4b02934116a3995cf459dfb9c8.jpg",
-            "destination_id": 1,
-            "display_order": 1
-          },
-          {
-            "id": 2,
-            "alt_text": "Sun set @ Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/314260d94ea44a918b78a93056bcd7d6.webp",
-            "destination_id": 1,
-            "display_order": 1
-          }
-        ]
-      }
-    ],
-    "coverImage": "uploads/packages/cf581d7935654555bcc06c39c2917454.webp",
-    "highlights": [
-      "Scenic Vistadome Train Journey",
-      "Airport Pickup & Drop",
-      "Luxury Tourist Transport"
-    ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": "Arrival in Cusco",
-        "description": "Airport pickup, hotel check-in and leisure time to acclimatize to the altitude."
-      },
-      {
-        "day": 2,
-        "title": "Sacred Valley",
-        "description": "Visit Pisac Market, Ollantaytambo Fortress and enjoy scenic Andean landscapes."
-      },
-      {
-        "day": 3,
-        "title": "Machu Picchu",
-        "description": "Travel by Vistadome train and enjoy a guided tour of the magnificent Machu Picchu."
-      },
-      {
-        "day": 4,
-        "title": "Cusco Heritage Tour",
-        "description": "Explore Sacsayhuamán, Qorikancha Temple and Cusco Plaza de Armas."
-      },
-      {
-        "day": 5,
-        "title": "Free Exploration",
-        "description": "Enjoy shopping, local cafés and optional adventure activities around Cusco."
-      },
-      {
-        "day": 6,
-        "title": "Departure",
-        "description": "Breakfast, hotel checkout and transfer to Alejandro Velasco Astete International Airport."
-      }
-    ],
-    "inclusions": [
-      "5 Nights Hotel Accommodation",
-      "Luxury Tourist Vehicle",
-      "Sacred Valley Excursion",
-      "Airport Transfers"
-    ],
-    "exclusions": [
-      "Airfare",
-      "Lunch & Dinner (Except Mentioned)",
-      "Optional Hiking Activities",
-      "Personal Expenses"
-    ],
-    "hotel": [
-      {
-        "name": "Casa Andina Premium Cusco",
-        "checkIn": "02:00 PM",
-        "category": "4 Star",
-        "checkOut": "11:00 AM",
-        "roomType": "Superior Room"
-      }
-    ],
-    "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
-    "languages": [
-      "English"
-    ],
-    "maxGuests": 30,
-    "minimumAge": 1,
-    "meetingPoint": "Cochin Airport",
-    "tourType": "Friendsd & Family"
-  },
-  {
-    "id": 109,
-    "name": "Munnar Heights",
-    "packageName": "Munnar Heights",
-    "days": 3,
-    "category": "Nature",
-    "slug": "Munnar Heights",
-    "description": "Feel the exotic beauty of nature and tea gardens and touch the snow drops",
-    "price": {
-      "discount": 10,
-      "currency": "INR",
-      "original": 10008,
-      "offer": 9999
-    },
-    "bookingCount": 24,
-    "review": [
-      {
-        "user_id": "ee60357f-e070-45b0-b3a2-39bc2660d4ca",
-        "package_id": 1,
-        "review": "Super! Super!",
-        "active": true,
-        "rating": 5,
-        "id": "32a8ad65-bbce-43f6-9f9d-cc9b3a27759c",
-        "created_at": "2026-10-30T05:55:08.831624+00:00"
-      },
-      {
-        "user_id": "3c7e9ce5-92a8-453d-b2b2-27562b67905c",
-        "package_id": 1,
-        "review": "Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More",
-        "active": true,
-        "rating": 5,
-        "id": "59662442-bf5b-4ef5-ac11-a93c2ffcf787",
-        "created_at": "2026-10-30T05:57:42.458331+00:00"
-      },
-      {
-        "user_id": "6165cb6a-bc57-40a4-aa0c-b7af149f3395",
-        "package_id": 1,
-        "review": "Well planned. Food, Travel, guide all good",
-        "active": true,
-        "rating": 5,
-        "id": "0902f3a8-5a9d-42c1-913f-db3c4e460857",
-        "created_at": "2026-10-30T05:59:27.329803+00:00"
-      }
-    ],
-    "destination": [
-      {
-        "id": 1,
-        "name": "Munnar",
-        "slug:": "Kashmir of South India",
-        "country": "India",
-        "city": "Munnar",
-        "description": "A beautiful hill station in Kerala, famous for its lush tea plantations, misty mountains, and cool climate.",
-        "images": [
-          {
-            "id": 3,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/534a16cf1c294aee8a1b61ec40d373f4.jpg",
-            "destination_id": 1,
-            "display_order": 3
-          },
-          {
-            "id": 4,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/3b388f884c2747899abd91d863c0dfb1.jpg",
-            "destination_id": 1,
-            "display_order": 4
-          },
-          {
-            "id": 5,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/a973cfb7847642a4845c576a151e4bc0.jpg",
-            "destination_id": 1,
-            "display_order": 5
-          },
-          {
-            "id": 1,
-            "alt_text": "Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/c5f6db4b02934116a3995cf459dfb9c8.jpg",
-            "destination_id": 1,
-            "display_order": 1
-          },
-          {
-            "id": 2,
-            "alt_text": "Sun set @ Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/314260d94ea44a918b78a93056bcd7d6.webp",
-            "destination_id": 1,
-            "display_order": 1
-          }
-        ]
-      }
-    ],
-    "coverImage": "uploads/packages/cf581d7935654555bcc06c39c2917454.webp",
-    "highlights": [
-      "Scenic Vistadome Train Journey",
-      "Airport Pickup & Drop",
-      "Luxury Tourist Transport"
-    ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": "Arrival in Cusco",
-        "description": "Airport pickup, hotel check-in and leisure time to acclimatize to the altitude."
-      },
-      {
-        "day": 2,
-        "title": "Sacred Valley",
-        "description": "Visit Pisac Market, Ollantaytambo Fortress and enjoy scenic Andean landscapes."
-      },
-      {
-        "day": 3,
-        "title": "Machu Picchu",
-        "description": "Travel by Vistadome train and enjoy a guided tour of the magnificent Machu Picchu."
-      },
-      {
-        "day": 4,
-        "title": "Cusco Heritage Tour",
-        "description": "Explore Sacsayhuamán, Qorikancha Temple and Cusco Plaza de Armas."
-      },
-      {
-        "day": 5,
-        "title": "Free Exploration",
-        "description": "Enjoy shopping, local cafés and optional adventure activities around Cusco."
-      },
-      {
-        "day": 6,
-        "title": "Departure",
-        "description": "Breakfast, hotel checkout and transfer to Alejandro Velasco Astete International Airport."
-      }
-    ],
-    "inclusions": [
-      "5 Nights Hotel Accommodation",
-      "Luxury Tourist Vehicle",
-      "Sacred Valley Excursion",
-      "Airport Transfers"
-    ],
-    "exclusions": [
-      "Airfare",
-      "Lunch & Dinner (Except Mentioned)",
-      "Optional Hiking Activities",
-      "Personal Expenses"
-    ],
-    "hotel": [
-      {
-        "name": "Casa Andina Premium Cusco",
-        "checkIn": "02:00 PM",
-        "category": "4 Star",
-        "checkOut": "11:00 AM",
-        "roomType": "Superior Room"
-      }
-    ],
-    "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
-    "languages": [
-      "English"
-    ],
-    "maxGuests": 30,
-    "minimumAge": 1,
-    "meetingPoint": "Cochin Airport",
-    "tourType": "Friendsd & Family"
-  },
-  {
-    "id": 110,
-    "name": "Munnar Heights",
-    "packageName": "Munnar Heights",
-    "days": 3,
-    "category": "Nature",
-    "slug": "Munnar Heights",
-    "description": "Feel the exotic beauty of nature and tea gardens and touch the snow drops",
-    "price": {
-      "discount": 10,
-      "currency": "INR",
-      "original": 10008,
-      "offer": 9999
-    },
-    "bookingCount": 24,
-    "review": [
-      {
-        "user_id": "ee60357f-e070-45b0-b3a2-39bc2660d4ca",
-        "package_id": 1,
-        "review": "Super! Super!",
-        "active": true,
-        "rating": 5,
-        "id": "32a8ad65-bbce-43f6-9f9d-cc9b3a27759c",
-        "created_at": "2026-10-30T05:55:08.831624+00:00"
-      },
-      {
-        "user_id": "3c7e9ce5-92a8-453d-b2b2-27562b67905c",
-        "package_id": 1,
-        "review": "Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More",
-        "active": true,
-        "rating": 5,
-        "id": "59662442-bf5b-4ef5-ac11-a93c2ffcf787",
-        "created_at": "2026-10-30T05:57:42.458331+00:00"
-      },
-      {
-        "user_id": "6165cb6a-bc57-40a4-aa0c-b7af149f3395",
-        "package_id": 1,
-        "review": "Well planned. Food, Travel, guide all good",
-        "active": true,
-        "rating": 5,
-        "id": "0902f3a8-5a9d-42c1-913f-db3c4e460857",
-        "created_at": "2026-10-30T05:59:27.329803+00:00"
-      }
-    ],
-    "destination": [
-      {
-        "id": 1,
-        "name": "Munnar",
-        "slug:": "Kashmir of South India",
-        "country": "India",
-        "city": "Munnar",
-        "description": "A beautiful hill station in Kerala, famous for its lush tea plantations, misty mountains, and cool climate.",
-        "images": [
-          {
-            "id": 3,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/534a16cf1c294aee8a1b61ec40d373f4.jpg",
-            "destination_id": 1,
-            "display_order": 3
-          },
-          {
-            "id": 4,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/3b388f884c2747899abd91d863c0dfb1.jpg",
-            "destination_id": 1,
-            "display_order": 4
-          },
-          {
-            "id": 5,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/a973cfb7847642a4845c576a151e4bc0.jpg",
-            "destination_id": 1,
-            "display_order": 5
-          },
-          {
-            "id": 1,
-            "alt_text": "Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/c5f6db4b02934116a3995cf459dfb9c8.jpg",
-            "destination_id": 1,
-            "display_order": 1
-          },
-          {
-            "id": 2,
-            "alt_text": "Sun set @ Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/314260d94ea44a918b78a93056bcd7d6.webp",
-            "destination_id": 1,
-            "display_order": 1
-          }
-        ]
-      }
-    ],
-    "coverImage": "uploads/packages/cf581d7935654555bcc06c39c2917454.webp",
-    "highlights": [
-      "Scenic Vistadome Train Journey",
-      "Airport Pickup & Drop",
-      "Luxury Tourist Transport"
-    ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": "Arrival in Cusco",
-        "description": "Airport pickup, hotel check-in and leisure time to acclimatize to the altitude."
-      },
-      {
-        "day": 2,
-        "title": "Sacred Valley",
-        "description": "Visit Pisac Market, Ollantaytambo Fortress and enjoy scenic Andean landscapes."
-      },
-      {
-        "day": 3,
-        "title": "Machu Picchu",
-        "description": "Travel by Vistadome train and enjoy a guided tour of the magnificent Machu Picchu."
-      },
-      {
-        "day": 4,
-        "title": "Cusco Heritage Tour",
-        "description": "Explore Sacsayhuamán, Qorikancha Temple and Cusco Plaza de Armas."
-      },
-      {
-        "day": 5,
-        "title": "Free Exploration",
-        "description": "Enjoy shopping, local cafés and optional adventure activities around Cusco."
-      },
-      {
-        "day": 6,
-        "title": "Departure",
-        "description": "Breakfast, hotel checkout and transfer to Alejandro Velasco Astete International Airport."
-      }
-    ],
-    "inclusions": [
-      "5 Nights Hotel Accommodation",
-      "Luxury Tourist Vehicle",
-      "Sacred Valley Excursion",
-      "Airport Transfers"
-    ],
-    "exclusions": [
-      "Airfare",
-      "Lunch & Dinner (Except Mentioned)",
-      "Optional Hiking Activities",
-      "Personal Expenses"
-    ],
-    "hotel": [
-      {
-        "name": "Casa Andina Premium Cusco",
-        "checkIn": "02:00 PM",
-        "category": "4 Star",
-        "checkOut": "11:00 AM",
-        "roomType": "Superior Room"
-      }
-    ],
-    "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
-    "languages": [
-      "English"
-    ],
-    "maxGuests": 30,
-    "minimumAge": 1,
-    "meetingPoint": "Cochin Airport",
-    "tourType": "Friendsd & Family"
-  },
-  {
-    "id": 111,
-    "name": "Munnar Heights",
-    "packageName": "Munnar Heights",
-    "days": 3,
-    "category": "Nature",
-    "slug": "Munnar Heights",
-    "description": "Feel the exotic beauty of nature and tea gardens and touch the snow drops",
-    "price": {
-      "discount": 10,
-      "currency": "INR",
-      "original": 10008,
-      "offer": 9999
-    },
-    "bookingCount": 24,
-    "review": [
-      {
-        "user_id": "ee60357f-e070-45b0-b3a2-39bc2660d4ca",
-        "package_id": 1,
-        "review": "Super! Super!",
-        "active": true,
-        "rating": 5,
-        "id": "32a8ad65-bbce-43f6-9f9d-cc9b3a27759c",
-        "created_at": "2026-10-30T05:55:08.831624+00:00"
-      },
-      {
-        "user_id": "3c7e9ce5-92a8-453d-b2b2-27562b67905c",
-        "package_id": 1,
-        "review": "Arrangements were perfect. We really enjoyed. Personnel at locations were very helpful. Everything... View More",
-        "active": true,
-        "rating": 5,
-        "id": "59662442-bf5b-4ef5-ac11-a93c2ffcf787",
-        "created_at": "2026-10-30T05:57:42.458331+00:00"
-      },
-      {
-        "user_id": "6165cb6a-bc57-40a4-aa0c-b7af149f3395",
-        "package_id": 1,
-        "review": "Well planned. Food, Travel, guide all good",
-        "active": true,
-        "rating": 5,
-        "id": "0902f3a8-5a9d-42c1-913f-db3c4e460857",
-        "created_at": "2026-10-30T05:59:27.329803+00:00"
-      }
-    ],
-    "destination": [
-      {
-        "id": 1,
-        "name": "Munnar",
-        "slug:": "Kashmir of South India",
-        "country": "India",
-        "city": "Munnar",
-        "description": "A beautiful hill station in Kerala, famous for its lush tea plantations, misty mountains, and cool climate.",
-        "images": [
-          {
-            "id": 3,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/534a16cf1c294aee8a1b61ec40d373f4.jpg",
-            "destination_id": 1,
-            "display_order": 3
-          },
-          {
-            "id": 4,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/3b388f884c2747899abd91d863c0dfb1.jpg",
-            "destination_id": 1,
-            "display_order": 4
-          },
-          {
-            "id": 5,
-            "alt_text": "Munnar",
-            "is_primary": false,
-            "image_url": "uploads/packages/a973cfb7847642a4845c576a151e4bc0.jpg",
-            "destination_id": 1,
-            "display_order": 5
-          },
-          {
-            "id": 1,
-            "alt_text": "Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/c5f6db4b02934116a3995cf459dfb9c8.jpg",
-            "destination_id": 1,
-            "display_order": 1
-          },
-          {
-            "id": 2,
-            "alt_text": "Sun set @ Tea Garden",
-            "is_primary": false,
-            "image_url": "uploads/packages/314260d94ea44a918b78a93056bcd7d6.webp",
-            "destination_id": 1,
-            "display_order": 1
-          }
-        ]
-      }
-    ],
-    "coverImage": "uploads/packages/cf581d7935654555bcc06c39c2917454.webp",
-    "highlights": [
-      "Scenic Vistadome Train Journey",
-      "Airport Pickup & Drop",
-      "Luxury Tourist Transport"
-    ],
-    "itinerary": [
-      {
-        "day": 1,
-        "title": "Arrival in Cusco",
-        "description": "Airport pickup, hotel check-in and leisure time to acclimatize to the altitude."
-      },
-      {
-        "day": 2,
-        "title": "Sacred Valley",
-        "description": "Visit Pisac Market, Ollantaytambo Fortress and enjoy scenic Andean landscapes."
-      },
-      {
-        "day": 3,
-        "title": "Machu Picchu",
-        "description": "Travel by Vistadome train and enjoy a guided tour of the magnificent Machu Picchu."
-      },
-      {
-        "day": 4,
-        "title": "Cusco Heritage Tour",
-        "description": "Explore Sacsayhuamán, Qorikancha Temple and Cusco Plaza de Armas."
-      },
-      {
-        "day": 5,
-        "title": "Free Exploration",
-        "description": "Enjoy shopping, local cafés and optional adventure activities around Cusco."
-      },
-      {
-        "day": 6,
-        "title": "Departure",
-        "description": "Breakfast, hotel checkout and transfer to Alejandro Velasco Astete International Airport."
-      }
-    ],
-    "inclusions": [
-      "5 Nights Hotel Accommodation",
-      "Luxury Tourist Vehicle",
-      "Sacred Valley Excursion",
-      "Airport Transfers"
-    ],
-    "exclusions": [
-      "Airfare",
-      "Lunch & Dinner (Except Mentioned)",
-      "Optional Hiking Activities",
-      "Personal Expenses"
-    ],
-    "hotel": [
-      {
-        "name": "Casa Andina Premium Cusco",
-        "checkIn": "02:00 PM",
-        "category": "4 Star",
-        "checkOut": "11:00 AM",
-        "roomType": "Superior Room"
-      }
-    ],
-    "cancellationPolicy": "Free cancellation up to 72 hours before departure.",
-    "languages": [
-      "English"
-    ],
-    "maxGuests": 30,
-    "minimumAge": 1,
-    "meetingPoint": "Cochin Airport",
-    "tourType": "Friendsd & Family"
+      "English",
+      "French"
+    ],
+    "maxGuests": 50,
+    "minimumAge": 10,
+    "meetingPoint": "Trivandrum Airport",
+    "tourType": "Group"
   }
   ]
 }
