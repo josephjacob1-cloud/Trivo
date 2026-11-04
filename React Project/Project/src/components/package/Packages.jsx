@@ -25,7 +25,7 @@ export default function Packages() {
     const handlePackages = async () => {
         console.log("fetching DB")
         try {
-            const response = await fetch(
+            const response = await fetch( 
                 "http://localhost:3000/packages"
             );
             const data = await response.json();

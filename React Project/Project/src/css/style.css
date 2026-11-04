@@ -379,3 +379,15 @@ body {
   border-bottom: 1px solid #f5f5f5;
   vertical-align: middle;
 }
+.cancellationPolicy {
+  height: 90px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+}
+.package-thumb-image {  
+    width: 180px;
+    height: 100px;
+    object-fit: cover;
+    object-position: center;
+}

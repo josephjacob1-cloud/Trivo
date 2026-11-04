@@ -10,12 +10,11 @@ export default function ThumbSlider({ destination }) {
                         <img
                             key={img.id}
                             src={`${BASE_URL}${img.image_url}`}
-                            alt={img.alt_text || pack.destination[0].name}
-                            width="160"
-                            className="rounded-3 m-1"
+                            alt={img.alt_text || pack.destination[0].name}                            
+                            className="rounded-3 m-1 package-thumb-image"
                         />
                         <br />
-                        <span>{img.alt_text || destination[0].name}</span>
+                        <span className="m-2">{img.alt_text || destination[0].name}</span>
                     </div>
                 ))}
             </div>

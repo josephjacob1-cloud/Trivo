@@ -68,7 +68,7 @@ export default function PackageView() {
                             <p className="origPrice"><strike>{pack.price.currency} {pack.price.original}</strike></p>
                             <p className="text-primary fs-4 fw-bold my-0">{pack.price.currency} {pack.price.offer}</p>
                             <p>Per person</p>
-                            <p>
+                            <p className="cancellationPolicy">
 
                                 <i class="bi bi-clipboard-check colTeal me-2"></i>
                                 {pack.cancellationPolicy}

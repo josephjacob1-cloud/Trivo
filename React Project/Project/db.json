@@ -1,4 +1,39 @@
-{
+{"destinationCategories" : 
+  [
+  {
+    "name": "Beaches",
+    "id": 1
+  },
+  {
+    "name": "Mountains & Hills",
+    "id": 2
+  },
+  {
+    "name": "Hill Stations",
+    "id": 3
+  },
+  {
+    "name": "Waterfalls",
+    "id": 4
+  },
+  {
+    "name": "Wildlife & Safari",
+    "id": 5
+  },
+  {
+    "name": "City Tour",
+    "id": 6
+  },
+  {
+    "name": "Historical & Heritage Sites",
+    "id": 7
+  },
+  {
+    "name": "Romantic Getaways",
+    "id": 8
+  }
+
+],
   "packages" : [
   {
     "id": 20,
@@ -146,7 +181,7 @@
     },
     "bookingCount": 0,
     "review": [],
-    "rating": 0,
+    "rating": 0, 
     "totalReviews": 0,
     "destination": [
       {

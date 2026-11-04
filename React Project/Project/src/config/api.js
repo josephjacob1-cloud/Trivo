@@ -10,6 +10,8 @@ export const SIGNUP_URL=`${BASE_URL}/auth/signup`
 
 export const GET_PACKAGES_CUSTOMERS=`${BASE_URL}/customer/viewCustomerPackages`
 
+export const ADD_DESTINATION = `${BASE_URL}/destination/addDestination`
+
 
 // CONSULTANT
 
