@@ -1,0 +1,11 @@
+"id","name","nickname","country","city","category_id","description","active"
+1,"Munnar","Kashmir of South India","India","Munnar",2,"A beautiful hill station in Kerala, famous for its lush tea plantations, misty mountains, and cool climate.",True
+2,"Alappuzha","Venice of the East","India","Alappuzha",1,"Known as the Venice of the East, this Kerala destination is famous for its scenic backwaters, houseboats, and canals.",True
+3,"Jaipur","Pink City","India","Jaipur",7,"The Pink City of India, renowned for its royal palaces, historic forts, colorful markets, and rich Rajasthani culture.",True
+4,"Jodhpur","Blue City","India","Jodhpur",10,"Known as the Blue City, it features blue-painted houses, magnificent forts, and the impressive Mehrangarh Fort.",True
+5,"Kochi","Queen of the Arabian Sea","India","Kochi",7,"The Queen of the Arabian Sea, famous for its historic Fort Kochi, Chinese fishing nets, colonial architecture, and vibrant culture.",True
+6,"Paris","City of Love","France","Paris",14,"The City of Love, celebrated for the Eiffel Tower, world-class museums, elegant streets, and romantic atmosphere.",True
+7,"Venice","Floating City","Italy","Venice",2,"The Floating City of Italy, famous for its picturesque canals, gondola rides, historic buildings, and charming bridges.",True
+8,"New York City","The Big Apple","United States","New York City",11,"Known as the Big Apple, it is a vibrant metropolis featuring Times Square, Central Park, the Statue of Liberty, and world-famous entertainment.",True
+9,"Dubai","City of Gol","United Arab Emirate","Dubai",11,"A modern destination known for its luxurious shopping malls, Burj Khalifa, desert safaris, and spectacular architecture.",True
+10,"Singapore","Lion Cit","Singapore","Singapore",18,"The Lion City, famous for its modern skyline, Gardens by the Bay, Marina Bay Sands, clean streets, and diverse cuisine.",True

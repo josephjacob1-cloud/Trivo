@@ -1,0 +1,25 @@
+"id","destination_id","image_url","alt_text","display_order","is_primary"
+1,1,"uploads/destination/images/c5f6db4b02934116a3995cf459dfb9c8.jpg","Tea Garden",1,False
+2,1,"uploads/destination/images/314260d94ea44a918b78a93056bcd7d6.webp","Sun set @ Tea Garden",1,False
+3,1,"uploads/destination/images/534a16cf1c294aee8a1b61ec40d373f4.jpg","Munnar",3,False
+4,1,"uploads/destination/images/3b388f884c2747899abd91d863c0dfb1.jpg","Munnar",4,False
+5,1,"uploads/destination/images/a973cfb7847642a4845c576a151e4bc0.jpg","Munnar",5,False
+6,2,"uploads/destination/images/fc18354437a4c7888d3e6b6264a2e52.jpg","Sea Shore",1,True
+7,2,"uploads/destination/images/e3bac6f692e64a7fab72625a13b727ed.jpg","Back water",2,False
+8,3,"uploads/destination/images/26761deb774847e399d837a1c59671a8.webp","Golden",1,True
+10,3,"uploads/destination/images/0e82e5318a3e4b7693b6dc0d7b9854c9.jpg","Lalit - City",2,False
+11,1,"uploads/destination/images/25e1032addca4a7fb867b91137a6e060.jpg","Munnar Vibes",1,True
+12,1,"uploads/destination/images/e70e2943da4645b4a67e08961cfd1075.jpg","Munnar Vibes2",1,True
+13,1,"uploads/destination/images/f8540320071447e4aaf188cfe80b071b.jpg","Munnar Vibes 3",1,True
+14,1,"uploads/destination/images/8e918af5017140bda90c9c98aebd7a8f.jpg","Munnar Vibes 4",1,True
+15,1,"uploads/destination/images/373b8a954e3c46a392af1013589589c3.jpg","Munnar Vibes 5",1,True
+16,10,"uploads/destination/images/ae81b5dabef04c6e86b5ee8368d0942c.jpg","The Lion City",1,True
+17,10,"uploads/destination/images/898c0e59bf0a4b34852111778f7804fd.jpg","Nature",2,False
+18,10,"uploads/destination/images/ae2a549fcb4e452eb0d5d815b986d689.jpg","Glass Dom",3,False
+19,10,"uploads/destination/images/07c7e92cbf8749499a16708a06f081e4.webp","3 Tower",4,False
+20,10,"uploads/destination/images/25d31228d35c4da797ecbe4e299b1502.jpg","Shpping",5,False
+21,6,"uploads/destination/images/8dabce2ed65647f4853696e5a5d72eea.jpg","The City Of Lights",1,True
+22,6,"uploads/destination/images/9a0ca502863144aea403866061523331.jpg","Light Show",2,False
+23,6,"uploads/destination/images/6aa2f1884a47427fa68f5242a6e9d457.jpg","Effel Tower",3,False
+24,6,"uploads/destination/images/a4555d22f6664f219534cf47eaca7532.jpg","City Breaks",4,False
+25,6,"uploads/destination/images/f346882c0ec14020bc0c465a6c00df16.jpg","Dinner Cruise",5,False
