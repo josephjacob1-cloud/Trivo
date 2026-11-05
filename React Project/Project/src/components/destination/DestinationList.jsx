@@ -134,7 +134,7 @@ export default function DestinationList() {
 
   // Disable destination
   const deleteDestination = async (id) => {
-
+    console.log("clicked on ", id)
     const confirmDelete = window.confirm(
       'Do you want to disable this destination?'
     );
@@ -160,15 +160,16 @@ export default function DestinationList() {
       console.log('Destination disabled successfully:', data);
 
       // Update the React state
-      setDestination((prev) =>
-        prev.map((item) =>
-          item.id === id
-            ? { ...item, active: false }
-            : item
-        )
-      );
+      // setDestination((prev) =>
+      //   prev.map((item) =>
+      //     item.id === id
+      //       ? { ...item, active: false }
+      //       : item
+      //   )
+      // );
 
       setMessage('Destination disabled successfully');
+      getDestinations();
 
     } catch (error) {
       console.error('Disable destination error:', error);
@@ -207,7 +208,7 @@ export default function DestinationList() {
         <tbody>
           {destinations.map((p, i) => (
             <Details
-              key={p.id}
+              key={i}
               des={p}
               id={i + 1}
               delDes={deleteDestination}

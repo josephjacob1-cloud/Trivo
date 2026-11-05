@@ -18,7 +18,7 @@ async def get_destinations(db:AsyncSession):
     result = []
     for d, c in dest:
         point= {
-            "id":c.id,
+            "id":d.id,
             "name":d.name,
             "nickname":d.nickname,
             "country":d.country,
