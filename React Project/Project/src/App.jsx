@@ -32,6 +32,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import DestinationCreate from './components/destination/DestinationCreate'
 import DestinationEdit from './components/destination/DestinationEdit'
 import ScrollToTop from './components/ScrollToTop'
+import { GET_PACKAGES_CUSTOMERS } from './config/api'
 
 
 
@@ -3902,7 +3903,7 @@ function App() {
   const handlePackages = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3000/packages"
+        GET_PACKAGES_CUSTOMERS
       );
       const data = await response.json();
       setPlaces(data)

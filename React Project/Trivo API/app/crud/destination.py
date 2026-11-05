@@ -13,8 +13,22 @@ async def add_destination(dest:DestinationCreate,db:AsyncSession):
     return new_dest
 
 async def get_destinations(db:AsyncSession):
-    destinations = await db.execute(select(Destination))
-    return destinations.scalars().all()
+    destinations = await db.execute(select(Destination, Category).join(Category, Destination.category_id==Category.id).where(Destination.active==True))
+    dest = destinations.all()
+    result = []
+    for d, c in dest:
+        point= {
+            "id":c.id,
+            "name":d.name,
+            "nickname":d.nickname,
+            "country":d.country,
+            "city":d.city,
+            "category_id" : d.category_id,
+            "category":c.name,
+            "description":d.description
+        }
+        result.append(point)
+    return result
 
 async def get_destinations_by_ID(id:int,db:AsyncSession):
     destinations = await db.execute(select(Destination).where(Destination.id==id))

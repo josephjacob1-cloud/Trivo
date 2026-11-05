@@ -23,7 +23,7 @@ async def getDestinations(db:AsyncSession=Depends(get_db)):
 async def updateDestination(id:int,dest:updateDestination, db:AsyncSession=Depends(get_db)):
     return await change_Destination(id, dest, db)
 
-@router.patch("/disableDestination")
+@router.patch("/disableDestination/{id}")
 async def disableDestination(id:int, db:AsyncSession=Depends(get_db)):
     return await disable_Destination(id, db)
 

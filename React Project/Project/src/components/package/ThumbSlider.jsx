@@ -1,4 +1,4 @@
-import { BASE_URL } from "../Api";
+import { BASE_URL } from "../../config/api";
 export default function ThumbSlider({ destination }) {
       return (<>
         <div className="">
@@ -11,10 +11,10 @@ export default function ThumbSlider({ destination }) {
                             key={img.id}
                             src={`${BASE_URL}${img.image_url}`}
                             alt={img.alt_text || pack.destination[0].name}                            
-                            className="rounded-3 m-1 package-thumb-image"
+                            className="rounded-1 m-1 package-thumb-image"
                         />
                         <br />
-                        <span className="m-2">{img.alt_text || destination[0].name}</span>
+                        <p className="" style={{textAlign:'center'}}>{img.alt_text || destination[0].name}</p>
                     </div>
                 ))}
             </div>

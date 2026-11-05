@@ -3,7 +3,7 @@ import image2 from '../../assets/slider/image2.jpg'
 import { useContext, useEffect } from 'react';
 import UserContext from '../UserContext';
 import { useNavigate } from 'react-router-dom';
-import{BASE_URL} from '../Api'
+import { BASE_URL, GET_PACKAGES_CUSTOMERS } from '../../config/api'; 
 export default function Packages() {
 
     
@@ -26,7 +26,7 @@ export default function Packages() {
         console.log("fetching DB")
         try {
             const response = await fetch( 
-                "http://localhost:3000/packages"
+                GET_PACKAGES_CUSTOMERS
             );
             const data = await response.json();
             userData.setPlaces(data)

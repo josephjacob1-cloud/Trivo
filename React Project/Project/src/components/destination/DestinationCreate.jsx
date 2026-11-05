@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ADD_DESTINATION } from '../../config/api';
+import {DESTINATION_CATEGORY, ADD_DESTINATION } from '../../config/api';
 
 export default function DestinationCreate() {
     const [categories, setCategories] = useState([]);
@@ -15,12 +15,12 @@ export default function DestinationCreate() {
 
     const navigate = useNavigate()
     const laodDestinationCategories = async () => {
-    try {
-        const response = await fetch("http://localhost:3000/destinationCategories")
+    try {        
+        const response = await fetch(DESTINATION_CATEGORY)
         const data = await response.json()
         console.log(JSON.stringify(data))
         setCategories(data)
-        if(!request.ok){
+        if(!response.ok){
             throw new Error("Failed to fetch destination categories")
         }
     } catch (err) {
