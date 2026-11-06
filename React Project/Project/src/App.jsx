@@ -32,7 +32,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import DestinationCreate from './components/destination/DestinationCreate'
 import DestinationEdit from './components/destination/DestinationEdit'
 import ScrollToTop from './components/ScrollToTop'
-import { GET_PACKAGES_CUSTOMERS } from './config/api'
+import { GET_PACKAGES_CUSTOMERS } from './api/api'
 
 
 

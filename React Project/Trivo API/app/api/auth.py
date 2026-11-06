@@ -18,7 +18,7 @@ async def signup(user:UserCreate, db:AsyncSession=Depends(get_db)):
 # async def login(user:Login, db:AsyncSession=Depends(get_db)):
 #     return await user_login(user, db)
 
-@router.post("/login", status_code=status.HTTP_202_ACCEPTED)
+@router.post("/login", status_code=status.HTTP_200_OK)
 async def login(user:OAuth2PasswordRequestForm=Depends(), db:AsyncSession=Depends(get_db)):
    return await user_login_OAuth(user, db)
 

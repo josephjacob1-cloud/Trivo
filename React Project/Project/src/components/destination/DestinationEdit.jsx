@@ -6,7 +6,7 @@ export default function DestinationEdit() {
     const destination = useContext(UserContext).destination;
     const navigate = useNavigate()
     const [name, setName] = useState(destination.name)
-    const [slug, setSlug] = useState(destination.slug)
+    const [slug, setSlug] = useState(destination.nickname)
     const [city, setCity] = useState(destination.city)
     const [country, setCountry] = useState(destination.country)
     const [category, setCategory] = useState(destination.category)
@@ -42,6 +42,7 @@ export default function DestinationEdit() {
                     </div>
                     
                      <div className='text-end mb-3'>
+                        <button className='btn btn-primary bgTeal' onClick={(e) => handleAddDestination()}>Add Images</button>
                         <button  className='btn btn-primary bgTeal mx-4 ' onClick={(e)=>navigate('/packages/adddestination/destinationlist',{replace:true})} >Cancel</button>
                         <button className='btn btn-primary bgTeal' onClick={(e) => navigate("/packages/adddestination/destinationlist",{replace:true})}>Update</button>                        
                     </div>

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import UserContext from './UserContext'
 import '../css/style.css'
 import { useNavigate } from 'react-router-dom'
-import { LOGIN_URL } from '../config/api'
+import { userLogin } from '../api/authAPI'
 
 export default function Login() {
     const userData = useContext(UserContext)
@@ -10,40 +10,48 @@ export default function Login() {
     const [password, setPwd] = useState("syam")
     const [serverResponse, setServerResponse] = useState("")
     const navigate = useNavigate()
-    useEffect(()=>{
+    useEffect(() => {
         setServerResponse("");
-    },[username]);
-    const userLogin = async() => {
-        try{
+    }, [username]);
+    const handleLogin = async () => {
+        try {
             if (username.trim() === "" || password === "") {
                 setServerResponse("Please enter valid inputs");
                 return false;
             }
-            const params = new URLSearchParams({username,password})
-            const request = await fetch(LOGIN_URL,
-                {
-                    method:'POST',
-                    headers:{'Content-Type': 'application/x-www-form-urlencoded'},
-                    body:params
-                }
-            )
-            const response = await request.json();
-            if(!request.ok){
-                setServerResponse("Login failed")
-            }
-            else{
-                console.log(response.role)
-                console.log(response.name)
-                console.log(response.access_token)
-                localStorage.setItem('access_token', {"token":response.access_token,"role":response.role})
-                userData.setIsLogin(true)
-                userData.setUserName(String(response.name).toUpperCase())
-                navigate(-1)
-            }
+            const params = { username, password }
+            const data = await userLogin(params)
+            // localStorage.setItem('access_token', { "token": data.access_token, "role": data.role })
+            localStorage.setItem("access_token", data.access_token);
+            localStorage.setItem("role", data.role);
+            localStorage.setItem("name", data.name);
+            userData.setIsLogin(true)
+            userData.setUserName(String(data.name).toUpperCase())
+            navigate(-1)
+            // const request = await fetch(LOGIN_URL,
+            //     {
+            //         method:'POST',
+            //         headers:{'Content-Type': 'application/x-www-form-urlencoded'},
+            //         body:params
+            //     }
+            // )
+            // const response = await request.json();
+            // if(!request.ok){
+            //     setServerResponse("Login failed")
+            // }
+            // else{
+            //     console.log(response.role)
+            //     console.log(response.name)
+            //     console.log(response.access_token)
+            //     localStorage.setItem('access_token', {"token":response.access_token,"role":response.role})
+            //     userData.setIsLogin(true)
+            //     userData.setUserName(String(response.name).toUpperCase())
+            //     navigate(-1)
+            // }
 
-            
-        }catch(error){
-            setServerResponse("Error : "+error.message)
+
+        } catch (error) {
+            setServerResponse("Error : " + error.message)
         }
 
     }
@@ -54,7 +62,7 @@ export default function Login() {
                     <p className='h3 card-title text-center mb-4 '>Login to explore the world</p>
                     <div className='mb-3'>
                         <label htmlFor="">User Name</label><br />
-                        <input type="text" className='form-control' placeholder='Enter your user name' onChange={(e) => setName(e.target.value)} value={username}/>
+                        <input type="text" className='form-control' placeholder='Enter your user name' onChange={(e) => setName(e.target.value)} value={username} />
                     </div>
                     <div className='mb-3'>
                         <label htmlFor="">Password:</label><br />
@@ -62,11 +70,11 @@ export default function Login() {
                     </div>
                     <p className='small text-primary fw-bold text-end'>Forgott Password</p>
                     <div className='text-end'>
-                        <button className='btn btn-primary bgTeal mx-4' onClick={(e) => userLogin()}>Login</button>
-                        <button  className='btn btn-primary bgTeal ' onClick={(e)=> navigate('/signup',{replace:true})}>Sign Up!</button>
+                        <button className='btn btn-primary bgTeal mx-4' onClick={(e) => handleLogin()}>Login</button>
+                        <button className='btn btn-primary bgTeal ' onClick={(e) => navigate('/signup', { replace: true })}>Sign Up!</button>
                     </div>
                     <div>
-                        <p style={{height:'20px'}}>{serverResponse}</p>
+                        <p style={{ height: '20px' }}>{serverResponse}</p>
                     </div>
                 </div>
             </div>

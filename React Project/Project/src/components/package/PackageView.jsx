@@ -5,7 +5,7 @@ import StarRating from "../StarRating";
 import ThumbSlider from "./ThumbSlider";
 import Itinerary from "./Itinerary";
 import { useNavigate } from "react-router-dom";
-import { BASE_URL } from "../../config/api";
+import { BASE_URL } from "../../api/api";
 
 export default function PackageView() {
     const pack = useContext(UserContext).selectedPackage;
