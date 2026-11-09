@@ -113,8 +113,19 @@ function Details({ des, id, delDes }) {
       <td>
         {String(des.description || '').slice(0, 60)}...
       </td>
-      
+
       <td>
+        {/* Image */}
+        <span
+          role="button"
+          title="Add / Modify Images"
+          onClick={() => {
+            userData.setDestination(des);
+            navigate('/packages/adddestination/imageDestination');
+          }}
+        >
+          <i className="bi bi-image text-info mx-3"></i>
+        </span>
 
         {/* Edit destination */}
         <span
@@ -122,7 +133,7 @@ function Details({ des, id, delDes }) {
           title="Edit destination"
           onClick={() => {
             userData.setDestination(des);
-            navigate('/packages/adddestination/editDestination');
+            navigate('/packages/adddestination');
           }}
         >
           <i className="bi bi-pencil-square text-info mx-3"></i>

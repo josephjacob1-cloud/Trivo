@@ -11,7 +11,7 @@ import MyBooking from './components/myBooking/MyBooking'
 import AboutUs from './components/AboutUs'
 import ContactUs from './components/Consultant/ContactUs'
 import PackageView from './components/package/PackageView'
-import { BrowserRouter, Route, Routes, NavLink, useNavigate, Outlet, data } from 'react-router-dom'
+import { Route, Routes, NavLink, useNavigate, Outlet, data } from 'react-router-dom'
 import ConsultantList from './components/Consultant/ConsultantList'
 import ConsultantReports from './components/Consultant/ConsultantReports'
 import ConsultantAssign from './components/Consultant/ConsultantAssign'
@@ -30,9 +30,9 @@ import DestinationManagement from './components/destination/DestinationManagemen
 import DestinationList from './components/destination/DestinationList'
 import ProtectedRoute from './components/ProtectedRoute'
 import DestinationCreate from './components/destination/DestinationCreate'
-import DestinationEdit from './components/destination/DestinationEdit'
 import ScrollToTop from './components/ScrollToTop'
 import { GET_PACKAGES_CUSTOMERS } from './api/api'
+import DestinationImages from './components/destination/DestinationImages'
 
 
 
@@ -3895,9 +3895,9 @@ function App() {
   //   window.scrollTo(0, 0);
   // }, [selectedPackage]);
 
-  useEffect(() =>{
+  useEffect(() => {
     // handlePackages();
-  },[])
+  }, [])
 
 
   const handlePackages = async () => {
@@ -3909,22 +3909,22 @@ function App() {
       setPlaces(data)
       if (!response.ok) {
         throw new Error("Failed to fetch packages");
-      }else{
-      
-      // setPackages(data);
-      // setError("");
-      // setPlaces(data)
-      setSelectedPackage(null)
-      console.log("data  ..........  "+data)
+      } else {
+
+        // setPackages(data);
+        // setError("");
+        // setPlaces(data)
+        setSelectedPackage(null)
+        console.log("data  ..........  " + data)
 
       }
 
-      
+
     } catch (err) {
       setError(err.message);
     }
   };
-  
+
 
 
 
@@ -3932,55 +3932,53 @@ function App() {
   return (
     <>
       <div>
-        <BrowserRouter>
         <ScrollToTop></ScrollToTop>
-          <UserContext.Provider value={userData}>
-            <Navbar></Navbar>
-            <Routes>
+        <UserContext.Provider value={userData}>
+          <Navbar></Navbar>
+          <Routes>
 
-              <Route path='' element={<Home></Home>}></Route>
-              <Route path='login' element={<Login></Login>}></Route>
-              <Route path='signup' element={<SignUp></SignUp>}></Route>
-              <Route path='contact' element={<ContactUs></ContactUs>}></Route>
-              <Route path='about' element={<AboutUs></AboutUs>}></Route>
-              <Route element={<ProtectedRoute> </ProtectedRoute>}>
-                <Route path='packages' element={<Outlet />} >
-                  <Route path='' element={<Packages></Packages>}></Route>
-                  <Route path='view/*' element={<PackageView></PackageView>}></Route>
-                  <Route path='addpackage' element={<PackageManagement></PackageManagement>}>
-                    <Route path="" element={<PackageCreate></PackageCreate>}></Route>
-                    <Route path="packagelist" element={<PackageList></PackageList>}></Route>
-                    <Route path='packageapprovals' element={<PackageApprovals></PackageApprovals>}></Route>
-
-                  </Route>
-                  <Route path='adddestination' element={<DestinationManagement></DestinationManagement>}>
-                    <Route path='' element={<DestinationCreate></DestinationCreate>}></Route>
-                    <Route path='destinationlist' element={<DestinationList></DestinationList>}></Route>
-                    <Route path='editDestination' element={<DestinationEdit></DestinationEdit>}></Route>
-                  </Route>
-
+            <Route path='' element={<Home></Home>}></Route>
+            <Route path='login' element={<Login></Login>}></Route>
+            <Route path='signup' element={<SignUp></SignUp>}></Route>
+            <Route path='contact' element={<ContactUs></ContactUs>}></Route>
+            <Route path='about' element={<AboutUs></AboutUs>}></Route>
+            <Route element={<ProtectedRoute> </ProtectedRoute>}>
+              <Route path='packages' element={<Outlet />} >
+                <Route path='' element={<Packages></Packages>}></Route>
+                <Route path='view/*' element={<PackageView></PackageView>}></Route>
+                <Route path='addpackage' element={<PackageManagement></PackageManagement>}>
+                  <Route path="" element={<PackageCreate></PackageCreate>}></Route>
+                  <Route path="packagelist" element={<PackageList></PackageList>}></Route>
+                  <Route path='packageapprovals' element={<PackageApprovals></PackageApprovals>}></Route>
 
                 </Route>
-                <Route path='addpackage' element={<PackageManagement></PackageManagement>}></Route>
-                <Route path='mybooking' element={<MyBooking></MyBooking>}>
-                  <Route path='' element={<MyTours></MyTours>}></Route>
-                  <Route path='enquiry' element={<MyEnquiry></MyEnquiry>}></Route>
-                  <Route path='support' element={<MySupport></MySupport>}></Route>
-                  <Route path='approvals' element={<MyApprovals></MyApprovals>}></Route>
+                <Route path='adddestination' element={<DestinationManagement></DestinationManagement>}>
+                  <Route path='' element={<DestinationCreate></DestinationCreate>}></Route>
+                  <Route path='destinationlist' element={<DestinationList></DestinationList>}></Route>
+                  <Route path='imageDestination' element={<DestinationImages></DestinationImages>}></Route>
                 </Route>
-                
-                <Route path='consultant' element={<Consultant></Consultant>}>
-                  <Route path='' element={<ConsultantList></ConsultantList>}></Route>
-                  <Route path='reports' element={<ConsultantReports></ConsultantReports>}></Route>
-                  <Route path='tours' element={<ConsultantAssign></ConsultantAssign>}></Route>
-                  <Route path='addnew' element={<ConsultantRegistration></ConsultantRegistration>}></Route>
-                </Route>
+
+
+              </Route>
+              <Route path='addpackage' element={<PackageManagement></PackageManagement>}></Route>
+              <Route path='mybooking' element={<MyBooking></MyBooking>}>
+                <Route path='' element={<MyTours></MyTours>}></Route>
+                <Route path='enquiry' element={<MyEnquiry></MyEnquiry>}></Route>
+                <Route path='support' element={<MySupport></MySupport>}></Route>
+                <Route path='approvals' element={<MyApprovals></MyApprovals>}></Route>
               </Route>
 
-            </Routes>
-            <Footer></Footer>
-          </UserContext.Provider>
-        </BrowserRouter>
+              <Route path='consultant' element={<Consultant></Consultant>}>
+                <Route path='' element={<ConsultantList></ConsultantList>}></Route>
+                <Route path='reports' element={<ConsultantReports></ConsultantReports>}></Route>
+                <Route path='tours' element={<ConsultantAssign></ConsultantAssign>}></Route>
+                <Route path='addnew' element={<ConsultantRegistration></ConsultantRegistration>}></Route>
+              </Route>
+            </Route>
+
+          </Routes>
+          <Footer></Footer>
+        </UserContext.Provider>
 
 
         {/* <Packages></Packages>

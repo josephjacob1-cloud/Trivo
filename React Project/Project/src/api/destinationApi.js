@@ -1,6 +1,6 @@
 
 import { apiRequest } from "./apiClient";
-import { DISABLE_DESTINATION, DESTINATION_CATEGORY, ADD_DESTINATION, GET_DESTINATION } from "./api";
+import { DISABLE_DESTINATION, DESTINATION_CATEGORY, ADD_DESTINATION, GET_DESTINATION, UPDATE_DESTINATION } from "./api";
 
 export async function getDestinationCategory() {
   return apiRequest(DESTINATION_CATEGORY);
@@ -25,8 +25,18 @@ export async function addDestination(destination) {
 }
 
 
-export async function deleteDestination(id){    
-    return apiRequest(`${DISABLE_DESTINATION}/${id}`,{
-        method:'PATCH',
-    })
+export async function deleteDestination(id) {
+  return apiRequest(`${DISABLE_DESTINATION}/${id}`, {
+    method: 'PATCH',
+  })
+}
+
+export async function updateDestination(id, destination) {
+  return apiRequest(`${UPDATE_DESTINATION}/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(destination),
+  });
 }

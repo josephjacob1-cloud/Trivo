@@ -201,7 +201,7 @@ async def getPackages(db:AsyncSession=Depends(get_db)):
 async def updatePackage(id:int, pack:PackageUpdate, db:AsyncSession=Depends(get_db)):
     return await update_package(id, pack, db)
 
-@router.patch("/disablePackage")
+@router.patch("/disablePackage/{id}")
 async def disablePackage(id:int, db:AsyncSession=Depends(get_db)):
     return await disable_package(id, db)
 

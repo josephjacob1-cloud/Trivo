@@ -82,7 +82,8 @@ async def view_customer_package_detail(db:AsyncSession):
             "maxGuests":p.maxGuests,
             "minimumAge":p.minimumAge,
             "meetingPoint":p.meetingPoint,
-            "tourType":p.tourType
+            "tourType":p.tourType,
+            "status":p.active
         }
         packages.append(items)
     #     d_ids= p.destination_ids

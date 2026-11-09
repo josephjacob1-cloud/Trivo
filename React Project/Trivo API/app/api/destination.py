@@ -19,7 +19,7 @@ async def addDestination(dest:DestinationCreate, db:AsyncSession=Depends(get_db)
 async def getDestinations(db:AsyncSession=Depends(get_db)):
     return await get_destinations(db)
 
-@router.patch("/updateDestination")
+@router.patch("/updateDestination/{id}")
 async def updateDestination(id:int,dest:updateDestination, db:AsyncSession=Depends(get_db)):
     return await change_Destination(id, dest, db)
 

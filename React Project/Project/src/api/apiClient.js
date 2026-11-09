@@ -35,7 +35,7 @@ export async function apiRequest(endpoint, options = {}) {
         return data;
 
     } catch (error) {
-        console.error("API Error:", error.message);
+        console.error("API Error:", error.detail);
         throw error;
     }
 }

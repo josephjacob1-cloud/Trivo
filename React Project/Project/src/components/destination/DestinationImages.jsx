@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import UserContext from '../UserContext'
 import { useNavigate } from 'react-router-dom';
 
-export default function DestinationEdit() {
+export default function DestinationImages() {
     const destination = useContext(UserContext).destination;
     const navigate = useNavigate()
     const [name, setName] = useState(destination.name)
@@ -15,7 +15,7 @@ export default function DestinationEdit() {
      <div className='container d-flex justify-content-center align-items-center'>
             <div className="card p-4 shadow" style={{ width: '100%', maxWidth: '600px' }}>
                 <div className="card-body">
-                    <p className='h3 card-title text-center mb-4'>Edit Destination</p>
+                    <p className='h3 card-title text-center mb-4'>Image Management</p>
                     <div className='mb-3'>
                         <label htmlFor="">Destination Name :</label><br />
                         <input type="text" className='form-control' placeholder='Enter Destination Name' value={name}  />

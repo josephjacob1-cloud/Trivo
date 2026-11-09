@@ -4,6 +4,7 @@ import { useContext, useEffect } from 'react';
 import UserContext from '../UserContext';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL, GET_PACKAGES_CUSTOMERS } from '../../api/api';
+import { getPackages } from '../../api/packageApi';
 export default function Packages() {
 
     
@@ -25,16 +26,19 @@ export default function Packages() {
     const handlePackages = async () => {
         console.log("fetching DB")
         try {
-            const response = await fetch( 
-                GET_PACKAGES_CUSTOMERS
-            );
-            const data = await response.json();
-            userData.setPlaces(data)
-            if (!response.ok) {
-                throw new Error("Failed to fetch packages");
-            }else{        
-                userData.setSelectedPackage(null)  
-            }        
+            // const response = await fetch( 
+            //     GET_PACKAGES_CUSTOMERS
+            // );
+            // const data = await response.json();
+            // userData.setPlaces(data)
+            // if (!response.ok) {
+            //     throw new Error("Failed to fetch packages");
+            // }else{        
+            //     userData.setSelectedPackage(null)  
+            // }        
+            const data = await getPackages()
+            // userData.setPlaces(data)
+            packages = data;            
         } catch (err) {
             console.log(err.message);
         }
