@@ -18,9 +18,7 @@ export async function userLogin(params){
     formData.append("username", params.username);
     formData.append("password", params.password);
 
-    // console.log("Username:", params.username);
-    // console.log("Password exists:", !!params.password);
-    // console.log("Request body:", formData.toString());
+
 
     return apiRequest(LOGIN_URL, {
         method: "POST",

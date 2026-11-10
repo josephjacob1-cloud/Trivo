@@ -13,7 +13,7 @@ async def add_destination(dest:DestinationCreate,db:AsyncSession):
     return new_dest
 
 async def get_destinations(db:AsyncSession):
-    destinations = await db.execute(select(Destination, Category).join(Category, Destination.category_id==Category.id).where(Destination.active==True))
+    destinations = await db.execute(select(Destination, Category).join(Category, Destination.category_id==Category.id).where(Destination.active.is_(True)))
     dest = destinations.all()
     result = []
     for d, c in dest:

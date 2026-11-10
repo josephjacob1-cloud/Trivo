@@ -34,3 +34,9 @@ export const ADD_DESTINATION = `/destination/addDestination`;
 export const GET_DESTINATION = `/destination/getDestination`;
 export const DISABLE_DESTINATION = `/destination/disableDestination`;
 export const UPDATE_DESTINATION = `/destination/updateDestination`;
+
+
+export const GET_DESTINATION_IMAGES_ID = `/destination/viewDestinationImages`;
+export const ADD_DESTINATION_IMAGES = `/destination/addDestinationImage`;
+export const UPDATE_DESTINATION_IMAGES= `/destination/updateDestinationImage`;
+export const DELETE_DESTINATION_IMAGES = `/destination/deleteDestinationImage`;

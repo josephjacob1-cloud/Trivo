@@ -60,7 +60,7 @@ async def addDestinationImage(
             is_primary=is_primary
         ), db)
 
-@router.put("/updateDestinationImage")
+@router.put("/updateDestinationImage/{id}")
 async def updateDestinationImage(id:int,
     alt_text: str | None = Form(None),
     display_order: int = Form(None),
