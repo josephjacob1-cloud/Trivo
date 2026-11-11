@@ -60,7 +60,7 @@ async def addDestinationImage(
             is_primary=is_primary
         ), db)
 
-@router.put("/updateDestinationImage/{id}")
+@router.patch("/updateDestinationImage/{id}")
 async def updateDestinationImage(id:int,
     alt_text: str | None = Form(None),
     display_order: int = Form(None),
@@ -80,7 +80,7 @@ async def updateDestinationImage(id:int,
             is_primary=is_primary
         ), db)
 
-@router.delete("/deleteDestinationImage")
+@router.delete("/deleteDestinationImage/{id}")
 async def deleteDestinationImage(id:int, db:AsyncSession=Depends(get_db)):
     return await delete_destination_image(id, db)
 

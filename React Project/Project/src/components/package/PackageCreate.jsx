@@ -1,10 +1,31 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import DestinationSelector from '../destination/DestinationSelector'
 import UserContext from '../UserContext'
 
 export default function PackageCreate() {
-  const packages = useContext(UserContext).places;
+  // const packages = useContext(UserContext).places;
   const [selectedDestination, setSelectedDestination] = useState([])
+  const [name, setName] = useState("");
+  const [category, setCategory] = useState("");
+  const [days, setDays] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [destination_ids, setDestinationIDs] = useState([]);
+  const [description, setDescription] = useState("");
+  const [coverImage, setCoverImage] = useState("");
+  const [highlights, setHighlights] = useState([]);
+  const [itinerary, setItinerary] = useState({});
+  const [inclusions, setInclusions] = useState([]);
+  const [exclusions, setExclusions] = useState();
+  const [hotel, setHotel] = useState({});
+  const [transport, setTransport] = useState({});
+  const [languages, setLanguages] = useState([]);
+  const [meetingPoint, setMeetingPoint] = useState("");
+  const [tourType, setTourType] = useState("Friends & Family");
+  const [maxGuests, setMaxGuests] = useState(30);
+  const [minimumAge, setMinimumAge] = useState(1);
+  const [cancellationPolicy, setCancellationPolicy] = useState("");
+
+  useEffect()
   return (
 
     <div className='container'>
@@ -14,15 +35,8 @@ export default function PackageCreate() {
           <div className="card-body shadow px-4 pb-4">
             <div className='mb-2'>
               <label htmlFor="">Package Name</label><br />
-              <input type="text" className='form-control' placeholder='Enter Package Name' />
+              <input type="text" className='form-control' placeholder='Enter Package Name' value={name} onChange={(e) => setName(e.target.value)} />
             </div>
-            {/* <div className='mb-2 '>
-              <label htmlFor="">Destination</label><br />
-              <div style={{ display: 'flex' }}>
-                <input type="text" className='form-control me-4' placeholder='Enter Package Name' />
-                <button className='btn btn-info' style={{ minWidth: '170px' }}>Insert Destination</button>
-              </div>
-            </div> */}
             <div className='mb-2 '>
               <label htmlFor="">Category</label><br />
               <input type="radio" name='category' />International
@@ -30,11 +44,40 @@ export default function PackageCreate() {
             </div>
             <div className='mb-2 '>
               <label htmlFor="">Days:</label><br />
-              <input type="text" className='form-control' placeholder='Days' />
+              <input type="text" className='form-control' placeholder='Days' value={days} onChange={(e) => setDays(e.target.value)} />
             </div>
             <div className='mb-2 '>
               <label htmlFor="">Price:</label><br />
-              <input type="text" className='form-control' placeholder='Total Amount' />
+              <input type="text" className='form-control' placeholder='Total Amount' value={price} onChange={(e) => setPrice(e.target.value)} />
+            </div>
+            <div className="col-sm-6 shadow">
+              <div>
+                <label htmlFor="">Select Destination:</label><br />
+                <div style={{
+                  maxHeight: "156px",
+                  overflowY: "auto",
+                  overflowX: "hidden",
+                  width: '100%',
+                  zIndex: 1050,
+                  border: '1px solid #CCC',
+                  padding: '10px'
+                }}>
+                  {/* {
+                packages.map((p, i) =>
+                  <Details key={i} des={p.destination} id={i + 1} select={setSelectedDestination}></Details>
+                )
+              } */}
+                </div>
+              </div>
+              <div>
+                <label htmlFor="">Description:</label><br />
+                <textarea name="" id="" placeholder='Description' style={{ width: "100%" }}></textarea>
+              </div>
+              <div class="d-flex justify-content-end mt-4 pt-2">
+                <button class="btn btn-info bgTeal text-white">Add Package</button>
+              </div>
+
+
             </div>
             <div className='mb-2 '>
               <label htmlFor="">Image Upload : </label>
@@ -122,35 +165,7 @@ export default function PackageCreate() {
 
           </div>
         </div>
-        <div className="col-sm-6 shadow">
-          <div>
-            <label htmlFor="">Select Destination:</label><br />
-            <div style={{
-              maxHeight: "156px",
-              overflowY: "auto",
-              overflowX: "hidden",
-              width: '100%',
-              zIndex: 1050,
-              border: '1px solid #CCC',
-              padding: '10px'
-            }}>
-              {
-                packages.map((p, i) =>
-                  <Details key={i} des={p.destination} id={i + 1} select={setSelectedDestination}></Details>
-                )
-              }
-            </div>
-          </div>
-          <div>
-            <label htmlFor="">Description:</label><br />
-            <textarea name="" id="" placeholder='Description' style={{ width: "100%" }}></textarea>
-          </div>
-          <div class="d-flex justify-content-end mt-4 pt-2">
-                <button class="btn btn-info bgTeal text-white">Add Package</button>
-            </div>
 
-
-        </div>
       </div>
 
     </div>

@@ -1,5 +1,5 @@
 import { apiRequest } from "./apiClient";
-import { GET_DESTINATION_IMAGES_ID, ADD_DESTINATION_IMAGES, UPDATE_DESTINATION_IMAGES } from "./api";
+import { GET_DESTINATION_IMAGES_ID, ADD_DESTINATION_IMAGES, UPDATE_DESTINATION_IMAGES, DELETE_DESTINATION_IMAGES } from "./api";
 
 export async function getDestinationImageById(id) {
     return apiRequest(`${GET_DESTINATION_IMAGES_ID}/${id}`);
@@ -21,16 +21,26 @@ export async function addDestinationImage(params) {
 }
 
 export async function updateDestinationImage(id, params) {
-     console.log("FormData contents:");
+    console.log("FormData contents:");
 
     for (const [key, value] of params.entries()) {
         console.log(key, value);
     }
     return apiRequest(`${UPDATE_DESTINATION_IMAGES}/${id}`, {
-        method: "PUT",
+        method: "PATCH",
         headers: {
             "Content-Type": "application/json",
         },
         body: params,
     });
 }
+
+export async function deleteDestinationImage(id) {
+    return apiRequest(`${DELETE_DESTINATION_IMAGES}/${id}`, {
+        method: "DELETE",        
+    });
+}
+
+// export async function getAnImage(img){
+//     return apiRequest(`/${img}`)
+// }
