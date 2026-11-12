@@ -4,6 +4,7 @@ import { getPackages, disablePackage } from '../../api/packageApi';
 
 export default function PackageList() {
   // const packages = useContext(UserContext).places;
+  const userData = useContext(UserContext);
   const [packages, setPackages] = useState([])
   const loadPackags = async () => {
     try {
@@ -12,6 +13,9 @@ export default function PackageList() {
     } catch (error) {
       console.log(error)
     }
+  }
+  const editPackage = (pack) =>{
+    userData.setSelectedPackage(pack);
   }
   const deletePackage = async (id) => {
     console.log(id)
@@ -55,6 +59,7 @@ export default function PackageList() {
             key={pack.id || index} // React requires a unique key property for lists
             pack={pack}
             id={index + 1}
+            editPack = {editPackage}
             delPack={deletePackage}
           />
         ))}
@@ -63,7 +68,7 @@ export default function PackageList() {
     </div>
   )
 }
-function Details({ pack, id, delPack }) {
+function Details({ pack, id, editPack, delPack }) {
   return (<>
     <tr>
       <td>{id}</td>
@@ -78,7 +83,7 @@ function Details({ pack, id, delPack }) {
       {/* <td>{pack.createdDate}</td> */}
       <td>{String(pack.status)}</td>
       <td>
-        <span><i class="bi bi-pencil-square text-info mx-4"></i></span>
+        <span title='Edit' onClick={(e)=>editPack(pack)}><i class="bi bi-pencil-square text-info mx-4"></i></span>
         <span title='Delete' onClick={(e) => delPack(pack.id)}><i class="bi bi-trash3-fill text-danger"></i></span>
       </td>
     </tr>

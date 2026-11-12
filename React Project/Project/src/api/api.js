@@ -17,6 +17,8 @@ export const GET_PACKAGES_CUSTOMERS=`/customer/viewCustomerPackagesDetail`;
 export const GET_ALL_PACKAGES=`/packages/getPackages`;
 
 export const DISABLE_PACKAGE=`/packages/disablePackage`;
+export const ADD_PACKAGE = `/packages/addPackage`;
+export const UPDATE_PACKAGE = `/packages/updatePackage`;
 
 
 
