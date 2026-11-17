@@ -6,7 +6,8 @@ import ArrayInput from './ArrayInput'
 import ItineraryInput from './ItineraryInput';
 import HotelInput from "./HotelInput";
 import TransportInput from "./TransportInput";
-import { addPackage } from '../../api/packageApi'
+import { addPackage, updatePackage } from '../../api/packageApi'
+import { BASE_URL } from '../../api/api'
 
 export default function PackageCreate() {
   // const packages = useContext(UserContext).places;
@@ -43,6 +44,7 @@ export default function PackageCreate() {
   const [searchDestination, setSearchDestination] = useState("");
   const [previewImage, setPreviewImage] = useState("");
   const [mode, setMode] = useState("")
+  const [packid, setPackid] = useState(null)
 
   const filteredDestinations = destinations.filter(item =>
     item.name.toLowerCase().includes(searchDestination.toLowerCase())
@@ -59,7 +61,17 @@ export default function PackageCreate() {
     try {
       const data = await getAllDestinations();
       setDestinations(data)
-      console.log("destination" + data)
+      if (userData.selectedPackage !== null) {
+        setSelectedDestinationIds(
+          userData.selectedPackage.destination_ids || []
+        );
+        setMode("edit");
+        // setPack(userData.selectedPackage);
+        loadExistingPackToEdit(userData.selectedPackage);
+      }
+      else {
+        setMode("add");
+      }
     } catch (error) {
       setError(error.message);
     }
@@ -117,7 +129,11 @@ export default function PackageCreate() {
       return;
     }
     try {
-      const data = await addPackage(formData)
+      if (mode == "edit") {
+        const data = await updatePackage(packid, formData)
+      } else {
+        const data = await addPackage(formData);
+      }
       console.log("package added " + data)
     } catch (error) {
       console.log(error)
@@ -207,7 +223,72 @@ export default function PackageCreate() {
 
     return true;
   };
+  const loadExistingPackToEdit = async (pack) => {
+    const destinationIds = normalizeArray(pack.destination_ids).map(Number);
+
+    const hotelData = normalizeArray(pack.hotel).map(item => ({
+      ...item,
+
+      // Assign destination ID if only one destination is selected
+      destination_id:
+        item.destination_id ??
+        (destinationIds.length === 1 ? destinationIds[0] : null)
+    }));
+    console.log(pack.hotel)
+    setPackid(pack.id);
+    setName(pack.name || "");
+    setCategory(pack.category || "");
+    setDays(pack.days || 0);
+    setPrice(pack.price?.original || 0);
+    setDescription(pack.description || "");
+
+    setSelectedDestinationIds(
+      (pack.destination_ids || []).map(Number)
+    );
+
+    setHighlights(pack.highlights || []);
+    setItinerary(pack.itinerary || []);
+    setInclusions(pack.inclusions || []);
+    setExclusions(pack.exclusions || []);
+
+    setHotel(hotelData);
+    setTransport(pack.transport || []);
+    setLanguages(pack.languages || []);
+
+    setMeetingPoint(pack.meetingPoint || "");
+    setTourType(pack.tourType || "Friends & Family");
+    setMaxGuests(pack.maxGuests || 30);
+    setMinimumAge(pack.minimumAge ?? 1);
+    setCancellationPolicy(pack.cancellationPolicy || "");
+
+    // Existing image URL
+    setPreviewImage(
+      pack.coverImage
+        ? `${BASE_URL}${pack.coverImage}`
+        : ""
+    );
+    setCoverImage(null);
+    console.log("Hotel data from API:", pack.hotel);
+    console.log("Hotel data type:", typeof pack.hotel);
+    console.log("Destination IDs:", pack.destination_ids);
+  };
+  const normalizeArray = (value) => {
+    if (Array.isArray(value)) return value;
+
+    if (typeof value === "string") {
+      try {
+        const parsed = JSON.parse(value);
+        return Array.isArray(parsed) ? parsed : [];
+      } catch {
+        return [];
+      }
+    }
+
+    return [];
+  };
   const resetData = () => {
+    setMode("add");
+    userData.setSelectedPackage(null);
 
   }
   useEffect(() => {
@@ -224,10 +305,7 @@ export default function PackageCreate() {
     );
   }, [days]);
   useEffect(() => {
-    if (userData.selectedPackage) {
-      setMode("edit");
 
-    }
     getDestinations();
 
 
@@ -239,7 +317,7 @@ export default function PackageCreate() {
 
     <div className='container'>
       <div className="row">
-        <p>Create New Package</p>
+        <p>{mode == "edit" ? 'Update Package' : 'Create New Package'}</p>
         <div className="col-sm-6 ">
           <div className="card-body shadow px-4 pb-4">
             <div className='mb-2'>
@@ -336,7 +414,9 @@ export default function PackageCreate() {
                         className="form-check-input"
                         type="checkbox"
                         id={`destination-${item.id}`}
-                        checked={selectedDestinationIds.includes(item.id)}
+                        checked={selectedDestinationIds.some(
+                          id => Number(id) === Number(item.id)
+                        )}
                         onChange={() => handleDestinationChange(item.id)}
                       />
 
@@ -362,7 +442,7 @@ export default function PackageCreate() {
 
                 <div className="mt-2">
                   <small className="text-muted">
-                    Selected destinations: {selectedDestinationIds.length}
+                    Selected destinations: {(selectedDestinationIds || []).length}
                   </small>
                 </div>
 
@@ -527,7 +607,7 @@ export default function PackageCreate() {
             />
           </div>
           <div className='mb-2 '>
-            <button className='btn btn-primary bgTeal' onClick={(e) => handleAddPackage()}>Add Package</button>
+            <button className='btn btn-primary bgTeal' onClick={(e) => handleAddPackage()}>{mode == "edit" ? 'Update Package' : 'Add Package'}</button>
           </div>
         </div>
 
@@ -538,9 +618,3 @@ export default function PackageCreate() {
 
   )
 }
-// function Details({ des, id, select }) {
-//   return (<>
-//     <div>
-//       <input type='checkbox' className='mx-2' />{des.name} : <i style={{ fontSize: '12px' }}>{des.city}, {des.country}</i></div>
-//   </>)
-// }

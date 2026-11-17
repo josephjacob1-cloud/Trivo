@@ -17,8 +17,7 @@ export default function ArrayInput({
 
         if (!value) return;
 
-        // Avoid duplicate items
-        const exists = items.some(
+        const exists = (items || []).some(
             item => item.toLowerCase() === value.toLowerCase()
         );
 
@@ -27,13 +26,14 @@ export default function ArrayInput({
             return;
         }
 
-        setItems(prev => [...prev, value]);
+        setItems(prev => [...(prev || []), value]);
         setInput("");
     };
 
-    // Remove item
     const handleRemove = (index) => {
-        setItems(prev => prev.filter((_, i) => i !== index));
+        setItems(prev =>
+            (prev || []).filter((_, i) => i !== index)
+        );
     };
 
     return (

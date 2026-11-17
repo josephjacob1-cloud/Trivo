@@ -27,3 +27,13 @@ export async function addPackage(formData){
         body: formData,
   })
 }
+
+export async function updatePackage(id,formData) {
+  return apiRequest(`${UPDATE_PACKAGE}/${id}`,{
+    method:"PATCH",
+     headers: {
+            "Content-Type": "application/json",
+        },
+        body: formData,
+  })
+}

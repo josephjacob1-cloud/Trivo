@@ -3883,7 +3883,7 @@ function App() {
   //     "updatedDate": "2026-07-26"
   //   }
   // ]
-  const [selectedPackage, setSelectedPackage] = useState(places[0]);
+  const [selectedPackage, setSelectedPackage] = useState(null);
   // const [selectedPackage, setSelectedPackage] = useState([]);
   const [totalConsultantList, setTotalConsultantList] = useState([])
   const [consultants, setConsultants] = useState(null)

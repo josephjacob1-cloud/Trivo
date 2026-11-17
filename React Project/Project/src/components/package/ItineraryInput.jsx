@@ -1,11 +1,15 @@
 
 import React from "react";
 
-export default function ItineraryInput({ days, items, setItems }) {
+export default function ItineraryInput({
+    days = 0,
+    items = [],
+    setItems
+}) {
 
     const updateItem = (index, field, value) => {
         setItems(prev =>
-            prev.map((item, i) =>
+            (prev || []).map((item, i) =>
                 i === index
                     ? { ...item, [field]: value }
                     : item

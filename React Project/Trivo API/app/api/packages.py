@@ -197,7 +197,7 @@ async def addPackages(
 async def getPackages(db:AsyncSession=Depends(get_db)):
     return await get_package(db)
 
-@router.patch("/updatePackage")
+@router.patch("/updatePackage/{id}")
 async def updatePackage(id:int, pack:PackageUpdate, db:AsyncSession=Depends(get_db)):
     return await update_package(id, pack, db)
 

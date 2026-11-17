@@ -2,9 +2,9 @@
 import React, { useEffect } from "react";
 
 export default function HotelInput({
-    destinations,
-    selectedDestinationIds,
-    hotel,
+    destinations = [],
+    selectedDestinationIds = [],
+    hotel = [],
     setHotel
 }) {
 
@@ -18,14 +18,16 @@ export default function HotelInput({
     // Synchronize hotel entries with selected destinations
     useEffect(() => {
         setHotel(prev => {
+            const currentHotels = Array.isArray(prev) ? prev : [];
+
             const selectedIds = selectedDestinationIds.map(Number);
 
-            // Keep hotels belonging to selected destinations
-            let updatedHotels = prev.filter(item =>
+            // Keep existing hotel details
+            let updatedHotels = currentHotels.filter(item =>
                 selectedIds.includes(Number(item.destination_id))
             );
 
-            // Add one empty hotel for destinations without an entry
+            // Add empty hotel entry only when no hotel exists
             selectedIds.forEach(id => {
                 const exists = updatedHotels.some(
                     item => Number(item.destination_id) === id

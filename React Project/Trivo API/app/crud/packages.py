@@ -61,6 +61,8 @@ async def update_package(id:int, pack:PackageUpdate,db:AsyncSession):
         package.description = pack.description
     if pack.active:
         package.active = pack.active
+        
+
     await db.commit()
     await db.refresh(package)
     return package

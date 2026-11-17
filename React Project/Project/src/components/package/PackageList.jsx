@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
 import UserContext from '../UserContext';
 import { getPackages, disablePackage } from '../../api/packageApi';
+import { useNavigate } from 'react-router-dom';
 
 export default function PackageList() {
   // const packages = useContext(UserContext).places;
   const userData = useContext(UserContext);
+  const navigate = useNavigate();
   const [packages, setPackages] = useState([])
   const loadPackags = async () => {
     try {
@@ -16,6 +18,7 @@ export default function PackageList() {
   }
   const editPackage = (pack) =>{
     userData.setSelectedPackage(pack);
+    navigate('/packages/addpackage');
   }
   const deletePackage = async (id) => {
     console.log(id)

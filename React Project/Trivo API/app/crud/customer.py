@@ -65,6 +65,7 @@ async def view_customer_package_detail(db:AsyncSession):
                 "original":math.floor(p.price + (p.price%10)),
                 "offer" : p.price
             },
+            "destination_ids":p.destination_ids,
             "bookingCount":b_count,
             "review":review_data,
             "rating": rating_sum / len(review) if review else 0,
