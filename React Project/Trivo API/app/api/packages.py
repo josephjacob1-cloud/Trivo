@@ -10,6 +10,8 @@ from app.schema.packages import PackageCategoryCreate, PackageCreate, PackageUpd
 from app.crud.packages import add_package_categories, get_package_categories, add_package, get_package, update_package, disable_package, enable_package
 from app.core.upload import imageUpload
 
+import uuid
+
 router = APIRouter()
 
 
@@ -197,9 +199,128 @@ async def addPackages(
 async def getPackages(db:AsyncSession=Depends(get_db)):
     return await get_package(db)
 
+# @router.patch("/updatePackage/{id}")
+# async def updatePackage(id:int, pack:PackageUpdate, db:AsyncSession=Depends(get_db)):
+#     return await update_package(id, pack, db)
+
+
 @router.patch("/updatePackage/{id}")
-async def updatePackage(id:int, pack:PackageUpdate, db:AsyncSession=Depends(get_db)):
-    return await update_package(id, pack, db)
+async def updatePackage(
+    id: int,
+    name: str | None = Form(None),
+    category: str | None = Form(None),
+    days: int | None = Form(None),
+    price: float | None = Form(None),
+    destination_ids: str | None = Form(None),
+    description: str | None = Form(None),
+    active: bool | None = Form(None),
+    highlights: str | None = Form(None),
+    itinerary: str | None = Form(None),
+    inclusions: str | None = Form(None),
+    exclusions: str | None = Form(None),
+    hotel: str | None = Form(None),
+    transport: str | None = Form(None),
+    languages: str | None = Form(None),
+    meetingPoint: str | None = Form(None),
+    tourType: str | None = Form(None),
+    maxGuests: int | None = Form(None),
+    minimumAge: int | None = Form(None),
+    cancellationPolicy: str | None = Form(None),
+    image: UploadFile | None = File(None),
+    db: AsyncSession = Depends(get_db)
+):
+    try:
+        update_data = {}
+
+        # Simple fields
+        simple_fields = {
+            "name": name,
+            "category": category,
+            "days": days,
+            "price": price,
+            "description": description,
+            "active": active,
+            "meetingPoint": meetingPoint,
+            "tourType": tourType,
+            "maxGuests": maxGuests,
+            "minimumAge": minimumAge,
+            "cancellationPolicy": cancellationPolicy
+        }
+
+        for key, value in simple_fields.items():
+            if value is not None:
+                update_data[key] = value
+
+        # Destination IDs: accepts "6,7" or "[6,7]"
+        if destination_ids is not None:
+            try:
+                if destination_ids.strip().startswith("["):
+                    update_data["destination_ids"] = json.loads(destination_ids)
+                else:
+                    update_data["destination_ids"] = [
+                        int(item.strip())
+                        for item in destination_ids.split(",")
+                        if item.strip()
+                    ]
+            except (ValueError, json.JSONDecodeError):
+                raise HTTPException(
+                    status_code=422,
+                    detail="Invalid destination_ids"
+                )
+
+        # JSON fields sent from React
+        json_fields = {
+            "highlights": highlights,
+            "itinerary": itinerary,
+            "inclusions": inclusions,
+            "exclusions": exclusions,
+            "hotel": hotel,
+            "transport": transport,
+            "languages": languages
+        }
+
+        for key, value in json_fields.items():
+            if value is not None:
+                try:
+                    update_data[key] = json.loads(value)
+                except json.JSONDecodeError:
+                    raise HTTPException(
+                        status_code=422,
+                        detail=f"Invalid JSON in {key}"
+                    )
+
+        # Validate the uploaded image
+        cover_image_path = None
+
+        if image is not None and image.filename:
+            allowed_extensions = {".jpg", ".jpeg", ".png", ".webp"}
+            extension = Path(image.filename).suffix.lower()
+
+            if extension not in allowed_extensions:
+                raise HTTPException(
+                    status_code=400,
+                    detail="Only JPG, JPEG, PNG and WEBP images are allowed"
+                )
+
+            upload_dir = Path("uploads/packages")
+            upload_dir.mkdir(parents=True, exist_ok=True)
+
+            filename = f"{uuid.uuid4()}{extension}"
+            file_path = upload_dir / filename
+
+            file_content = await image.read()
+            file_path.write_bytes(file_content)
+
+            cover_image_path = f"/uploads/packages/{filename}"
+            update_data["coverImage"] = cover_image_path
+
+        pack = PackageUpdate(**update_data)
+
+        return await update_package(id, pack, db)
+
+    except HTTPException:
+        raise
+
 
 @router.patch("/disablePackage/{id}")
 async def disablePackage(id:int, db:AsyncSession=Depends(get_db)):

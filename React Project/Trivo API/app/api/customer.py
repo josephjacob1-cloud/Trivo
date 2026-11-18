@@ -3,7 +3,7 @@ from uuid import UUID
 from app.core.OAuth import verify_token
 from app.core.config import USER_CUSTOMER
 from app.db.database import get_db
-from app.crud.customer import book_package, view_customer_package, get_my_booking, add_contact_us, add_review, get_all_review, get_review_package_id, update_review, delete_review, view_customer_package_detail
+from app.crud.customer import book_package, view_customer_package, get_my_booking, add_contact_us, add_review, get_all_review, get_review_package_id, update_review, delete_review, view_customer_package_detail, view_customer_package_detail_id
 from sqlalchemy.ext.asyncio import AsyncSession
 from app.schema.customer import BookingCreate, ContactUsCreate, PackageReviewCreate, PackageReviewUpdate
 
@@ -18,6 +18,11 @@ async def viewCustomerPackages(db:AsyncSession=Depends(get_db), payload:dict = D
 @router.get("/viewCustomerPackagesDetail")
 async def viewCustomerPackagesDetail(db:AsyncSession=Depends(get_db)):
     return await view_customer_package_detail(db)
+
+@router.get("/viewCustomerPackagesDetailById/{id}")
+async def viewCustomerPackagesDetailById(id:int, db:AsyncSession=Depends(get_db)):
+    return await view_customer_package_detail_id(id, db)
+
 
 @router.post("/bookPackage")
 async def bookPackage(booking:BookingCreate, db:AsyncSession=Depends(get_db), payload:dict=Depends(verify_token)):

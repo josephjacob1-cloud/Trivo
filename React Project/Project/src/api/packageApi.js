@@ -1,5 +1,5 @@
 import { apiRequest } from "./apiClient";
-import { GET_PACKAGES_CUSTOMERS, GET_ALL_PACKAGES, DISABLE_PACKAGE, ADD_PACKAGE, UPDATE_PACKAGE } from "./api";
+import { GET_PACKAGES_CUSTOMERS, GET_ALL_PACKAGES, DISABLE_PACKAGE, ADD_PACKAGE, UPDATE_PACKAGE, GET_PACKAGE_BY_ID } from "./api";
 
 
 export async function getPackages() {
@@ -30,10 +30,14 @@ export async function addPackage(formData){
 
 export async function updatePackage(id,formData) {
   return apiRequest(`${UPDATE_PACKAGE}/${id}`,{
-    method:"PATCH",
-     headers: {
-            "Content-Type": "application/json",
-        },
-        body: formData,
+    method:"PATCH",     
+    body: formData
   })
 }
+
+export const getPackageById = async (id) => {
+  console.log("getPackageById - ", id)
+    return await apiRequest(`${GET_PACKAGE_BY_ID}/${id}`, {
+        method: "GET"
+    });
+};

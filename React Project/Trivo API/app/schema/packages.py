@@ -12,6 +12,7 @@ class Hotel(BaseModel):
     roomType: str
     checkIn: str
     checkOut: str
+    destination_id: int | None = None
 
 class Transport(BaseModel):
     type: str
@@ -44,11 +45,23 @@ class PackageCreate(BaseModel):
 class PackageUpdate(BaseModel):
     name:str | None = None
     category:str | None = None
-    days:int | None = None
-    price:float | None = None
+    days:int | None = 1
+    price:float | None = 0
     destination_ids:list[int] | None = None
     description:str | None = None
-    active:bool | None = None
+    active:bool | None = True
+    highlights:list[str]
+    itinerary:list[ItineraryDay] 
+    inclusions:list[str]
+    exclusions:list[str]
+    hotel: list[Hotel]
+    transport: list[Transport]
+    languages: list[str]
+    tourType: str
+    maxGuests: int
+    minimumAge: int
+    cancellationPolicy: str
+    coverImage:str
 
 class PackageCategoryCreate(BaseModel):
     name:str = ""

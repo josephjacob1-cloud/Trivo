@@ -42,30 +42,85 @@ async def get_package(db:AsyncSession):
     data = await db.execute(select(Package))
     return data.scalars().all()
 
-async def update_package(id:int, pack:PackageUpdate,db:AsyncSession):
-    data = await db.execute(select(Package).where(Package.id == id))
+# async def update_package(id:int, pack:PackageUpdate,db:AsyncSession):
+#     data = await db.execute(select(Package).where(Package.id == id))
+#     package = data.scalar_one_or_none()
+#     if not package:
+#          raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Package not found")  
+#     if pack.name:
+#         package.name = pack.name
+#     if pack.category:
+#         package.category = pack.category
+#     if pack.days:
+#         package.days = pack.days
+#     if pack.price:
+#         package.price = pack.price
+#     if pack.destination_ids:
+#         package.destination_ids = pack.destination_ids
+#     if pack.description:
+#         package.description = pack.description
+#     if pack.active:
+#         package.active = pack.active
+#     if pack.highlights:
+#         package.highlights = pack.highlights
+#     if pack.itinerary:
+#         package.itinerary = pack.itinerary
+#     if pack.inclusions:
+#             package.inclusions = pack.inclusions
+#     if pack.exclusions:
+#         package.exclusions = pack.exclusions
+#     if pack.hotel:
+#         package.hotel = pack.hotel
+#     if pack.transport:
+#          package.transport = pack.transport
+#     if pack.languages:
+#         package.languages = pack.languages    
+#     if pack.meetingPoint:
+#         package.meetingPoint = pack.meetingPoint
+#     if pack.tourType:
+#         package.tourType = pack.tourType
+#     if pack.maxGuests:
+#         package.maxGuests = pack.maxGuests
+#     if pack.minimumAge:
+#         package.minimumAge = pack.minimumAge
+#     if pack.cancellationPolicy:
+#         package.cancellationPolicy = pack.cancellationPolicy
+#     # if pack.coverImage:
+#     #         package.coverImage = pack.coverImage       
+
+#     await db.commit()
+#     await db.refresh(package)
+#     return package
+
+
+async def update_package(
+    id: int,
+    pack: PackageUpdate,
+    db: AsyncSession
+):
+    data = await db.execute(
+        select(Package).where(Package.id == id)
+    )
+
     package = data.scalar_one_or_none()
+
     if not package:
-         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Package not found")  
-    if pack.name:
-        package.name = pack.name
-    if pack.category:
-        package.category = pack.category
-    if pack.days:
-        package.days = pack.days
-    if pack.price:
-        package.price = pack.price
-    if pack.destination_ids:
-        package.destination_ids = pack.destination_ids
-    if pack.description:
-        package.description = pack.description
-    if pack.active:
-        package.active = pack.active
-        
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Package not found"
+        )
+
+    # Get only the fields included in the update request.
+    update_data = pack.dict(exclude_unset=True)
+
+    for field, value in update_data.items():
+        setattr(package, field, value)
 
     await db.commit()
     await db.refresh(package)
+
     return package
+
 
 async def disable_package(id:int, db:AsyncSession):
     data = await db.execute(select(Package).where(Package.id == id))

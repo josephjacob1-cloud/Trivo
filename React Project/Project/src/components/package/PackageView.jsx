@@ -1,26 +1,71 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import UserContext from "../UserContext"
 import '../../css/style.css'
 import StarRating from "../StarRating";
 import ThumbSlider from "./ThumbSlider";
 import Itinerary from "./Itinerary";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BASE_URL } from "../../api/api";
+import { getPackageById } from "../../api/packageApi";
 
 export default function PackageView() {
-    const pack = useContext(UserContext).selectedPackage;
+    const { id } = useParams();
+    console.log("Package ID:", id);
+    const [pack, setPack] = useState(null);
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(true);
+    // const pack = useContext(UserContext).selectedPackage;
     // const IMG_PATH = "http://127.0.0.1:8000/";
     const navigate = useNavigate()
+    const loadPackage = async (packageId) => {
+        try {
+            console.log("Fetching package:", packageId);
+
+            const data = await getPackageById(packageId);
+
+            console.log("Package API response:", data);
+
+            setPack(data);
+
+        } catch (error) {
+            console.error("Package loading error:", error);
+            setError(error.message || "Unable to load package");
+        } finally {
+            setLoading(false);
+        }
+    };
+    useEffect(() => {
+        console.log("useEffect executed. ID:", id);
+
+        if (id) {
+            loadPackage(id);
+        }
+    }, [id]);
+    if (loading) {
+        return <p>Loading package details...</p>;
+    }
+
+    if (error) {
+        return <p className="text-danger">{error}</p>;
+    }
+
+    if (!pack) {
+        return <p>Package not found.</p>;
+    }
     return (<>
+        <div>
+            Package View - {id}
+
+        </div>
         <div>
             <div
                 style={{
-                    backgroundImage: `url(${BASE_URL}${pack.destination[0].images[0].image_url})`,
-                    width: '100%',
-                    height: '400px',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-
+                    backgroundImage: `url("${BASE_URL.replace(/\/+$/, "")}/${(pack.coverImage || "").replace(/^\/+/, "")}")`,
+                    width: "100%",
+                    height: "400px",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat"
                 }}>
                 <div className="container-fluild mx-4">
                     <div className="row">
@@ -32,11 +77,11 @@ export default function PackageView() {
 
                                 <i className="bi bi-star-fill goldenStar"></i>
                                 <span> Featured</span>                            </p>
-                           
-                                <p className="h2 textHeadWhite">{pack.packageName}</p>
+
+                            <p className="h2 textHeadWhite">{pack.packageName}</p>
                             <p className="textHeadWhite">
                                 <i className="bi bi-geo-alt"></i>
-                                {pack.destination[0].city} | {pack.destination[0].country}
+                                {pack.destination?.[0]?.city} | {pack.destination?.[0]?.country}
                             </p>
                             <p>
                                 {/* <i className="bi bi-star"></i> */}
@@ -58,10 +103,10 @@ export default function PackageView() {
                                 <p className="featuresDivItems"><i class="bi bi-person-standing"></i>
                                     <span>Age {pack.minimumAge} +</span>
                                 </p>
-                                
+
                             </div>
-                            <p className="text-white shadow fw-bold " 
-                            style={{fontSize:'52px',textAlign:'right', opacity:'0.7', fontStyle:'italic'}}>{pack.slug}</p>
+                            <p className="text-white shadow fw-bold "
+                                style={{ fontSize: '52px', textAlign: 'right', opacity: '0.7', fontStyle: 'italic' }}>{pack.slug}</p>
                         </div>
                         <div className="col-sm-3 priceCard">
                             <p className="discount">{pack.price.discount}% OFF</p>

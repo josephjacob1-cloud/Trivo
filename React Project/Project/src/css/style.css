@@ -46,9 +46,13 @@ body {
 
 .placeImg {
     border: 1px solid #CCC;
-    padding: 2px;
-    width: 100%;
+    padding: 5px;
     border-radius: 5px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 
 }
 
@@ -358,40 +362,45 @@ body {
 }
 
 .consultantTable {
-  width: 90%;
-  border-collapse: collapse;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
-  color: #333333;
-  margin: 20px auto;
- 
+    width: 90%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #333333;
+    margin: 20px auto;
+
 }
+
 .consultantTable th {
-  background-color: #ffffff;
-  color: #000000;
-  font-weight: 700;
-  text-align: left;
-  padding: 12px 10px;
-  border-bottom: 2px solid #eeeeee;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: 700;
+    text-align: left;
+    padding: 12px 10px;
+    border-bottom: 2px solid #eeeeee;
 }
+
 .consultantTable td {
-  padding: 12px 10px;
-  border-bottom: 1px solid #f5f5f5;
-  vertical-align: middle;
+    padding: 12px 10px;
+    border-bottom: 1px solid #f5f5f5;
+    vertical-align: middle;
 }
+
 .cancellationPolicy {
-  height: 90px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-right: 10px;
+    height: 90px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 10px;
 }
-.package-thumb-image {  
+
+.package-thumb-image {
     width: 180px;
     height: 100px;
     object-fit: cover;
     object-position: center;
 }
-.destinationGrid {    
+
+.destinationGrid {
     display: grid;
     grid-template-columns: repeat(3, 350px);
     gap: 10px;
@@ -405,6 +414,7 @@ body {
     padding: 15px;
     box-sizing: border-box;
 }
+
 .destinationImage {
     width: 100%;
     height: 180px;
@@ -413,6 +423,7 @@ body {
     border-radius: 8px;
     display: block;
 }
+
 .imageActions {
     display: flex;
     justify-content: flex-end;
@@ -424,6 +435,7 @@ body {
 .imageActions span {
     cursor: pointer;
 }
+
 .imagePreview {
     width: 300px;
     height: 180px;

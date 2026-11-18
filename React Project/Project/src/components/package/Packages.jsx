@@ -1,6 +1,6 @@
 import '../../css/style.css'
 import image2 from '../../assets/slider/image2.jpg'
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import UserContext from '../UserContext';
 import { useNavigate } from 'react-router-dom';
 import { BASE_URL, GET_PACKAGES_CUSTOMERS } from '../../api/api';
@@ -14,7 +14,8 @@ export default function Packages() {
 
 
     const userData = useContext(UserContext)
-    const packages = userData.places.slice(0, 12);
+    // const packages = userData.places.slice(0, 12);
+    const [packages, setPackages] = useState([])
     const navigate = useNavigate()
     
      useEffect(()=>{
@@ -37,8 +38,9 @@ export default function Packages() {
             //     userData.setSelectedPackage(null)  
             // }        
             const data = await getPackages()
+            setPackages(data)
             // userData.setPlaces(data)
-            packages = data;            
+            // packages = data;            
         } catch (err) {
             console.log(err.message);
         }
@@ -162,14 +164,17 @@ export default function Packages() {
 }
 function Card({pack, path, select}) {
     const navigate = useNavigate()
+    const coverImage = pack.coverImage
+            ? `${path.replace(/\/+$/, "")}/${pack.coverImage.replace(/^\/+/, "")}`
+            : ""
     return <div className="col-sm-3 placeCard" onClick={(e)=>{
-        select(pack);
+        // select(pack);
         navigate("/packages/view/"+pack.id)
         }}>
-       <img src={path + pack.coverImage} alt={pack.packageName} className='placeImg' />
+       <img src={coverImage} alt={pack.packageName} className='placeImg' />
           <div className="placeCardText">
             <p className='pTitleTxt'>{pack.packageName}</p>
-            <p className='pLocTxr'>{pack.destination.city} | {pack.destination.country}</p> 
+            <p className='pLocTxr'>{pack.destination[0].city} | {pack.destination[0].country}</p> 
         </div>
     </div>
 

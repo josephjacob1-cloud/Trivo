@@ -3945,7 +3945,7 @@ function App() {
             <Route element={<ProtectedRoute> </ProtectedRoute>}>
               <Route path='packages' element={<Outlet />} >
                 <Route path='' element={<Packages></Packages>}></Route>
-                <Route path='view/*' element={<PackageView></PackageView>}></Route>
+                <Route path='view/:id' element={<PackageView></PackageView>}></Route>
                 <Route path='addpackage' element={<PackageManagement></PackageManagement>}>
                   <Route path="" element={<PackageCreate></PackageCreate>}></Route>
                   <Route path="packagelist" element={<PackageList></PackageList>}></Route>

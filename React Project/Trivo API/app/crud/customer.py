@@ -14,6 +14,82 @@ async def view_customer_package(db:AsyncSession):
     data= await db.execute(select(Package).where(Package.active == True))
     packs = data.scalars().all()
     return packs
+async def view_customer_package_detail_id(id:int, db:AsyncSession):
+    data = await db.execute(select(Package).where(Package.id == id))
+    pack=data.scalar_one_or_none()
+    if not pack:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Package not found"
+        )
+        # for p in packs:
+    review = await get_review_package_id(pack.id, db)
+    review_data = []
+    rating_sum = 0
+    for r in review:
+        customer_result = await db.execute(select(User).where(User.id==r.user_id))
+        customer = customer_result.scalar_one_or_none()
+        rating_sum += r.rating
+        r={
+            "user": customer.name if customer else "Unknown",
+            "rating": r.rating,
+            "review": r.review,
+            "created_at": r.created_at
+        }
+        review_data.append(r)
+    b_count = await get_booking_count_pack(pack.id, db)
+    destinations = []
+    for i in pack.destination_ids:
+        d = await get_destinations_by_ID(i, db)
+        imgs = await view_destination_images(d.id, db)            
+        destination_data = {
+            "id": d.id,
+            "name": d.name,  
+            "slug": d.nickname,
+            "country": d.country,
+            "city": d.city,
+            "description": d.description,
+            "images": imgs
+        }   
+        destinations.append(destination_data)
+
+    items = {
+        "id":pack.id,
+        "name":pack.name,
+        "packageName":pack.name,
+        "days" : pack.days,
+        "category":pack.category,            
+        "slug":pack.name,            
+        "description":pack.description,
+        "price":{
+            "discount":20,
+            "currency":"INR",
+            "original":math.floor(pack.price + (pack.price *20 / 100)),
+            "offer" : pack.price
+        },
+        "destination_ids":pack.destination_ids,
+        "bookingCount":b_count,
+        "review":review_data,
+        "rating": rating_sum / len(review) if review else 0,
+        "totalReviews": len(review),
+        "destination":destinations,
+        "coverImage":pack.coverImage,
+        "highlights":pack.highlights,
+        "itinerary":pack.itinerary,
+        "inclusions":pack.inclusions,
+        "exclusions":pack.exclusions,
+        "hotel":pack.hotel,
+        "transport":pack.transport,
+        "cancellationPolicy": pack.cancellationPolicy,
+        "languages":pack.languages,
+        "maxGuests":pack.maxGuests,
+        "minimumAge":pack.minimumAge,
+        "meetingPoint":pack.meetingPoint,
+        "tourType":pack.tourType,
+        "status":pack.active
+    }
+    # packages.append(items)  
+    return items    
 
 async def view_customer_package_detail(db:AsyncSession):
     data= await db.execute(select(Package).where(Package.active == True))
@@ -43,7 +119,7 @@ async def view_customer_package_detail(db:AsyncSession):
             destination_data = {
                 "id": d.id,
                 "name": d.name,  
-                "slug:": d.nickname,
+                "slug": d.nickname,
                 "country": d.country,
                 "city": d.city,
                 "description": d.description,

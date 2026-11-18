@@ -8,6 +8,7 @@ import HotelInput from "./HotelInput";
 import TransportInput from "./TransportInput";
 import { addPackage, updatePackage } from '../../api/packageApi'
 import { BASE_URL } from '../../api/api'
+import { useNavigate } from 'react-router-dom'
 
 export default function PackageCreate() {
   // const packages = useContext(UserContext).places;
@@ -44,7 +45,8 @@ export default function PackageCreate() {
   const [searchDestination, setSearchDestination] = useState("");
   const [previewImage, setPreviewImage] = useState("");
   const [mode, setMode] = useState("")
-  const [packid, setPackid] = useState(null)
+  const [packid, setPackid] = useState(null);
+  const navigate = useNavigate();
 
   const filteredDestinations = destinations.filter(item =>
     item.name.toLowerCase().includes(searchDestination.toLowerCase())
@@ -77,6 +79,10 @@ export default function PackageCreate() {
     }
 
   };
+  const handleSaveAsPackage = async => {
+    setMode("add");
+    handleAddPackage();
+  }
   const handleAddPackage = async () => {
     const formData = new FormData()
     formData.append("name", name);
@@ -108,7 +114,11 @@ export default function PackageCreate() {
     // );
     formData.append("languages", JSON.stringify(languages))
 
-    if (coverImage) {
+    // if (coverImage) {
+    //   formData.append("image", coverImage);
+    // }
+    // Append image only if the user selects a new image
+    if (coverImage instanceof File) {
       formData.append("image", coverImage);
     }
 
@@ -129,12 +139,17 @@ export default function PackageCreate() {
       return;
     }
     try {
+      let data;
       if (mode == "edit") {
-        const data = await updatePackage(packid, formData)
+        data = await updatePackage(packid, formData)
       } else {
-        const data = await addPackage(formData);
+        data = await addPackage(formData);
       }
-      console.log("package added " + data)
+      console.log(mode, " = package added:- " + data)
+      window.alert(
+        `Package ${mode === 'edit' ? 'updated' : 'added'} successfully`
+      );
+      navigate('/packages/addpackage/packagelist');
     } catch (error) {
       console.log(error)
     }
@@ -264,7 +279,7 @@ export default function PackageCreate() {
     // Existing image URL
     setPreviewImage(
       pack.coverImage
-        ? `${BASE_URL}${pack.coverImage}`
+        ? `${BASE_URL.replace(/\/+$/, "")}/${pack.coverImage.replace(/^\/+/, "")}`
         : ""
     );
     setCoverImage(null);
@@ -608,6 +623,8 @@ export default function PackageCreate() {
           </div>
           <div className='mb-2 '>
             <button className='btn btn-primary bgTeal' onClick={(e) => handleAddPackage()}>{mode == "edit" ? 'Update Package' : 'Add Package'}</button>
+            <button className='btn btn-primary bgTeal m-1' onClick={(e) => handleSaveAsPackage()}
+              style={{ display: mode == "edit" ? 'block' : 'none' }}>Save As New Package</button>
           </div>
         </div>
 

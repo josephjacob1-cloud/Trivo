@@ -12,7 +12,7 @@ export const SIGNUP_URL=`/auth/signup`
 
 //CUSTOMER VIEW
 export const GET_PACKAGES_CUSTOMERS=`/customer/viewCustomerPackagesDetail`;
-
+export const GET_PACKAGE_BY_ID=`/customer/viewCustomerPackagesDetailById`;
 //Admin view show all
 export const GET_ALL_PACKAGES=`/packages/getPackages`;
 
