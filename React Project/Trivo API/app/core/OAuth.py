@@ -26,4 +26,5 @@ async def verify_token(db:AsyncSession=Depends(get_db), token:str=Depends(oauth2
             raise credential_exception
     except JWTError as e:
         raise credential_exception
+    print(payload)
     return payload

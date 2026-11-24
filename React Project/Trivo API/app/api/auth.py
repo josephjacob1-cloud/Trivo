@@ -1,9 +1,11 @@
+from uuid import UUID
+
 from fastapi import APIRouter, Depends, status
 from app.core.OAuth import verify_token
-from app.schema.user import UserCreate, Login, UserSignupResponse
+from app.schema.user import UserCreate, Login, UserSignupResponse, UserProfileResponse, UserUpdate, UserPasswordUpdate
 from app.db.database import get_db
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.crud.auth import add_user, user_login, user_login_OAuth
+from app.crud.auth import add_user, user_login, user_login_OAuth, get_user_data, get_user_Profile_update, get_user_Password_update
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
@@ -26,3 +28,14 @@ async def login(user:OAuth2PasswordRequestForm=Depends(), db:AsyncSession=Depend
 # async def packages(db:AsyncSession=Depends(get_db),token:dict = Depends(verify_token)):
 #     return {"token":token}
 
+@router.get("/getUser/{id}", response_model=UserProfileResponse)
+async def getUser(id:UUID, db:AsyncSession=Depends(get_db)):
+    return await get_user_data(id, db)
+
+@router.patch("/updateUser/{id}", response_model=UserProfileResponse)
+async def updateUser(id:UUID, update:UserUpdate, db:AsyncSession = Depends(get_db)):
+    return await get_user_Profile_update(id, update, db)
+
+@router.patch("/changeUserPassword/{id}", response_model=UserProfileResponse)
+async def updateUser(id:UUID, updatePWD:UserPasswordUpdate, db:AsyncSession = Depends(get_db)):
+    return await get_user_Password_update(id, updatePWD, db)

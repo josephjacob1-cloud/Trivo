@@ -8,18 +8,25 @@ import { NavLink, replace, useLocation, useNavigate } from "react-router-dom"
 export default function Navbar() {
     const user = useContext(UserContext)
     const navigate = useNavigate()
-    const onLogOut=()=>{
-        user.setIsLogin(false);
-        user.setUserName("Guest");
+    const access_token = localStorage.getItem("access_token");
+    const userName = localStorage.getItem("name") ? localStorage.getItem("name") :"guest";
+    const onLogOut = () => {
+        // user.setIsLogin(false);
+        // user.setUserName("Guest");
+        localStorage.removeItem("access_token");
+        localStorage.removeItem("token_type");
+        localStorage.removeItem("name");
+        localStorage.removeItem("role");
+        localStorage.removeItem("userID");
         //navigate('login')   
     }
     const location = useLocation();
-  useEffect(()=>{
-    console.log('urlPath : '+location.pathname )
-    if(location.pathname !== '/consultant/addnew'){
-        user.setConsultants(null)
-    }
-  }, [location]);
+    useEffect(() => {
+        console.log('urlPath : ' + location.pathname)
+        if (location.pathname !== '/consultant/addnew') {
+            user.setConsultants(null)
+        }
+    }, [location]);
     return (<>
 
         <div>
@@ -53,18 +60,18 @@ export default function Navbar() {
                     <div className="NavBar">
                         <NavLink to={''} end><span className="nav-link">Home</span></NavLink>
                         <NavLink to={'packages'}><span className="nav-link" >Packages</span></NavLink>
-                        <NavLink to={'consultant'}><span className="nav-link" >Consultant</span></NavLink>                        
+                        <NavLink to={'consultant'}><span className="nav-link" >Consultant</span></NavLink>
                         <NavLink to={'mybooking'}><span className="nav-link" >My Bookings</span></NavLink>
                         <NavLink to={'contact'}><span className="nav-link" >Contact</span></NavLink>
                         <NavLink to={'about'}><span className="nav-link" >About</span></NavLink>
-                       <NavLink to={'login'}><span className="nav-link" onClick={(e)=>onLogOut()} style={{cursor:'pointer'}}>
+                        <NavLink to={'login'}><span className="nav-link" onClick={(e) => onLogOut()} style={{ cursor: 'pointer' }}>
                             {
-                                !user.isLogin ? 'Login' : 'LogOut'
+                                !access_token? 'Login' : 'LogOut'
                             }
                         </span></NavLink>
-
+                            <NavLink to={'profile'}> <span><i class="bi bi-person-square colTeal"></i> {userName.toUpperCase()}</span></NavLink>
                     </div>
-                    <span><i class="bi bi-person-square colTeal"></i> {user.userName}</span>
+                   
                     {/* <div className="collapse navbar-collapse" id="trivoNavbarMenu">
                         <ul className="navbar-nav ms-auto fw-medium gap-2">
                             <li className="nav-item">

@@ -18,6 +18,10 @@ export async function apiRequest(endpoint, options = {}) {
         } else if (options.body && !headers["Content-Type"]) {
             headers["Content-Type"] = "application/json";
         }
+        const token = localStorage.getItem("access_token");
+        if (token) {
+            headers["Authorization"] = `Bearer ${token}`;
+        }
 
         const response = await fetch(`${API_BASE_URL}${endpoint}`, {
             ...options,

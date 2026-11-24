@@ -7,6 +7,9 @@ export const BASE_JSON_URL = "http://localhost:3000"
 
 export const LOGIN_URL=`/auth/login`
 export const SIGNUP_URL=`/auth/signup`
+export const USER_PROFILE=`/auth/getUser`
+export const USER_PROFILE_UPDATE = `/auth/updateUser`
+export const USER_PASSWORD_UPDATE = `/auth/changeUserPassword`
 
 // PACKAGES
 

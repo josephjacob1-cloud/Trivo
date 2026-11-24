@@ -6,8 +6,8 @@ import { userLogin } from '../api/authAPI'
 
 export default function Login() {
     const userData = useContext(UserContext)
-    const [username, setName] = useState("syamb@syam.com")
-    const [password, setPwd] = useState("syam")
+    const [username, setName] = useState("mani@example.com")
+    const [password, setPwd] = useState("mani")
     const [serverResponse, setServerResponse] = useState("")
     const navigate = useNavigate()
     useEffect(() => {
@@ -25,8 +25,9 @@ export default function Login() {
             localStorage.setItem("access_token", data.access_token);
             localStorage.setItem("role", data.role);
             localStorage.setItem("name", data.name);
-            userData.setIsLogin(true)
-            userData.setUserName(String(data.name).toUpperCase())
+            localStorage.setItem("userID", data.id);
+            // userData.setIsLogin(true)
+            // userData.setUserName(String(data.name).toUpperCase())
             navigate(-1)
             // const request = await fetch(LOGIN_URL,
             //     {

@@ -33,6 +33,8 @@ import DestinationCreate from './components/destination/DestinationCreate'
 import ScrollToTop from './components/ScrollToTop'
 import { GET_PACKAGES_CUSTOMERS } from './api/api'
 import DestinationImages from './components/destination/DestinationImages'
+import Unauthorized from './components/unauthorized'
+import Profile from './components/Profile'
 
 
 
@@ -3942,7 +3944,9 @@ function App() {
             <Route path='signup' element={<SignUp></SignUp>}></Route>
             <Route path='contact' element={<ContactUs></ContactUs>}></Route>
             <Route path='about' element={<AboutUs></AboutUs>}></Route>
-            <Route element={<ProtectedRoute> </ProtectedRoute>}>
+            <Route path='unauthorized' element={<Unauthorized></Unauthorized>}></Route>
+            <Route path='profile' element={<Profile></Profile>}></Route>
+            <Route element={<ProtectedRoute allowedRoles={["admin"]}> </ProtectedRoute>}>            
               <Route path='packages' element={<Outlet />} >
                 <Route path='' element={<Packages></Packages>}></Route>
                 <Route path='view/:id' element={<PackageView></PackageView>}></Route>
@@ -3960,7 +3964,7 @@ function App() {
 
 
               </Route>
-              <Route path='addpackage' element={<PackageManagement></PackageManagement>}></Route>
+              {/* <Route path='addpackage' element={<PackageManagement></PackageManagement>}></Route> */}
               <Route path='mybooking' element={<MyBooking></MyBooking>}>
                 <Route path='' element={<MyTours></MyTours>}></Route>
                 <Route path='enquiry' element={<MyEnquiry></MyEnquiry>}></Route>

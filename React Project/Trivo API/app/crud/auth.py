@@ -1,7 +1,9 @@
+from uuid import UUID
+
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from app.model.user import User
-from app.schema.user import UserCreate
+from app.schema.user import UserCreate, UserUpdate, UserPasswordUpdate
 from fastapi import APIRouter, HTTPException, status, Depends
 from app.core.security import create_hash_password, verify_hash_password
 from fastapi.security import OAuth2PasswordRequestForm
@@ -54,4 +56,43 @@ async def user_login_OAuth(user:OAuth2PasswordRequestForm, db:AsyncSession):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Password mismatch----")
     data = {"username":user.username, "role":exist.role, "id":str(exist.id)}
     token = await create_token(data)    
-    return {"access_token":token, "token_type":"bearer", "name":exist.name, "role":exist.role}
+    return {"access_token":token, "token_type":"bearer", "name":exist.name, "role":exist.role, "id":exist.id}
+
+
+async def get_user_data(id:UUID, db:AsyncSession):
+    data = await db.execute(select(User).where(User.id == id))
+    user = data.scalar_one_or_none()
+    if not user:
+        raise HTTPException(
+            status_code=404,
+            detail="User not found"
+        )
+    return user
+
+async def get_user_Profile_update(id:UUID, update:UserUpdate, db:AsyncSession):
+    data = await db.execute(select(User).where(User.id == id))
+    user = data.scalar_one_or_none()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found" )
+    update_data = update.model_dump(exclude_unset=True)
+
+    for key, value in update_data.items():
+        setattr(user, key, value)
+
+    await db.commit()
+    await db.refresh(user)
+    return user
+
+
+async  def get_user_Password_update(id:UUID, update:UserPasswordUpdate, db:AsyncSession):
+    data = await db.execute(select(User).where(User.id == id))
+    user = data.scalar_one_or_none()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found" )
+    if not verify_hash_password(update.oldPassword, user.password):
+            raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Current password is mismatch")
+    if update.password is not None:
+        user.password = create_hash_password(update.password)
+    await db.commit()
+    await db.refresh(user)
+    return user
