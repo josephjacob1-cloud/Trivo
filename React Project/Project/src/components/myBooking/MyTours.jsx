@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import '../../css/style.css'
+import { getCustomerBooking } from '../../api/customerApi'
+
 export default function MyTours() {
-  const bookings = [
+  const [bookings, setBookings] = useState([{
+      "id": 1,
+      "packageName": "Amazing Kerala",
+      "bookingId": "BK1001",
+      "customerName": "John Mathew",
+      
+      "consultantId": "TC001",
+      "consultantName": "Aarav Sharma",
+      "travelDate": "2026-09-10",
+      "persons": 2,
+      "totalAmount": 25000,
+      "status": "Confirmed"
+    }])
+  const bookings_jsoc = [
     {
       "id": 1,
       "packageName": "Amazing Kerala",
@@ -77,18 +92,44 @@ export default function MyTours() {
       "status": "Pending"
     }
   ]
+  // setBookings(bookings_jsoc)
+  const role = localStorage.getItem("role");
+  const getBookings = async()=>{
+    let data;
+    if(role == "customer"){
+      data = await getCustomerBooking()
+    } 
+    else if(role == "agent"){
+      // data = await getAllBooking()
+    }
+    console.log(data)
+    setBookings(data)
+  }
+  useEffect(()=>{
+    getBookings()
+  },[])
   const cleanKey = (key) => key.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase()).trim();
   return (
     <div>
+      
       <p className='h3'>My Tour Booking</p>
       <div>
         <table className='consultantTable'>
           <tr>
-            {
+            {/* {
               Object.keys(bookings[0]).map((key, value) =>
                 <th key={key} >{cleanKey(key)}</th>
               )
-            }
+            } */}
+            <th>ID</th>
+            <th>Package</th>
+            <th>Booking Number</th>
+            <th>Date</th>
+            <th>Adults</th>
+            <th>Children</th>
+            <th>Amount</th>
+            <th>Payment Status</th>
+            <th></th>
           </tr>
           {
             bookings.map((tour, i) =>

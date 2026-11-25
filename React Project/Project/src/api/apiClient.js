@@ -1,10 +1,18 @@
 
+import {logoutUser} from "../utils/authUtils"
 const API_BASE_URL =
     import.meta.env.VITE_API_BASE_URL || "http://127.0.0.1:8000";
 
 export async function apiRequest(endpoint, options = {}) {
     console.log("API CALL:", endpoint);
-
+    // const logoutUser = () => {
+    //     localStorage.removeItem("access_token");
+    //     localStorage.removeItem("token_type");
+    //     localStorage.removeItem("name");
+    //     localStorage.removeItem("role");
+    //     localStorage.removeItem("userID");
+    //     window.location.href = "/login";
+    // };
     try {
         const isFormData = options.body instanceof FormData;
 
@@ -28,11 +36,14 @@ export async function apiRequest(endpoint, options = {}) {
             headers,
         });
 
-        if (response.status === 204) {
-            return null;
-        }
+        const data = response.status === 204
+            ? null
+            : await response.json();
+        if (response.status === 401) {
+            logoutUser();
 
-        const data = await response.json();
+            throw new Error("Session expired. Please login again.");
+        }
 
         console.log(endpoint, "::", data);
 

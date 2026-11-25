@@ -17,6 +17,7 @@ export default function PackageView() {
     // const pack = useContext(UserContext).selectedPackage;
     // const IMG_PATH = "http://127.0.0.1:8000/";
     const navigate = useNavigate()
+     const role = localStorage.getItem("role");
     const loadPackage = async (packageId) => {
         try {
             console.log("Fetching package:", packageId);
@@ -70,7 +71,7 @@ export default function PackageView() {
                 <div className="container-fluild mx-4">
                     <div className="row">
                         <div className="col-sm-9 mt-2">
-                            <p className="textHeadWhite" onClick={() => { navigate('/packages') }}>
+                            <p className="textHeadWhite" onClick={() => { navigate(-1) }}>
                                 <i class="bi bi-box-arrow-left me-2"></i>
                                 <span>Back to Packages</span></p>
                             <p style={{ visibility: pack.featured ? 'visible' : 'none', width: '120px' }} className="featuresDivItems">
@@ -119,7 +120,8 @@ export default function PackageView() {
                                 {pack.cancellationPolicy}
                             </p>
                             <p>
-                                <button className="btn btn-primary w-100 bgTeal mb-3 fw-bold disabled">Book Now</button>
+                                <button className="btn btn-primary w-100 bgTeal mb-3 fw-bold " onClick={() => navigate(`/customer/booking/${pack.id}`)}>Book Now</button>
+                           
                                 <button className="btn btn-white w-100 btn-outline-primary fw-bold disabled">Enquire Now</button>
                             </p>
 

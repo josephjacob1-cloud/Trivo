@@ -58,7 +58,6 @@ async def user_login_OAuth(user:OAuth2PasswordRequestForm, db:AsyncSession):
     token = await create_token(data)    
     return {"access_token":token, "token_type":"bearer", "name":exist.name, "role":exist.role, "id":exist.id}
 
-
 async def get_user_data(id:UUID, db:AsyncSession):
     data = await db.execute(select(User).where(User.id == id))
     user = data.scalar_one_or_none()

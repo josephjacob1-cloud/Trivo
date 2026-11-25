@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, status, Depends
 from uuid import UUID
 from app.core.OAuth import verify_token
-from app.core.config import USER_CUSTOMER, USER_ADMIN
+from app.core.config import USER_CUSTOMER, USER_AGENT
 from app.db.database import get_db
 from app.crud.customer import book_package, view_customer_package, get_my_booking, add_contact_us, add_review, get_all_review, get_review_package_id, update_review, delete_review, view_customer_package_detail, view_customer_package_detail_id
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -17,8 +17,8 @@ async def viewCustomerPackages(db:AsyncSession=Depends(get_db), payload:dict = D
 
 @router.get("/viewCustomerPackagesDetail")
 async def viewCustomerPackagesDetail(db:AsyncSession=Depends(get_db), payload:dict = Depends(verify_token)):
-    print(payload.get("role"), USER_CUSTOMER, USER_ADMIN)
-    if payload.get("role") not in (USER_CUSTOMER, USER_ADMIN):
+    print(payload.get("role"), USER_CUSTOMER, USER_AGENT)
+    if payload.get("role") not in (USER_CUSTOMER, USER_AGENT):
        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Only customer can se the packages") 
     return await view_customer_package_detail(db)
 
@@ -29,6 +29,8 @@ async def viewCustomerPackagesDetailById(id:int, db:AsyncSession=Depends(get_db)
 
 @router.post("/bookPackage")
 async def bookPackage(booking:BookingCreate, db:AsyncSession=Depends(get_db), payload:dict=Depends(verify_token)):
+    if payload.get("role") != USER_CUSTOMER:
+            raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Only customer can book packeges") 
     return await book_package(booking, db, payload)
 
 @router.get("/getMyBooking")

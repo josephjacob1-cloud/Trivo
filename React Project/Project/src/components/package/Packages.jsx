@@ -17,7 +17,7 @@ export default function Packages() {
     // const packages = userData.places.slice(0, 12);
     const [packages, setPackages] = useState([])
     const navigate = useNavigate()
-    
+    const role = localStorage.getItem("role");
      useEffect(()=>{
        window.scrollTo(0, 0);
        handlePackages()
@@ -52,7 +52,17 @@ export default function Packages() {
             
             <div className='packagesHeadSec'>
                 <div style={{textAlign:'right'}} className='pt-2 px-2'>
-                    <button className='btn btn-info text-white fw-bold' onClick={(e)=>navigate('addpackage')}>+Add Package</button></div>
+                    {/* <button className='btn btn-info text-white fw-bold' onClick={(e)=>navigate('addpackage')}>+Add Package</button> */}
+                    {(role === "agent" || role === "consultant") && (
+                        <button
+                            className="btn btn-info text-white fw-bold"
+                            onClick={() => navigate("addpackage")}
+                        >
+                            + Add Package
+                        </button>
+                    )}
+                    
+                    </div>
                 <div className='pkHeadTexts'>
                     <p className='pkTxt1'>Home {'>'} Tour Packages</p>
                     <p className='h1 pkTxt2'>Explore Amazing <br />Tour Packages</p>

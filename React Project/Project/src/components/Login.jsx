@@ -3,11 +3,12 @@ import UserContext from './UserContext'
 import '../css/style.css'
 import { useNavigate } from 'react-router-dom'
 import { userLogin } from '../api/authAPI'
+import {loginUser} from "../utils/authUtils"
 
 export default function Login() {
     const userData = useContext(UserContext)
-    const [username, setName] = useState("mani@example.com")
-    const [password, setPwd] = useState("mani")
+    const [username, setName] = useState("jj@jj.com")
+    const [password, setPwd] = useState("jj")
     const [serverResponse, setServerResponse] = useState("")
     const navigate = useNavigate()
     useEffect(() => {
@@ -20,37 +21,10 @@ export default function Login() {
                 return false;
             }
             const params = { username, password }
-            const data = await userLogin(params)
-            // localStorage.setItem('access_token', { "token": data.access_token, "role": data.role })
-            localStorage.setItem("access_token", data.access_token);
-            localStorage.setItem("role", data.role);
-            localStorage.setItem("name", data.name);
-            localStorage.setItem("userID", data.id);
-            // userData.setIsLogin(true)
-            // userData.setUserName(String(data.name).toUpperCase())
+            const data = await userLogin(params)           
+            loginUser(data);            
             navigate(-1)
-            // const request = await fetch(LOGIN_URL,
-            //     {
-            //         method:'POST',
-            //         headers:{'Content-Type': 'application/x-www-form-urlencoded'},
-            //         body:params
-            //     }
-            // )
-            // const response = await request.json();
-            // if(!request.ok){
-            //     setServerResponse("Login failed")
-            // }
-            // else{
-            //     console.log(response.role)
-            //     console.log(response.name)
-            //     console.log(response.access_token)
-            //     localStorage.setItem('access_token', {"token":response.access_token,"role":response.role})
-            //     userData.setIsLogin(true)
-            //     userData.setUserName(String(response.name).toUpperCase())
-            //     navigate(-1)
-            // }
-
-
+            
         } catch (error) {
             setServerResponse("Error : " + error.message)
         }

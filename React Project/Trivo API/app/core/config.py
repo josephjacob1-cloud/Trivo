@@ -14,7 +14,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES"))
 USER_CUSTOMER = "customer";
 USER_CONSULTANT = "consultant";
 USER_AGENT = "agent";
-USER_ADMIN = "admin";
+USER_ADMIN = "agent";
 
 
 UPLOAD_DIR_PACKAGE_COVER = Path("uploads/packages/cover")

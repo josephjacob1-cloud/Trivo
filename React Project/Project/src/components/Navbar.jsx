@@ -4,23 +4,29 @@ import Logo from "../assets/logo-noBG.png"
 import LogoBG from "../assets/logo.png"
 import '../css/style.css'
 import { NavLink, replace, useLocation, useNavigate } from "react-router-dom"
+import { logoutUser } from "../utils/authUtils"
 
 export default function Navbar() {
     const user = useContext(UserContext)
     const navigate = useNavigate()
     const access_token = localStorage.getItem("access_token");
-    const userName = localStorage.getItem("name") ? localStorage.getItem("name") :"guest";
-    const onLogOut = () => {
-        // user.setIsLogin(false);
-        // user.setUserName("Guest");
-        localStorage.removeItem("access_token");
-        localStorage.removeItem("token_type");
-        localStorage.removeItem("name");
-        localStorage.removeItem("role");
-        localStorage.removeItem("userID");
-        //navigate('login')   
-    }
+    const userName = localStorage.getItem("name") ? localStorage.getItem("name") : "guest";
+    const role = localStorage.getItem("role");
     const location = useLocation();
+    const packagePath =
+        role === "customer" ? "/customer/packages" :
+        role === "agent" ? "/agent/packages" :
+        "/packages";
+
+    const isPackagesActive =
+        location.pathname.startsWith("/packages") ||
+        location.pathname.startsWith("/customer/packages") ||
+        location.pathname.startsWith("/agent/packages") ||
+        location.pathname.startsWith("/consultant/packages");
+    const onLogOut = () => {
+        logoutUser();
+    }
+
     useEffect(() => {
         console.log('urlPath : ' + location.pathname)
         if (location.pathname !== '/consultant/addnew') {
@@ -59,19 +65,38 @@ export default function Navbar() {
 
                     <div className="NavBar">
                         <NavLink to={''} end><span className="nav-link">Home</span></NavLink>
-                        <NavLink to={'packages'}><span className="nav-link" >Packages</span></NavLink>
-                        <NavLink to={'consultant'}><span className="nav-link" >Consultant</span></NavLink>
-                        <NavLink to={'mybooking'}><span className="nav-link" >My Bookings</span></NavLink>
+                        <NavLink to={packagePath}
+                            className={isPackagesActive ? "active" : ""}>
+                            <span className="nav-link">Packages</span>
+                        </NavLink>
+
+                        {/* <NavLink to={'consultant'}><span className="nav-link" >Consultant</span></NavLink>
+                        <NavLink to={'mybooking'}><span className="nav-link" >My Bookings</span></NavLink> */}
+                        {role === "customer" && (
+                            <>
+                                <NavLink to="/customer/mybooking">
+                                    <span className="nav-link">My Bookings</span>
+                                </NavLink>
+                            </>
+                        )}
+
+                        {role === "agent" && (
+                            <>
+                                <NavLink to="/agent/consultant">
+                                    <span className="nav-link">Consultant</span>
+                                </NavLink>
+                            </>
+                        )}
                         <NavLink to={'contact'}><span className="nav-link" >Contact</span></NavLink>
                         <NavLink to={'about'}><span className="nav-link" >About</span></NavLink>
                         <NavLink to={'login'}><span className="nav-link" onClick={(e) => onLogOut()} style={{ cursor: 'pointer' }}>
                             {
-                                !access_token? 'Login' : 'LogOut'
+                                !access_token ? 'Login' : 'LogOut'
                             }
                         </span></NavLink>
-                            <NavLink to={'profile'}> <span><i class="bi bi-person-square colTeal"></i> {userName.toUpperCase()}</span></NavLink>
+                        <NavLink to={'profile'}> <span><i class="bi bi-person-square colTeal"></i> {userName.toUpperCase()}</span></NavLink>
                     </div>
-                   
+
                     {/* <div className="collapse navbar-collapse" id="trivoNavbarMenu">
                         <ul className="navbar-nav ms-auto fw-medium gap-2">
                             <li className="nav-item">

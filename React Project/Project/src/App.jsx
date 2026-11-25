@@ -35,6 +35,7 @@ import { GET_PACKAGES_CUSTOMERS } from './api/api'
 import DestinationImages from './components/destination/DestinationImages'
 import Unauthorized from './components/unauthorized'
 import Profile from './components/Profile'
+import Booking from './components/customer/Booking'
 
 
 
@@ -3890,7 +3891,7 @@ function App() {
   const [totalConsultantList, setTotalConsultantList] = useState([])
   const [consultants, setConsultants] = useState(null)
   const [destination, setDestination] = useState({})
-  const userData = { isLogin, setIsLogin, userName, setUserName, page, setPage, selectedPackage, setSelectedPackage, places, setPlaces, consultants, setConsultants, setTotalConsultantList, destination, setDestination }
+  const userData = { page, setPage, selectedPackage, setSelectedPackage, places, setPlaces, consultants, setConsultants, setTotalConsultantList, destination, setDestination }
   // useEffect(() => {
   //   console.log(selectedPackage.name)
   //   console.log(selectedPackage.highlights)
@@ -3946,62 +3947,72 @@ function App() {
             <Route path='about' element={<AboutUs></AboutUs>}></Route>
             <Route path='unauthorized' element={<Unauthorized></Unauthorized>}></Route>
             <Route path='profile' element={<Profile></Profile>}></Route>
-            <Route element={<ProtectedRoute allowedRoles={["admin"]}> </ProtectedRoute>}>            
-              <Route path='packages' element={<Outlet />} >
-                <Route path='' element={<Packages></Packages>}></Route>
-                <Route path='view/:id' element={<PackageView></PackageView>}></Route>
-                <Route path='addpackage' element={<PackageManagement></PackageManagement>}>
-                  <Route path="" element={<PackageCreate></PackageCreate>}></Route>
-                  <Route path="packagelist" element={<PackageList></PackageList>}></Route>
-                  <Route path='packageapprovals' element={<PackageApprovals></PackageApprovals>}></Route>
 
-                </Route>
-                <Route path='adddestination' element={<DestinationManagement></DestinationManagement>}>
-                  <Route path='' element={<DestinationCreate></DestinationCreate>}></Route>
-                  <Route path='destinationlist' element={<DestinationList></DestinationList>}></Route>
-                  <Route path='imageDestination' element={<DestinationImages></DestinationImages>}></Route>
-                </Route>
-
-
-              </Route>
-              {/* <Route path='addpackage' element={<PackageManagement></PackageManagement>}></Route> */}
-              <Route path='mybooking' element={<MyBooking></MyBooking>}>
-                <Route path='' element={<MyTours></MyTours>}></Route>
-                <Route path='enquiry' element={<MyEnquiry></MyEnquiry>}></Route>
-                <Route path='support' element={<MySupport></MySupport>}></Route>
-                <Route path='approvals' element={<MyApprovals></MyApprovals>}></Route>
-              </Route>
-
-              <Route path='consultant' element={<Consultant></Consultant>}>
-                <Route path='' element={<ConsultantList></ConsultantList>}></Route>
-                <Route path='reports' element={<ConsultantReports></ConsultantReports>}></Route>
-                <Route path='tours' element={<ConsultantAssign></ConsultantAssign>}></Route>
-                <Route path='addnew' element={<ConsultantRegistration></ConsultantRegistration>}></Route>
-              </Route>
+            <Route element={<ProtectedRoute allowedRoles={["agent", "customer", "consultant"]} />}>
+              <Route path="packages/view/:id" element={<PackageView />} />
             </Route>
 
-          </Routes>
-          <Footer></Footer>
-        </UserContext.Provider>
+            <Route element={<ProtectedRoute allowedRoles={["customer"]} />}>
+
+              {/* Browse packages */}
+              
+            <Route path="customer" element={<Outlet />}>
+              <Route path="/customer/packages" element={<Packages />} />
+              <Route path="booking/:id" element={<Booking />}></Route>
+            </Route>
+              
+
+            {/* Customer bookings */}
+            <Route path="/customer/mybooking" element={<MyBooking />}>
+              <Route path="" element={<MyTours />} />
+              <Route path="enquiry" element={<MyEnquiry />} />
+              <Route path="support" element={<MySupport />} />
+              <Route path="approvals" element={<MyApprovals />} />
+            </Route>
+
+            {/* Customer profile */}
+            <Route path="profile" element={<Profile />} />
+
+          </Route>
 
 
-        {/* <Packages></Packages>
-        <PackageView></PackageView>
-        <ContactUs></ContactUs>
-        <AboutUs></AboutUs>
+          <Route element={<ProtectedRoute allowedRoles={["agent"]}> </ProtectedRoute>}>
+            <Route path='' element={<Outlet />} >
+              <Route path='/agent/packages' element={<Packages></Packages>}></Route>
+              {/* <Route path='/agent/packages/view/:id' element={<PackageView></PackageView>}></Route> */}
+              <Route path='addpackage' element={<PackageManagement></PackageManagement>}>
+                <Route path="" element={<PackageCreate></PackageCreate>}></Route>
+                <Route path="packagelist" element={<PackageList></PackageList>}></Route>
+                <Route path='packageapprovals' element={<PackageApprovals></PackageApprovals>}></Route>
 
-        <Home></Home>
+              </Route>
+              <Route path='adddestination' element={<DestinationManagement></DestinationManagement>}>
+                <Route path='' element={<DestinationCreate></DestinationCreate>}></Route>
+                <Route path='destinationlist' element={<DestinationList></DestinationList>}></Route>
+                <Route path='imageDestination' element={<DestinationImages></DestinationImages>}></Route>
+              </Route>
 
 
+            </Route>
+            <Route path='mybooking' element={<MyBooking></MyBooking>}>
+              <Route path='' element={<MyTours></MyTours>}></Route>
+              <Route path='enquiry' element={<MyEnquiry></MyEnquiry>}></Route>
+              <Route path='support' element={<MySupport></MySupport>}></Route>
+              <Route path='approvals' element={<MyApprovals></MyApprovals>}></Route>
+            </Route>
 
-        <MyBooking></MyBooking>
-        <Consultant></Consultant>
+            <Route path='consultant' element={<Consultant></Consultant>}>
+              <Route path='' element={<ConsultantList></ConsultantList>}></Route>
+              <Route path='reports' element={<ConsultantReports></ConsultantReports>}></Route>
+              <Route path='tours' element={<ConsultantAssign></ConsultantAssign>}></Route>
+              <Route path='addnew' element={<ConsultantRegistration></ConsultantRegistration>}></Route>
+            </Route>
+          </Route>
 
-
-        <Footer></Footer> */}
-
-
-      </div>
+        </Routes>
+        <Footer></Footer>
+      </UserContext.Provider>
+    </div >
 
     </>
   )

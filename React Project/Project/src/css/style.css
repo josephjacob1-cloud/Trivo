@@ -263,7 +263,10 @@ body {
 .NavBar .active {
     font-weight: bold;
 }
-
+.NavBar a.active .nav-link {
+    color: #0F9D9A !important;
+    font-weight: 700;
+}
 .tableContainer {
     margin: 24px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
