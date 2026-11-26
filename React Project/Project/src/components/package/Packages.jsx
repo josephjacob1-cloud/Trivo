@@ -7,36 +7,28 @@ import { BASE_URL, GET_PACKAGES_CUSTOMERS } from '../../api/api';
 import { getPackages } from '../../api/packageApi';
 export default function Packages() {
 
-    
-    // const IMG_PATH = "http://127.0.0.1:8000/"
-    // const IMG_PATH = "src/assets/places/"
-
-
 
     const userData = useContext(UserContext)
     // const packages = userData.places.slice(0, 12);
     const [packages, setPackages] = useState([])
     const navigate = useNavigate()
     const role = localStorage.getItem("role");
-     useEffect(()=>{
-       window.scrollTo(0, 0);
-       handlePackages()
-    },[])
+    const [searchKey, setSearchKey] = useState("")
+    // const [destinationFilter, setDestinationFilter] = useState("");
+    // const [durationFilter, setDurationFilter] = useState("");
+    // const [budgetFilter, setBudgetFilter] = useState("");
+    // const [sortBy, setSortBy] = useState("latest");
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        handlePackages()
+    }, [])
 
 
     const handlePackages = async () => {
         console.log("fetching DB")
         try {
-            // const response = await fetch( 
-            //     GET_PACKAGES_CUSTOMERS
-            // );
-            // const data = await response.json();
-            // userData.setPlaces(data)
-            // if (!response.ok) {
-            //     throw new Error("Failed to fetch packages");
-            // }else{        
-            //     userData.setSelectedPackage(null)  
-            // }        
+
             const data = await getPackages()
             setPackages(data)
             // userData.setPlaces(data)
@@ -45,13 +37,25 @@ export default function Packages() {
             console.log(err.message);
         }
     };
+    const filteredPackages = packages.filter((p) => {
+        const search = searchKey.toLowerCase().trim();
 
+        return (
+            p.packageName?.toLowerCase().includes(search) ||
+            p.name?.toLowerCase().includes(search) ||
+            p.category?.toLowerCase().includes(search) ||
+            p.destination?.some((d) =>
+                d.city?.toLowerCase().includes(search) ||
+                d.country?.toLowerCase().includes(search)
+            )
+        );
+    });
 
     return (<>
         <div >
-            
+
             <div className='packagesHeadSec'>
-                <div style={{textAlign:'right'}} className='pt-2 px-2'>
+                <div style={{ textAlign: 'right' }} className='pt-2 px-2'>
                     {/* <button className='btn btn-info text-white fw-bold' onClick={(e)=>navigate('addpackage')}>+Add Package</button> */}
                     {(role === "agent" || role === "consultant") && (
                         <button
@@ -61,14 +65,14 @@ export default function Packages() {
                             + Add Package
                         </button>
                     )}
-                    
-                    </div>
+
+                </div>
                 <div className='pkHeadTexts'>
                     <p className='pkTxt1'>Home {'>'} Tour Packages</p>
                     <p className='h1 pkTxt2'>Explore Amazing <br />Tour Packages</p>
                     <p className='pkTxt3'>Find the best destination around the world with our exclusice tour packages</p>
                     <div className="input-group">
-                        <input type="search" className="form-control" placeholder="Search tou destination or packages" aria-label="Search" aria-describedby="search-addon" />
+                        <input value={searchKey} onChange={(e) => setSearchKey(e.target.value)} type="search" className="form-control" placeholder="Search tou destination or packages" aria-label="Search" aria-describedby="search-addon" />
                         <span className="input-group-text" id="search-addon">
                             <i className="bi bi-search"></i>
                         </span>
@@ -150,41 +154,47 @@ export default function Packages() {
 
             </div>
             <div className='container'>
-                <div className='row ' style={{ display: 'flex', flexWrap: 'wrap' }}>
-                    {
-                        packages.map((p, i) =>
+                <div className='container'>
+                    <div className='row' style={{ display: 'flex', flexWrap: 'wrap' }}>
 
-                            // <div className="col-sm-3 placeCard">
-                            //     <img src={IMG_PATH + p.images.cover} alt={p.name} className='placeImg' />
-                            //     <div className="placeCardText">
-                            //         <p className='pTitleTxt'>{p.name}</p>
-                            //         <p className='pLocTxr'>{p.city} | {p.country}</p>
-                            //     </div>
-                            // </div>
-                            // <PackageCard pack={p} path={IMG_PATH}></PackageCard>
-                            <Card key={p.id} pack={p} path={BASE_URL} select= {userData.setSelectedPackage}></Card>
-                        )
-                    }
+                        {filteredPackages.length > 0 ? (
+                            filteredPackages.map((p) => (
+                                <Card
+                                    key={p.id}
+                                    pack={p}
+                                    path={BASE_URL}
+                                    select={userData.setSelectedPackage}
+                                />
+                            ))
+                        ) : (
+                            <div className="col-12 text-center py-5">
+                                <h5>No packages found</h5>
+                                <p className="text-muted">
+                                    Try searching with another package name or destination.
+                                </p>
+                            </div>
+                        )}
 
+                    </div>
                 </div>
             </div>
 
         </div>
     </>)
 }
-function Card({pack, path, select}) {
+function Card({ pack, path, select }) {
     const navigate = useNavigate()
     const coverImage = pack.coverImage
-            ? `${path.replace(/\/+$/, "")}/${pack.coverImage.replace(/^\/+/, "")}`
-            : ""
-    return <div className="col-sm-3 placeCard" onClick={(e)=>{
+        ? `${path.replace(/\/+$/, "")}/${pack.coverImage.replace(/^\/+/, "")}`
+        : ""
+    return <div className="col-sm-3 placeCard" onClick={(e) => {
         // select(pack);
-        navigate("/packages/view/"+pack.id)
-        }}>
-       <img src={coverImage} alt={pack.packageName} className='placeImg' />
-          <div className="placeCardText">
+        navigate("/packages/view/" + pack.id)
+    }}>
+        <img src={coverImage} alt={pack.packageName} className='placeImg' />
+        <div className="placeCardText">
             <p className='pTitleTxt'>{pack.packageName}</p>
-            <p className='pLocTxr'>{pack.destination[0].city} | {pack.destination[0].country}</p> 
+            <p className='pLocTxr'>{pack.destination[0].city} | {pack.destination[0].country}</p>
         </div>
     </div>
 

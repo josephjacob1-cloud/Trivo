@@ -191,9 +191,35 @@ async def book_package(data:BookingCreate, db:AsyncSession, payload:dict):
 
 
 async def get_my_booking(db:AsyncSession, payload:dict):
-    data = await db.execute(select(Booking).where(Booking.customer_id==payload.get("id")))
-    packs = data.scalars().all()
-    return packs
+    data = await db.execute(select(Booking, Package).join(Package, Booking.package_id==Package.id).where(Booking.customer_id==payload.get("id")))
+    myBookings = data.all()
+    bookings = []
+    for b,p in myBookings:
+        item = {
+            "id": b.id,            
+            "package_id": p.id,
+            "package_name": p.name,
+            "booking_number": b.booking_number,
+            "travel_date": b.travel_date,
+            "number_of_adults":b.number_of_adults ,
+            "number_of_children":b.number_of_children ,
+            "total_amount":b.total_amount,
+            "payment_status": b.payment_status,
+            "status": b.status,           
+            "currency":b.currency ,
+            "discount":b.discount ,
+            "coverImage":p.coverImage,
+            "days":p.days
+        }
+        bookings.append(item)
+    return bookings
+    # packs = data.scalars().all()
+    # return packs
+
+# async def get_my_booking(db:AsyncSession, payload:dict):
+#     data = await db.execute(select(Booking).where(Booking.customer_id==payload.get("id")))
+#     packs = data.scalars().all()
+#     return packs
 
 async def get_booking_count_pack(id:int, db:AsyncSession):
     data = await db.execute(select(func.count(Booking.id)).where(Booking.package_id==id))
