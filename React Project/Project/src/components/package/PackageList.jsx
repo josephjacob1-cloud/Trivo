@@ -18,7 +18,7 @@ export default function PackageList() {
   }
   const editPackage = (pack) =>{
     userData.setSelectedPackage(pack);
-    navigate('/packages/addpackage');
+    navigate('/addpackage');
   }
   const deletePackage = async (id) => {
     console.log(id)

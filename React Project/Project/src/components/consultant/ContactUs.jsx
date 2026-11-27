@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import { submitContact } from "../../api/customerApi";
 
 const ContactUs = () => {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [phone, setPhone] = useState("")
+  const [subject, setSubject] = useState("")
+  const [message, setMessage] = useState("")
+  const handleSubmit = async(e)=>{
+    e.preventDefault()
+    console.log("Form submitted"); 
+    const params = {name, email, phone,subject,message}
+     console.log("Contact form data:", params);
+    try{
+      const data = await submitContact(params);
+       console.log("API response:", data);
+    } catch (error) {
+        console.error("Contact API error:", error);
+    }
+  }
   return (
     <section className="py-5 bg-light">
       <div className="container">
@@ -64,7 +82,7 @@ const ContactUs = () => {
 
                 <h4 className="mb-4">Send a Message</h4>
 
-                <form>
+                <form onSubmit={handleSubmit}>
 
                   <div className="row">
 
@@ -76,6 +94,9 @@ const ContactUs = () => {
                         type="text"
                         className="form-control"
                         placeholder="Enter your name"
+                        value={name}
+                        onChange={(e)=>setName(e.target.value)}
+                        required
                       />
                     </div>
 
@@ -87,6 +108,9 @@ const ContactUs = () => {
                         type="email"
                         className="form-control"
                         placeholder="Enter your email"
+                        value={email}
+                        onChange={(e)=>setEmail(e.target.value)}
+                        required
                       />
                     </div>
 
@@ -100,6 +124,9 @@ const ContactUs = () => {
                       type="text"
                       className="form-control"
                       placeholder="Enter your phone number"
+                      value={phone}
+                      onChange={(e)=>setPhone(e.target.value)}
+                      required
                     />
                   </div>
 
@@ -111,6 +138,9 @@ const ContactUs = () => {
                       type="text"
                       className="form-control"
                       placeholder="Subject"
+                      value={subject}
+                      onChange={(e)=>setSubject(e.target.value)}
+                      required
                     />
                   </div>
 
@@ -122,6 +152,8 @@ const ContactUs = () => {
                       className="form-control"
                       rows="5"
                       placeholder="Write your message..."
+                      value={message}
+                      onChange={(e)=>setMessage(e.target.value)}
                     ></textarea>
                   </div>
 

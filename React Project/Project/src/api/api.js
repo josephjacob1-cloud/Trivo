@@ -27,6 +27,8 @@ export const UPDATE_PACKAGE = `/packages/updatePackage`;
 export const BOOK_PACKAGE = `/customer/bookPackage`;
 export const GET_CUSTOMER_BOOKINGS = `/customer/getMyBooking`
 
+export const SUBMIT_CONTACT = `/customer/contactUs`
+
 
 // CONSULTANT
 

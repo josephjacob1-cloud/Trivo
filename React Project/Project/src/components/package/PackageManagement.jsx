@@ -17,7 +17,7 @@ export default function PackageManagement() {
 
 
                     <div className="ms-auto" style={{ marginLeft: 'auto' }}>
-                        <NavLink to={'/packages/adddestination'} replace="true" className='text-decoration-none'>
+                        <NavLink to={'/adddestination'} replace="true" className='text-decoration-none'>
                             <span className='text-success fw-bold'>+ Add Destination</span>
                         </NavLink>
                     </div>

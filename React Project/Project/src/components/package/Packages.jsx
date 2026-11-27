@@ -60,7 +60,7 @@ export default function Packages() {
                     {(role === "agent" || role === "consultant") && (
                         <button
                             className="btn btn-info text-white fw-bold"
-                            onClick={() => navigate("addpackage")}
+                            onClick={() => navigate("/addpackage")}
                         >
                             + Add Package
                         </button>
