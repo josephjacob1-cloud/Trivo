@@ -3975,7 +3975,6 @@ function App() {
 
           </Route>
 
-
           <Route element={<ProtectedRoute allowedRoles={["agent"]}> </ProtectedRoute>}>
             <Route path='' element={<Outlet />} >
               <Route path='/agent/packages' element={<Packages></Packages>}></Route>
